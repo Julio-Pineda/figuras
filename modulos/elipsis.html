@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo: Elipsis</title>
+
+    <!-- El CSS es idéntico para mantener la consistencia -->
+    <style>
+        :root {
+            --primary-bg-light: #f4f4f9; --primary-text-light: #333; --card-bg-light: #ffffff; --header-bg-light: #ffffff; --accent-color: #007bff; --mark-bg-light: #ffe066; --border-color-light: #e0e0e0; --success-bg-light: #e6ffed;
+            --primary-bg-dark: #121212; --primary-text-dark: #e0e0e0; --card-bg-dark: #1e1e1e; --header-bg-dark: #1e1e1e; --mark-bg-dark: #b38f00; --border-color-dark: #333; --success-bg-dark: #1c3b29;
+        }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; margin: 0; transition: background-color 0.3s, color 0.3s; line-height: 1.6; }
+        body.light-mode { background-color: var(--primary-bg-light); color: var(--primary-text-light); }
+        body.dark-mode { background-color: var(--primary-bg-dark); color: var(--primary-text-dark); }
+        .main-header { display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem; box-shadow: 0 2px 4px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
+        body.light-mode .main-header { background-color: var(--header-bg-light); }
+        body.dark-mode .main-header { background-color: var(--header-bg-dark); }
+        .main-header h1 { font-size: 1.5rem; margin: 0; }
+        .theme-toggle-btn { background-color: var(--accent-color); color: white; border: none; padding: 0.5rem 1rem; border-radius: 5px; cursor: pointer; }
+        .main-footer { text-align: center; padding: 1rem; margin-top: 2rem; }
+        .container { max-width: 800px; margin: 2rem auto; padding: 0 1rem; }
+        .module-section { padding: 2rem; border-radius: 8px; margin-bottom: 2rem; }
+        body.light-mode .module-section { background-color: var(--card-bg-light); border: 1px solid var(--border-color-light); }
+        body.dark-mode .module-section { background-color: var(--card-bg-dark); border: 1px solid var(--border-color-dark); }
+        .module-section h2 { margin-top: 0; color: var(--accent-color); border-bottom: 2px solid var(--accent-color); padding-bottom: 0.5rem; }
+        .back-link { text-decoration: none; color: var(--accent-color); font-weight: bold; }
+        mark { padding: 0.2em 0.4em; border-radius: 3px; }
+        body.light-mode mark { background-color: var(--mark-bg-light); }
+        body.dark-mode mark { background-color: var(--mark-bg-dark); color: var(--primary-text-dark); }
+        .formula { text-align: center; font-size: 1.2rem; padding: 1rem; border: 2px dashed var(--accent-color); border-radius: 5px; margin: 1rem 0; }
+        .bible-example { margin-top: 1.5rem; }
+        .bible-example em { display: block; padding-left: 1rem; border-left: 3px solid #ccc; margin-bottom: 0.5rem; font-style: italic; }
+        .exercise textarea { width: 100%; box-sizing: border-box; padding: 0.5rem; border-radius: 5px; border: 1px solid #ccc; margin: 1rem 0; font-size: 1rem; }
+        .exercise button { background-color: var(--accent-color); color: white; border: none; padding: 0.7rem 1.5rem; border-radius: 5px; cursor: pointer; margin-right: 0.5rem; }
+        #show-answer-btn { background-color: #6c757d; }
+        .feedback { margin-top: 1rem; font-weight: bold; min-height: 1.2em; }
+        .correct-answer-box { margin-top: 1rem; padding: 1rem; border-radius: 5px; }
+        body.light-mode .correct-answer-box { background-color: var(--success-bg-light); border: 1px solid green; }
+        body.dark-mode .correct-answer-box { background-color: var(--success-bg-dark); border: 1px solid #3d8b40; }
+        .fab-container { position: fixed; bottom: 2rem; right: 2rem; z-index: 1001; }
+        .fab { background-color: var(--accent-color); color: white; border: none; border-radius: 50%; width: 60px; height: 60px; font-size: 1rem; text-align: center; box-shadow: 0 4px 8px rgba(0,0,0,0.2); cursor: pointer; display: flex; align-items: center; justify-content: center; }
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <a href="../index.html" class="back-link">&larr; Volver al inicio</a>
+        <h1>Elipsis</h1>
+        <button id="theme-toggle" class="theme-toggle-btn">Cambiar Tema</button>
+    </header>
+
+    <main class="container" id="module-content">
+       
+        <section class="module-section">
+            <h2>1. ¿Qué es una Elipsis?</h2>
+            <p>La elipsis consiste en <strong>omitir intencionadamente una o varias palabras</strong> de una frase porque se pueden sobreentender a partir del contexto. Este recurso sirve para dar mayor agilidad, rapidez y energía al texto, evitando repeticiones innecesarias.</p>
+            <div class="formula">
+                <p><strong>Frase Completa</strong> - <mark>[Palabra(s) omitida(s)]</mark> = <strong>Concisión y Ritmo</strong></p>
+            </div>
+            <p>Un ejemplo claro es: "Yo estudio derecho; mi hermano, medicina". Se omite el verbo "estudia" en la segunda parte (<mark>[estudia]</mark> medicina) porque ya se mencionó en la primera y se sobreentiende perfectamente.</p>
+        </section>
+
+        <section class="module-section">
+            <h2>2. Ejemplos en la Vida Cotidiana</h2>
+            <ul>
+                <li>En preguntas y respuestas: "¿Ya comiste?" "Sí, ya <mark>[comí]</mark>."</li>
+                <li>En refranes: "A buen entendedor, <mark>[bastan]</mark> pocas palabras."</li>
+                <li>Al describir: "El cielo, azul; el campo, verde." (Se omite el verbo "era" o "estaba").</li>
+            </ul>
+        </section>
+
+        <section class="module-section">
+            <h2>3. Elipsis en la Biblia (Reina Valera 1960)</h2>
+            <p>La elipsis es muy común en la poesía hebrea y en los libros de sabiduría, donde la estructura paralela de los versos permite omitir verbos o sujetos en la segunda línea.</p>
+            <div class="bible-example">
+                <em>"La blanda respuesta quita la ira; mas la palabra áspera <mark>[quita la paz y]</mark> hace subir el furor." (Proverbios 15:1)</em>
+                <p><strong>Análisis:</strong> En la segunda cláusula, se omite un verbo que se entiende por contraste. La estructura es "Lo bueno causa A; lo malo causa B". Se sobreentiende que la palabra áspera no "quita" nada positivo, sino que "añade" algo negativo, por lo que el verbo no se repite para dar agilidad al proverbio.</p>
+            </div>
+            <hr>
+            <div class="bible-example">
+                <em>"El amor sea sin fingimiento. Aborreced lo malo, seguid lo bueno." (Romanos 12:9)</em>
+                <p><strong>Análisis:</strong> En las frases "Aborreced lo malo" y "seguid lo bueno", se omite el sujeto: <mark>[Vosotros]</mark>. Al ser un mandato directo a los creyentes de Roma, el pronombre "vosotros" se sobreentiende en toda la sección, haciendo el lenguaje más directo y enérgico.</p>
+            </div>
+             <hr>
+            <div class="bible-example">
+                <em>"Unos <mark>[confían]</mark> en carros, y otros en caballos; mas nosotros del nombre de Jehová nuestro Dios tendremos memoria." (Salmo 20:7)</em>
+                <p><strong>Análisis:</strong> El verbo "confiar" se omite en la primera cláusula ("Unos en carros"). El lector lo infiere por el paralelismo con la segunda ("y otros en caballos"). Esta omisión hace que la primera parte del verso sea más rápida y directa, contrastando con la declaración de fe más elaborada que le sigue.</p>
+            </div>
+        </section>
+
+        <section class="module-section exercise">
+            <h2>4. Ejercicio Práctico</h2>
+            <p>Lee el siguiente proverbio. Identifica qué palabra importante se omite en la segunda parte del verso y que se sobreentiende por el contexto de la primera.</p>
+            <p><em>"El hijo sabio alegra al padre, pero el hijo necio <mark>[es]</mark> tristeza de su madre." (Proverbios 10:1)</em></p>
+            <textarea id="exercise-answer" rows="10" placeholder="Palabra(s) omitida(s): ...&#10;Explicación: ..."></textarea>
+            
+            <button id="check-answer-btn">Verificar Respuesta</button>
+            <button id="show-answer-btn" style="display: none;">Ver Respuesta Correcta</button>
+            
+            <p id="feedback" class="feedback"></p>
+
+            <div id="correct-answer" class="correct-answer-box" style="display: none;">
+                <h4>Respuesta Detallada:</h4>
+                <p><strong>Palabra(s) omitida(s):</strong> El verbo "es" o "causa".</p>
+                <p><strong>Explicación:</strong> La frase completa sería "pero el hijo necio ES tristeza de su madre". Se omite el verbo copulativo "es" porque la estructura paralela del proverbio (hijo bueno -> efecto bueno; hijo malo -> efecto malo) hace que se entienda perfectamente. Esta elipsis le da al proverbio un ritmo más sentencioso y conciso.</p>
+            </div>
+        </section>
+    </main>
+    
+    <div class="fab-container">
+        <button id="download-pdf" class="fab">PDF</button>
+    </div>
+
+    <footer class="main-footer">
+        <p>&copy; 2025 - Estudio de Figuras Literarias | Desarrollado por Julio Cesar Pineda Mora</p>
+    </footer>
+
+    <script src="../lib/html2pdf.bundle.min.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const themeToggle = document.getElementById('theme-toggle'); /* ... */
+            const storedTheme = localStorage.getItem('theme') || 'light-mode';
+            document.body.classList.add(storedTheme);
+            themeToggle.addEventListener('click', () => {
+                const isDarkMode = document.body.classList.contains('dark-mode');
+                document.body.classList.toggle('dark-mode', !isDarkMode);
+                document.body.classList.toggle('light-mode', isDarkMode);
+                localStorage.setItem('theme', isDarkMode ? 'light-mode' : 'dark-mode');
+            });
+
+            const checkAnswerBtn = document.getElementById('check-answer-btn'); /* ... */
+            const showAnswerBtn = document.getElementById('show-answer-btn');
+            const feedbackEl = document.getElementById('feedback');
+            const correctAnswerEl = document.getElementById('correct-answer');
+            checkAnswerBtn.addEventListener('click', () => {
+                const answer = document.getElementById('exercise-answer').value.toLowerCase();
+                showAnswerBtn.style.display = 'none';
+                correctAnswerEl.style.display = 'none';
+                if (answer.includes("es") || answer.includes("causa") || answer.includes("verbo")) {
+                    feedbackEl.textContent = "¡Correcto! Has identificado el verbo que se omite para dar agilidad al texto.";
+                    feedbackEl.style.color = 'var(--accent-color)';
+                } else {
+                    feedbackEl.textContent = "Casi lo tienes. Piensa en la palabra que falta en la segunda frase para que tenga sentido por sí sola.";
+                    feedbackEl.style.color = 'red';
+                    showAnswerBtn.style.display = 'inline-block';
+                }
+            });
+            showAnswerBtn.addEventListener('click', () => {
+                correctAnswerEl.style.display = 'block';
+                showAnswerBtn.style.display = 'none';
+            });
+
+            document.getElementById('download-pdf').addEventListener('click', () => { /* ... */
+                const fabButton = document.querySelector('.fab-container');
+                const content = document.getElementById('module-content');
+                fabButton.style.visibility = 'hidden';
+                const downloadBtn = document.getElementById('download-pdf');
+                downloadBtn.textContent = '...';
+                const opt = {
+                    margin: 10,
+                    filename: 'modulo-elipsis.pdf',
+                    image: { type: 'jpeg', quality: 0.98 },
+                    html2canvas: { scale: 2, useCORS: true, letterRendering: true },
+                    jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
+                    pagebreak: { mode: ['avoid-all', 'css', 'legacy'] },
+                    renderer: 'canvas'
+                };
+                html2pdf().from(content).set(opt).save().then(() => {
+                    fabButton.style.visibility = 'visible';
+                    downloadBtn.textContent = 'PDF';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
