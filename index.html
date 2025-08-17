@@ -20,11 +20,18 @@
         }
 
         /* --- Estilos para la imagen responsiva de la sección "Dato Curioso" --- */
+        .feature-image {
+            width: 100%;
+            height: 450px;        /* altura fija del contenedor */
+            border-radius: 22px;
+            overflow: hidden;     /* evita que la imagen sobresalga */
+        }
+        
         .feature-image img {
-            max-width: 100%;      /* La imagen no superará el ancho de su contenedor */
-            height: 450px;         /* Mantiene la proporción de la imagen */
-            display: block;       /* Elimina espacios extra debajo de la imagen */
-            border-radius: 22px;  /* Bordes redondeados como se solicitó */
+            width: 100%;
+            height: 100%;
+            object-fit: cover;    /* hace que la imagen cubra todo el contenedor */
+            display: block;
         }
 
         /* --- Estilos para el campo de búsqueda --- */
