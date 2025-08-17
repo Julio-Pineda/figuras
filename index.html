@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Figuras</title>
-    <!-- Se mantiene el mismo CSS, pero he añadido una clase nueva que se definirá en main-styles.css -->
     <link rel="stylesheet" href="css/main-styles.css">
 </head>
 <body>
@@ -14,43 +13,87 @@
         <button id="theme-toggle" class="theme-toggle-btn">Modo</button>
     </header>
 
-    <!-- ========= NUEVA SECCIÓN INTRODUCTORIA ========= -->
     <section class="intro-section">
         <div class="container">
-            <h2>EL ARTE DE EXPRESARSE</h2>
-            <p>Bienvenido a este espacio dedicado a explorar el poder y la belleza del lenguaje. Aquí desglosaremos las herramientas que han utilizado escritores, poetas y oradores a lo largo de la historia para dar vida, emoción y persuasión a sus palabras.</p>
+            <h2 class="fade-in">EL ARTE DE EXPRESARSE</h2>
+            <p class="fade-in">Bienvenido a este espacio dedicado a explorar el poder y la belleza del lenguaje. Aquí desglosaremos las herramientas que han utilizado escritores, poetas y oradores a lo largo de la historia para dar vida, emoción y persuasión a sus palabras.</p>
             
             <div class="intro-grid">
-                <div class="intro-card">
-                    <h3>¿Qué son la figuras literarias y/o retóricas?</h3>
+                <div class="intro-card fade-in">
+                    <h3>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                        ¿Qué son?
+                    </h3>
                     <p>Son formas no convencionales de utilizar las palabras para dotarlas de mayor expresividad, vivacidad o belleza, con el fin de sorprender, emocionar o sugerir.</p>
                 </div>
-                <div class="intro-card">
-                    <h3>¿Literarias o Retóricas?</h3>
-                    <p>Aunque a menudo se usan como sinónimos, la <strong>retórica</strong> tiene un fin más amplio: persuadir o comunicar eficazmente (como en un discurso). Lo <strong>literario</strong> es un subconjunto enfocado en la belleza y la estética del lenguaje en el arte (como en la poesía).</p>
+                <div class="intro-card fade-in">
+                    <h3>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                        ¿Literarias o Retóricas?
+                    </h3>
+                    <p>Aunque a menudo se usan como sinónimos, la <strong>retórica</strong> tiene un fin más amplio: persuadir o comunicar. Lo <strong>literario</strong> es un subconjunto enfocado en la belleza y la estética del arte.</p>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- ========= NUEVA SECCIÓN DESTACADA ========= -->
+    <section class="feature-section">
+        <div class="container feature-content">
+            <div class="feature-image fade-in">
+                <!-- Cambia esta imagen por la que desees. Te recomiendo una de 800x600px -->
+                <img src="https://images.pexels.com/photos/10401264/pexels-photo-10401264.jpeg" alt="Libros antiguos y pluma de escribir">
+            </div>
+            <div class="feature-text fade-in">
+                <h3>Dato Curioso</h3>
+                <h2>El Origen en la Oratoria</h2>
+                <p>Muchas de las figuras que estudiamos hoy no nacieron en la poesía, sino en la antigua Grecia, como herramientas de los grandes oradores como Aristóteles y Cicerón para hacer sus discursos políticos y legales más persuasivos e inolvidables. ¡Eran el "arma secreta" para ganar debates!</p>
+                <a href="https://es.wikipedia.org/wiki/Oratoria" target="_blank" class="cta-button">Leer más</a>
+            </div>
+        </div>
+    </section>
+
+
     <main class="container">
-        <h2>MÓDULOS DE ESTUDIO</h2>
+        <h2 class="fade-in">MÓDULOS DE ESTUDIO</h2>
         <section class="module-grid">
-            <a href="modulos/metafora.html" class="module-card">
+            <a href="modulos/metafora.html" class="module-card fade-in">
                 <h3>Metáfora</h3>
                 <p>Descubre el poder de la comparación implícita.</p>
             </a>
-            <a href="modulos/simil.html" class="module-card">
+            <a href="modulos/simil.html" class="module-card fade-in">
                 <h3>Símil o Comparación</h3>
-                <p>Domina el arte de la comparación explícita y crea vínculos claros con el poder del "como".</p>
+                <p>Domina el arte de la comparación explícita creando vínculos claros con el poder del "como".</p>
             </a>
+            <!-- Aquí agregarás los nuevos módulos -->
         </section>
     </main>
 
-<footer class="main-footer">
-    <p>&copy; 2025 - Estudio de Figuras Literarias | Desarrollado por Julio Cesar Pineda Mora</p>
-</footer>
+    <footer class="main-footer">
+        <p>&copy; 2025 - Estudio de Figuras Literarias | Desarrollado por Julio Cesar Pineda Mora</p>
+    </footer>
 
     <script src="js/theme-switcher.js"></script>
+    <!-- Script para las animaciones -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const faders = document.querySelectorAll('.fade-in');
+            const appearOptions = { threshold: 0.3, rootMargin: "0px 0px -50px 0px" };
+            const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) {
+                        return;
+                    } else {
+                        entry.target.classList.add('visible');
+                        appearOnScroll.unobserve(entry.target);
+                    }
+                });
+            }, appearOptions);
+
+            faders.forEach(fader => {
+                appearOnScroll.observe(fader);
+            });
+        });
+    </script>
 </body>
 </html>
