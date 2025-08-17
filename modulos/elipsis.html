@@ -5,25 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Elipsis</title>
 
-    <!-- El CSS es idéntico para mantener la consistencia -->
+    <!-- Añadido: Font Awesome para los iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
     <style>
         :root {
             --primary-bg-light: #f4f4f9; --primary-text-light: #333; --card-bg-light: #ffffff; --header-bg-light: #ffffff; --accent-color: #007bff; --mark-bg-light: #ffe066; --border-color-light: #e0e0e0; --success-bg-light: #e6ffed;
             --primary-bg-dark: #121212; --primary-text-dark: #e0e0e0; --card-bg-dark: #1e1e1e; --header-bg-dark: #1e1e1e; --mark-bg-dark: #b38f00; --border-color-dark: #333; --success-bg-dark: #1c3b29;
+            /* Añadido: Variable para la sombra para controlarla fácilmente */
+            --shadow-color: rgba(0, 0, 0, 0.15);
         }
         body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; margin: 0; transition: background-color 0.3s, color 0.3s; line-height: 1.6; }
         body.light-mode { background-color: var(--primary-bg-light); color: var(--primary-text-light); }
-        body.dark-mode { background-color: var(--primary-bg-dark); color: var(--primary-text-dark); }
+        body.dark-mode { background-color: var(--primary-bg-dark); color: var(--primary-text-dark); --shadow-color: rgba(0, 0, 0, 0.5); }
         .main-header { display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem; box-shadow: 0 2px 4px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
         body.light-mode .main-header { background-color: var(--header-bg-light); }
         body.dark-mode .main-header { background-color: var(--header-bg-dark); }
         .main-header h1 { font-size: 1.5rem; margin: 0; }
-        .theme-toggle-btn { background-color: var(--accent-color); color: white; border: none; padding: 0.5rem 1rem; border-radius: 5px; cursor: pointer; }
+        .theme-toggle-btn { background-color: var(--accent-color); color: white; border: none; padding: 0.5rem 1rem; border-radius: 5px; cursor: pointer; font-size: 1rem; width: 45px; text-align: center; }
         .main-footer { text-align: center; padding: 1rem; margin-top: 2rem; }
         .container { max-width: 800px; margin: 2rem auto; padding: 0 1rem; }
-        .module-section { padding: 2rem; border-radius: 8px; margin-bottom: 2rem; }
+        
+        /* MODIFICADO: Añadida la sombra */
+        .module-section {
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            box-shadow: 7px 7px 27px 2px #000000;
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+        .module-section:hover {
+             transform: translateY(-5px);
+        }
+
         body.light-mode .module-section { background-color: var(--card-bg-light); border: 1px solid var(--border-color-light); }
         body.dark-mode .module-section { background-color: var(--card-bg-dark); border: 1px solid var(--border-color-dark); }
+        
         .module-section h2 { margin-top: 0; color: var(--accent-color); border-bottom: 2px solid var(--accent-color); padding-bottom: 0.5rem; }
         .back-link { text-decoration: none; color: var(--accent-color); font-weight: bold; }
         mark { padding: 0.2em 0.4em; border-radius: 3px; }
@@ -40,98 +57,136 @@
         body.light-mode .correct-answer-box { background-color: var(--success-bg-light); border: 1px solid green; }
         body.dark-mode .correct-answer-box { background-color: var(--success-bg-dark); border: 1px solid #3d8b40; }
         .fab-container { position: fixed; bottom: 2rem; right: 2rem; z-index: 1001; }
-        .fab { background-color: var(--accent-color); color: white; border: none; border-radius: 50%; width: 60px; height: 60px; font-size: 1rem; text-align: center; box-shadow: 0 4px 8px rgba(0,0,0,0.2); cursor: pointer; display: flex; align-items: center; justify-content: center; }
+        .fab { background-color: var(--accent-color); color: white; border: none; border-radius: 50%; width: 60px; height: 60px; font-size: 1.5rem; text-align: center; box-shadow: 0 4px 8px rgba(0,0,0,0.2); cursor: pointer; display: flex; align-items: center; justify-content: center; }
+
+        /* Estilos para alinear iconos */
+        h1, h2, .back-link, .exercise button, .bible-example p, .formula p {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .module-section ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .module-section li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 0.5rem;
+        }
+        .fa-fw {
+            text-align: center;
+        }
     </style>
 </head>
 <body>
 
     <header class="main-header">
-        <a href="../index.html" class="back-link">&larr; Volver</a>
-        <h1>Elipsis</h1>
-        <button id="theme-toggle" class="theme-toggle-btn">Modo</button>
+        <a href="../index.html" class="back-link"><i class="fa-solid fa-arrow-left"></i> Volver</a>
+        <h1><i class="fa-solid fa-ellipsis"></i>Elipsis</h1>
+        <button id="theme-toggle" class="theme-toggle-btn" title="Cambiar tema">
+            <i class="fa-solid fa-moon"></i>
+        </button>
     </header>
 
     <main class="container" id="module-content">
        
         <section class="module-section">
-            <h2>1. ¿Qué es una Elipsis?</h2>
+            <h2><i class="fa-solid fa-circle-question"></i>1. ¿Qué es una Elipsis?</h2>
             <p>La elipsis consiste en <strong>omitir intencionadamente una o varias palabras</strong> de una frase porque se pueden sobreentender a partir del contexto. Este recurso sirve para dar mayor agilidad, rapidez y energía al texto, evitando repeticiones innecesarias.</p>
             <div class="formula">
-                <p><strong>Frase Completa</strong> - <mark>[Palabra(s) omitida(s)]</mark> = <strong>Concisión y Ritmo</strong></p>
+                <p><i class="fa-solid fa-file-circle-minus"></i><strong>Frase Completa</strong> - <mark>[Palabra(s) omitida(s)]</mark> = <strong>Concisión y Ritmo</strong></p>
             </div>
             <p>Un ejemplo claro es: "Yo estudio derecho; mi hermano, medicina". Se omite el verbo "estudia" en la segunda parte (<mark>[estudia]</mark> medicina) porque ya se mencionó en la primera y se sobreentiende perfectamente.</p>
         </section>
 
         <section class="module-section">
-            <h2>2. Ejemplos en la Vida Cotidiana</h2>
+            <h2><i class="fa-solid fa-comments"></i>2. Ejemplos en la Vida Cotidiana</h2>
             <ul>
-                <li>En preguntas y respuestas: "¿Ya comiste?" "Sí, ya <mark>[comí]</mark>."</li>
-                <li>En refranes: "A buen entendedor, <mark>[bastan]</mark> pocas palabras."</li>
-                <li>Al describir: "El cielo, azul; el campo, verde." (Se omite el verbo "era" o "estaba").</li>
+                <li><i class="fa-solid fa-comment-dots fa-fw"></i>En preguntas y respuestas: "¿Ya comiste?" "Sí, ya <mark>[comí]</mark>."</li>
+                <li><i class="fa-solid fa-lightbulb fa-fw"></i>En refranes: "A buen entendedor, <mark>[bastan]</mark> pocas palabras."</li>
+                <li><i class="fa-solid fa-palette fa-fw"></i>Al describir: "El cielo, azul; el campo, verde." (Se omite el verbo "era" o "estaba").</li>
             </ul>
         </section>
 
         <section class="module-section">
-            <h2>3. Elipsis en la Biblia (Reina Valera 1960)</h2>
+            <h2><i class="fa-solid fa-book"></i>3. Elipsis en la Biblia (Reina Valera 1960)</h2>
             <p>La elipsis es muy común en la poesía hebrea y en los libros de sabiduría, donde la estructura paralela de los versos permite omitir verbos o sujetos en la segunda línea.</p>
             <div class="bible-example">
-                <em>"La blanda respuesta quita la ira; mas la palabra áspera <mark>[quita la paz y]</mark> hace subir el furor." (Proverbios 15:1)</em>
-                <p><strong>Análisis:</strong> En la segunda cláusula, se omite un verbo que se entiende por contraste. La estructura es "Lo bueno causa A; lo malo causa B". Se sobreentiende que la palabra áspera no "quita" nada positivo, sino que "añade" algo negativo, por lo que el verbo no se repite para dar agilidad al proverbio.</p>
+                <em>"La blanda respuesta quita la ira; mas la palabra áspera <mark>[... ]</mark> hace subir el furor." (Proverbios 15:1)</em>
+                <p><i class="fa-solid fa-magnifying-glass-chart"></i><strong>Análisis:</strong> En la segunda cláusula, se omite un verbo que se entiende por contraste. La estructura es "Lo bueno causa A; lo malo causa B". Se sobreentiende que la palabra áspera no "quita" nada positivo, sino que "añade" algo negativo, por lo que el verbo no se repite para dar agilidad al proverbio.</p>
             </div>
             <hr>
             <div class="bible-example">
-                <em>"El amor sea sin fingimiento. Aborreced lo malo, seguid lo bueno." (Romanos 12:9)</em>
-                <p><strong>Análisis:</strong> En las frases "Aborreced lo malo" y "seguid lo bueno", se omite el sujeto: <mark>[Vosotros]</mark>. Al ser un mandato directo a los creyentes de Roma, el pronombre "vosotros" se sobreentiende en toda la sección, haciendo el lenguaje más directo y enérgico.</p>
+                <em>"<mark>[Vosotros]</mark> Aborreced lo malo, <mark>[Vosotros]</mark> seguid lo bueno." (Adaptado de Romanos 12:9)</em>
+                <p><i class="fa-solid fa-magnifying-glass-chart"></i><strong>Análisis:</strong> En los mandatos directos, se omite el sujeto: <mark>[Vosotros]</mark>. Al ser una exhortación directa a los creyentes, el pronombre se sobreentiende en toda la sección, haciendo el lenguaje más directo y enérgico.</p>
             </div>
              <hr>
             <div class="bible-example">
                 <em>"Unos <mark>[confían]</mark> en carros, y otros en caballos; mas nosotros del nombre de Jehová nuestro Dios tendremos memoria." (Salmo 20:7)</em>
-                <p><strong>Análisis:</strong> El verbo "confiar" se omite en la primera cláusula ("Unos en carros"). El lector lo infiere por el paralelismo con la segunda ("y otros en caballos"). Esta omisión hace que la primera parte del verso sea más rápida y directa, contrastando con la declaración de fe más elaborada que le sigue.</p>
+                <p><i class="fa-solid fa-magnifying-glass-chart"></i><strong>Análisis:</strong> El verbo "confiar" se omite en la primera cláusula. El lector lo infiere por el paralelismo con la segunda. Esta omisión hace que la primera parte del verso sea más rápida y directa, contrastando con la declaración de fe más elaborada que le sigue.</p>
             </div>
         </section>
 
         <section class="module-section exercise">
-            <h2>4. Ejercicio Práctico</h2>
+            <h2><i class="fa-solid fa-pencil-alt"></i>4. Ejercicio Práctico</h2>
             <p>Lee el siguiente proverbio. Identifica qué palabra importante se omite en la segunda parte del verso y que se sobreentiende por el contexto de la primera.</p>
-            <p><em>"El hijo sabio alegra al padre, pero el hijo necio <mark>[es]</mark> tristeza de su madre." (Proverbios 10:1)</em></p>
+            <p><em>"El hijo sabio alegra al padre, pero el hijo necio es tristeza de su madre." (Proverbios 10:1)</em></p>
             <textarea id="exercise-answer" rows="10" placeholder="Palabra(s) omitida(s): ...&#10;Explicación: ..."></textarea>
             
-            <button id="check-answer-btn">Verificar Respuesta</button>
-            <button id="show-answer-btn" style="display: none;">Ver Respuesta Correcta</button>
+            <button id="check-answer-btn"><i class="fa-solid fa-check-circle"></i>Verificar Respuesta</button>
+            <button id="show-answer-btn" style="display: none;"><i class="fa-solid fa-eye"></i>Ver Respuesta Correcta</button>
             
             <p id="feedback" class="feedback"></p>
 
             <div id="correct-answer" class="correct-answer-box" style="display: none;">
                 <h4>Respuesta Detallada:</h4>
-                <p><strong>Palabra(s) omitida(s):</strong> El verbo "es" o "causa".</p>
-                <p><strong>Explicación:</strong> La frase completa sería "pero el hijo necio ES tristeza de su madre". Se omite el verbo copulativo "es" porque la estructura paralela del proverbio (hijo bueno -> efecto bueno; hijo malo -> efecto malo) hace que se entienda perfectamente. Esta elipsis le da al proverbio un ritmo más sentencioso y conciso.</p>
+                <p><strong>Palabra(s) omitida(s):</strong> El verbo "es" (o un verbo similar como "causa").</p>
+                <p><strong>Explicación:</strong> La frase completa sería "pero el hijo necio ES tristeza de su madre". Se omite el verbo copulativo "es" porque la estructura paralela del proverbio (hijo bueno -> efecto bueno; hijo malo -> efecto malo) hace que se entienda perfectamente. Esta elipsis le da al proverbio un ritmo sentencioso y conciso.</p>
             </div>
         </section>
     </main>
     
     <div class="fab-container">
-        <button id="download-pdf" class="fab">PDF</button>
+        <button id="download-pdf" class="fab" title="Descargar como PDF">
+             <i class="fa-solid fa-file-pdf"></i>
+        </button>
     </div>
 
     <footer class="main-footer">
         <p>&copy; 2025 - Estudio de Figuras Literarias | Desarrollado por Julio Cesar Pineda Mora</p>
     </footer>
 
-    <script src="../lib/html2pdf.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const themeToggle = document.getElementById('theme-toggle'); /* ... */
-            const storedTheme = localStorage.getItem('theme') || 'light-mode';
-            document.body.classList.add(storedTheme);
-            themeToggle.addEventListener('click', () => {
-                const isDarkMode = document.body.classList.contains('dark-mode');
-                document.body.classList.toggle('dark-mode', !isDarkMode);
-                document.body.classList.toggle('light-mode', isDarkMode);
-                localStorage.setItem('theme', isDarkMode ? 'light-mode' : 'dark-mode');
-            });
+            // --- LÓGICA 1: MANEJO DEL TEMA (MODO OSCURO/CLARO) CON ICONO DINÁMICO ---
+            const themeToggle = document.getElementById('theme-toggle');
+            const themeIcon = themeToggle.querySelector('i');
 
-            const checkAnswerBtn = document.getElementById('check-answer-btn'); /* ... */
+            const applyTheme = (theme) => {
+                document.body.classList.remove('light-mode', 'dark-mode');
+                document.body.classList.add(theme);
+                localStorage.setItem('theme', theme);
+                if (theme === 'dark-mode') {
+                    themeIcon.className = 'fa-solid fa-sun';
+                    themeToggle.title = 'Cambiar a modo claro';
+                } else {
+                    themeIcon.className = 'fa-solid fa-moon';
+                    themeToggle.title = 'Cambiar a modo oscuro';
+                }
+            };
+            themeToggle.addEventListener('click', () => {
+                const newTheme = document.body.classList.contains('dark-mode') ? 'light-mode' : 'dark-mode';
+                applyTheme(newTheme);
+            });
+            const storedTheme = localStorage.getItem('theme') || 'light-mode';
+            applyTheme(storedTheme);
+
+            // --- LÓGICA 2: EJERCICIO INTERACTIVO ---
+            const checkAnswerBtn = document.getElementById('check-answer-btn');
             const showAnswerBtn = document.getElementById('show-answer-btn');
             const feedbackEl = document.getElementById('feedback');
             const correctAnswerEl = document.getElementById('correct-answer');
@@ -153,24 +208,32 @@
                 showAnswerBtn.style.display = 'none';
             });
 
-            document.getElementById('download-pdf').addEventListener('click', () => { /* ... */
-                const fabButton = document.querySelector('.fab-container');
+            // --- LÓGICA 3: GENERADOR DE PDF CON FEEDBACK DE CARGA ---
+            document.getElementById('download-pdf').addEventListener('click', () => {
+                const fabContainer = document.querySelector('.fab-container');
                 const content = document.getElementById('module-content');
-                fabButton.style.visibility = 'hidden';
                 const downloadBtn = document.getElementById('download-pdf');
-                downloadBtn.textContent = '...';
+                const originalIcon = downloadBtn.innerHTML;
+
+                fabContainer.style.visibility = 'hidden';
+                downloadBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i>';
+
                 const opt = {
                     margin: 10,
                     filename: 'modulo-elipsis.pdf',
                     image: { type: 'jpeg', quality: 0.98 },
                     html2canvas: { scale: 2, useCORS: true, letterRendering: true },
                     jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
-                    pagebreak: { mode: ['avoid-all', 'css', 'legacy'] },
-                    renderer: 'canvas'
+                    pagebreak: { mode: ['avoid-all', 'css', 'legacy'] }
                 };
+
                 html2pdf().from(content).set(opt).save().then(() => {
-                    fabButton.style.visibility = 'visible';
-                    downloadBtn.textContent = 'PDF';
+                    fabContainer.style.visibility = 'visible';
+                    downloadBtn.innerHTML = originalIcon;
+                }).catch(err => {
+                    console.error("Error al generar el PDF:", err);
+                    fabContainer.style.visibility = 'visible';
+                    downloadBtn.innerHTML = originalIcon;
                 });
             });
         });
