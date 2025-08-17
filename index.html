@@ -36,7 +36,7 @@
 
         /* --- Estilos para el campo de búsqueda --- */
         .search-container {
-            margin-bottom: 2rem;
+            margin-bottom: 1rem; /* Reducido para dar espacio a los botones */
         }
 
         #module-search {
@@ -46,6 +46,30 @@
             border-radius: 8px;
             border: 1px solid #ccc;
             box-sizing: border-box; /* Asegura que el padding no afecte el ancho total */
+        }
+
+        /* --- NUEVOS ESTILOS PARA LOS BOTONES DE ORDEN --- */
+        .sort-controls {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap; /* Para que se vea bien en móviles */
+        }
+
+        .sort-controls button {
+            padding: 10px 15px;
+            font-size: 0.9rem;
+            border-radius: 8px;
+            border: 1px solid #007bff;
+            background-color: transparent;
+            color: #007bff;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .sort-controls button:hover {
+            background-color: #007bff;
+            color: #fff;
         }
 
         /* === Estilos para el MODO OSCURO === */
@@ -58,6 +82,17 @@
             color: #f4f4f4;
             border-color: #007bff;
         }
+        
+        /* --- NUEVOS ESTILOS MODO OSCURO PARA BOTONES DE ORDEN --- */
+        body.dark-mode .sort-controls button {
+            border-color: #00aaff;
+            color: #00aaff;
+        }
+
+        body.dark-mode .sort-controls button:hover {
+            background-color: #00aaff;
+            color: #121212;
+        }
     </style>
 </head>
 <body>
@@ -69,12 +104,9 @@
 
     <section class="intro-section">
         <div class="container">
-            <!-- ========= IMAGEN REDONDA MOVIDA A SU NUEVA POSICIÓN ========= -->
             <img src="https://images.pexels.com/photos/6752320/pexels-photo-6752320.jpeg" alt="Pluma escribiendo en un libro" class="intro-logo">
-
             <h2 class="fade-in">EL ARTE DE EXPRESARSE</h2>
             <p class="fade-in">Bienvenido a este espacio dedicado a explorar el poder y la belleza del lenguaje. Aquí desglosaremos las herramientas que han utilizado escritores, poetas y oradores a lo largo de la historia para dar vida, emoción y persuasión a sus palabras.</p>
-            
             <div class="intro-grid">
                 <div class="intro-card fade-in">
                     <h3>
@@ -115,6 +147,12 @@
             <input type="search" id="module-search" placeholder="Buscar módulo por nombre o descripción...">
         </div>
 
+        <!-- ========= NUEVOS BOTONES DE ORDEN ========= -->
+        <div class="sort-controls fade-in">
+            <button id="ordenar-alfabeticamente">Ordenar A-Z</button>
+            <button id="restaurar-orden">Restaurar Orden Original</button>
+        </div>
+
         <section class="module-grid">
             <a href="modulos/metafora.html" class="module-card fade-in">
                 <h3>Metáfora</h3>
@@ -140,12 +178,10 @@
                 <h3>Onomatopeya</h3>
                 <p>Escucha las palabras que imitan la realidad del sonido.</p>
             </a>
-            
             <a href="modulos/anafora.html" class="module-card fade-in">
                 <h3>Anáfora</h3>
                 <p>Siente el ritmo y la fuerza de la repetición deliberada.</p>
             </a>
-            
             <a href="modulos/elipsis.html" class="module-card fade-in">
                 <h3>Elipsis</h3>
                 <p>Aprende el arte de omitir palabras para ganar agilidad y potencia.</p>
@@ -154,12 +190,10 @@
                 <h3>Metonimia</h3>
                 <p>Designa una idea a través de su relación de proximidad o causa.</p>
             </a>
-            
             <a href="modulos/sinecdoque.html" class="module-card fade-in">
                 <h3>Sinécdoque</h3>
                 <p>Comprende cómo una parte puede representar al todo (y viceversa).</p>
             </a>
-            
             <a href="modulos/oximoron.html" class="module-card fade-in">
                 <h3>Oxímoron</h3>
                 <p>Encuentra el sentido profundo en la unión de dos opuestos.</p>
@@ -173,6 +207,7 @@
 
     <script src="js/theme-switcher.js"></script>
     <script>
+        // Script para animaciones de entrada
         document.addEventListener("DOMContentLoaded", () => {
             const faders = document.querySelectorAll('.fade-in');
             const appearOptions = { threshold: 0.3, rootMargin: "0px 0px -50px 0px" };
@@ -192,6 +227,7 @@
             });
         });
 
+        // Script para el buscador
         document.getElementById('module-search').addEventListener('input', function() {
             const searchTerm = this.value.toLowerCase();
             const modules = document.querySelectorAll('.module-card');
@@ -205,6 +241,56 @@
                 }
             });
         });
+
+        // =================================================================
+        // === NUEVO SCRIPT PARA ORDENAR Y GUARDAR EN LOCALSTORAGE ===
+        // =================================================================
+        document.addEventListener("DOMContentLoaded", () => {
+            const moduleGrid = document.querySelector('.module-grid');
+            const sortAlphaButton = document.getElementById('ordenar-alfabeticamente');
+            const restoreOrderButton = document.getElementById('restaurar-orden');
+
+            // 1. Guardar el orden original de los módulos
+            const originalModules = Array.from(document.querySelectorAll('.module-card'));
+
+            // Función para ordenar alfabéticamente
+            const sortAlphabetically = () => {
+                const sortedModules = [...originalModules].sort((a, b) => {
+                    const titleA = a.querySelector('h3').textContent.trim();
+                    const titleB = b.querySelector('h3').textContent.trim();
+                    return titleA.localeCompare(titleB, 'es', { sensitivity: 'base' });
+                });
+
+                // Limpiar el grid y añadir los módulos ordenados
+                moduleGrid.innerHTML = '';
+                sortedModules.forEach(module => moduleGrid.appendChild(module));
+
+                // Guardar la preferencia en localStorage
+                localStorage.setItem('sortOrder', 'alpha');
+            };
+
+            // Función para restaurar el orden original
+            const restoreOriginalOrder = () => {
+                // Limpiar el grid y añadir los módulos originales
+                moduleGrid.innerHTML = '';
+                originalModules.forEach(module => moduleGrid.appendChild(module));
+
+                // Guardar la preferencia en localStorage
+                localStorage.setItem('sortOrder', 'original');
+            };
+
+            // 2. Asignar los eventos a los botones
+            sortAlphaButton.addEventListener('click', sortAlphabetically);
+            restoreOrderButton.addEventListener('click', restoreOriginalOrder);
+
+            // 3. Al cargar la página, comprobar si hay una preferencia guardada
+            const savedOrder = localStorage.getItem('sortOrder');
+            if (savedOrder === 'alpha') {
+                sortAlphabetically();
+            }
+            // No es necesario un 'else', porque el orden por defecto ya es el original.
+        });
+
     </script>
 </body>
 </html>
