@@ -38,7 +38,7 @@
             text-decoration: none;
         }
         a:hover {
-            text-decoration: underline;
+            text-decoration: none;
         }
 
         /* --- Header y Footer --- */
@@ -133,10 +133,13 @@
         .cta-button:hover {
             background-color: var(--primary-hover);
             color: #fff;
-            text-decoration: none;
         }
         @media (max-width: 768px) {
             .feature-content { grid-template-columns: 1fr; }
+        }
+        
+        .intro-card h3, .feature-text h3 {
+            color: var(--primary-hover);
         }
 
         /* --- Controles: Búsqueda, Filtros y Orden --- */
@@ -240,7 +243,9 @@
         body.dark-mode .sort-controls button:hover { background-color: var(--dark-primary); color: #121212; }
         body.dark-mode .cta-button { background-color: var(--dark-primary); color: #121212; }
         body.dark-mode .cta-button:hover { background-color: var(--dark-primary-hover); }
-        body.dark-mode .module-card h3 { color: var(--dark-primary); }
+        body.dark-mode .module-card h3,
+        body.dark-mode .intro-card h3,
+        body.dark-mode .feature-text h3 { color: var(--dark-primary); }
         body.dark-mode .badge-pill.literaria { background-color: #1e7e34; }
         body.dark-mode .badge-pill.retorica { background-color: #b22222; }
         body.dark-mode .badge-pill.sermon { background-color: #59369a; }
@@ -311,63 +316,64 @@
         </div>
 
         <section class="module-grid">
-            <a href="#" class="module-card fade-in" data-category="literaria retorica">
+            <!-- RUTAS HREF CORREGIDAS Y RESTAURADAS -->
+            <a href="modulos/metafora.html" class="module-card fade-in" data-category="literaria retorica">
                 <h3>Metáfora</h3>
                 <div class="badges-container"><span class="badge-pill literaria">Literaria</span><span class="badge-pill retorica">Retórica</span></div>
-                <p>Descubre el poder de la comparación implícita.</p>
+                <p>Descubre el poder de la comparacion implicita.</p>
             </a>
-            <a href="#" class="module-card fade-in" data-category="literaria retorica">
+            <a href="modulos/simil.html" class="module-card fade-in" data-category="literaria retorica">
                 <h3>Símil o Comparación</h3>
                 <div class="badges-container"><span class="badge-pill literaria">Literaria</span><span class="badge-pill retorica">Retórica</span></div>
-                <p>Domina el arte de la comparación explícita creando vínculos claros con el poder del "como".</p>
+                <p>Domina el arte de la comparacion explicita creando vinculos claros con el poder del "como".</p>
             </a>
-            <a href="#" class="module-card fade-in" data-category="literaria retorica">
+            <a href="modulos/hiperbole.html" class="module-card fade-in" data-category="literaria retorica">
                 <h3>Hipérbole</h3>
                 <div class="badges-container"><span class="badge-pill literaria">Literaria</span><span class="badge-pill retorica">Retórica</span></div>
-                <p>Explora el arte de la exageración para un impacto inolvidable.</p>
+                <p>Explora el arte de la exageracion para un impacto inolvidable.</p>
             </a>
-            <a href="#" class="module-card fade-in" data-category="literaria">
+            <a href="modulos/personificacion.html" class="module-card fade-in" data-category="literaria">
                 <h3>Personificación</h3>
                 <div class="badges-container"><span class="badge-pill literaria">Literaria</span></div>
-                <p>Descubre cómo dar vida y voz a lo inanimado.</p>
+                <p>Descubre como dar vida y voz a lo inanimado.</p>
             </a>
-            <a href="#" class="module-card fade-in" data-category="literaria retorica">
+            <a href="modulos/aliteracion.html" class="module-card fade-in" data-category="literaria retorica">
                 <h3>Aliteración</h3>
                  <div class="badges-container"><span class="badge-pill literaria">Literaria</span><span class="badge-pill retorica">Retórica</span></div>
-                <p>Siente el poder de la música y el ritmo en las palabras.</p>
+                <p>Siente el poder de la musica y el ritmo en las palabras.</p>
             </a>
-            <a href="#" class="module-card fade-in" data-category="literaria">
+            <a href="modulos/onomatopeya.html" class="module-card fade-in" data-category="literaria">
                 <h3>Onomatopeya</h3>
                 <div class="badges-container"><span class="badge-pill literaria">Literaria</span></div>
                 <p>Escucha las palabras que imitan la realidad del sonido.</p>
             </a>
-            <a href="#" class="module-card fade-in" data-category="retorica sermon">
+            <a href="modulos/anafora.html" class="module-card fade-in" data-category="retorica sermon">
                 <h3>Anáfora</h3>
                 <div class="badges-container">
                     <span class="badge-pill retorica">Retórica</span>
                     <span class="badge-pill sermon">Sermón</span>
                 </div>
-                <p>Siente el ritmo y la fuerza de la repetición deliberada.</p>
+                <p>Siente el ritmo y la fuerza de la repeticion deliberada.</p>
             </a>
-            <a href="#" class="module-card fade-in" data-category="literaria retorica">
+            <a href="modulos/elipsis.html" class="module-card fade-in" data-category="literaria retorica">
                 <h3>Elipsis</h3>
                 <div class="badges-container"><span class="badge-pill literaria">Literaria</span><span class="badge-pill retorica">Retórica</span></div>
                 <p>Aprende el arte de omitir palabras para ganar agilidad y potencia.</p>
             </a>
-            <a href="#" class="module-card fade-in" data-category="literaria retorica">
+            <a href="modulos/metonimia.html" class="module-card fade-in" data-category="literaria retorica">
                 <h3>Metonimia</h3>
                 <div class="badges-container"><span class="badge-pill literaria">Literaria</span><span class="badge-pill retorica">Retórica</span></div>
-                <p>Designa una idea a través de su relación de proximidad o causa.</p>
+                <p>Designa una idea a traves de su relacion de proximidad o causa.</p>
             </a>
-            <a href="#" class="module-card fade-in" data-category="literaria retorica">
+            <a href="modulos/sinecdoque.html" class="module-card fade-in" data-category="literaria retorica">
                 <h3>Sinécdoque</h3>
                 <div class="badges-container"><span class="badge-pill literaria">Literaria</span><span class="badge-pill retorica">Retórica</span></div>
-                <p>Comprende cómo una parte puede representar al todo (y viceversa).</p>
+                <p>Comprende como una parte puede representar al todo (y viceversa).</p>
             </a>
-            <a href="#" class="module-card fade-in" data-category="literaria">
+            <a href="modulos/oximoron.html" class="module-card fade-in" data-category="literaria">
                 <h3>Oxímoron</h3>
                  <div class="badges-container"><span class="badge-pill literaria">Literaria</span></div>
-                <p>Encuentra el sentido profundo en la unión de dos opuestos.</p>
+                <p>Encuentra el sentido profundo en la union de dos opuestos.</p>
             </a>
         </section>
     </main>
@@ -469,10 +475,6 @@
             });
 
             // --- 5. INICIALIZACIÓN ---
-            // Aplicar el orden guardado al inicio
-            if (currentSort === 'alpha') {
-                // No es necesario llamar a sort, updateView ya usa `currentSort`
-            }
             updateView();
 
             // --- 6. ANIMACIONES (Intersection Observer) ---
