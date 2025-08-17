@@ -12,13 +12,17 @@
             --primary-hover: #0056b3;
             --dark-primary: #00aaff;
             --dark-primary-hover: #0077cc;
+            --text-color-light: #343a40;
+            --text-color-dark: #e0e0e0;
+            --description-color-light: #6c757d;
+            --description-color-dark: #adb5bd;
         }
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             margin: 0;
             background-color: #f8f9fa;
-            color: #343a40;
+            color: var(--text-color-light);
             line-height: 1.6;
             transition: background-color 0.3s, color 0.3s;
         }
@@ -63,6 +67,8 @@
             background: transparent;
             cursor: pointer;
             transition: background-color 0.2s, color 0.2s;
+            width: 110px; /* Ancho fijo para evitar saltos de texto */
+            text-align: center;
         }
         .theme-toggle-btn:hover {
             background-color: #f1f1f1;
@@ -192,6 +198,10 @@
             margin-top: 0;
             color: var(--primary-hover);
         }
+        /* CORRECCIÓN: Color de la descripción del módulo */
+        .module-card p {
+            color: var(--description-color-light);
+        }
 
         .badges-container {
             margin-top: 0.5rem; margin-bottom: 0.5rem; display: flex;
@@ -219,7 +229,7 @@
         /* === ESTILOS PARA MODO OSCURO === */
         body.dark-mode {
             background-color: #121212;
-            color: #e0e0e0;
+            color: var(--text-color-dark);
         }
         body.dark-mode .main-header,
         body.dark-mode .main-footer,
@@ -246,6 +256,10 @@
         body.dark-mode .module-card h3,
         body.dark-mode .intro-card h3,
         body.dark-mode .feature-text h3 { color: var(--dark-primary); }
+        /* CORRECCIÓN: Color de la descripción del módulo en modo oscuro */
+        body.dark-mode .module-card p {
+            color: var(--description-color-dark);
+        }
         body.dark-mode .badge-pill.literaria { background-color: #1e7e34; }
         body.dark-mode .badge-pill.retorica { background-color: #b22222; }
         body.dark-mode .badge-pill.sermon { background-color: #59369a; }
@@ -266,14 +280,14 @@
             <div class="intro-grid">
                 <div class="intro-card fade-in">
                     <h3>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
                         ¿Qué son?
                     </h3>
                     <p>Son formas no convencionales de utilizar las palabras para dotarlas de mayor expresividad, vivacidad o belleza, con el fin de sorprender, emocionar o sugerir.</p>
                 </div>
                 <div class="intro-card fade-in">
                     <h3>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
                         ¿Literarias o Retóricas?
                     </h3>
                     <p>Aunque a menudo se usan como sinónimos, la <strong>retórica</strong> tiene un fin más amplio: persuadir o comunicar. Lo <strong>literario</strong> es un subconjunto enfocado en la belleza y la estética del arte.</p>
@@ -316,7 +330,6 @@
         </div>
 
         <section class="module-grid">
-            <!-- RUTAS HREF CORREGIDAS Y RESTAURADAS -->
             <a href="modulos/metafora.html" class="module-card fade-in" data-category="literaria retorica">
                 <h3>Metáfora</h3>
                 <div class="badges-container"><span class="badge-pill literaria">Literaria</span><span class="badge-pill retorica">Retórica</span></div>
@@ -430,13 +443,11 @@
 
             // --- 3. ASIGNACIÓN DE EVENTOS ---
 
-            // Evento para el campo de búsqueda
             searchInput.addEventListener('input', () => {
                 currentSearchTerm = searchInput.value.toLowerCase();
                 updateView();
             });
 
-            // Eventos para las pestañas de filtro
             filterTabs.forEach(tab => {
                 tab.addEventListener('click', () => {
                     filterTabs.forEach(t => t.classList.remove('active'));
@@ -446,7 +457,6 @@
                 });
             });
 
-            // Eventos para los botones de ordenamiento
             sortAlphaButton.addEventListener('click', () => {
                 currentSort = 'alpha';
                 localStorage.setItem('sortOrder', 'alpha');
@@ -460,18 +470,31 @@
             });
             
             // --- 4. MANEJO DEL TEMA (MODO OSCURO) ---
-            const currentTheme = localStorage.getItem('theme');
-            if (currentTheme === 'dark') {
+            // CORRECCIÓN: Lógica del Toggle mejorada
+            const updateToggleButtonText = () => {
+                if (document.body.classList.contains('dark-mode')) {
+                    themeToggleButton.textContent = 'Modo Claro';
+                } else {
+                    themeToggleButton.textContent = 'Modo Oscuro';
+                }
+            };
+            
+            // Aplicar tema al cargar la página
+            if (localStorage.getItem('theme') === 'dark') {
                 document.body.classList.add('dark-mode');
             }
+            updateToggleButtonText(); // Actualizar texto del botón al inicio
 
+            // Evento de clic para el botón
             themeToggleButton.addEventListener('click', () => {
                 document.body.classList.toggle('dark-mode');
+                
                 let theme = 'light';
                 if (document.body.classList.contains('dark-mode')) {
                     theme = 'dark';
                 }
                 localStorage.setItem('theme', theme);
+                updateToggleButtonText(); // Actualizar texto del botón en cada clic
             });
 
             // --- 5. INICIALIZACIÓN ---
