@@ -50,7 +50,7 @@ body.dark-mode .main-header { background-color: var(--header-bg-dark); }
 body.light-mode .intro-section { background-color: #e9ecef; }
 body.dark-mode .intro-section { background-color: #1a1a1a; }
 .intro-section h2 { font-size: 2.5rem; margin-bottom: 1rem; }
-.intro-section p { max-width: 700px; margin: 0 auto 2rem auto; font-size: 1.1rem; line-height: 1.7; }
+.intro-section p { max-width: 1080px; margin: 0 auto 2rem auto; font-size: 1.1rem; line-height: 1.7; }
 .intro-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 2.5rem; text-align: left; }
 .intro-card { padding: 1.5rem; border-radius: 8px; }
 body.light-mode .intro-card { background-color: var(--card-bg-light); }
