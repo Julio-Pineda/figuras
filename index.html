@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Figuras</title>
-    <link rel="stylesheet" href="css/main-styles.css">
-    <!-- ESTILOS AÑADIDOS -->
+    <title>Figuras Literarias y Retóricas</title>
+    <!-- Asumiendo que tienes un archivo CSS base, si no, puedes añadir esos estilos aquí -->
+    <link rel="stylesheet" href="css/main-styles.css"> 
+    
     <style>
-        /* --- Estilos para el logo redondo de la sección de introducción --- */
+        /* --- Estilos Generales y de Componentes --- */
         .intro-logo {
             display: block; margin: 0 auto 1.5rem; width: 150px; height: 150px;
             border-radius: 50%; object-fit: cover; border: 4px solid #ddd;
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
 
-        /* --- Estilos para la imagen responsiva de la sección "Dato Curioso" --- */
         .feature-image {
             width: 100%; height: 450px; border-radius: 22px; overflow: hidden;
         }
@@ -22,14 +22,26 @@
             width: 100%; height: 100%; object-fit: cover; display: block;
         }
 
-        /* --- Estilos para el campo de búsqueda --- */
         .search-container { margin-bottom: 1rem; }
         #module-search {
             width: 100%; padding: 12px 15px; font-size: 1rem;
             border-radius: 8px; border: 1px solid #ccc; box-sizing: border-box;
         }
+        
+        /* --- Estilos para Pestañas de Filtro (Tabs) --- */
+        .filter-tabs {
+            display: flex; gap: 0.5rem; margin-bottom: 1.5rem;
+            border-bottom: 2px solid #eee; padding-bottom: 1rem;
+        }
+        .filter-tab {
+            padding: 10px 20px; font-size: 1rem; border: none; background-color: transparent;
+            color: #555; cursor: pointer; border-radius: 8px 8px 0 0;
+            transition: background-color 0.3s, color 0.3s; font-weight: 500;
+        }
+        .filter-tab:hover { background-color: #f0f0f0; color: #333; }
+        .filter-tab.active { background-color: #007bff; color: #fff; font-weight: bold; }
 
-        /* --- Estilos para los botones de orden --- */
+        /* --- Estilos para Botones de Orden --- */
         .sort-controls { display: flex; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap; }
         .sort-controls button {
             padding: 10px 15px; font-size: 0.9rem; border-radius: 8px;
@@ -37,79 +49,32 @@
             color: #007bff; cursor: pointer; transition: background-color 0.3s, color 0.3s;
         }
         .sort-controls button:hover { background-color: #007bff; color: #fff; }
-        
-        /* ================================================= */
-        /* === NUEVOS ESTILOS PARA TABS Y BADGES === */
-        /* ================================================= */
 
-        /* Contenedor de las pestañas de filtro */
-        .filter-tabs {
-            display: flex;
-            gap: 0.5rem;
-            margin-bottom: 1.5rem;
-            border-bottom: 2px solid #eee;
-            padding-bottom: 1rem;
-        }
-        .filter-tab {
-            padding: 10px 20px;
-            font-size: 1rem;
-            border: none;
-            background-color: transparent;
-            color: #555;
-            cursor: pointer;
-            border-radius: 8px 8px 0 0;
-            transition: background-color 0.3s, color 0.3s;
-            font-weight: 500;
-        }
-        .filter-tab:hover {
-            background-color: #f0f0f0;
-            color: #333;
-        }
-        /* Estilo para la pestaña activa */
-        .filter-tab.active {
-            background-color: #007bff;
-            color: #fff;
-            font-weight: bold;
-        }
-        
-        /* Contenedor de las insignias dentro de cada tarjeta */
+        /* --- Estilos para Insignias (Badges) --- */
         .badges-container {
-            margin-top: 0.5rem;
-            margin-bottom: 0.5rem;
-            display: flex;
-            gap: 0.5rem;
-            flex-wrap: wrap;
+            margin-top: 0.5rem; margin-bottom: 0.5rem; display: flex;
+            gap: 0.5rem; flex-wrap: wrap;
         }
-        
-        /* Estilo de la insignia (badge-pill) */
         .badge-pill {
-            padding: 4px 10px;
-            font-size: 0.75rem;
-            font-weight: bold;
-            border-radius: 50px;
-            color: #fff;
+            padding: 4px 10px; font-size: 0.75rem; font-weight: bold;
+            border-radius: 50px; color: #fff;
         }
-        
-        /* Colores específicos para cada categoría */
         .badge-pill.literaria { background-color: #28a745; } /* Verde */
         .badge-pill.retorica { background-color: #dc3545; }  /* Rojo */
 
-        /* === Estilos para el MODO OSCURO === */
+        /* === ESTILOS PARA MODO OSCURO === */
         body.dark-mode .intro-logo { border-color: #007bff; }
         body.dark-mode #module-search {
             background-color: #333; color: #f4f4f4; border-color: #007bff;
         }
-        body.dark-mode .sort-controls button { border-color: #00aaff; color: #00aaff; }
-        body.dark-mode .sort-controls button:hover { background-color: #00aaff; color: #121212; }
-        
-        /* --- NUEVOS ESTILOS MODO OSCURO PARA TABS Y BADGES --- */
         body.dark-mode .filter-tabs { border-bottom-color: #333; }
         body.dark-mode .filter-tab { color: #aaa; }
         body.dark-mode .filter-tab:hover { background-color: #333; color: #fff; }
         body.dark-mode .filter-tab.active { background-color: #00aaff; color: #121212; }
+        body.dark-mode .sort-controls button { border-color: #00aaff; color: #00aaff; }
+        body.dark-mode .sort-controls button:hover { background-color: #00aaff; color: #121212; }
         body.dark-mode .badge-pill.literaria { background-color: #1e7e34; }
         body.dark-mode .badge-pill.retorica { background-color: #b22222; }
-
     </style>
 </head>
 <body>
@@ -119,18 +84,51 @@
         <button id="theme-toggle" class="theme-toggle-btn">Modo</button>
     </header>
 
-    <!-- Secciones intro y feature sin cambios -->
-    <section class="intro-section">...</section>
-    <section class="feature-section">...</section>
+    <section class="intro-section">
+        <div class="container">
+            <img src="https://images.pexels.com/photos/6752320/pexels-photo-6752320.jpeg" alt="Pluma escribiendo en un libro" class="intro-logo">
+            <h2 class="fade-in">EL ARTE DE EXPRESARSE</h2>
+            <p class="fade-in">Bienvenido a este espacio dedicado a explorar el poder y la belleza del lenguaje. Aquí desglosaremos las herramientas que han utilizado escritores, poetas y oradores a lo largo de la historia para dar vida, emoción y persuasión a sus palabras.</p>
+            <div class="intro-grid">
+                <div class="intro-card fade-in">
+                    <h3>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                        ¿Qué son?
+                    </h3>
+                    <p>Son formas no convencionales de utilizar las palabras para dotarlas de mayor expresividad, vivacidad o belleza, con el fin de sorprender, emocionar o sugerir.</p>
+                </div>
+                <div class="intro-card fade-in">
+                    <h3>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                        ¿Literarias o Retóricas?
+                    </h3>
+                    <p>Aunque a menudo se usan como sinónimos, la <strong>retórica</strong> tiene un fin más amplio: persuadir o comunicar. Lo <strong>literario</strong> es un subconjunto enfocado en la belleza y la estética del arte.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="feature-section">
+        <div class="container feature-content">
+            <div class="feature-image fade-in">
+                <img src="https://images.pexels.com/photos/10401264/pexels-photo-10401264.jpeg" alt="Libros antiguos y pluma de escribir">
+            </div>
+            <div class="feature-text fade-in">
+                <h3>Dato Curioso</h3>
+                <h2>El Origen en la Oratoria</h2>
+                <p>Muchas de las figuras que estudiamos hoy no nacieron en la poesía, sino en la antigua Grecia, como herramientas de los grandes oradores como Aristóteles y Cicerón para hacer sus discursos políticos y legales más persuasivos e inolvidables. ¡Eran el "arma secreta" para ganar debates!</p>
+                <a href="https://es.wikipedia.org/wiki/Oratoria" target="_blank" class="cta-button">Leer más</a>
+            </div>
+        </div>
+    </section>
 
     <main class="container">
         <h2 class="fade-in">MÓDULOS DE ESTUDIO</h2>
         
         <div class="search-container fade-in">
-            <input type="search" id="module-search" placeholder="Buscar módulo por nombre o descripción...">
+            <input type="search" id="module-search" placeholder="Buscar módulo por nombre, descripción o categoría...">
         </div>
 
-        <!-- ========= NUEVAS PESTAÑAS DE FILTRO ========= -->
         <div class="filter-tabs fade-in">
             <button class="filter-tab active" data-filter="todas">Ver Todas</button>
             <button class="filter-tab" data-filter="literaria">Literarias</button>
@@ -143,89 +141,61 @@
         </div>
 
         <section class="module-grid">
-            <!-- ========= MÓDULOS ACTUALIZADOS CON DATA-CATEGORY Y BADGES ========= -->
+            <!-- Los módulos se insertarán aquí dinámicamente con JavaScript -->
+            <!-- Aquí está la estructura de cada módulo como plantilla -->
             <a href="modulos/metafora.html" class="module-card fade-in" data-category="literaria retorica">
                 <h3>Metáfora</h3>
-                <div class="badges-container">
-                    <span class="badge-pill literaria">Literaria</span>
-                    <span class="badge-pill retorica">Retórica</span>
-                </div>
+                <div class="badges-container"><span class="badge-pill literaria">Literaria</span><span class="badge-pill retorica">Retórica</span></div>
                 <p>Descubre el poder de la comparación implícita.</p>
             </a>
             <a href="modulos/simil.html" class="module-card fade-in" data-category="literaria retorica">
                 <h3>Símil o Comparación</h3>
-                <div class="badges-container">
-                    <span class="badge-pill literaria">Literaria</span>
-                    <span class="badge-pill retorica">Retórica</span>
-                </div>
+                <div class="badges-container"><span class="badge-pill literaria">Literaria</span><span class="badge-pill retorica">Retórica</span></div>
                 <p>Domina el arte de la comparación explícita creando vínculos claros con el poder del "como".</p>
             </a>
             <a href="modulos/hiperbole.html" class="module-card fade-in" data-category="literaria retorica">
                 <h3>Hipérbole</h3>
-                <div class="badges-container">
-                    <span class="badge-pill literaria">Literaria</span>
-                    <span class="badge-pill retorica">Retórica</span>
-                </div>
+                <div class="badges-container"><span class="badge-pill literaria">Literaria</span><span class="badge-pill retorica">Retórica</span></div>
                 <p>Explora el arte de la exageración para un impacto inolvidable.</p>
             </a>
             <a href="modulos/personificacion.html" class="module-card fade-in" data-category="literaria">
                 <h3>Personificación</h3>
-                <div class="badges-container">
-                    <span class="badge-pill literaria">Literaria</span>
-                </div>
+                <div class="badges-container"><span class="badge-pill literaria">Literaria</span></div>
                 <p>Descubre cómo dar vida y voz a lo inanimado.</p>
             </a>
             <a href="modulos/aliteracion.html" class="module-card fade-in" data-category="literaria retorica">
                 <h3>Aliteración</h3>
-                 <div class="badges-container">
-                    <span class="badge-pill literaria">Literaria</span>
-                    <span class="badge-pill retorica">Retórica</span>
-                </div>
+                 <div class="badges-container"><span class="badge-pill literaria">Literaria</span><span class="badge-pill retorica">Retórica</span></div>
                 <p>Siente el poder de la música y el ritmo en las palabras.</p>
             </a>
             <a href="modulos/onomatopeya.html" class="module-card fade-in" data-category="literaria">
                 <h3>Onomatopeya</h3>
-                <div class="badges-container">
-                    <span class="badge-pill literaria">Literaria</span>
-                </div>
+                <div class="badges-container"><span class="badge-pill literaria">Literaria</span></div>
                 <p>Escucha las palabras que imitan la realidad del sonido.</p>
             </a>
             <a href="modulos/anafora.html" class="module-card fade-in" data-category="retorica">
                 <h3>Anáfora</h3>
-                <div class="badges-container">
-                    <span class="badge-pill retorica">Retórica</span>
-                </div>
+                <div class="badges-container"><span class="badge-pill retorica">Retórica</span></div>
                 <p>Siente el ritmo y la fuerza de la repetición deliberada.</p>
             </a>
             <a href="modulos/elipsis.html" class="module-card fade-in" data-category="literaria retorica">
                 <h3>Elipsis</h3>
-                <div class="badges-container">
-                    <span class="badge-pill literaria">Literaria</span>
-                    <span class="badge-pill retorica">Retórica</span>
-                </div>
+                <div class="badges-container"><span class="badge-pill literaria">Literaria</span><span class="badge-pill retorica">Retórica</span></div>
                 <p>Aprende el arte de omitir palabras para ganar agilidad y potencia.</p>
             </a>
             <a href="modulos/metonimia.html" class="module-card fade-in" data-category="literaria retorica">
                 <h3>Metonimia</h3>
-                <div class="badges-container">
-                    <span class="badge-pill literaria">Literaria</span>
-                    <span class="badge-pill retorica">Retórica</span>
-                </div>
+                <div class="badges-container"><span class="badge-pill literaria">Literaria</span><span class="badge-pill retorica">Retórica</span></div>
                 <p>Designa una idea a través de su relación de proximidad o causa.</p>
             </a>
             <a href="modulos/sinecdoque.html" class="module-card fade-in" data-category="literaria retorica">
                 <h3>Sinécdoque</h3>
-                <div class="badges-container">
-                    <span class="badge-pill literaria">Literaria</span>
-                    <span class="badge-pill retorica">Retórica</span>
-                </div>
+                <div class="badges-container"><span class="badge-pill literaria">Literaria</span><span class="badge-pill retorica">Retórica</span></div>
                 <p>Comprende cómo una parte puede representar al todo (y viceversa).</p>
             </a>
             <a href="modulos/oximoron.html" class="module-card fade-in" data-category="literaria">
                 <h3>Oxímoron</h3>
-                 <div class="badges-container">
-                    <span class="badge-pill literaria">Literaria</span>
-                </div>
+                 <div class="badges-container"><span class="badge-pill literaria">Literaria</span></div>
                 <p>Encuentra el sentido profundo en la unión de dos opuestos.</p>
             </a>
         </section>
@@ -235,93 +205,105 @@
         <p>&copy; 2025 - Estudio de Figuras Literarias | Desarrollado por Julio Cesar Pineda Mora</p>
     </footer>
 
-    <script src="js/theme-switcher.js"></script>
+    <!-- Asumiendo que theme-switcher.js solo maneja el cambio de tema -->
+    <script src="js/theme-switcher.js"></script> 
+    
     <script>
-        // Script para animaciones de entrada
         document.addEventListener("DOMContentLoaded", () => {
-            const faders = document.querySelectorAll('.fade-in');
-            // ... (código de IntersectionObserver sin cambios)
-        });
-
-        const searchInput = document.getElementById('module-search');
-        const allModules = document.querySelectorAll('.module-card');
-
-        // Función de búsqueda actualizada para coexistir con filtros
-        const filterAndSearch = () => {
-            const searchTerm = searchInput.value.toLowerCase();
-            const activeFilter = document.querySelector('.filter-tab.active').dataset.filter;
-
-            allModules.forEach(module => {
-                const moduleText = module.textContent.toLowerCase();
-                const moduleCategory = module.dataset.category;
-
-                const matchesCategory = (activeFilter === 'todas' || moduleCategory.includes(activeFilter));
-                const matchesSearch = moduleText.includes(searchTerm);
-
-                if (matchesCategory && matchesSearch) {
-                    module.style.display = 'block';
-                } else {
-                    module.style.display = 'none';
-                }
-            });
-        };
-        
-        searchInput.addEventListener('input', filterAndSearch);
-
-        // =================================================================
-        // === NUEVO SCRIPT PARA FILTRADO POR CATEGORÍAS (TABS) ===
-        // =================================================================
-        document.addEventListener("DOMContentLoaded", () => {
-            const filterTabs = document.querySelectorAll('.filter-tab');
-            
-            filterTabs.forEach(tab => {
-                tab.addEventListener('click', () => {
-                    // 1. Quitar la clase 'active' de todas las pestañas
-                    filterTabs.forEach(t => t.classList.remove('active'));
-                    // 2. Añadir 'active' solo a la pestaña clickeada
-                    tab.classList.add('active');
-                    // 3. Ejecutar la función de filtrado y búsqueda
-                    filterAndSearch();
-                });
-            });
-        });
-
-        // =================================================================
-        // === SCRIPT PARA ORDENAR Y GUARDAR EN LOCALSTORAGE (EXISTENTE) ===
-        // =================================================================
-        document.addEventListener("DOMContentLoaded", () => {
+            // --- 1. SELECTORES Y VARIABLES DE ESTADO ---
+            const searchInput = document.getElementById('module-search');
             const moduleGrid = document.querySelector('.module-grid');
+            const filterTabs = document.querySelectorAll('.filter-tab');
             const sortAlphaButton = document.getElementById('ordenar-alfabeticamente');
             const restoreOrderButton = document.getElementById('restaurar-orden');
-            
+
+            // Guardamos el estado original y una versión pre-ordenada
             const originalModules = Array.from(document.querySelectorAll('.module-card'));
+            const sortedModules = [...originalModules].sort((a, b) => {
+                const titleA = a.querySelector('h3').textContent.trim();
+                const titleB = b.querySelector('h3').textContent.trim();
+                return titleA.localeCompare(titleB, 'es', { sensitivity: 'base' });
+            });
 
-            const sortAlphabetically = () => {
-                const currentModules = Array.from(moduleGrid.querySelectorAll('.module-card'));
-                const sortedModules = currentModules.sort((a, b) => {
-                    const titleA = a.querySelector('h3').textContent.trim();
-                    const titleB = b.querySelector('h3').textContent.trim();
-                    return titleA.localeCompare(titleB, 'es', { sensitivity: 'base' });
+            // Estado inicial de la aplicación
+            let currentFilter = 'todas';
+            let currentSearchTerm = '';
+            let currentSort = localStorage.getItem('sortOrder') || 'original'; // 'original' o 'alpha'
+
+            // --- 2. FUNCIÓN CENTRAL PARA ACTUALIZAR LA VISTA ---
+            const updateView = () => {
+                // Decide qué array usar como base: el original o el ordenado
+                const sourceArray = currentSort === 'alpha' ? sortedModules : originalModules;
+
+                // Limpia el contenedor antes de volver a renderizar
+                moduleGrid.innerHTML = ''; 
+
+                sourceArray.forEach(module => {
+                    const moduleCategory = module.dataset.category || '';
+                    const moduleText = module.textContent.toLowerCase();
+
+                    // Comprueba si el módulo cumple con el filtro y la búsqueda
+                    const matchesFilter = (currentFilter === 'todas' || moduleCategory.includes(currentFilter));
+                    const matchesSearch = (currentSearchTerm === '' || moduleText.includes(currentSearchTerm));
+
+                    // Si cumple ambas condiciones, lo añade al grid
+                    if (matchesFilter && matchesSearch) {
+                        moduleGrid.appendChild(module);
+                    }
                 });
-                sortedModules.forEach(module => moduleGrid.appendChild(module));
-                localStorage.setItem('sortOrder', 'alpha');
             };
 
-            const restoreOriginalOrder = () => {
-                originalModules.forEach(module => moduleGrid.appendChild(module));
-                localStorage.setItem('sortOrder', 'original');
-                // Al restaurar el orden, volvemos a aplicar el filtro y la búsqueda
-                filterAndSearch();
-            };
+            // --- 3. ASIGNACIÓN DE EVENTOS ---
 
-            sortAlphaButton.addEventListener('click', sortAlphabetically);
-            restoreOrderButton.addEventListener('click', restoreOriginalOrder);
+            // Evento para el campo de búsqueda
+            searchInput.addEventListener('input', () => {
+                currentSearchTerm = searchInput.value.toLowerCase();
+                updateView(); // Actualiza la vista con el nuevo término de búsqueda
+            });
 
-            const savedOrder = localStorage.getItem('sortOrder');
-            if (savedOrder === 'alpha') {
-                // Se necesita un pequeño retraso para asegurar que el DOM esté listo
-                setTimeout(sortAlphabetically, 100);
-            }
+            // Eventos para las pestañas de filtro
+            filterTabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    filterTabs.forEach(t => t.classList.remove('active'));
+                    tab.classList.add('active');
+                    currentFilter = tab.dataset.filter;
+                    updateView(); // Actualiza la vista con el nuevo filtro
+                });
+            });
+
+            // Eventos para los botones de ordenamiento
+            sortAlphaButton.addEventListener('click', () => {
+                currentSort = 'alpha';
+                localStorage.setItem('sortOrder', 'alpha'); // Guarda la preferencia
+                updateView();
+            });
+
+            restoreOrderButton.addEventListener('click', () => {
+                currentSort = 'original';
+                localStorage.setItem('sortOrder', 'original'); // Guarda la preferencia
+                updateView();
+            });
+
+            // --- 4. INICIALIZACIÓN ---
+            
+            // Llama a la función una vez al cargar la página para mostrar el estado inicial
+            // (que puede estar influenciado por el valor guardado en localStorage)
+            updateView();
+
+            // --- 5. ANIMACIONES (Intersection Observer) ---
+            const faders = document.querySelectorAll('.fade-in');
+            const appearOptions = { threshold: 0.3, rootMargin: "0px 0px -50px 0px" };
+            const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) return;
+                    entry.target.classList.add('visible');
+                    appearOnScroll.unobserve(entry.target);
+                });
+            }, appearOptions);
+
+            faders.forEach(fader => {
+                appearOnScroll.observe(fader);
+            });
         });
     </script>
 </body>
