@@ -4,10 +4,57 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Figuras Literarias y Retóricas</title>
-    <link rel="stylesheet" href="css/main-styles.css"> 
+    <!-- Si tienes un archivo CSS externo, puedes enlazarlo aquí. Si no, todos los estilos necesarios están abajo. -->
+    <!-- <link rel="stylesheet" href="css/main-styles.css"> -->
     
     <style>
         /* --- Estilos Generales y de Componentes --- */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 1.5rem;
+        }
+        
+        /* --- Estilos del Header y Footer --- */
+        .main-header {
+            background-color: #fff;
+            padding: 1rem 1.5rem;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .main-header h1 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+        .theme-toggle-btn {
+            padding: 8px 12px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background: transparent;
+            cursor: pointer;
+        }
+
+        .main-footer {
+            text-align: center;
+            padding: 2rem;
+            margin-top: 2rem;
+            background-color: #fff;
+            border-top: 1px solid #ddd;
+            font-size: 0.9rem;
+        }
+
+        /* --- Estilos de Componentes --- */
         .intro-logo {
             display: block; margin: 0 auto 1.5rem; width: 150px; height: 150px;
             border-radius: 50%; object-fit: cover; border: 4px solid #ddd;
@@ -29,7 +76,7 @@
         
         /* --- Estilos para Pestañas de Filtro (Tabs) --- */
         .filter-tabs {
-            display: flex; gap: 0.5rem; margin-bottom: 1.5rem; flex-wrap: wrap; /* Añadido wrap para móviles */
+            display: flex; gap: 0.5rem; margin-bottom: 1.5rem; flex-wrap: wrap;
             border-bottom: 2px solid #eee; padding-bottom: 1rem;
         }
         .filter-tab {
@@ -49,6 +96,30 @@
         }
         .sort-controls button:hover { background-color: #007bff; color: #fff; }
 
+        /* --- Estilos para las Tarjetas de Módulos --- */
+        .module-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+        .module-card {
+            background-color: #fff;
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-decoration: none;
+            color: inherit;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .module-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+        }
+        .module-card h3 {
+            margin-top: 0;
+            color: #0056b3;
+        }
+
         /* --- Estilos para Insignias (Badges) --- */
         .badges-container {
             margin-top: 0.5rem; margin-bottom: 0.5rem; display: flex;
@@ -60,9 +131,30 @@
         }
         .badge-pill.literaria { background-color: #28a745; } /* Verde */
         .badge-pill.retorica { background-color: #dc3545; }  /* Rojo */
-        .badge-pill.sermon { background-color: #6f42c1; } /* Púrpura (NUEVO) */
+        .badge-pill.sermon { background-color: #6f42c1; } /* Púrpura */
+        
+        /* --- Animaciones --- */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
         /* === ESTILOS PARA MODO OSCURO === */
+        body.dark-mode {
+            background-color: #121212;
+            color: #e0e0e0;
+        }
+        body.dark-mode .main-header,
+        body.dark-mode .main-footer,
+        body.dark-mode .module-card {
+            background-color: #1e1e1e;
+            border-color: #333;
+        }
         body.dark-mode .intro-logo { border-color: #007bff; }
         body.dark-mode #module-search {
             background-color: #333; color: #f4f4f4; border-color: #007bff;
@@ -73,9 +165,10 @@
         body.dark-mode .filter-tab.active { background-color: #00aaff; color: #121212; }
         body.dark-mode .sort-controls button { border-color: #00aaff; color: #00aaff; }
         body.dark-mode .sort-controls button:hover { background-color: #00aaff; color: #121212; }
+        body.dark-mode .module-card h3 { color: #58a6ff; }
         body.dark-mode .badge-pill.literaria { background-color: #1e7e34; }
         body.dark-mode .badge-pill.retorica { background-color: #b22222; }
-        body.dark-mode .badge-pill.sermon { background-color: #59369a; } /* Púrpura Oscuro (NUEVO) */
+        body.dark-mode .badge-pill.sermon { background-color: #59369a; }
     </style>
 </head>
 <body>
@@ -85,9 +178,13 @@
         <button id="theme-toggle" class="theme-toggle-btn">Modo</button>
     </header>
 
-    <!-- Secciones intro y feature section no tienen cambios -->
-    <section class="intro-section">...</section>
-    <section class="feature-section">...</section>
+    <section class="intro-section">
+        <div class="container">
+            <img src="https://images.pexels.com/photos/6752320/pexels-photo-6752320.jpeg" alt="Pluma escribiendo en un libro" class="intro-logo fade-in">
+            <h2 class="fade-in">EL ARTE DE EXPRESARSE</h2>
+            <p class="fade-in">Bienvenido a este espacio dedicado a explorar el poder y la belleza del lenguaje. Aquí desglosaremos las herramientas que han utilizado escritores, poetas y oradores a lo largo de la historia para dar vida, emoción y persuasión a sus palabras.</p>
+        </div>
+    </section>
 
     <main class="container">
         <h2 class="fade-in">MÓDULOS DE ESTUDIO</h2>
@@ -100,7 +197,6 @@
             <button class="filter-tab active" data-filter="todas">Ver Todas</button>
             <button class="filter-tab" data-filter="literaria">Literarias</button>
             <button class="filter-tab" data-filter="retorica">Retóricas</button>
-            <!-- NUEVO FILTRO "SERMÓN" -->
             <button class="filter-tab" data-filter="sermon">Sermón</button> 
         </div>
 
@@ -110,38 +206,37 @@
         </div>
 
         <section class="module-grid">
-            <a href="modulos/metafora.html" class="module-card fade-in" data-category="literaria retorica">
+            <a href="#" class="module-card fade-in" data-category="literaria retorica">
                 <h3>Metáfora</h3>
                 <div class="badges-container"><span class="badge-pill literaria">Literaria</span><span class="badge-pill retorica">Retórica</span></div>
                 <p>Descubre el poder de la comparación implícita.</p>
             </a>
-            <a href="modulos/simil.html" class="module-card fade-in" data-category="literaria retorica">
+            <a href="#" class="module-card fade-in" data-category="literaria retorica">
                 <h3>Símil o Comparación</h3>
                 <div class="badges-container"><span class="badge-pill literaria">Literaria</span><span class="badge-pill retorica">Retórica</span></div>
                 <p>Domina el arte de la comparación explícita creando vínculos claros con el poder del "como".</p>
             </a>
-            <a href="modulos/hiperbole.html" class="module-card fade-in" data-category="literaria retorica">
+            <a href="#" class="module-card fade-in" data-category="literaria retorica">
                 <h3>Hipérbole</h3>
                 <div class="badges-container"><span class="badge-pill literaria">Literaria</span><span class="badge-pill retorica">Retórica</span></div>
                 <p>Explora el arte de la exageración para un impacto inolvidable.</p>
             </a>
-            <a href="modulos/personificacion.html" class="module-card fade-in" data-category="literaria">
+            <a href="#" class="module-card fade-in" data-category="literaria">
                 <h3>Personificación</h3>
                 <div class="badges-container"><span class="badge-pill literaria">Literaria</span></div>
                 <p>Descubre cómo dar vida y voz a lo inanimado.</p>
             </a>
-            <a href="modulos/aliteracion.html" class="module-card fade-in" data-category="literaria retorica">
+            <a href="#" class="module-card fade-in" data-category="literaria retorica">
                 <h3>Aliteración</h3>
                  <div class="badges-container"><span class="badge-pill literaria">Literaria</span><span class="badge-pill retorica">Retórica</span></div>
                 <p>Siente el poder de la música y el ritmo en las palabras.</p>
             </a>
-            <a href="modulos/onomatopeya.html" class="module-card fade-in" data-category="literaria">
+            <a href="#" class="module-card fade-in" data-category="literaria">
                 <h3>Onomatopeya</h3>
                 <div class="badges-container"><span class="badge-pill literaria">Literaria</span></div>
                 <p>Escucha las palabras que imitan la realidad del sonido.</p>
             </a>
-            <!-- MÓDULO "ANÁFORA" ACTUALIZADO -->
-            <a href="modulos/anafora.html" class="module-card fade-in" data-category="retorica sermon">
+            <a href="#" class="module-card fade-in" data-category="retorica sermon">
                 <h3>Anáfora</h3>
                 <div class="badges-container">
                     <span class="badge-pill retorica">Retórica</span>
@@ -149,22 +244,22 @@
                 </div>
                 <p>Siente el ritmo y la fuerza de la repetición deliberada.</p>
             </a>
-            <a href="modulos/elipsis.html" class="module-card fade-in" data-category="literaria retorica">
+            <a href="#" class="module-card fade-in" data-category="literaria retorica">
                 <h3>Elipsis</h3>
                 <div class="badges-container"><span class="badge-pill literaria">Literaria</span><span class="badge-pill retorica">Retórica</span></div>
                 <p>Aprende el arte de omitir palabras para ganar agilidad y potencia.</p>
             </a>
-            <a href="modulos/metonimia.html" class="module-card fade-in" data-category="literaria retorica">
+            <a href="#" class="module-card fade-in" data-category="literaria retorica">
                 <h3>Metonimia</h3>
                 <div class="badges-container"><span class="badge-pill literaria">Literaria</span><span class="badge-pill retorica">Retórica</span></div>
                 <p>Designa una idea a través de su relación de proximidad o causa.</p>
             </a>
-            <a href="modulos/sinecdoque.html" class="module-card fade-in" data-category="literaria retorica">
+            <a href="#" class="module-card fade-in" data-category="literaria retorica">
                 <h3>Sinécdoque</h3>
                 <div class="badges-container"><span class="badge-pill literaria">Literaria</span><span class="badge-pill retorica">Retórica</span></div>
                 <p>Comprende cómo una parte puede representar al todo (y viceversa).</p>
             </a>
-            <a href="modulos/oximoron.html" class="module-card fade-in" data-category="literaria">
+            <a href="#" class="module-card fade-in" data-category="literaria">
                 <h3>Oxímoron</h3>
                  <div class="badges-container"><span class="badge-pill literaria">Literaria</span></div>
                 <p>Encuentra el sentido profundo en la unión de dos opuestos.</p>
@@ -176,8 +271,6 @@
         <p>&copy; 2025 - Estudio de Figuras Literarias | Desarrollado por Julio Cesar Pineda Mora</p>
     </footer>
 
-    <script src="js/theme-switcher.js"></script> 
-    
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             // --- 1. SELECTORES Y VARIABLES DE ESTADO ---
@@ -186,6 +279,7 @@
             const filterTabs = document.querySelectorAll('.filter-tab');
             const sortAlphaButton = document.getElementById('ordenar-alfabeticamente');
             const restoreOrderButton = document.getElementById('restaurar-orden');
+            const themeToggleButton = document.getElementById('theme-toggle');
 
             const originalModules = Array.from(document.querySelectorAll('.module-card'));
             const sortedModules = [...originalModules].sort((a, b) => {
@@ -198,7 +292,7 @@
             let currentSearchTerm = '';
             let currentSort = localStorage.getItem('sortOrder') || 'original';
 
-            // --- NUEVA FUNCIÓN PARA NORMALIZAR TEXTO (QUITAR TILDES) ---
+            // --- FUNCIÓN PARA NORMALIZAR TEXTO (QUITAR TILDES Y ACENTOS) ---
             const normalizeText = (text) => {
                 return text.normalize('NFD').replace(/[\u0300-\u036f]/g, "");
             };
@@ -210,12 +304,11 @@
 
                 sourceArray.forEach(module => {
                     const moduleCategory = module.dataset.category || '';
-                    // Normalizamos el texto del módulo para la búsqueda
                     const normalizedModuleText = normalizeText(module.textContent.toLowerCase());
+                    const normalizedSearchTerm = normalizeText(currentSearchTerm);
 
                     const matchesFilter = (currentFilter === 'todas' || moduleCategory.includes(currentFilter));
-                    // Comparamos el término de búsqueda (ya normalizado) con el texto del módulo (también normalizado)
-                    const matchesSearch = (currentSearchTerm === '' || normalizedModuleText.includes(currentSearchTerm));
+                    const matchesSearch = (normalizedSearchTerm === '' || normalizedModuleText.includes(normalizedSearchTerm));
 
                     if (matchesFilter && matchesSearch) {
                         moduleGrid.appendChild(module);
@@ -225,10 +318,9 @@
 
             // --- 3. ASIGNACIÓN DE EVENTOS ---
 
-            // Evento para el campo de búsqueda (actualizado para normalizar el texto)
+            // Evento para el campo de búsqueda
             searchInput.addEventListener('input', () => {
-                // Normalizamos el término de búsqueda al instante
-                currentSearchTerm = normalizeText(searchInput.value.toLowerCase());
+                currentSearchTerm = searchInput.value.toLowerCase();
                 updateView();
             });
 
@@ -254,18 +346,33 @@
                 localStorage.setItem('sortOrder', 'original');
                 updateView();
             });
+            
+            // --- 4. MANEJO DEL TEMA (MODO OSCURO) ---
+            const currentTheme = localStorage.getItem('theme');
+            if (currentTheme === 'dark') {
+                document.body.classList.add('dark-mode');
+            }
 
-            // --- 4. INICIALIZACIÓN ---
+            themeToggleButton.addEventListener('click', () => {
+                document.body.classList.toggle('dark-mode');
+                let theme = 'light';
+                if (document.body.classList.contains('dark-mode')) {
+                    theme = 'dark';
+                }
+                localStorage.setItem('theme', theme);
+            });
+
+            // --- 5. INICIALIZACIÓN ---
             updateView();
 
-            // --- 5. ANIMACIONES (Intersection Observer) ---
+            // --- 6. ANIMACIONES (Intersection Observer) ---
             const faders = document.querySelectorAll('.fade-in');
             const appearOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
-            const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+            const appearOnScroll = new IntersectionObserver(function(entries, appearOnScrollObserver) {
                 entries.forEach(entry => {
                     if (!entry.isIntersecting) return;
                     entry.target.classList.add('visible');
-                    appearOnScroll.unobserve(entry.target);
+                    appearOnScrollObserver.unobserve(entry.target);
                 });
             }, appearOptions);
 
