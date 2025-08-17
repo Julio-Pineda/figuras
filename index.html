@@ -5,6 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Figuras</title>
     <link rel="stylesheet" href="css/main-styles.css">
+    <!-- ESTILOS AÑADIDOS -->
+    <style>
+        /* --- Estilos para la imagen responsiva y con borde redondeado --- */
+        .feature-image img {
+            max-width: 100%; /* La imagen no superará el ancho de su contenedor */
+            height: auto;    /* Mantiene la proporción de la imagen */
+            display: block;  /* Elimina espacios extra debajo de la imagen */
+            border-radius: 22px; /* Bordes redondeados como se solicitó */
+        }
+
+        /* --- Estilos para el campo de búsqueda --- */
+        .search-container {
+            margin-bottom: 2rem;
+        }
+
+        #module-search {
+            width: 100%;
+            padding: 12px 15px;
+            font-size: 1rem;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            box-sizing: border-box; /* Asegura que el padding no afecte el ancho total */
+        }
+
+        /* Estilos para el modo oscuro del buscador (opcional pero recomendado) */
+        body.dark-mode #module-search {
+            background-color: #333;
+            color: #f4f4f4;
+            border-color: #555;
+        }
+    </style>
 </head>
 <body>
 
@@ -37,11 +68,10 @@
         </div>
     </section>
 
-    <!-- ========= NUEVA SECCIÓN DESTACADA ========= -->
     <section class="feature-section">
         <div class="container feature-content">
             <div class="feature-image fade-in">
-                <!-- Cambia esta imagen por la que desees. Te recomiendo una de 800x600px -->
+                <!-- La imagen ahora es responsiva y tiene bordes redondeados gracias al CSS añadido en el <head> -->
                 <img src="https://images.pexels.com/photos/10401264/pexels-photo-10401264.jpeg" alt="Libros antiguos y pluma de escribir">
             </div>
             <div class="feature-text fade-in">
@@ -53,9 +83,14 @@
         </div>
     </section>
 
-
     <main class="container">
         <h2 class="fade-in">MÓDULOS DE ESTUDIO</h2>
+        
+        <!-- ========= CAMPO DE BÚSQUEDA AÑADIDO ========= -->
+        <div class="search-container fade-in">
+            <input type="search" id="module-search" placeholder="Buscar módulo por nombre o descripción...">
+        </div>
+
         <section class="module-grid">
             <a href="modulos/metafora.html" class="module-card fade-in">
                 <h3>Metáfora</h3>
@@ -69,12 +104,10 @@
                 <h3>Hipérbole</h3>
                 <p>Explora el arte de la exageración para un impacto inolvidable.</p>
             </a>
-            
             <a href="modulos/personificacion.html" class="module-card fade-in">
                 <h3>Personificación</h3>
                 <p>Descubre cómo dar vida y voz a lo inanimado.</p>
             </a>
-            
             <a href="modulos/aliteracion.html" class="module-card fade-in">
                 <h3>Aliteración</h3>
                 <p>Siente el poder de la música y el ritmo en las palabras.</p>
@@ -106,6 +139,23 @@
 
             faders.forEach(fader => {
                 appearOnScroll.observe(fader);
+            });
+        });
+    </script>
+
+    <!-- ========= SCRIPT PARA EL BUSCADOR AÑADIDO ========= -->
+    <script>
+        document.getElementById('module-search').addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase();
+            const modules = document.querySelectorAll('.module-card');
+
+            modules.forEach(module => {
+                const moduleText = module.textContent.toLowerCase();
+                if (moduleText.includes(searchTerm)) {
+                    module.style.display = 'block'; // Muestra el módulo si coincide
+                } else {
+                    module.style.display = 'none'; // Oculta el módulo si no coincide
+                }
             });
         });
     </script>
