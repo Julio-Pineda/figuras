@@ -198,7 +198,6 @@
             margin-top: 0;
             color: var(--primary-hover);
         }
-        /* CORRECCIÓN: Color de la descripción del módulo */
         .module-card p {
             color: var(--description-color-light);
         }
@@ -256,7 +255,6 @@
         body.dark-mode .module-card h3,
         body.dark-mode .intro-card h3,
         body.dark-mode .feature-text h3 { color: var(--dark-primary); }
-        /* CORRECCIÓN: Color de la descripción del módulo en modo oscuro */
         body.dark-mode .module-card p {
             color: var(--description-color-dark);
         }
@@ -470,12 +468,12 @@
             });
             
             // --- 4. MANEJO DEL TEMA (MODO OSCURO) ---
-            // CORRECCIÓN: Lógica del Toggle mejorada
+            // CORRECCIÓN FINAL: Lógica del Toggle para reflejar el estado actual
             const updateToggleButtonText = () => {
                 if (document.body.classList.contains('dark-mode')) {
-                    themeToggleButton.textContent = 'Modo Claro';
+                    themeToggleButton.textContent = 'Modo Oscuro'; // ESTADO: Estamos en modo oscuro
                 } else {
-                    themeToggleButton.textContent = 'Modo Oscuro';
+                    themeToggleButton.textContent = 'Modo Claro'; // ESTADO: Estamos en modo claro
                 }
             };
             
