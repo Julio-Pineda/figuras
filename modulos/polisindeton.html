@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polisíndeton</title>
+
+    <!-- Añadido: Font Awesome para los iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+        
+    <link rel="stylesheet" href="../css/modules.css">
+
+</head>
+<body>
+
+    <header class="main-header">
+        <a href="../index.html" class="back-link"><i class="fa-solid fa-arrow-left"></i> Volver</a>
+        <h1><i class="fa-solid fa-link"></i>Polisíndeton</h1>
+        <button id="theme-toggle" class="theme-toggle-btn" title="Cambiar tema"><i class="fa-solid fa-moon"></i></button>
+    </header>
+
+    <main class="container" id="module-content">
+       
+        <section class="module-section">
+            <h2><i class="fa-solid fa-circle-question"></i>1. ¿Qué es el Polisíndeton?</h2>
+            <p>El polisíndeton es lo contrario a la elipsis. Consiste en el uso deliberado e innecesario de <strong>más conjunciones de las habituales</strong> (como "y", "ni", "o") para unir elementos de una frase. Esto crea un ritmo más lento, solemne y enfatiza la acumulación de elementos.</p>
+            <div class="formula">
+                <p>Elemento 1 <mark>y</mark> Elemento 2 <mark>y</mark> Elemento 3 <mark>y</mark> Elemento 4...</p>
+            </div>
+            <p>En lugar de "compré pan, leche, huevos", se diría "compré pan <mark>y</mark> leche <mark>y</mark> huevos". La repetición de "y" hace que cada elemento de la lista se sienta más pesado e individual.</p>
+        </section>
+
+        <section class="module-section">
+            <h2><i class="fa-solid fa-comments"></i>2. Ejemplos en la Vida Cotidiana</h2>
+            <ul>
+                <li><i class="fa-solid fa-child fa-fw"></i>"El niño ríe <mark>y</mark> canta <mark>y</mark> baila <mark>y</mark> juega sin parar."</li>
+                <li><i class="fa-solid fa-book-open-reader fa-fw"></i>"Lo busqué en el norte <mark>y</mark> en el sur <mark>y</mark> en el este <mark>y</mark> en el oeste."</li>
+                <li><i class="fa-solid fa-circle-xmark fa-fw"></i>"No quiero <mark>ni</mark> verte, <mark>ni</mark> oírte, <mark>ni</mark> saber de ti."</li>
+            </ul>
+        </section>
+
+        <section class="module-section">
+            <h2><i class="fa-solid fa-book"></i>3. Polisíndeton en la Biblia (Reina Valera 1960)</h2>
+            <div class="bible-example">
+                <em>"Y fue la tarde <mark>y</mark> la mañana el día primero. [...] Y fue la tarde <mark>y</mark> la mañana el día segundo..." (Génesis 1:5, 8)</em>
+                <p><i class="fa-solid fa-magnifying-glass-chart"></i><strong>Análisis:</strong> La repetición de la conjunción "y" en el estribillo que cierra cada día de la creación le da un ritmo majestuoso y ceremonial al relato. Enfatiza que cada fase de la creación fue un acto completo y deliberado de Dios.</p>
+            </div>
+            <hr>
+            <div class="bible-example">
+                <em>"Porque la vida es más que el alimento, <mark>y</mark> el cuerpo que el vestido. [...] buscad el reino de Dios, <mark>y</mark> todas estas cosas os serán añadidas." (Lucas 12:23, 31)</em>
+                <p><i class="fa-solid fa-magnifying-glass-chart"></i><strong>Análisis:</strong> El uso repetido de "y" en las enseñanzas de Jesús a menudo sirve para conectar ideas de forma fluida pero enfática, dando a cada cláusula su propio peso antes de pasar a la siguiente.</p>
+            </div>
+            <hr>
+            <div class="bible-example">
+                <em>"Porque tuyo es el reino, <mark>y</mark> el poder, <mark>y</mark> la gloria, por todos los siglos. Amén." (Mateo 6:13)</em>
+                <p><i class="fa-solid fa-magnifying-glass-chart"></i><strong>Análisis:</strong> La doxología del Padrenuestro utiliza el polisíndeton para dar un final grandioso y solemne a la oración. La acumulación de "reino", "poder" y "gloria", cada uno unido por "y", magnifica la majestad de Dios de una forma que una simple lista no podría lograr.</p>
+            </div>
+        </section>
+
+        <section class="module-section exercise">
+            <h2><i class="fa-solid fa-pencil-alt"></i>4. Ejercicio Práctico</h2>
+            <p>Lee el siguiente pasaje donde Josué ejecuta el juicio sobre Acán. Identifica la conjunción que se repite y explica qué efecto produce al describir la escena.</p>
+            <p><em>"Entonces Josué, <mark>y</mark> todo Israel con él, tomaron a Acán... <mark>y</mark> la plata, <mark>y</mark> el manto, <mark>y</mark> el lingote de oro, <mark>y</mark> sus hijos, <mark>y</mark> sus hijas, <mark>y</mark> sus bueyes, <mark>y</mark> sus asnos, <mark>y</mark> sus ovejas, <mark>y</mark> su tienda, <mark>y</mark> todo cuanto tenía..." (Josué 7:24)</em></p>
+            <textarea id="exercise-answer" rows="10" placeholder="Conjunción repetida: ...&#10;Efecto que produce: ..."></textarea>
+            
+            <button id="check-answer-btn"><i class="fa-solid fa-check-circle"></i>Verificar Respuesta</button>
+            <button id="show-answer-btn" style="display: none;"><i class="fa-solid fa-eye"></i>Ver Respuesta Correcta</button>
+            
+            <p id="feedback" class="feedback"></p>
+
+            <div id="correct-answer" class="correct-answer-box" style="display: none;">
+                <h4>Respuesta Detallada:</h4>
+                <p><strong>Conjunción repetida:</strong> "y".</p>
+                <p><strong>Efecto que produce:</strong> La repetición incesante de "y" crea un efecto abrumador y pesado. Enfatiza la totalidad del juicio de Dios: absolutamente nada ni nadie relacionado con el pecado de Acán fue perdonado. El ritmo lento y acumulativo de la frase subraya la gravedad y la extensión de la destrucción.</p>
+            </div>
+        </section>
+    </main>
+    
+    <div class="fab-container"><button id="download-pdf" class="fab" title="Descargar como PDF"><i class="fa-solid fa-file-pdf"></i></button></div>
+    <footer class="main-footer"><p>&copy; 2025 - Estudio de Figuras Literarias | Desarrollado por Julio Cesar Pineda Mora</p></footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const themeToggle = document.getElementById('theme-toggle');
+            const themeIcon = themeToggle.querySelector('i');
+            const applyTheme = (theme) => {
+                document.body.classList.remove('light-mode', 'dark-mode');
+                document.body.classList.add(theme);
+                localStorage.setItem('theme', theme);
+                if (theme === 'dark-mode') {
+                    themeIcon.className = 'fa-solid fa-sun';
+                    themeToggle.title = 'Cambiar a modo claro';
+                } else {
+                    themeIcon.className = 'fa-solid fa-moon';
+                    themeToggle.title = 'Cambiar a modo oscuro';
+                }
+            };
+            themeToggle.addEventListener('click', () => {
+                const newTheme = document.body.classList.contains('dark-mode') ? 'light-mode' : 'dark-mode';
+                applyTheme(newTheme);
+            });
+            const storedTheme = localStorage.getItem('theme') || 'light-mode';
+            applyTheme(storedTheme);
+
+            const checkAnswerBtn = document.getElementById('check-answer-btn');
+            const showAnswerBtn = document.getElementById('show-answer-btn');
+            const feedbackEl = document.getElementById('feedback');
+            const correctAnswerEl = document.getElementById('correct-answer');
+            checkAnswerBtn.addEventListener('click', () => {
+                const answer = document.getElementById('exercise-answer').value.toLowerCase();
+                showAnswerBtn.style.display = 'none';
+                correctAnswerEl.style.display = 'none';
+                if (answer.includes("y")) {
+                    feedbackEl.textContent = "¡Correcto! Has identificado la conjunción y el efecto de acumulación que crea.";
+                    feedbackEl.style.color = 'var(--accent-color)';
+                } else {
+                    feedbackEl.textContent = "Revisa de nuevo. ¿Qué pequeña palabra se repite una y otra vez para conectar la lista?";
+                    feedbackEl.style.color = 'red';
+                    showAnswerBtn.style.display = 'inline-block';
+                }
+            });
+            showAnswerBtn.addEventListener('click', () => {
+                correctAnswerEl.style.display = 'block';
+                showAnswerBtn.style.display = 'none';
+            });
+
+            document.getElementById('download-pdf').addEventListener('click', () => {
+                const fabContainer = document.querySelector('.fab-container');
+                const content = document.getElementById('module-content');
+                const downloadBtn = document.getElementById('download-pdf');
+                const originalIcon = downloadBtn.innerHTML;
+                fabContainer.style.visibility = 'hidden';
+                downloadBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i>';
+                const opt = {
+                    margin: 10,
+                    filename: 'modulo-polisindeton.pdf',
+                    image: { type: 'jpeg', quality: 0.98 },
+                    html2canvas: { scale: 2, useCORS: true, letterRendering: true },
+                    jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
+                    pagebreak: { mode: ['avoid-all', 'css', 'legacy'] }
+                };
+                html2pdf().from(content).set(opt).save().then(() => {
+                    fabContainer.style.visibility = 'visible';
+                    downloadBtn.innerHTML = originalIcon;
+                }).catch(err => {
+                    console.error("Error al generar el PDF:", err);
+                    fabContainer.style.visibility = 'visible';
+                    downloadBtn.innerHTML = originalIcon;
+                });
+            });
+        });
+    </script>
+</body>
+</html>

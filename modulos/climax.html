@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clímax o Gradación</title>
+
+    <!-- Font Awesome para los iconos -->
+    <!-- Añadido: Font Awesome para los iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+        
+    <link rel="stylesheet" href="../css/modules.css">
+
+</head>
+<body>
+
+    <header class="main-header">
+        <a href="../index.html" class="back-link"><i class="fa-solid fa-arrow-left"></i> Volver</a>
+        <h1><i class="fa-solid fa-stairs"></i>Clímax o Gradación</h1>
+        <button id="theme-toggle" class="theme-toggle-btn" title="Cambiar tema"><i class="fa-solid fa-moon"></i></button>
+    </header>
+
+    <main class="container" id="module-content">
+       
+        <section class="module-section">
+            <h2><i class="fa-solid fa-circle-question"></i>1. ¿Qué es el Clímax o Gradación?</h2>
+            <p>Es una figura retórica que consiste en presentar una serie de palabras o ideas en un <strong>orden ascendente de intensidad</strong> (clímax) o descendente (anticlímax). Esto crea un efecto de amplificación que lleva al lector hacia un punto de máxima emoción o importancia.</p>
+            <div class="formula">
+                <p><strong>Idea A → Idea B (más intensa) → Idea C (aún más intensa)</strong></p>
+            </div>
+            <p>Por ejemplo: "Llegó, vio, venció". La frase ordena las acciones en una progresión lógica y de poder creciente, creando una declaración potente y memorable.</p>
+        </section>
+
+        <section class="module-section">
+            <h2><i class="fa-solid fa-comments"></i>2. Ejemplos en la Vida Cotidiana</h2>
+            <ul>
+                <li><i class="fa-solid fa-person-running fa-fw"></i>"Está herido, está grave, está <mark>muriendo</mark>." (Intensidad ascendente del estado de salud).</li>
+                <li><i class="fa-solid fa-earth-americas fa-fw"></i>"En tierra, en humo, en polvo, en sombra, en <mark>nada</mark>." (Intensidad descendente de la existencia).</li>
+                <li><i class="fa-solid fa-arrow-trend-up fa-fw"></i>"Es un mal comienzo, un pésimo desarrollo y un <mark>final catastrófico</mark>."</li>
+            </ul>
+        </section>
+
+        <section class="module-section">
+            <h2><i class="fa-solid fa-book"></i>3. Clímax en la Biblia (Reina Valera 1960)</h2>
+            <div class="bible-example">
+                <em>"Y no sólo esto, sino que también nos gloriamos en las tribulaciones, sabiendo que la <mark>tribulación produce paciencia</mark>; y la <mark>paciencia, prueba</mark>; y la <mark>prueba, esperanza</mark>." (Romanos 5:3-4)</em>
+                <p><i class="fa-solid fa-magnifying-glass-chart"></i><strong>Análisis:</strong> Este es el ejemplo perfecto de clímax. Pablo construye una cadena de causa y efecto donde cada elemento es cualitativamente superior al anterior. Comienza con algo negativo (tribulación) y lo transforma, paso a paso, en la virtud teológica más elevada (esperanza).</p>
+            </div>
+            <hr>
+            <div class="bible-example">
+                <em>"...añadid a vuestra fe <mark>virtud</mark>; a la virtud, <mark>conocimiento</mark>; al conocimiento, <mark>dominio propio</mark>; al dominio propio, <mark>paciencia</mark>..." (2 Pedro 1:5-6)</em>
+                <p><i class="fa-solid fa-magnifying-glass-chart"></i><strong>Análisis:</strong> Pedro utiliza una estructura de gradación para describir el proceso de maduración cristiana. Insta a los creyentes a construir sobre el fundamento de la fe una serie de virtudes, cada una apoyada en la anterior, en una escalera ascendente hacia la piedad.</p>
+            </div>
+        </section>
+
+        <section class="module-section exercise">
+            <h2><i class="fa-solid fa-pencil-alt"></i>4. Ejercicio Práctico</h2>
+            <p>En el siguiente pasaje, Pablo describe el plan soberano de Dios. Identifica la secuencia de acciones y ordénalas para ver la gradación.</p>
+            <p><em>"Porque a los que antes <mark>conoció</mark>, también los <mark>predestinó</mark> para que fuesen hechos conformes a la imagen de su Hijo... Y a los que predestinó, a éstos también <mark>llamó</mark>; y a los que llamó, a éstos también <mark>justificó</mark>; y a los que justificó, a éstos también <mark>glorificó</mark>." (Romanos 8:29-30)</em></p>
+            <textarea id="exercise-answer" rows="10" placeholder="Escribe la secuencia de 5 palabras en orden..."></textarea>
+            
+            <button id="check-answer-btn"><i class="fa-solid fa-check-circle"></i>Verificar Respuesta</button>
+            <button id="show-answer-btn" style="display: none;"><i class="fa-solid fa-eye"></i>Ver Respuesta Correcta</button>
+            
+            <p id="feedback" class="feedback"></p>
+
+            <div id="correct-answer" class="correct-answer-box" style="display: none;">
+                <h4>Respuesta Detallada:</h4>
+                <p><strong>Secuencia de la Gradación:</strong></p>
+                <ol>
+                    <li>Conoció</li>
+                    <li>Predestinó</li>
+                    <li>Llamó</li>
+                    <li>Justificó</li>
+                    <li>Glorificó</li>
+                </ol>
+                <p><strong>Explicación:</strong> Pablo crea una "cadena de oro" inquebrantable que muestra la progresión del plan de salvación de Dios, desde la eternidad pasada (conoció) hasta la eternidad futura (glorificó), mostrando un aumento en la manifestación de la gracia de Dios en cada paso.</p>
+            </div>
+        </section>
+    </main>
+    
+    <div class="fab-container"><button id="download-pdf" class="fab" title="Descargar como PDF"><i class="fa-solid fa-file-pdf"></i></button></div>
+    <footer class="main-footer"><p>&copy; 2025 - Estudio de Figuras Literarias | Desarrollado por Julio Cesar Pineda Mora</p></footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const themeToggle = document.getElementById('theme-toggle');
+            const themeIcon = themeToggle.querySelector('i');
+            const applyTheme = (theme) => {
+                document.body.classList.remove('light-mode', 'dark-mode');
+                document.body.classList.add(theme);
+                localStorage.setItem('theme', theme);
+                if (theme === 'dark-mode') {
+                    themeIcon.className = 'fa-solid fa-sun';
+                    themeToggle.title = 'Cambiar a modo claro';
+                } else {
+                    themeIcon.className = 'fa-solid fa-moon';
+                    themeToggle.title = 'Cambiar a modo oscuro';
+                }
+            };
+            themeToggle.addEventListener('click', () => {
+                const newTheme = document.body.classList.contains('dark-mode') ? 'light-mode' : 'dark-mode';
+                applyTheme(newTheme);
+            });
+            const storedTheme = localStorage.getItem('theme') || 'light-mode';
+            applyTheme(storedTheme);
+
+            const checkAnswerBtn = document.getElementById('check-answer-btn');
+            const showAnswerBtn = document.getElementById('show-answer-btn');
+            const feedbackEl = document.getElementById('feedback');
+            const correctAnswerEl = document.getElementById('correct-answer');
+            checkAnswerBtn.addEventListener('click', () => {
+                const answer = document.getElementById('exercise-answer').value.toLowerCase().replace(/[\s,;.]+/g, ' ').trim();
+                const sequence = "conoció predestinó llamó justificó glorificó";
+                showAnswerBtn.style.display = 'none';
+                correctAnswerEl.style.display = 'none';
+                if (answer.includes("conoció") && answer.includes("predestinó") && answer.includes("llamó") && answer.includes("justificó") && answer.includes("glorificó")) {
+                    feedbackEl.textContent = "¡Excelente! Has identificado la secuencia completa de la gradación.";
+                    feedbackEl.style.color = 'var(--accent-color)';
+                } else {
+                    feedbackEl.textContent = "Inténtalo de nuevo. Asegúrate de incluir los cinco verbos en el orden correcto.";
+                    feedbackEl.style.color = 'red';
+                    showAnswerBtn.style.display = 'inline-block';
+                }
+            });
+            showAnswerBtn.addEventListener('click', () => {
+                correctAnswerEl.style.display = 'block';
+                showAnswerBtn.style.display = 'none';
+            });
+
+            document.getElementById('download-pdf').addEventListener('click', () => {
+                const fabContainer = document.querySelector('.fab-container');
+                const content = document.getElementById('module-content');
+                const downloadBtn = document.getElementById('download-pdf');
+                const originalIcon = downloadBtn.innerHTML;
+                fabContainer.style.visibility = 'hidden';
+                downloadBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i>';
+                const opt = {
+                    margin: 10,
+                    filename: 'modulo-climax.pdf',
+                    image: { type: 'jpeg', quality: 0.98 },
+                    html2canvas: { scale: 2, useCORS: true, letterRendering: true },
+                    jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
+                    pagebreak: { mode: ['avoid-all', 'css', 'legacy'] }
+                };
+                html2pdf().from(content).set(opt).save().then(() => {
+                    fabContainer.style.visibility = 'visible';
+                    downloadBtn.innerHTML = originalIcon;
+                }).catch(err => {
+                    console.error("Error al generar el PDF:", err);
+                    fabContainer.style.visibility = 'visible';
+                    downloadBtn.innerHTML = originalIcon;
+                });
+            });
+        });
+    </script>
+</body>
+</html>

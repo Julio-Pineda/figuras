@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Onomatopeya</title>
+
+    <!-- Añadido: Font Awesome para los iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+        
+    <link rel="stylesheet" href="../css/modules.css">
+
+</head>
+<body>
+
+    <header class="main-header">
+        <a href="../index.html" class="back-link"><i class="fa-solid fa-arrow-left"></i> Volver</a>
+        <h1><i class="fa-solid fa-volume-high"></i>Onomatopeya</h1>
+        <button id="theme-toggle" class="theme-toggle-btn" title="Cambiar tema">
+            <i class="fa-solid fa-moon"></i>
+        </button>
+    </header>
+
+    <main class="container" id="module-content">
+       
+        <section class="module-section">
+            <h2><i class="fa-solid fa-circle-question"></i>1. ¿Qué es una Onomatopeya?</h2>
+            <p>La onomatopeya es el uso de palabras cuya pronunciación <strong>imita o sugiere el sonido</strong> de aquello que describen. Es una herramienta muy poderosa para hacer que el lector "escuche" lo que está leyendo, creando una experiencia más vívida y sensorial.</p>
+            <div class="formula">
+                <p><i class="fa-solid fa-ear-listen"></i><strong>Palabra que suena como el objeto</strong> = <mark>Efecto auditivo y realista</mark></p>
+            </div>
+            <p>Por ejemplo, en lugar de decir "el reloj hacía su sonido característico", decimos "el <mark>tic-tac</mark> del reloj llenaba el silencio". La palabra "tic-tac" imita directamente el sonido real.</p>
+        </section>
+
+        <section class="module-section">
+            <h2><i class="fa-solid fa-comments"></i>2. Ejemplos en la Vida Cotidiana</h2>
+            <ul>
+                <li><i class="fa-solid fa-dog fa-fw"></i>El <mark>guau</mark> de un perro, el <mark>miau</mark> de un gato.</li>
+                <li><i class="fa-solid fa-bug fa-fw"></i>El <mark>zumbido</mark> de una abeja.</li>
+                <li><i class="fa-solid fa-water fa-fw"></i>El <mark>chasquido</mark> de un látigo o el <mark>chapoteo</mark> en el agua.</li>
+                <li><i class="fa-solid fa-comment-dots fa-fw"></i>En los cómics: "<mark>¡Boom!</mark>", "<mark>¡Splash!</mark>", "<mark>¡Crash!</mark>".</li>
+            </ul>
+        </section>
+
+        <section class="module-section">
+            <h2><i class="fa-solid fa-book"></i>3. Onomatopeyas en la Biblia (Reina Valera 1960)</h2>
+            <p>Si bien la onomatopeya pura depende mucho del idioma original, la traducción al español utiliza palabras que evocan fuertemente un sonido específico.</p>
+            <div class="bible-example">
+                <em>"Y tras el viento un terremoto; pero Jehová no estaba en el terremoto. Y tras el terremoto un fuego; pero Jehová no estaba en el fuego. Y tras el fuego un <mark>silbo apacible y delicado</mark>." (1 Reyes 19:11-12)</em>
+                <p><i class="fa-solid fa-magnifying-glass-chart"></i><strong>Análisis:</strong> La palabra "silbo" es onomatopéyica, ya que su sonido suave, con la letra 's', imita el susurro del viento. Contrasta fuertemente con los sonidos violentos anteriores (terremoto, fuego) para mostrar que la presencia de Dios se manifestó en la calma.</p>
+            </div>
+            <hr>
+            <div class="bible-example">
+                <em>"Voz de tus atalayas. Alzarán la voz, juntamente darán voces de júbilo; porque ojo a ojo verán que Jehová vuelve a traer a Sion. <mark>Prorrumpid</mark> en alabanzas, cantad juntamente, soledades de Jerusalén..." (Isaías 52:8-9)</em>
+                <p><i class="fa-solid fa-magnifying-glass-chart"></i><strong>Análisis:</strong> "Prorrumpir" es una palabra que sugiere una explosión súbita de sonido. Su sonoridad fuerte y vibrante evoca la imagen de un estallido de alegría y alabanza, un sonido que rompe el silencio.</p>
+            </div>
+             <hr>
+            <div class="bible-example">
+                <em>"He aquí, yo estoy a la puerta y llamo; si alguno oye mi voz y abre la puerta, entraré a él, y cenaré con él, y él conmigo." (Apocalipsis 3:20)</em>
+                <p><i class="fa-solid fa-magnifying-glass-chart"></i><strong>Análisis:</strong> El verbo "llamo" en español, aunque común, se puede asociar con el sonido repetitivo de tocar, como un "<mark>toc, toc</mark>". Es una acción que inherentemente produce un sonido, haciendo la escena más tangible para el lector.</p>
+            </div>
+        </section>
+
+        <section class="module-section exercise">
+            <h2><i class="fa-solid fa-pencil-alt"></i>4. Ejercicio Práctico</h2>
+            <p>Lee el siguiente versículo. Identifica la palabra que describe un sonido de forma vívida y explica qué imagen auditiva crea en tu mente.</p>
+            <p><em>"La voz de Jehová sobre las aguas; truena el Dios de gloria, Jehová sobre las muchas aguas. [...] La voz de Jehová que <mark>quebranta</mark> los cedros..." (Salmo 29:3, 5)</em></p>
+            <textarea id="exercise-answer" rows="10" placeholder="Palabra Onomatopéyica: ...&#10;Imagen Auditiva: ..."></textarea>
+            
+            <button id="check-answer-btn"><i class="fa-solid fa-check-circle"></i>Verificar Respuesta</button>
+            <button id="show-answer-btn" style="display: none;"><i class="fa-solid fa-eye"></i>Ver Respuesta Correcta</button>
+            
+            <p id="feedback" class="feedback"></p>
+
+            <div id="correct-answer" class="correct-answer-box" style="display: none;">
+                <h4>Respuesta Detallada:</h4>
+                <p><strong>Palabra Onomatopéyica:</strong> "Quebranta" (y también "truena").</p>
+                <p><strong>Imagen Auditiva:</strong> La palabra "quebranta" tiene un sonido fuerte y cortante (/k/, /br/, /nt/) que imita el sonido de algo que se rompe o quiebra violentamente, como la madera de un gran árbol al ser partida por un rayo. Crea una sensación de poder inmenso y un sonido estruendoso y seco.</p>
+            </div>
+        </section>
+    </main>
+    
+    <div class="fab-container">
+        <button id="download-pdf" class="fab" title="Descargar como PDF">
+             <i class="fa-solid fa-file-pdf"></i>
+        </button>
+    </div>
+
+    <footer class="main-footer">
+        <p>&copy; 2025 - Estudio de Figuras Literarias | Desarrollado por Julio Cesar Pineda Mora</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- LÓGICA 1: MANEJO DEL TEMA (MODO OSCURO/CLARO) CON ICONO DINÁMICO ---
+            const themeToggle = document.getElementById('theme-toggle');
+            const themeIcon = themeToggle.querySelector('i');
+
+            const applyTheme = (theme) => {
+                document.body.classList.remove('light-mode', 'dark-mode');
+                document.body.classList.add(theme);
+                localStorage.setItem('theme', theme);
+                if (theme === 'dark-mode') {
+                    themeIcon.className = 'fa-solid fa-sun';
+                    themeToggle.title = 'Cambiar a modo claro';
+                } else {
+                    themeIcon.className = 'fa-solid fa-moon';
+                    themeToggle.title = 'Cambiar a modo oscuro';
+                }
+            };
+            themeToggle.addEventListener('click', () => {
+                const newTheme = document.body.classList.contains('dark-mode') ? 'light-mode' : 'dark-mode';
+                applyTheme(newTheme);
+            });
+            const storedTheme = localStorage.getItem('theme') || 'light-mode';
+            applyTheme(storedTheme);
+
+            // --- LÓGICA 2: EJERCICIO INTERACTIVO ---
+            const checkAnswerBtn = document.getElementById('check-answer-btn');
+            const showAnswerBtn = document.getElementById('show-answer-btn');
+            const feedbackEl = document.getElementById('feedback');
+            const correctAnswerEl = document.getElementById('correct-answer');
+            checkAnswerBtn.addEventListener('click', () => {
+                const answer = document.getElementById('exercise-answer').value.toLowerCase();
+                showAnswerBtn.style.display = 'none';
+                correctAnswerEl.style.display = 'none';
+                if (answer.includes("quebranta") || answer.includes("truena")) {
+                    feedbackEl.textContent = "¡Correcto! Has identificado una palabra que imita un sonido de poder.";
+                    feedbackEl.style.color = 'var(--accent-color)';
+                } else {
+                    feedbackEl.textContent = "Intenta de nuevo. ¿Qué palabra suena como una acción violenta?";
+                    feedbackEl.style.color = 'red';
+                    showAnswerBtn.style.display = 'inline-block';
+                }
+            });
+            showAnswerBtn.addEventListener('click', () => {
+                correctAnswerEl.style.display = 'block';
+                showAnswerBtn.style.display = 'none';
+            });
+
+            // --- LÓGICA 3: GENERADOR DE PDF CON FEEDBACK DE CARGA ---
+            document.getElementById('download-pdf').addEventListener('click', () => {
+                const fabContainer = document.querySelector('.fab-container');
+                const content = document.getElementById('module-content');
+                const downloadBtn = document.getElementById('download-pdf');
+                const originalIcon = downloadBtn.innerHTML;
+
+                fabContainer.style.visibility = 'hidden';
+                downloadBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i>';
+
+                const opt = {
+                    margin: 10,
+                    filename: 'modulo-onomatopeya.pdf',
+                    image: { type: 'jpeg', quality: 0.98 },
+                    html2canvas: { scale: 2, useCORS: true, letterRendering: true },
+                    jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
+                    pagebreak: { mode: ['avoid-all', 'css', 'legacy'] }
+                };
+
+                html2pdf().from(content).set(opt).save().then(() => {
+                    fabContainer.style.visibility = 'visible';
+                    downloadBtn.innerHTML = originalIcon;
+                }).catch(err => {
+                    console.error("Error al generar el PDF:", err);
+                    fabContainer.style.visibility = 'visible';
+                    downloadBtn.innerHTML = originalIcon;
+                });
+            });
+        });
+    </script>
+</body>
+</html>

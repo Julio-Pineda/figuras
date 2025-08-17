@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Símil o Comparación</title>
+
+    <!-- Añadido: Font Awesome para los iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+        
+    <link rel="stylesheet" href="../css/modules.css">
+
+</head>
+<body>
+
+    <header class="main-header">
+        <a href="../index.html" class="back-link"><i class="fa-solid fa-arrow-left"></i> Volver</a>
+        <h1><i class="fa-solid fa-scale-balanced"></i>Símil o Comparación</h1>
+        <button id="theme-toggle" class="theme-toggle-btn" title="Cambiar tema">
+            <i class="fa-solid fa-moon"></i>
+        </button>
+    </header>
+
+    <main class="container" id="module-content">
+       
+        <section class="module-section">
+            <h2><i class="fa-solid fa-circle-question"></i>1. ¿Qué es un Símil?</h2>
+            <p>El símil, o comparación, es una figura que establece una relación de semejanza entre dos elementos (uno real y uno imaginario). La característica principal y que lo diferencia de la metáfora es que <strong>siempre utiliza un nexo comparativo</strong> explícito.</p>
+            <div class="formula">
+                <p><i class="fa-solid fa-link"></i><strong>Término Real (A)</strong> + <mark>Nexo ("como", "parece", "tal cual")</mark> + <strong>Término Imaginario (B)</strong></p>
+            </div>
+            <p>Por ejemplo, en "Tus ojos brillan <mark>como</mark> dos luceros", la comparación es directa y evidente gracias al nexo "como". No se afirma que los ojos *son* luceros, sino que se *parecen* a ellos en su brillo.</p>
+        </section>
+
+        <section class="module-section">
+            <h2><i class="fa-solid fa-comments"></i>2. Ejemplos en la Vida Cotidiana</h2>
+            <ul>
+                <li><i class="fa-solid fa-horse-head fa-fw"></i>"Es terco <mark>como</mark> una mula." (Se compara la terquedad de una persona con la de una mula).</li>
+                <li><i class="fa-solid fa-shirt fa-fw"></i>"Sus manos, suaves <mark>cual</mark> terciopelo." (Se compara la suavidad de las manos con la del terciopelo).</li>
+                <li><i class="fa-solid fa-person-running fa-fw"></i>"El atleta corría <mark>tal que</mark> una gacela." (Se compara la velocidad y agilidad del atleta con las de una gacela).</li>
+            </ul>
+        </section>
+
+        <section class="module-section">
+            <h2><i class="fa-solid fa-book"></i>3. Símiles en la Biblia (Reina Valera 1960)</h2>
+            <div class="bible-example">
+                <em>"Será <mark>como</mark> árbol plantado junto a corrientes de aguas, Que da su fruto en su tiempo, Y su hoja no cae..." (Salmo 1:3)</em>
+                <p><i class="fa-solid fa-magnifying-glass-chart"></i><strong>Análisis:</strong> La persona justa (Término Real) se compara explícitamente con un "árbol frondoso" (Término Imaginario) usando el nexo "como". La semejanza radica en la prosperidad, estabilidad y capacidad de dar fruto que ambos poseen gracias a estar conectados a una fuente de vida (Dios / corrientes de aguas).</p>
+            </div>
+            <hr>
+            <div class="bible-example">
+                <em>"...<mark>como</mark> cordero fue llevado al matadero; y <mark>como</mark> oveja delante de sus trasquiladores, enmudeció, y no abrió su boca." (Isaías 53:7)</em>
+                <p><i class="fa-solid fa-magnifying-glass-chart"></i><strong>Análisis:</strong> Se compara la sumisión y silencio del siervo sufriente (Término Real) con la de un "cordero" y una "oveja" (Términos Imaginarios) en momentos de sacrificio. El nexo "como" hace la comparación directa e inconfundible.</p>
+            </div>
+             <hr>
+            <div class="bible-example">
+                <em>"...sed, pues, prudentes <mark>como</mark> serpientes, y sencillos <mark>como</mark> palomas." (Mateo 10:16)</em>
+                <p><i class="fa-solid fa-magnifying-glass-chart"></i><strong>Análisis:</strong> Este versículo contiene dos símiles. Se exhorta a los discípulos (Término Real) a adoptar dos cualidades: la prudencia, comparándola con la de las "serpientes" (Término Imaginario), y la sencillez, comparándola con la de las "palomas" (Término Imaginario).</p>
+            </div>
+        </section>
+
+        <section class="module-section exercise">
+            <h2><i class="fa-solid fa-pencil-alt"></i>4. Ejercicio Práctico</h2>
+            <p>Lee el siguiente versículo. Identifica el término real, el imaginario y el nexo del símil, y explica brevemente su significado.</p>
+            <p><em>"<mark>Como</mark> el agua fría al alma sedienta, Así son las buenas nuevas de lejanas tierras." (Proverbios 25:25)</em></p>
+            <textarea id="exercise-answer" rows="10" placeholder="Término Real: ...&#10;Término Imaginario: ...&#10;Nexo: ... &#10;Explicación: ..."></textarea>
+            
+            <button id="check-answer-btn"><i class="fa-solid fa-check-circle"></i>Verificar Respuesta</button>
+            <button id="show-answer-btn" style="display: none;"><i class="fa-solid fa-eye"></i>Ver Respuesta Correcta</button>
+            
+            <p id="feedback" class="feedback"></p>
+
+            <div id="correct-answer" class="correct-answer-box" style="display: none;">
+                <h4>Respuesta Detallada:</h4>
+                <p><strong>Término Real:</strong> "Las buenas nuevas de lejanas tierras".</p>
+                <p><strong>Término Imaginario:</strong> "El agua fría al alma sedienta".</p>
+                <p><strong>Nexo:</strong> "Como" y "Así son".</p>
+                <p><strong>Explicación:</strong> El símil compara el efecto reconfortante y vivificante que tienen las buenas noticias (especialmente las que se esperan desde lejos) con la sensación de alivio y placer que siente una persona sedienta al beber agua fría. Ambos satisfacen una profunda necesidad o anhelo.</p>
+            </div>
+        </section>
+    </main>
+    
+    <div class="fab-container">
+        <button id="download-pdf" class="fab" title="Descargar como PDF">
+             <i class="fa-solid fa-file-pdf"></i>
+        </button>
+    </div>
+
+<footer class="main-footer">
+    <p>&copy; 2025 - Estudio de Figuras Literarias | Desarrollado por Julio Cesar Pineda Mora</p>
+</footer>
+
+    <script src="../lib/html2pdf.bundle.min.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- LÓGICA 1: MANEJO DEL TEMA (MODO OSCURO/CLARO) CON ICONO DINÁMICO ---
+            const themeToggle = document.getElementById('theme-toggle');
+            const themeIcon = themeToggle.querySelector('i');
+
+            const applyTheme = (theme) => {
+                document.body.classList.remove('light-mode', 'dark-mode');
+                document.body.classList.add(theme);
+                localStorage.setItem('theme', theme);
+                if (theme === 'dark-mode') {
+                    themeIcon.className = 'fa-solid fa-sun';
+                    themeToggle.title = 'Cambiar a modo claro';
+                } else {
+                    themeIcon.className = 'fa-solid fa-moon';
+                    themeToggle.title = 'Cambiar a modo oscuro';
+                }
+            };
+            themeToggle.addEventListener('click', () => {
+                const newTheme = document.body.classList.contains('dark-mode') ? 'light-mode' : 'dark-mode';
+                applyTheme(newTheme);
+            });
+            const storedTheme = localStorage.getItem('theme') || 'light-mode';
+            applyTheme(storedTheme);
+
+
+            // --- LÓGICA 2: EJERCICIO INTERACTIVO ---
+            const checkAnswerBtn = document.getElementById('check-answer-btn');
+            const showAnswerBtn = document.getElementById('show-answer-btn');
+            const feedbackEl = document.getElementById('feedback');
+            const correctAnswerEl = document.getElementById('correct-answer');
+            checkAnswerBtn.addEventListener('click', () => {
+                const answer = document.getElementById('exercise-answer').value.toLowerCase();
+                showAnswerBtn.style.display = 'none';
+                correctAnswerEl.style.display = 'none';
+                if (answer.includes("buenas nuevas") && answer.includes("agua fría")) {
+                    feedbackEl.textContent = "¡Correcto! Has identificado perfectamente los dos elementos de la comparación.";
+                    feedbackEl.style.color = 'var(--accent-color)';
+                } else {
+                    feedbackEl.textContent = "Respuesta incorrecta. Inténtalo de nuevo o revisa la respuesta correcta.";
+                    feedbackEl.style.color = 'red';
+                    showAnswerBtn.style.display = 'inline-block';
+                }
+            });
+            showAnswerBtn.addEventListener('click', () => {
+                correctAnswerEl.style.display = 'block';
+                showAnswerBtn.style.display = 'none';
+            });
+
+
+            // --- LÓGICA 3: GENERADOR DE PDF CON FEEDBACK DE CARGA ---
+            document.getElementById('download-pdf').addEventListener('click', () => {
+                const fabContainer = document.querySelector('.fab-container');
+                const content = document.getElementById('module-content');
+                const downloadBtn = document.getElementById('download-pdf');
+                const originalIcon = downloadBtn.innerHTML;
+
+                fabContainer.style.visibility = 'hidden';
+                downloadBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i>'; // Icono de carga
+
+                const opt = {
+                    margin:       10,
+                    filename:     'modulo-simil.pdf', // Nombre del archivo actualizado
+                    image:        { type: 'jpeg', quality: 0.98 },
+                    html2canvas:  { scale: 2, useCORS: true, letterRendering: true },
+                    jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' },
+                    pagebreak:    { mode: ['avoid-all', 'css', 'legacy'] }
+                };
+
+                html2pdf().from(content).set(opt).save().then(() => {
+                    fabContainer.style.visibility = 'visible';
+                    downloadBtn.innerHTML = originalIcon; // Restaurar icono original
+                }).catch(err => {
+                    // En caso de error, también restauramos el botón
+                    console.error("Error al generar el PDF:", err);
+                    fabContainer.style.visibility = 'visible';
+                    downloadBtn.innerHTML = originalIcon;
+                });
+            });
+        });
+    </script>
+</body>
+</html>

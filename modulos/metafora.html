@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metáfora</title>
+
+    <!-- Añadido: Font Awesome para los iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+        
+    <link rel="stylesheet" href="../css/modules.css">
+
+
+</head>
+<body>
+
+    <header class="main-header">
+        <a href="../index.html" class="back-link"><i class="fa-solid fa-arrow-left"></i> Volver</a>
+        <h1><i class="fa-solid fa-lightbulb"></i>Metáfora</h1>
+        <button id="theme-toggle" class="theme-toggle-btn" title="Cambiar tema">
+            <i class="fa-solid fa-moon"></i>
+        </button>
+    </header>
+
+    <main class="container" id="module-content">
+        <section class="module-section">
+            <h2><i class="fa-solid fa-circle-question"></i>1. ¿Qué es una Metáfora?</h2>
+            <p>En palabras simples, una metáfora es <strong>llamar a una cosa con el nombre de otra</strong> porque comparten alguna característica. Es una comparación directa y poética, pero sin usar la palabra "como".</p>
+            <div class="formula">
+                <p><i class="fa-solid fa-right-left"></i><strong>Término Real (A)</strong> se presenta como <strong>Término Imaginario (B)</strong></p>
+            </div>
+            <p>Por ejemplo, en "Tus ojos son <mark>dos luceros</mark>", el término real (ojos) se identifica directamente con el término imaginario (luceros) por la cualidad que comparten: el brillo.</p>
+        </section>
+
+        <section class="module-section">
+            <h2><i class="fa-solid fa-comments"></i>2. Ejemplos en la Vida Cotidiana</h2>
+            <ul>
+                <li><i class="fa-solid fa-tint fa-fw"></i>"Esa noticia fue un <mark>balde de agua fría</mark>." (Real: noticia / Imaginario: balde de agua fría / Semejanza: sorpresa desagradable).</li>
+                <li><i class="fa-solid fa-fire fa-fw"></i>"Está que <mark>echa chispas</mark>." (Real: persona / Imaginario: objeto que echa chispas / Semejanza: estar muy enojado).</li>
+                <li><i class="fa-solid fa-user-tag fa-fw"></i>"Mi primo es una <mark>oveja negra</mark>." (Real: primo / Imaginario: oveja negra / Semejanza: ser diferente al resto del grupo).</li>
+            </ul>
+        </section>
+
+        <section class="module-section">
+            <h2><i class="fa-solid fa-book"></i>3. Metáforas en la Biblia (Reina Valera 1960)</h2>
+            <div class="bible-example">
+                <em>"Yo soy la <mark>luz</mark> del mundo; el que me sigue, no andará en tinieblas, sino que tendrá la luz de la vida." (Juan 8:12)</em>
+                <p><i class="fa-solid fa-magnifying-glass-chart"></i><strong>Análisis:</strong> Jesús (Término Real) se identifica como "la luz" (Término Imaginario). La semejanza es que la luz guía, revela la verdad y disipa la oscuridad, que a su vez es una metáfora de la ignorancia y el pecado.</p>
+            </div>
+            <hr>
+            <div class="bible-example">
+                <em>"Vosotros sois la <mark>sal</mark> de la tierra..." (Mateo 5:13)</em>
+                <p><i class="fa-solid fa-magnifying-glass-chart"></i><strong>Análisis:</strong> Los creyentes (Término Real) son identificados como "la sal" (Término Imaginario). En la antigüedad, la sal preservaba los alimentos de la corrupción y daba sabor. La metáfora indica que los creyentes deben ser una influencia que preserve la moral y dé "sabor" o sentido al mundo.</p>
+            </div>
+             <hr>
+            <div class="bible-example">
+                <em>"Jehová es mi <mark>pastor</mark>; nada me faltará." (Salmo 23:1)</em>
+                <p><i class="fa-solid fa-magnifying-glass-chart"></i><strong>Análisis:</strong> Dios (Término Real) es presentado como un "pastor" (Término Imaginario). Un pastor cuida, guía, protege y alimenta a sus ovejas. La metáfora transmite una profunda sensación de confianza y cuidado divino.</p>
+            </div>
+        </section>
+
+        <section class="module-section exercise">
+            <h2><i class="fa-solid fa-pencil-alt"></i>4. Ejercicio Práctico</h2>
+            <p>Lee el siguiente versículo. Identifica el término real y el imaginario de la metáfora y explica brevemente su significado.</p>
+            <p><em>"Lámpara es a mis pies tu palabra, Y lumbrera a mi camino." (Salmo 119:105)</em></p>
+            <textarea id="exercise-answer" rows="10" placeholder="Término Real: ...&#10;Término Imaginario: ...&#10;Explicación: ..."></textarea>
+            
+            <button id="check-answer-btn"><i class="fa-solid fa-check-circle"></i>Verificar Respuesta</button>
+            <button id="show-answer-btn" style="display: none;"><i class="fa-solid fa-eye"></i>Ver Respuesta Correcta</button>
+            
+            <p id="feedback" class="feedback"></p>
+
+            <div id="correct-answer" class="correct-answer-box" style="display: none;">
+                <h4>Respuesta Detallada:</h4>
+                <p><strong>Término Real:</strong> "Tu palabra" (La enseñanza de Dios).</p>
+                <p><strong>Término Imaginario:</strong> "Lámpara" y "Lumbrera".</p>
+                <p><strong>Explicación:</strong> La palabra de Dios se compara con una fuente de luz porque, al igual que una lámpara ilumina los pasos inmediatos en la oscuridad y una lumbrera alumbra el camino a lo lejos, sus enseñanzas guían las decisiones diarias y el rumbo general de la vida de una persona.</p>
+            </div>
+        </section>
+    </main>
+    
+    <div class="fab-container">
+        <button id="download-pdf" class="fab" title="Descargar como PDF">
+            <i class="fa-solid fa-file-pdf"></i>
+        </button>
+    </div>
+
+<footer class="main-footer">
+    <p>&copy; 2025 - Estudio de Figuras Literarias | Desarrollado por Julio Cesar Pineda Mora</p>
+</footer>
+
+    <script src="../lib/html2pdf.bundle.min.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- LÓGICA 1: MANEJO DEL TEMA (MODO OSCURO/CLARO) CON ICONO DINÁMICO ---
+            const themeToggle = document.getElementById('theme-toggle');
+            const themeIcon = themeToggle.querySelector('i');
+
+            const applyTheme = (theme) => {
+                document.body.classList.remove('light-mode', 'dark-mode');
+                document.body.classList.add(theme);
+                localStorage.setItem('theme', theme);
+                if (theme === 'dark-mode') {
+                    themeIcon.className = 'fa-solid fa-sun';
+                    themeToggle.title = 'Cambiar a modo claro';
+                } else {
+                    themeIcon.className = 'fa-solid fa-moon';
+                    themeToggle.title = 'Cambiar a modo oscuro';
+                }
+            };
+            themeToggle.addEventListener('click', () => {
+                const newTheme = document.body.classList.contains('dark-mode') ? 'light-mode' : 'dark-mode';
+                applyTheme(newTheme);
+            });
+            const storedTheme = localStorage.getItem('theme') || 'light-mode';
+            applyTheme(storedTheme);
+
+
+            // --- LÓGICA 2: VERIFICACIÓN DEL EJERCICIO (SIN CAMBIOS) ---
+            const checkAnswerBtn = document.getElementById('check-answer-btn');
+            const showAnswerBtn = document.getElementById('show-answer-btn');
+            const feedbackEl = document.getElementById('feedback');
+            const correctAnswerEl = document.getElementById('correct-answer');
+            checkAnswerBtn.addEventListener('click', () => {
+                const answer = document.getElementById('exercise-answer').value.toLowerCase();
+                showAnswerBtn.style.display = 'none';
+                correctAnswerEl.style.display = 'none';
+                if (answer.includes("palabra") && (answer.includes("lámpara") || answer.includes("lumbrera"))) {
+                    feedbackEl.textContent = "¡Excelente! Has identificado los elementos clave de la metáfora.";
+                    feedbackEl.style.color = 'var(--accent-color)';
+                } else {
+                    feedbackEl.textContent = "Respuesta incorrecta. Inténtalo de nuevo o revisa la respuesta correcta.";
+                    feedbackEl.style.color = 'red';
+                    showAnswerBtn.style.display = 'inline-block';
+                }
+            });
+            showAnswerBtn.addEventListener('click', () => {
+                correctAnswerEl.style.display = 'block';
+                showAnswerBtn.style.display = 'none';
+            });
+
+            // --- LÓGICA 3: GENERADOR DE PDF CON FEEDBACK DE CARGA ---
+            document.getElementById('download-pdf').addEventListener('click', () => {
+                const fabContainer = document.querySelector('.fab-container');
+                const content = document.getElementById('module-content');
+                const downloadBtn = document.getElementById('download-pdf');
+                const originalIcon = downloadBtn.innerHTML;
+
+                fabContainer.style.visibility = 'hidden';
+                downloadBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i>'; // Icono de carga
+
+                const opt = {
+                    margin: 10,
+                    filename: 'modulo-metafora.pdf',
+                    image: { type: 'jpeg', quality: 0.98 },
+                    html2canvas: { scale: 2, useCORS: true, letterRendering: true },
+                    jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
+                    pagebreak: { mode: ['avoid-all', 'css', 'legacy'] }
+                };
+
+                html2pdf().from(content).set(opt).save().then(() => {
+                    fabContainer.style.visibility = 'visible';
+                    downloadBtn.innerHTML = originalIcon; // Restaurar icono original
+                }).catch(err => {
+                    // En caso de error, también restauramos el botón
+                    console.error("Error al generar el PDF:", err);
+                    fabContainer.style.visibility = 'visible';
+                    downloadBtn.innerHTML = originalIcon;
+                });
+            });
+        });
+    </script>
+</body>
+</html>

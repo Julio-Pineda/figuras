@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sinécdoque</title>
+
+    <!-- Añadido: Font Awesome para los iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+        
+    <link rel="stylesheet" href="../css/modules.css">
+
+</head>
+<body>
+
+    <header class="main-header">
+        <a href="../index.html" class="back-link"><i class="fa-solid fa-arrow-left"></i> Volver</a>
+        <h1><i class="fa-solid fa-puzzle-piece"></i>Sinécdoque</h1>
+        <button id="theme-toggle" class="theme-toggle-btn" title="Cambiar tema">
+            <i class="fa-solid fa-moon"></i>
+        </button>
+    </header>
+
+    <main class="container" id="module-content">
+       
+        <section class="module-section">
+            <h2><i class="fa-solid fa-circle-question"></i>1. ¿Qué es una Sinécdoque?</h2>
+            <p>La sinécdoque es un tipo específico de metonimia que consiste en designar una cosa con el nombre de otra con la que existe una <strong>relación de inclusión</strong>. La relación más común es nombrar <strong>la parte por el todo</strong>, o <strong>el todo por la parte</strong>.</p>
+            <div class="formula">
+                <p><i class="fa-solid fa-up-right-and-down-left-from-center"></i><strong>La parte por el todo:</strong> "Cien <mark>cabezas</mark> de ganado"<br><i class="fa-solid fa-down-left-and-up-right-to-center"></i><strong>El todo por la parte:</strong> "<mark>España</mark> ganó el torneo"</p>
+            </div>
+            <p>Es un recurso que permite enfocar la atención en un detalle significativo o generalizar una idea de forma concisa.</p>
+        </section>
+
+        <section class="module-section">
+            <h2><i class="fa-solid fa-comments"></i>2. Ejemplos en la Vida Cotidiana</h2>
+            <ul>
+                <li><i class="fa-solid fa-house-chimney fa-fw"></i>"Quedó sin <mark>techo</mark> donde vivir." (La parte, el techo, por el todo, la casa).</li>
+                <li><i class="fa-solid fa-hands-helping fa-fw"></i>"Necesito un par de <mark>manos</mark> para ayudarme." (La parte, las manos, por la persona entera).</li>
+                <li><i class="fa-solid fa-shield-halved fa-fw"></i>"El <mark>acero</mark> chocó contra el escudo." (El material, acero, por el objeto, la espada).</li>
+                <li><i class="fa-solid fa-user fa-fw"></i>"El <mark>hombre</mark> llegó a la luna." (El singular, el hombre, por el plural, la humanidad).</li>
+            </ul>
+        </section>
+
+        <section class="module-section">
+            <h2><i class="fa-solid fa-book"></i>3. Sinécdoques en la Biblia (Reina Valera 1960)</h2>
+            <div class="bible-example">
+                <em>"Y éramos todas las personas en la nave doscientas setenta y seis <mark>almas</mark>." (Hechos 27:37)</em>
+                <p><i class="fa-solid fa-magnifying-glass-chart"></i><strong>Análisis:</strong> Se utiliza la palabra "almas" (la parte inmaterial y esencial) para referirse a las personas completas (el todo). Es una forma muy común en la Biblia para enfatizar la naturaleza humana de los individuos contados.</p>
+            </div>
+            <hr>
+            <div class="bible-example">
+                <em>"...porque no tenemos lucha contra <mark>sangre y carne</mark>, sino contra principados..." (Efesios 6:12)</em>
+                <p><i class="fa-solid fa-magnifying-glass-chart"></i><strong>Análisis:</strong> La expresión "sangre y carne" se refiere a los seres humanos en su totalidad. Se nombran los componentes materiales y vitales (la parte) para designar a la persona completa (el todo), destacando su naturaleza mortal y terrenal.</p>
+            </div>
+             <hr>
+            <div class="bible-example">
+                <em>"Con el sudor de tu <mark>rostro</mark> comerás el pan hasta que vuelvas a la tierra..." (Génesis 3:19)</em>
+                <p><i class="fa-solid fa-magnifying-glass-chart"></i><strong>Análisis:</strong> El "rostro" representa a toda la persona y su esfuerzo. El sudor no solo brota del rostro, pero se menciona esta parte visible para representar el trabajo arduo de todo el cuerpo.</p>
+            </div>
+        </section>
+
+        <section class="module-section exercise">
+            <h2><i class="fa-solid fa-pencil-alt"></i>4. Ejercicio Práctico</h2>
+            <p>Lee la siguiente petición de la oración del Padrenuestro. Identifica el término usado como sinécdoque y explica qué representa.</p>
+            <p><em>"El <mark>pan</mark> nuestro de cada día, dánoslo hoy." (Mateo 6:11)</em></p>
+            <textarea id="exercise-answer" rows="10" placeholder="Término en Sinécdoque: ...&#10;¿Qué representa?: ...&#10;Explicación: ..."></textarea>
+            
+            <button id="check-answer-btn"><i class="fa-solid fa-check-circle"></i>Verificar Respuesta</button>
+            <button id="show-answer-btn" style="display: none;"><i class="fa-solid fa-eye"></i>Ver Respuesta Correcta</button>
+            
+            <p id="feedback" class="feedback"></p>
+
+            <div id="correct-answer" class="correct-answer-box" style="display: none;">
+                <h4>Respuesta Detallada:</h4>
+                <p><strong>Término en Sinécdoque:</strong> "El pan".</p>
+                <p><strong>¿Qué representa?:</strong> Todas las provisiones y el sustento necesarios para la vida.</p>
+                <p><strong>Explicación:</strong> Se nombra "el pan", que era el alimento más básico y fundamental (la parte), para pedir por todas las necesidades diarias, tanto físicas como espirituales (el todo). Es una sinécdoque de lo específico por lo general.</p>
+            </div>
+        </section>
+    </main>
+    
+    <div class="fab-container">
+        <button id="download-pdf" class="fab" title="Descargar como PDF">
+             <i class="fa-solid fa-file-pdf"></i>
+        </button>
+    </div>
+
+    <footer class="main-footer">
+        <p>&copy; 2025 - Estudio de Figuras Literarias | Desarrollado por Julio Cesar Pineda Mora</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- LÓGICA 1: MANEJO DEL TEMA (MODO OSCURO/CLARO) CON ICONO DINÁMICO ---
+            const themeToggle = document.getElementById('theme-toggle');
+            const themeIcon = themeToggle.querySelector('i');
+
+            const applyTheme = (theme) => {
+                document.body.classList.remove('light-mode', 'dark-mode');
+                document.body.classList.add(theme);
+                localStorage.setItem('theme', theme);
+                if (theme === 'dark-mode') {
+                    themeIcon.className = 'fa-solid fa-sun';
+                    themeToggle.title = 'Cambiar a modo claro';
+                } else {
+                    themeIcon.className = 'fa-solid fa-moon';
+                    themeToggle.title = 'Cambiar a modo oscuro';
+                }
+            };
+            themeToggle.addEventListener('click', () => {
+                const newTheme = document.body.classList.contains('dark-mode') ? 'light-mode' : 'dark-mode';
+                applyTheme(newTheme);
+            });
+            const storedTheme = localStorage.getItem('theme') || 'light-mode';
+            applyTheme(storedTheme);
+
+            // --- LÓGICA 2: EJERCICIO INTERACTIVO ---
+            const checkAnswerBtn = document.getElementById('check-answer-btn');
+            const showAnswerBtn = document.getElementById('show-answer-btn');
+            const feedbackEl = document.getElementById('feedback');
+            const correctAnswerEl = document.getElementById('correct-answer');
+            checkAnswerBtn.addEventListener('click', () => {
+                const answer = document.getElementById('exercise-answer').value.toLowerCase();
+                showAnswerBtn.style.display = 'none';
+                correctAnswerEl.style.display = 'none';
+                if (answer.includes("pan") && (answer.includes("alimento") || answer.includes("provisiones") || answer.includes("sustento"))) {
+                    feedbackEl.textContent = "¡Perfecto! Has comprendido cómo una parte puede representar el todo.";
+                    feedbackEl.style.color = 'var(--accent-color)';
+                } else {
+                    feedbackEl.textContent = "Casi lo tienes. Piensa en un sentido más amplio: ¿qué representa 'el pan' además del pan mismo?";
+                    feedbackEl.style.color = 'red';
+                    showAnswerBtn.style.display = 'inline-block';
+                }
+            });
+            showAnswerBtn.addEventListener('click', () => {
+                correctAnswerEl.style.display = 'block';
+                showAnswerBtn.style.display = 'none';
+            });
+
+            // --- LÓGICA 3: GENERADOR DE PDF CON FEEDBACK DE CARGA ---
+            document.getElementById('download-pdf').addEventListener('click', () => {
+                const fabContainer = document.querySelector('.fab-container');
+                const content = document.getElementById('module-content');
+                const downloadBtn = document.getElementById('download-pdf');
+                const originalIcon = downloadBtn.innerHTML;
+
+                fabContainer.style.visibility = 'hidden';
+                downloadBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i>';
+
+                const opt = {
+                    margin: 10,
+                    filename: 'modulo-sinecdoque.pdf',
+                    image: { type: 'jpeg', quality: 0.98 },
+                    html2canvas: { scale: 2, useCORS: true, letterRendering: true },
+                    jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
+                    pagebreak: { mode: ['avoid-all', 'css', 'legacy'] }
+                };
+
+                html2pdf().from(content).set(opt).save().then(() => {
+                    fabContainer.style.visibility = 'visible';
+                    downloadBtn.innerHTML = originalIcon;
+                }).catch(err => {
+                    console.error("Error al generar el PDF:", err);
+                    fabContainer.style.visibility = 'visible';
+                    downloadBtn.innerHTML = originalIcon;
+                });
+            });
+        });
+    </script>
+</body>
+</html>
