@@ -7,8 +7,8 @@
     <link rel="stylesheet" href="css/main-styles.css">
     <!-- ESTILOS AÑADIDOS -->
     <style>
-        /* --- Estilos para el logo redondo del encabezado --- */
-        .header-logo {
+        /* --- Estilos para el logo redondo de la sección de introducción --- */
+        .intro-logo {
             display: block;          /* Permite centrar con margin */
             margin: 0 auto 1.5rem;   /* Centrado horizontal y espacio inferior */
             width: 150px;            /* Ancho fijo */
@@ -42,7 +42,7 @@
         }
 
         /* === Estilos para el MODO OSCURO === */
-        body.dark-mode .header-logo {
+        body.dark-mode .intro-logo {
             border-color: #444; /* Borde del logo en modo oscuro */
         }
         
@@ -56,15 +56,15 @@
 <body>
 
     <header class="main-header">
-        <!-- ========= IMAGEN REDONDA AÑADIDA ========= -->
-        <img src="https://images.pexels.com/photos/6752320/pexels-photo-6752320.jpeg" alt="Pluma escribiendo en un libro" class="header-logo">
-        
         <h1>FIGURAS LITERARIAS & RETÓRICAS</h1>
         <button id="theme-toggle" class="theme-toggle-btn">Modo</button>
     </header>
 
     <section class="intro-section">
         <div class="container">
+            <!-- ========= IMAGEN REDONDA MOVIDA A SU NUEVA POSICIÓN ========= -->
+            <img src="https://images.pexels.com/photos/6752320/pexels-photo-6752320.jpeg" alt="Pluma escribiendo en un libro" class="intro-logo">
+
             <h2 class="fade-in">EL ARTE DE EXPRESARSE</h2>
             <p class="fade-in">Bienvenido a este espacio dedicado a explorar el poder y la belleza del lenguaje. Aquí desglosaremos las herramientas que han utilizado escritores, poetas y oradores a lo largo de la historia para dar vida, emoción y persuasión a sus palabras.</p>
             
@@ -128,6 +128,22 @@
             <a href="modulos/aliteracion.html" class="module-card fade-in">
                 <h3>Aliteración</h3>
                 <p>Siente el poder de la música y el ritmo en las palabras.</p>
+            </a>
+            <!-- Dentro de la sección .module-grid en index.html -->
+
+            <a href="modulos/onomatopeya.html" class="module-card fade-in">
+                <h3>Onomatopeya</h3>
+                <p>Escucha las palabras que imitan la realidad del sonido.</p>
+            </a>
+            
+            <a href="modulos/anafora.html" class="module-card fade-in">
+                <h3>Anáfora</h3>
+                <p>Siente el ritmo y la fuerza de la repetición deliberada.</p>
+            </a>
+            
+            <a href="modulos/elipsis.html" class="module-card fade-in">
+                <h3>Elipsis</h3>
+                <p>Aprende el arte de omitir palabras para ganar agilidad y potencia.</p>
             </a>
         </section>
     </main>
