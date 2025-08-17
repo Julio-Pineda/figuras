@@ -5,25 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Onomatopeya</title>
 
-    <!-- El CSS es idéntico para mantener la consistencia -->
+    <!-- Añadido: Font Awesome para los iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
     <style>
         :root {
             --primary-bg-light: #f4f4f9; --primary-text-light: #333; --card-bg-light: #ffffff; --header-bg-light: #ffffff; --accent-color: #007bff; --mark-bg-light: #ffe066; --border-color-light: #e0e0e0; --success-bg-light: #e6ffed;
             --primary-bg-dark: #121212; --primary-text-dark: #e0e0e0; --card-bg-dark: #1e1e1e; --header-bg-dark: #1e1e1e; --mark-bg-dark: #b38f00; --border-color-dark: #333; --success-bg-dark: #1c3b29;
+            /* Añadido: Variable para la sombra para controlarla fácilmente */
+            --shadow-color: rgba(0, 0, 0, 0.15);
         }
         body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; margin: 0; transition: background-color 0.3s, color 0.3s; line-height: 1.6; }
         body.light-mode { background-color: var(--primary-bg-light); color: var(--primary-text-light); }
-        body.dark-mode { background-color: var(--primary-bg-dark); color: var(--primary-text-dark); }
+        body.dark-mode { background-color: var(--primary-bg-dark); color: var(--primary-text-dark); --shadow-color: rgba(0, 0, 0, 0.5); }
         .main-header { display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem; box-shadow: 0 2px 4px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
         body.light-mode .main-header { background-color: var(--header-bg-light); }
         body.dark-mode .main-header { background-color: var(--header-bg-dark); }
         .main-header h1 { font-size: 1.5rem; margin: 0; }
-        .theme-toggle-btn { background-color: var(--accent-color); color: white; border: none; padding: 0.5rem 1rem; border-radius: 5px; cursor: pointer; }
+        .theme-toggle-btn { background-color: var(--accent-color); color: white; border: none; padding: 0.5rem 1rem; border-radius: 5px; cursor: pointer; font-size: 1rem; width: 45px; text-align: center; }
         .main-footer { text-align: center; padding: 1rem; margin-top: 2rem; }
         .container { max-width: 800px; margin: 2rem auto; padding: 0 1rem; }
-        .module-section { padding: 2rem; border-radius: 8px; margin-bottom: 2rem; }
+        
+        /* MODIFICADO: Añadida la sombra */
+        .module-section {
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            box-shadow: 7px 7px 27px 2px #000000;
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+        .module-section:hover {
+             transform: translateY(-5px);
+        }
+
         body.light-mode .module-section { background-color: var(--card-bg-light); border: 1px solid var(--border-color-light); }
         body.dark-mode .module-section { background-color: var(--card-bg-dark); border: 1px solid var(--border-color-dark); }
+        
         .module-section h2 { margin-top: 0; color: var(--accent-color); border-bottom: 2px solid var(--accent-color); padding-bottom: 0.5rem; }
         .back-link { text-decoration: none; color: var(--accent-color); font-weight: bold; }
         mark { padding: 0.2em 0.4em; border-radius: 3px; }
@@ -40,65 +57,87 @@
         body.light-mode .correct-answer-box { background-color: var(--success-bg-light); border: 1px solid green; }
         body.dark-mode .correct-answer-box { background-color: var(--success-bg-dark); border: 1px solid #3d8b40; }
         .fab-container { position: fixed; bottom: 2rem; right: 2rem; z-index: 1001; }
-        .fab { background-color: var(--accent-color); color: white; border: none; border-radius: 50%; width: 60px; height: 60px; font-size: 1rem; text-align: center; box-shadow: 0 4px 8px rgba(0,0,0,0.2); cursor: pointer; display: flex; align-items: center; justify-content: center; }
+        .fab { background-color: var(--accent-color); color: white; border: none; border-radius: 50%; width: 60px; height: 60px; font-size: 1.5rem; text-align: center; box-shadow: 0 4px 8px rgba(0,0,0,0.2); cursor: pointer; display: flex; align-items: center; justify-content: center; }
+
+        /* Estilos para alinear iconos */
+        h1, h2, .back-link, .exercise button, .bible-example p, .formula p {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .module-section ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .module-section li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 0.5rem;
+        }
+        .fa-fw {
+            text-align: center;
+        }
     </style>
 </head>
 <body>
 
     <header class="main-header">
-        <a href="../index.html" class="back-link">&larr; Volver</a>
-        <h1>Onomatopeya</h1>
-        <button id="theme-toggle" class="theme-toggle-btn">Modo</button>
+        <a href="../index.html" class="back-link"><i class="fa-solid fa-arrow-left"></i> Volver</a>
+        <h1><i class="fa-solid fa-volume-high"></i>Onomatopeya</h1>
+        <button id="theme-toggle" class="theme-toggle-btn" title="Cambiar tema">
+            <i class="fa-solid fa-moon"></i>
+        </button>
     </header>
 
     <main class="container" id="module-content">
        
         <section class="module-section">
-            <h2>1. ¿Qué es una Onomatopeya?</h2>
+            <h2><i class="fa-solid fa-circle-question"></i>1. ¿Qué es una Onomatopeya?</h2>
             <p>La onomatopeya es el uso de palabras cuya pronunciación <strong>imita o sugiere el sonido</strong> de aquello que describen. Es una herramienta muy poderosa para hacer que el lector "escuche" lo que está leyendo, creando una experiencia más vívida y sensorial.</p>
             <div class="formula">
-                <p><strong>Palabra que suena como el objeto</strong> = <mark>Efecto auditivo y realista</mark></p>
+                <p><i class="fa-solid fa-ear-listen"></i><strong>Palabra que suena como el objeto</strong> = <mark>Efecto auditivo y realista</mark></p>
             </div>
             <p>Por ejemplo, en lugar de decir "el reloj hacía su sonido característico", decimos "el <mark>tic-tac</mark> del reloj llenaba el silencio". La palabra "tic-tac" imita directamente el sonido real.</p>
         </section>
 
         <section class="module-section">
-            <h2>2. Ejemplos en la Vida Cotidiana</h2>
+            <h2><i class="fa-solid fa-comments"></i>2. Ejemplos en la Vida Cotidiana</h2>
             <ul>
-                <li>El <mark>guau</mark> de un perro, el <mark>miau</mark> de un gato.</li>
-                <li>El <mark>zumbido</mark> de una abeja.</li>
-                <li>El <mark>chasquido</mark> de un látigo o el <mark>chapoteo</mark> en el agua.</li>
-                <li>En los cómics: "<mark>¡Boom!</mark>", "<mark>¡Splash!</mark>", "<mark>¡Crash!</mark>".</li>
+                <li><i class="fa-solid fa-dog fa-fw"></i>El <mark>guau</mark> de un perro, el <mark>miau</mark> de un gato.</li>
+                <li><i class="fa-solid fa-bug fa-fw"></i>El <mark>zumbido</mark> de una abeja.</li>
+                <li><i class="fa-solid fa-water fa-fw"></i>El <mark>chasquido</mark> de un látigo o el <mark>chapoteo</mark> en el agua.</li>
+                <li><i class="fa-solid fa-comment-dots fa-fw"></i>En los cómics: "<mark>¡Boom!</mark>", "<mark>¡Splash!</mark>", "<mark>¡Crash!</mark>".</li>
             </ul>
         </section>
 
         <section class="module-section">
-            <h2>3. Onomatopeyas en la Biblia (Reina Valera 1960)</h2>
+            <h2><i class="fa-solid fa-book"></i>3. Onomatopeyas en la Biblia (Reina Valera 1960)</h2>
             <p>Si bien la onomatopeya pura depende mucho del idioma original, la traducción al español utiliza palabras que evocan fuertemente un sonido específico.</p>
             <div class="bible-example">
                 <em>"Y tras el viento un terremoto; pero Jehová no estaba en el terremoto. Y tras el terremoto un fuego; pero Jehová no estaba en el fuego. Y tras el fuego un <mark>silbo apacible y delicado</mark>." (1 Reyes 19:11-12)</em>
-                <p><strong>Análisis:</strong> La palabra "silbo" es onomatopéyica, ya que su sonido suave, con la letra 's', imita el susurro del viento. Contrasta fuertemente con los sonidos violentos anteriores (terremoto, fuego) para mostrar que la presencia de Dios se manifestó en la calma.</p>
+                <p><i class="fa-solid fa-magnifying-glass-chart"></i><strong>Análisis:</strong> La palabra "silbo" es onomatopéyica, ya que su sonido suave, con la letra 's', imita el susurro del viento. Contrasta fuertemente con los sonidos violentos anteriores (terremoto, fuego) para mostrar que la presencia de Dios se manifestó en la calma.</p>
             </div>
             <hr>
             <div class="bible-example">
                 <em>"Voz de tus atalayas. Alzarán la voz, juntamente darán voces de júbilo; porque ojo a ojo verán que Jehová vuelve a traer a Sion. <mark>Prorrumpid</mark> en alabanzas, cantad juntamente, soledades de Jerusalén..." (Isaías 52:8-9)</em>
-                <p><strong>Análisis:</strong> "Prorrumpir" es una palabra que sugiere una explosión súbita de sonido. Su sonoridad fuerte y vibrante evoca la imagen de un estallido de alegría y alabanza, un sonido que rompe el silencio.</p>
+                <p><i class="fa-solid fa-magnifying-glass-chart"></i><strong>Análisis:</strong> "Prorrumpir" es una palabra que sugiere una explosión súbita de sonido. Su sonoridad fuerte y vibrante evoca la imagen de un estallido de alegría y alabanza, un sonido que rompe el silencio.</p>
             </div>
              <hr>
             <div class="bible-example">
                 <em>"He aquí, yo estoy a la puerta y llamo; si alguno oye mi voz y abre la puerta, entraré a él, y cenaré con él, y él conmigo." (Apocalipsis 3:20)</em>
-                <p><strong>Análisis:</strong> El verbo "llamo" en español, aunque común, se puede asociar con el sonido repetitivo de tocar, como un "<mark>toc, toc</mark>". Es una acción que inherentemente produce un sonido, haciendo la escena más tangible para el lector.</p>
+                <p><i class="fa-solid fa-magnifying-glass-chart"></i><strong>Análisis:</strong> El verbo "llamo" en español, aunque común, se puede asociar con el sonido repetitivo de tocar, como un "<mark>toc, toc</mark>". Es una acción que inherentemente produce un sonido, haciendo la escena más tangible para el lector.</p>
             </div>
         </section>
 
         <section class="module-section exercise">
-            <h2>4. Ejercicio Práctico</h2>
+            <h2><i class="fa-solid fa-pencil-alt"></i>4. Ejercicio Práctico</h2>
             <p>Lee el siguiente versículo. Identifica la palabra que describe un sonido de forma vívida y explica qué imagen auditiva crea en tu mente.</p>
             <p><em>"La voz de Jehová sobre las aguas; truena el Dios de gloria, Jehová sobre las muchas aguas. [...] La voz de Jehová que <mark>quebranta</mark> los cedros..." (Salmo 29:3, 5)</em></p>
             <textarea id="exercise-answer" rows="10" placeholder="Palabra Onomatopéyica: ...&#10;Imagen Auditiva: ..."></textarea>
             
-            <button id="check-answer-btn">Verificar Respuesta</button>
-            <button id="show-answer-btn" style="display: none;">Ver Respuesta Correcta</button>
+            <button id="check-answer-btn"><i class="fa-solid fa-check-circle"></i>Verificar Respuesta</button>
+            <button id="show-answer-btn" style="display: none;"><i class="fa-solid fa-eye"></i>Ver Respuesta Correcta</button>
             
             <p id="feedback" class="feedback"></p>
 
@@ -111,28 +150,44 @@
     </main>
     
     <div class="fab-container">
-        <button id="download-pdf" class="fab">PDF</button>
+        <button id="download-pdf" class="fab" title="Descargar como PDF">
+             <i class="fa-solid fa-file-pdf"></i>
+        </button>
     </div>
 
     <footer class="main-footer">
         <p>&copy; 2025 - Estudio de Figuras Literarias | Desarrollado por Julio Cesar Pineda Mora</p>
     </footer>
 
-    <script src="../lib/html2pdf.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const themeToggle = document.getElementById('theme-toggle'); /* ... */
-            const storedTheme = localStorage.getItem('theme') || 'light-mode';
-            document.body.classList.add(storedTheme);
-            themeToggle.addEventListener('click', () => {
-                const isDarkMode = document.body.classList.contains('dark-mode');
-                document.body.classList.toggle('dark-mode', !isDarkMode);
-                document.body.classList.toggle('light-mode', isDarkMode);
-                localStorage.setItem('theme', isDarkMode ? 'light-mode' : 'dark-mode');
-            });
+            // --- LÓGICA 1: MANEJO DEL TEMA (MODO OSCURO/CLARO) CON ICONO DINÁMICO ---
+            const themeToggle = document.getElementById('theme-toggle');
+            const themeIcon = themeToggle.querySelector('i');
 
-            const checkAnswerBtn = document.getElementById('check-answer-btn'); /* ... */
+            const applyTheme = (theme) => {
+                document.body.classList.remove('light-mode', 'dark-mode');
+                document.body.classList.add(theme);
+                localStorage.setItem('theme', theme);
+                if (theme === 'dark-mode') {
+                    themeIcon.className = 'fa-solid fa-sun';
+                    themeToggle.title = 'Cambiar a modo claro';
+                } else {
+                    themeIcon.className = 'fa-solid fa-moon';
+                    themeToggle.title = 'Cambiar a modo oscuro';
+                }
+            };
+            themeToggle.addEventListener('click', () => {
+                const newTheme = document.body.classList.contains('dark-mode') ? 'light-mode' : 'dark-mode';
+                applyTheme(newTheme);
+            });
+            const storedTheme = localStorage.getItem('theme') || 'light-mode';
+            applyTheme(storedTheme);
+
+            // --- LÓGICA 2: EJERCICIO INTERACTIVO ---
+            const checkAnswerBtn = document.getElementById('check-answer-btn');
             const showAnswerBtn = document.getElementById('show-answer-btn');
             const feedbackEl = document.getElementById('feedback');
             const correctAnswerEl = document.getElementById('correct-answer');
@@ -154,24 +209,32 @@
                 showAnswerBtn.style.display = 'none';
             });
 
-            document.getElementById('download-pdf').addEventListener('click', () => { /* ... */
-                const fabButton = document.querySelector('.fab-container');
+            // --- LÓGICA 3: GENERADOR DE PDF CON FEEDBACK DE CARGA ---
+            document.getElementById('download-pdf').addEventListener('click', () => {
+                const fabContainer = document.querySelector('.fab-container');
                 const content = document.getElementById('module-content');
-                fabButton.style.visibility = 'hidden';
                 const downloadBtn = document.getElementById('download-pdf');
-                downloadBtn.textContent = '...';
+                const originalIcon = downloadBtn.innerHTML;
+
+                fabContainer.style.visibility = 'hidden';
+                downloadBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i>';
+
                 const opt = {
                     margin: 10,
                     filename: 'modulo-onomatopeya.pdf',
                     image: { type: 'jpeg', quality: 0.98 },
                     html2canvas: { scale: 2, useCORS: true, letterRendering: true },
                     jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
-                    pagebreak: { mode: ['avoid-all', 'css', 'legacy'] },
-                    renderer: 'canvas'
+                    pagebreak: { mode: ['avoid-all', 'css', 'legacy'] }
                 };
+
                 html2pdf().from(content).set(opt).save().then(() => {
-                    fabButton.style.visibility = 'visible';
-                    downloadBtn.textContent = 'PDF';
+                    fabContainer.style.visibility = 'visible';
+                    downloadBtn.innerHTML = originalIcon;
+                }).catch(err => {
+                    console.error("Error al generar el PDF:", err);
+                    fabContainer.style.visibility = 'visible';
+                    downloadBtn.innerHTML = originalIcon;
                 });
             });
         });
