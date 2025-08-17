@@ -5,25 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Metonimia</title>
 
-    <!-- El CSS es idéntico para mantener la consistencia -->
+    <!-- Añadido: Font Awesome para los iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
     <style>
         :root {
             --primary-bg-light: #f4f4f9; --primary-text-light: #333; --card-bg-light: #ffffff; --header-bg-light: #ffffff; --accent-color: #007bff; --mark-bg-light: #ffe066; --border-color-light: #e0e0e0; --success-bg-light: #e6ffed;
             --primary-bg-dark: #121212; --primary-text-dark: #e0e0e0; --card-bg-dark: #1e1e1e; --header-bg-dark: #1e1e1e; --mark-bg-dark: #b38f00; --border-color-dark: #333; --success-bg-dark: #1c3b29;
+            /* Añadido: Variable para la sombra para controlarla fácilmente */
+            --shadow-color: rgba(0, 0, 0, 0.15);
         }
         body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; margin: 0; transition: background-color 0.3s, color 0.3s; line-height: 1.6; }
         body.light-mode { background-color: var(--primary-bg-light); color: var(--primary-text-light); }
-        body.dark-mode { background-color: var(--primary-bg-dark); color: var(--primary-text-dark); }
+        body.dark-mode { background-color: var(--primary-bg-dark); color: var(--primary-text-dark); --shadow-color: rgba(0, 0, 0, 0.5); }
         .main-header { display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem; box-shadow: 0 2px 4px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
         body.light-mode .main-header { background-color: var(--header-bg-light); }
         body.dark-mode .main-header { background-color: var(--header-bg-dark); }
         .main-header h1 { font-size: 1.5rem; margin: 0; }
-        .theme-toggle-btn { background-color: var(--accent-color); color: white; border: none; padding: 0.5rem 1rem; border-radius: 5px; cursor: pointer; }
+        .theme-toggle-btn { background-color: var(--accent-color); color: white; border: none; padding: 0.5rem 1rem; border-radius: 5px; cursor: pointer; font-size: 1rem; width: 45px; text-align: center; }
         .main-footer { text-align: center; padding: 1rem; margin-top: 2rem; }
         .container { max-width: 800px; margin: 2rem auto; padding: 0 1rem; }
-        .module-section { padding: 2rem; border-radius: 8px; margin-bottom: 2rem; }
+        
+        /* MODIFICADO: Añadida la sombra */
+        .module-section {
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            box-shadow: 7px 7px 27px -8px var(--shadow-color);
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+        .module-section:hover {
+             transform: translateY(-5px);
+        }
+
         body.light-mode .module-section { background-color: var(--card-bg-light); border: 1px solid var(--border-color-light); }
         body.dark-mode .module-section { background-color: var(--card-bg-dark); border: 1px solid var(--border-color-dark); }
+        
         .module-section h2 { margin-top: 0; color: var(--accent-color); border-bottom: 2px solid var(--accent-color); padding-bottom: 0.5rem; }
         .back-link { text-decoration: none; color: var(--accent-color); font-weight: bold; }
         mark { padding: 0.2em 0.4em; border-radius: 3px; }
@@ -40,64 +57,86 @@
         body.light-mode .correct-answer-box { background-color: var(--success-bg-light); border: 1px solid green; }
         body.dark-mode .correct-answer-box { background-color: var(--success-bg-dark); border: 1px solid #3d8b40; }
         .fab-container { position: fixed; bottom: 2rem; right: 2rem; z-index: 1001; }
-        .fab { background-color: var(--accent-color); color: white; border: none; border-radius: 50%; width: 60px; height: 60px; font-size: 1rem; text-align: center; box-shadow: 0 4px 8px rgba(0,0,0,0.2); cursor: pointer; display: flex; align-items: center; justify-content: center; }
+        .fab { background-color: var(--accent-color); color: white; border: none; border-radius: 50%; width: 60px; height: 60px; font-size: 1.5rem; text-align: center; box-shadow: 0 4px 8px rgba(0,0,0,0.2); cursor: pointer; display: flex; align-items: center; justify-content: center; }
+
+        /* Estilos para alinear iconos */
+        h1, h2, .back-link, .exercise button, .bible-example p, .formula p {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .module-section ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .module-section li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 0.5rem;
+        }
+        .fa-fw {
+            text-align: center;
+        }
     </style>
 </head>
 <body>
 
     <header class="main-header">
-        <a href="../index.html" class="back-link">&larr; Volver</a>
-        <h1>Metonimia</h1>
-        <button id="theme-toggle" class="theme-toggle-btn">Modo</button>
+        <a href="../index.html" class="back-link"><i class="fa-solid fa-arrow-left"></i> Volver</a>
+        <h1><i class="fa-solid fa-tags"></i>Metonimia</h1>
+        <button id="theme-toggle" class="theme-toggle-btn" title="Cambiar tema">
+            <i class="fa-solid fa-moon"></i>
+        </button>
     </header>
 
     <main class="container" id="module-content">
        
         <section class="module-section">
-            <h2>1. ¿Qué es una Metonimia?</h2>
+            <h2><i class="fa-solid fa-circle-question"></i>1. ¿Qué es una Metonimia?</h2>
             <p>La metonimia consiste en designar una cosa o idea con el nombre de otra con la que guarda una <strong>relación de proximidad o dependencia</strong>. A diferencia de la metáfora (que se basa en la semejanza), la metonimia se basa en la contigüidad o la asociación.</p>
             <div class="formula">
-                <p><strong>Relaciones comunes:</strong><br>Causa por efecto, contenedor por contenido, autor por obra, lugar por institución...</p>
+                <p><i class="fa-solid fa-shuffle"></i><strong>Relaciones comunes:</strong><br>Causa ↔ Efecto, Contenedor ↔ Contenido, Autor ↔ Obra...</p>
             </div>
             <p>Por ejemplo, cuando decimos "Vamos a tomar <mark>unas copas</mark>", no nos referimos al objeto de cristal, sino a la bebida que contiene (contenedor por contenido). Es una forma de hablar más fluida y natural.</p>
         </section>
 
         <section class="module-section">
-            <h2>2. Ejemplos en la Vida Cotidiana</h2>
+            <h2><i class="fa-solid fa-comments"></i>2. Ejemplos en la Vida Cotidiana</h2>
             <ul>
-                <li>"Se compró <mark>un Picasso</mark>." (El autor por la obra).</li>
-                <li>"Toda la sala <mark>aplaudió</mark>." (El lugar por las personas que están en él).</li>
-                <li>"La <mark>Casa Blanca</mark> emitió un comunicado." (El edificio por la institución presidencial).</li>
-                <li>"Vive de <mark>su trabajo</mark>." (El efecto o resultado por la actividad que lo produce).</li>
+                <li><i class="fa-solid fa-palette fa-fw"></i>"Se compró <mark>un Picasso</mark>." (El autor por la obra).</li>
+                <li><i class="fa-solid fa-users fa-fw"></i>"Toda la sala <mark>aplaudió</mark>." (El lugar por las personas que están en él).</li>
+                <li><i class="fa-solid fa-landmark-flag fa-fw"></i>"La <mark>Casa Blanca</mark> emitió un comunicado." (El edificio por la institución presidencial).</li>
+                <li><i class="fa-solid fa-briefcase fa-fw"></i>"Vive de <mark>su trabajo</mark>." (El efecto o resultado por la actividad que lo produce).</li>
             </ul>
         </section>
 
         <section class="module-section">
-            <h2>3. Metonimias en la Biblia (Reina Valera 1960)</h2>
+            <h2><i class="fa-solid fa-book"></i>3. Metonimias en la Biblia (Reina Valera 1960)</h2>
             <div class="bible-example">
-                <em>"No podéis beber la <mark>copa</mark> del Señor, y la <mark>copa</mark> de los demonios; no podéis participar de la mesa del Señor, y de la mesa de los demonios." (1 Corintios 10:21)</em>
-                <p><strong>Análisis:</strong> Aquí, "la copa" no es el recipiente físico, sino lo que representa: la comunión, el pacto y la participación con Cristo (o con los demonios). Es una metonimia de contenedor por contenido simbólico.</p>
+                <em>"No podéis beber la <mark>copa</mark> del Señor, y la <mark>copa</mark> de los demonios..." (1 Corintios 10:21)</em>
+                <p><i class="fa-solid fa-magnifying-glass-chart"></i><strong>Análisis:</strong> Aquí, "la copa" no es el recipiente físico, sino lo que representa: la comunión, el pacto y la participación con Cristo. Es una metonimia de contenedor por contenido simbólico.</p>
             </div>
             <hr>
             <div class="bible-example">
                 <em>"A <mark>Moisés</mark> y a los profetas tienen; óiganlos." (Lucas 16:29)</em>
-                <p><strong>Análisis:</strong> El hombre rico no puede escuchar a las personas literales de Moisés y los profetas, que ya habían muerto. Se refiere a sus escritos: la Ley de Moisés y los libros proféticos. Es una metonimia de autor por obra.</p>
+                <p><i class="fa-solid fa-magnifying-glass-chart"></i><strong>Análisis:</strong> El hombre rico no puede escuchar a las personas literales de Moisés y los profetas. Se refiere a sus escritos: la Ley y los Profetas. Es una metonimia de autor por obra.</p>
             </div>
              <hr>
             <div class="bible-example">
                 <em>"...haréis descender mis <mark>canas</mark> con dolor al Seol." (Génesis 42:38)</em>
-                <p><strong>Análisis:</strong> Jacob no se refiere literalmente a su pelo blanco, sino a su vejez. Las canas son un efecto o signo visible de la vejez (la causa). Es una metonimia de efecto por causa para referirse a toda su persona anciana.</p>
+                <p><i class="fa-solid fa-magnifying-glass-chart"></i><strong>Análisis:</strong> Jacob no se refiere literalmente a su pelo blanco, sino a su vejez. Las canas son un efecto o signo visible de la vejez (la causa). Es una metonimia de efecto por causa para referirse a toda su persona anciana.</p>
             </div>
         </section>
 
         <section class="module-section exercise">
-            <h2>4. Ejercicio Práctico</h2>
+            <h2><i class="fa-solid fa-pencil-alt"></i>4. Ejercicio Práctico</h2>
             <p>Lee el siguiente versículo. Identifica el término metonímico y explica qué representa en realidad.</p>
             <p><em>"...porque no en vano lleva la <mark>espada</mark>, pues es servidor de Dios, vengador para castigar al que hace lo malo." (Romanos 13:4)</em></p>
             <textarea id="exercise-answer" rows="10" placeholder="Término Metonímico: ...&#10;¿Qué representa?: ...&#10;Explicación: ..."></textarea>
             
-            <button id="check-answer-btn">Verificar Respuesta</button>
-            <button id="show-answer-btn" style="display: none;">Ver Respuesta Correcta</button>
+            <button id="check-answer-btn"><i class="fa-solid fa-check-circle"></i>Verificar Respuesta</button>
+            <button id="show-answer-btn" style="display: none;"><i class="fa-solid fa-eye"></i>Ver Respuesta Correcta</button>
             
             <p id="feedback" class="feedback"></p>
 
@@ -111,28 +150,44 @@
     </main>
     
     <div class="fab-container">
-        <button id="download-pdf" class="fab">PDF</button>
+        <button id="download-pdf" class="fab" title="Descargar como PDF">
+             <i class="fa-solid fa-file-pdf"></i>
+        </button>
     </div>
 
     <footer class="main-footer">
         <p>&copy; 2025 - Estudio de Figuras Literarias | Desarrollado por Julio Cesar Pineda Mora</p>
     </footer>
 
-    <script src="../lib/html2pdf.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const themeToggle = document.getElementById('theme-toggle'); /* ... */
-            const storedTheme = localStorage.getItem('theme') || 'light-mode';
-            document.body.classList.add(storedTheme);
-            themeToggle.addEventListener('click', () => {
-                const isDarkMode = document.body.classList.contains('dark-mode');
-                document.body.classList.toggle('dark-mode', !isDarkMode);
-                document.body.classList.toggle('light-mode', isDarkMode);
-                localStorage.setItem('theme', isDarkMode ? 'light-mode' : 'dark-mode');
-            });
+            // --- LÓGICA 1: MANEJO DEL TEMA (MODO OSCURO/CLARO) CON ICONO DINÁMICO ---
+            const themeToggle = document.getElementById('theme-toggle');
+            const themeIcon = themeToggle.querySelector('i');
 
-            const checkAnswerBtn = document.getElementById('check-answer-btn'); /* ... */
+            const applyTheme = (theme) => {
+                document.body.classList.remove('light-mode', 'dark-mode');
+                document.body.classList.add(theme);
+                localStorage.setItem('theme', theme);
+                if (theme === 'dark-mode') {
+                    themeIcon.className = 'fa-solid fa-sun';
+                    themeToggle.title = 'Cambiar a modo claro';
+                } else {
+                    themeIcon.className = 'fa-solid fa-moon';
+                    themeToggle.title = 'Cambiar a modo oscuro';
+                }
+            };
+            themeToggle.addEventListener('click', () => {
+                const newTheme = document.body.classList.contains('dark-mode') ? 'light-mode' : 'dark-mode';
+                applyTheme(newTheme);
+            });
+            const storedTheme = localStorage.getItem('theme') || 'light-mode';
+            applyTheme(storedTheme);
+
+            // --- LÓGICA 2: EJERCICIO INTERACTIVO ---
+            const checkAnswerBtn = document.getElementById('check-answer-btn');
             const showAnswerBtn = document.getElementById('show-answer-btn');
             const feedbackEl = document.getElementById('feedback');
             const correctAnswerEl = document.getElementById('correct-answer');
@@ -154,24 +209,32 @@
                 showAnswerBtn.style.display = 'none';
             });
 
-            document.getElementById('download-pdf').addEventListener('click', () => { /* ... */
-                const fabButton = document.querySelector('.fab-container');
+            // --- LÓGICA 3: GENERADOR DE PDF CON FEEDBACK DE CARGA ---
+            document.getElementById('download-pdf').addEventListener('click', () => {
+                const fabContainer = document.querySelector('.fab-container');
                 const content = document.getElementById('module-content');
-                fabButton.style.visibility = 'hidden';
                 const downloadBtn = document.getElementById('download-pdf');
-                downloadBtn.textContent = '...';
+                const originalIcon = downloadBtn.innerHTML;
+
+                fabContainer.style.visibility = 'hidden';
+                downloadBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i>';
+
                 const opt = {
                     margin: 10,
                     filename: 'modulo-metonimia.pdf',
                     image: { type: 'jpeg', quality: 0.98 },
                     html2canvas: { scale: 2, useCORS: true, letterRendering: true },
                     jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
-                    pagebreak: { mode: ['avoid-all', 'css', 'legacy'] },
-                    renderer: 'canvas'
+                    pagebreak: { mode: ['avoid-all', 'css', 'legacy'] }
                 };
+
                 html2pdf().from(content).set(opt).save().then(() => {
-                    fabButton.style.visibility = 'visible';
-                    downloadBtn.textContent = 'PDF';
+                    fabContainer.style.visibility = 'visible';
+                    downloadBtn.innerHTML = originalIcon;
+                }).catch(err => {
+                    console.error("Error al generar el PDF:", err);
+                    fabContainer.style.visibility = 'visible';
+                    downloadBtn.innerHTML = originalIcon;
                 });
             });
         });
