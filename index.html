@@ -7,12 +7,24 @@
     <link rel="stylesheet" href="css/main-styles.css">
     <!-- ESTILOS AÑADIDOS -->
     <style>
-        /* --- Estilos para la imagen responsiva y con borde redondeado --- */
+        /* --- Estilos para el logo redondo del encabezado --- */
+        .header-logo {
+            display: block;          /* Permite centrar con margin */
+            margin: 0 auto 1.5rem;   /* Centrado horizontal y espacio inferior */
+            width: 150px;            /* Ancho fijo */
+            height: 150px;           /* Altura fija para formar un cuadrado */
+            border-radius: 50%;      /* Esto lo hace completamente redondo */
+            object-fit: cover;       /* Evita que la imagen se distorsione */
+            border: 4px solid #ddd;  /* Un borde sutil para que destaque */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Sombra suave */
+        }
+
+        /* --- Estilos para la imagen responsiva de la sección "Dato Curioso" --- */
         .feature-image img {
-            max-width: 100%; /* La imagen no superará el ancho de su contenedor */
-            height: auto;    /* Mantiene la proporción de la imagen */
-            display: block;  /* Elimina espacios extra debajo de la imagen */
-            border-radius: 22px; /* Bordes redondeados como se solicitó */
+            max-width: 100%;      /* La imagen no superará el ancho de su contenedor */
+            height: auto;         /* Mantiene la proporción de la imagen */
+            display: block;       /* Elimina espacios extra debajo de la imagen */
+            border-radius: 22px;  /* Bordes redondeados como se solicitó */
         }
 
         /* --- Estilos para el campo de búsqueda --- */
@@ -29,7 +41,11 @@
             box-sizing: border-box; /* Asegura que el padding no afecte el ancho total */
         }
 
-        /* Estilos para el modo oscuro del buscador (opcional pero recomendado) */
+        /* === Estilos para el MODO OSCURO === */
+        body.dark-mode .header-logo {
+            border-color: #444; /* Borde del logo en modo oscuro */
+        }
+        
         body.dark-mode #module-search {
             background-color: #333;
             color: #f4f4f4;
@@ -40,6 +56,9 @@
 <body>
 
     <header class="main-header">
+        <!-- ========= IMAGEN REDONDA AÑADIDA ========= -->
+        <img src="https://images.pexels.com/photos/6752320/pexels-photo-6752320.jpeg" alt="Pluma escribiendo en un libro" class="header-logo">
+        
         <h1>FIGURAS LITERARIAS & RETÓRICAS</h1>
         <button id="theme-toggle" class="theme-toggle-btn">Modo</button>
     </header>
@@ -71,7 +90,6 @@
     <section class="feature-section">
         <div class="container feature-content">
             <div class="feature-image fade-in">
-                <!-- La imagen ahora es responsiva y tiene bordes redondeados gracias al CSS añadido en el <head> -->
                 <img src="https://images.pexels.com/photos/10401264/pexels-photo-10401264.jpeg" alt="Libros antiguos y pluma de escribir">
             </div>
             <div class="feature-text fade-in">
@@ -86,7 +104,6 @@
     <main class="container">
         <h2 class="fade-in">MÓDULOS DE ESTUDIO</h2>
         
-        <!-- ========= CAMPO DE BÚSQUEDA AÑADIDO ========= -->
         <div class="search-container fade-in">
             <input type="search" id="module-search" placeholder="Buscar módulo por nombre o descripción...">
         </div>
@@ -112,7 +129,6 @@
                 <h3>Aliteración</h3>
                 <p>Siente el poder de la música y el ritmo en las palabras.</p>
             </a>
-            <!-- Aquí agregarás los nuevos módulos -->
         </section>
     </main>
 
@@ -121,7 +137,6 @@
     </footer>
 
     <script src="js/theme-switcher.js"></script>
-    <!-- Script para las animaciones -->
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             const faders = document.querySelectorAll('.fade-in');
@@ -141,10 +156,7 @@
                 appearOnScroll.observe(fader);
             });
         });
-    </script>
 
-    <!-- ========= SCRIPT PARA EL BUSCADOR AÑADIDO ========= -->
-    <script>
         document.getElementById('module-search').addEventListener('input', function() {
             const searchTerm = this.value.toLowerCase();
             const modules = document.querySelectorAll('.module-card');
@@ -152,9 +164,9 @@
             modules.forEach(module => {
                 const moduleText = module.textContent.toLowerCase();
                 if (moduleText.includes(searchTerm)) {
-                    module.style.display = 'block'; // Muestra el módulo si coincide
+                    module.style.display = 'block';
                 } else {
-                    module.style.display = 'none'; // Oculta el módulo si no coincide
+                    module.style.display = 'none';
                 }
             });
         });
