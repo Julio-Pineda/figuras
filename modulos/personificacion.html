@@ -3,97 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Módulo Interactivo: Personificación</title>
-
-    <!-- Font Awesome para los iconos -->
+    <title>Personificación</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-        
     <style>
-        /* --- Archivo CSS Completo Integrado --- */
-
-        /* --- 1. Variables Globales para Theming --- */
-        :root {
-            --primary-bg-light: #f4f4f9; --primary-text-light: #333; --card-bg-light: #ffffff; --header-bg-light: #ffffff; --accent-color: #007bff; --mark-bg-light: #ffe066; --border-color-light: #e0e0e0; --success-bg-light: #e6ffed;
-            --primary-bg-dark: #121212; --primary-text-dark: #e0e0e0; --card-bg-dark: #1e1e1e; --header-bg-dark: #1e1e1e; --mark-bg-dark: #b38f00; --border-color-dark: #333; --success-bg-dark: #1c3b29;
-        }
-
-        /* --- 2. Estilos Base y Theming del Body --- */
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; margin: 0; transition: background-color 0.3s, color 0.3s; line-height: 1.6; word-wrap: break-word; overflow-wrap: break-word; }
-        body.light-mode { background-color: var(--primary-bg-light); color: var(--primary-text-light); }
-        body.dark-mode { background-color: var(--primary-bg-dark); color: var(--primary-text-dark); }
-
-        /* --- 3. Estructura Principal (Header, Container, Footer) --- */
-        .main-header { display: flex; justify-content: space-between; align-items: center; padding: 1rem; box-shadow: 0 2px 4px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
-        body.light-mode .main-header { background-color: var(--header-bg-light); }
-        body.dark-mode .main-header { background-color: var(--header-bg-dark); }
-        .main-header h1 { font-size: 1.2rem; margin: 0; text-align: center; }
-        .theme-toggle-btn { background-color: var(--accent-color); color: white; border: none; padding: 0.5rem 1rem; border-radius: 5px; cursor: pointer; font-size: 1rem; width: 45px; text-align: center; }
-        .main-footer { text-align: center; padding: 1rem; margin-top: 2rem; font-size: 0.9rem; }
-        .container { max-width: 1080px; margin: 1rem auto; padding: 0 1rem; }
-
-        /* --- 4. Estilos de los Módulos y Contenido --- */
-        .module-section { padding: 1.5rem; border-radius: 8px; margin-bottom: 1.5rem; box-shadow: 7px 7px 27px 2px rgba(0,0,0,0.1); }
-        body.light-mode .module-section { background-color: var(--card-bg-light); border: 1px solid var(--border-color-light); }
-        body.dark-mode .module-section { background-color: var(--card-bg-dark); border: 1px solid var(--border-color-dark); }
-        .module-section h2 { margin-top: 0; color: var(--accent-color); border-bottom: 2px solid var(--accent-color); padding-bottom: 0.5rem; font-size: 1.3rem; }
-        .back-link { text-decoration: none; color: var(--accent-color); font-weight: bold; font-size: 0.9rem; }
-        mark { padding: 0.2em 0.4em; border-radius: 3px; }
-        body.light-mode mark { background-color: var(--mark-bg-light); }
-        body.dark-mode mark { background-color: var(--mark-bg-dark); color: var(--primary-text-dark); }
-        .formula { text-align: center; font-size: 1rem; padding: 1rem; border: 2px dashed var(--accent-color); border-radius: 5px; margin: 1rem 0; }
-        .bible-example { margin-top: 1.5rem; }
-        .bible-example em { display: block; padding-left: 1rem; border-left: 3px solid #ccc; margin-bottom: 0.5rem; font-style: italic; }
-        .module-section ul { list-style: none; padding-left: 0; }
-        .module-section li { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 0.5rem; }
-        .fa-fw { text-align: center; }
-        h1, h2, .back-link, .exercise button, .bible-example p, .formula p, #mini-quiz-form button, #transform-btn { display: flex; align-items: center; justify-content: center; gap: 10px; }
-
-        /* --- 5. Estilos para Ejercicio Práctico y Feedback --- */
-        .exercise textarea { width: 100%; box-sizing: border-box; padding: 0.5rem; border-radius: 5px; border: 1px solid #ccc; margin: 1rem 0; font-size: 1rem; }
-        .exercise .buttons-container { display: flex; flex-wrap: wrap; gap: 10px; }
-        .exercise button { background-color: var(--accent-color); color: white; border: none; padding: 0.7rem 1.5rem; border-radius: 5px; cursor: pointer; flex-grow: 1; }
-        #show-answer-btn { background-color: #6c757d; }
-        .feedback { margin-top: 1rem; font-weight: bold; min-height: 1.2em; }
-        .correct-answer-box { margin-top: 1rem; padding: 1rem; border-radius: 5px; }
-        body.light-mode .correct-answer-box { background-color: var(--success-bg-light); border: 1px solid green; }
-        body.dark-mode .correct-answer-box { background-color: var(--success-bg-dark); border: 1px solid #3d8b40; }
-
-        /* --- 6. Estilos para Secciones Interactivas Nuevas --- */
-        .comparison-box { text-align: center; }
-        .comparison-box h4 { margin-bottom: 0.5rem; }
-        .comparison-box p { font-size: 1.2rem; font-style: italic; }
-        #transform-btn { margin-top: 1rem; background-color: var(--accent-color); color: white; border: none; padding: 0.7rem 1.5rem; border-radius: 5px; cursor: pointer;}
-        
-        .interactive-part { cursor: pointer; padding: 0.1em 0.3em; border-radius: 3px; transition: background-color 0.3s; border-bottom: 2px dotted var(--accent-color); }
-        .interactive-part.found { background-color: var(--mark-bg-light); color: #333; border-bottom: none; cursor: default; }
-        body.dark-mode .interactive-part.found { background-color: var(--mark-bg-dark); color: var(--primary-text-dark); }
-        .feedback-finder { font-weight: bold; color: green; font-size: 0.9em; min-height: 1em; margin-top: 0.5em; text-align: center;}
-        .sentence-container { margin-bottom: 1rem; text-align: center; font-size: 1.1rem;}
-        
-        .quiz-question { margin-bottom: 1.5rem; }
-        .quiz-question p { margin-bottom: 0.5rem; }
-        .quiz-question label { display: block; margin-bottom: 0.5rem; cursor: pointer; }
-        #mini-quiz-form button { background-color: var(--accent-color); color: white; border: none; padding: 0.7rem 1.5rem; border-radius: 5px; cursor: pointer; margin-top: 1rem; }
-
-        /* --- 7. Botón Flotante (FAB) --- */
-        .fab-container { position: fixed; bottom: 1rem; right: 1rem; z-index: 1001; }
-        .fab { background-color: var(--accent-color); color: white; border: none; border-radius: 50%; width: 50px; height: 50px; font-size: 1.2rem; text-align: center; box-shadow: 0 4px 8px rgba(0,0,0,0.2); cursor: pointer; display: flex; align-items: center; justify-content: center; }
-
-        /* --- 8. Media Queries para Responsividad --- */
-        @media (min-width: 768px) {
-            .main-header { padding: 1rem 2rem; }
-            .main-header h1 { font-size: 1.5rem; }
-            .container { margin: 2rem auto; }
-            .module-section { padding: 2rem; }
-            .exercise .buttons-container { flex-wrap: nowrap; }
-            .exercise button { flex-grow: 0; }
-            .fab-container { bottom: 2rem; right: 2rem; }
-            .fab { width: 60px; height: 60px; font-size: 1.5rem; }
-        }
+        :root { --primary-bg-light: #f4f4f9; --primary-text-light: #333; --card-bg-light: #ffffff; --header-bg-light: #ffffff; --accent-color: #007bff; --mark-bg-light: #ffe066; --border-color-light: #e0e0e0; --success-bg-light: #e6ffed; --primary-bg-dark: #121212; --primary-text-dark: #e0e0e0; --card-bg-dark: #1e1e1e; --header-bg-dark: #1e1e1e; --mark-bg-dark: #b38f00; --border-color-dark: #333; --success-bg-dark: #1c3b29; } body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; margin: 0; transition: background-color 0.3s, color 0.3s; line-height: 1.6; word-wrap: break-word; overflow-wrap: break-word; } body.light-mode { background-color: var(--primary-bg-light); color: var(--primary-text-light); } body.dark-mode { background-color: var(--primary-bg-dark); color: var(--primary-text-dark); } .main-header { display: flex; justify-content: space-between; align-items: center; padding: 1rem; box-shadow: 0 2px 4px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; } body.light-mode .main-header { background-color: var(--header-bg-light); } body.dark-mode .main-header { background-color: var(--header-bg-dark); } .main-header h1 { font-size: 1.2rem; margin: 0; text-align: center; } .theme-toggle-btn { background-color: var(--accent-color); color: white; border: none; padding: 0.5rem 1rem; border-radius: 5px; cursor: pointer; font-size: 1rem; width: 45px; text-align: center; } .main-footer { text-align: center; padding: 1rem; margin-top: 2rem; font-size: 0.9rem; } .container { max-width: 1080px; margin: 1rem auto; padding: 0 1rem; } .module-section { padding: 1.5rem; border-radius: 8px; margin-bottom: 1.5rem; box-shadow: 7px 7px 27px 2px rgba(0,0,0,0.1); } body.light-mode .module-section { background-color: var(--card-bg-light); border: 1px solid var(--border-color-light); } body.dark-mode .module-section { background-color: var(--card-bg-dark); border: 1px solid var(--border-color-dark); } .module-section h2 { margin-top: 0; color: var(--accent-color); border-bottom: 2px solid var(--accent-color); padding-bottom: 0.5rem; font-size: 1.3rem; } .back-link { text-decoration: none; color: var(--accent-color); font-weight: bold; font-size: 0.9rem; } mark { padding: 0.2em 0.4em; border-radius: 3px; } body.light-mode mark { background-color: var(--mark-bg-light); } body.dark-mode mark { background-color: var(--mark-bg-dark); color: var(--primary-text-dark); } .formula { text-align: center; font-size: 1rem; padding: 1rem; border: 2px dashed var(--accent-color); border-radius: 5px; margin: 1rem 0; } .bible-example { margin-top: 1.5rem; } .bible-example em { display: block; padding-left: 1rem; border-left: 3px solid #ccc; margin-bottom: 0.5rem; font-style: italic; } .module-section ul { list-style: none; padding-left: 0; } .module-section li { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 0.5rem; } .fa-fw { text-align: center; } h1, h2, .back-link, .exercise button, .bible-example p, .formula p, #mini-quiz-form button, #transform-btn { display: flex; align-items: center; justify-content: center; gap: 10px; } .exercise textarea { width: 100%; box-sizing: border-box; padding: 0.5rem; border-radius: 5px; border: 1px solid #ccc; margin: 1rem 0; font-size: 1rem; } .exercise .buttons-container { display: flex; flex-wrap: wrap; gap: 10px; } .exercise button { background-color: var(--accent-color); color: white; border: none; padding: 0.7rem 1.5rem; border-radius: 5px; cursor: pointer; flex-grow: 1; } #show-answer-btn { background-color: #6c757d; } .feedback { margin-top: 1rem; font-weight: bold; min-height: 1.2em; } .correct-answer-box { margin-top: 1rem; padding: 1rem; border-radius: 5px; } body.light-mode .correct-answer-box { background-color: var(--success-bg-light); border: 1px solid green; } body.dark-mode .correct-answer-box { background-color: var(--success-bg-dark); border: 1px solid #3d8b40; } .comparison-box { text-align: center; } .comparison-box h4 { margin-bottom: 0.5rem; } .comparison-box p { font-size: 1.2rem; font-style: italic; } #transform-btn { margin-top: 1rem; background-color: var(--accent-color); color: white; border: none; padding: 0.7rem 1.5rem; border-radius: 5px; cursor: pointer;} .interactive-part { cursor: pointer; padding: 0.1em 0.3em; border-radius: 3px; transition: background-color 0.3s; border-bottom: 2px dotted var(--accent-color); } .interactive-part.found { background-color: var(--mark-bg-light); color: #333; border-bottom: none; cursor: default; } body.dark-mode .interactive-part.found { background-color: var(--mark-bg-dark); color: var(--primary-text-dark); } .feedback-finder { font-weight: bold; color: green; font-size: 0.9em; min-height: 1em; margin-top: 0.5em; text-align: center;} .sentence-container { margin-bottom: 1rem; text-align: center; font-size: 1.1rem;} .quiz-question { margin-bottom: 1.5rem; } .quiz-question p { margin-bottom: 0.5rem; } .quiz-question label { display: block; margin-bottom: 0.5rem; cursor: pointer; } #mini-quiz-form button { background-color: var(--accent-color); color: white; border: none; padding: 0.7rem 1.5rem; border-radius: 5px; cursor: pointer; margin-top: 1rem; } .fab-container { position: fixed; bottom: 1rem; right: 1rem; z-index: 1001; } .fab { background-color: var(--accent-color); color: white; border: none; border-radius: 50%; width: 50px; height: 50px; font-size: 1.2rem; text-align: center; box-shadow: 0 4px 8px rgba(0,0,0,0.2); cursor: pointer; display: flex; align-items: center; justify-content: center; } @media (min-width: 768px) { .main-header { padding: 1rem 2rem; } .main-header h1 { font-size: 1.5rem; } .container { margin: 2rem auto; } .module-section { padding: 2rem; } .exercise .buttons-container { flex-wrap: nowrap; } .exercise button { flex-grow: 0; } .fab-container { bottom: 2rem; right: 2rem; } .fab { width: 60px; height: 60px; font-size: 1.5rem; } }
     </style>
 </head>
 <body>
-
     <header class="main-header">
         <a href="../index.html" class="back-link"><i class="fa-solid fa-arrow-left"></i> Volver</a>
         <h1><i class="fa-solid fa-user-tag"></i>Personificación</h1>
@@ -101,14 +17,11 @@
     </header>
 
     <main class="container" id="module-content">
-       
         <section class="module-section">
             <h2><i class="fa-solid fa-circle-question"></i>1. ¿Qué es una Personificación?</h2>
-            <p>La personificación (o prosopopeya) consiste en <strong>atribuir cualidades o acciones propias de seres humanos</strong> a animales, objetos inanimados o ideas abstractas. Es una forma de dar vida a aquello que no la tiene.</p>
-            <div class="formula">
-                <p><i class="fa-solid fa-masks-theater"></i><strong>Objeto / Animal / Idea</strong> + <mark>Acción Humana</mark> = <strong>Vida y Expresividad</strong></p>
-            </div>
-            <p>Por ejemplo, en "El viento <mark>susurraba secretos</mark>", le damos al viento la capacidad humana de "susurrar", creando una imagen mucho más poética.</p>
+            <p>La personificación (o prosopopeya) consiste en <strong>atribuir cualidades o acciones propias de seres humanos</strong> a animales, objetos o ideas abstractas. Es una forma de dar vida a aquello que no la tiene.</p>
+            <div class="formula"><p><i class="fa-solid fa-masks-theater"></i><strong>Objeto / Idea</strong> + <mark>Acción Humana</mark> = <strong>Vida y Expresividad</strong></p></div>
+            <p>En "El viento <mark>susurraba secretos</mark>", le damos al viento la capacidad humana de "susurrar", creando una imagen mucho más poética.</p>
         </section>
 
         <section class="module-section">
@@ -123,11 +36,15 @@
              <h3>En la Biblia (Reina Valera 1960)</h3>
             <div class="bible-example">
                 <em>"<mark>Los ríos batan las manos</mark>, los montes todos hagan regocijo." (Salmo 98:8)</em>
-                <p><i class="fa-solid fa-magnifying-glass-chart"></i><strong>Análisis:</strong> A los ríos se les atribuye la acción de "aplaudir" y a los montes la emoción del "regocijo" para expresar una alabanza universal.</p>
-            </div>
+                <p><i class="fa-solid fa-magnifying-glass-chart"></i><strong>Análisis:</strong> La naturaleza es personificada para participar en la alabanza a Dios. A los ríos se les atribuye la acción humana de "batir las manos" (aplaudir), y a los montes la emoción del "regocijo", creando una imagen poderosa de toda la creación adorando a su Creador.</p>
+            </div><hr>
+            <div class="bible-example">
+                <em>"...los montes y los collados levantarán canción delante de vosotros, y todos los árboles del campo <mark>darán palmadas de aplauso</mark>." (Isaías 55:12)</em>
+                <p><i class="fa-solid fa-magnifying-glass-chart"></i><strong>Análisis:</strong> Similar al ejemplo anterior, esta es una personificación de la alegría de la naturaleza. Los árboles no pueden aplaudir, pero al atribuirles esta acción humana, el profeta Isaías pinta un cuadro de gozo y celebración universal.</p>
+            </div><hr>
             <div class="bible-example">
                 <em>"<mark>La sabiduría clama en las calles</mark>, alza su voz en las plazas." (Proverbios 1:20)</em>
-                <p><i class="fa-solid fa-magnifying-glass-chart"></i><strong>Análisis:</strong> La idea abstracta de "sabiduría" es personificada como alguien que clama, indicando que sus enseñanzas son públicas y accesibles.</p>
+                <p><i class="fa-solid fa-magnifying-glass-chart"></i><strong>Análisis:</strong> Aquí se personifica una idea abstracta. La "sabiduría" no es una persona, pero se la describe como si lo fuera: una mujer que clama y alza su voz públicamente, indicando que sus enseñanzas están disponibles para todos los que quieran escuchar.</p>
             </div>
         </section>
 
@@ -135,14 +52,8 @@
             <h2><i class="fa-solid fa-wand-magic-sparkles"></i>3. El Poder del Efecto: Antes y Después</h2>
             <p>Observa cómo la personificación infunde vida en una escena. Haz clic en el botón para ver la transformación.</p>
             <div class="comparison-box">
-                <div id="before-text">
-                    <h4><i class="fa-solid fa-align-left"></i>Versión Literal</h4>
-                    <p>Las hojas se movían con el viento.</p>
-                </div>
-                <div id="after-text" style="display: none;">
-                    <h4><i class="fa-solid fa-angles-right"></i>Versión con Personificación</h4>
-                    <p>Las hojas <mark>danzaban</mark> con el viento.</p>
-                </div>
+                <div id="before-text"><h4><i class="fa-solid fa-align-left"></i>Versión Literal</h4><p>Las hojas se movían con el viento.</p></div>
+                <div id="after-text" style="display: none;"><h4><i class="fa-solid fa-angles-right"></i>Versión con Personificación</h4><p>Las hojas <mark>danzaban</mark> con el viento.</p></div>
                 <button id="transform-btn"><i class="fa-solid fa-repeat"></i>Mostrar Efecto</button>
             </div>
         </section>
@@ -151,18 +62,9 @@
             <h2><i class="fa-solid fa-mouse-pointer"></i>4. ¡Ahora tú! Identifícala</h2>
             <p>Haz clic en el <strong>objeto/idea</strong> que es personificado y en la <strong>acción humana</strong> que realiza.</p>
             <div id="interactive-finder">
-                <div class="sentence-container">
-                    <p class="find-me"><span class="interactive-part">La luna</span> le <span class="interactive-part">sonreía</span> desde el cielo.</p>
-                    <p class="feedback-finder"></p>
-                </div>
-                <div class="sentence-container">
-                    <p class="find-me"><span class="interactive-part">El tiempo</span> <span class="interactive-part">corre</span> sin detenerse.</p>
-                    <p class="feedback-finder"></p>
-                </div>
-                <div class="sentence-container">
-                    <p class="find-me">Mi <span class="interactive-part">alarma</span> me <span class="interactive-part">grita</span> todas las mañanas.</p>
-                    <p class="feedback-finder"></p>
-                </div>
+                <div class="sentence-container"><p><span class="interactive-part">La luna</span> le <span class="interactive-part">sonreía</span> desde el cielo.</p><p class="feedback-finder"></p></div>
+                <div class="sentence-container"><p><span class="interactive-part">El tiempo</span> <span class="interactive-part">corre</span> sin detenerse.</p><p class="feedback-finder"></p></div>
+                <div class="sentence-container"><p>Mi <span class="interactive-part">alarma</span> me <span class="interactive-part">grita</span> todas las mañanas.</p><p class="feedback-finder"></p></div>
             </div>
         </section>
 
@@ -178,9 +80,9 @@
             <p id="feedback" class="feedback"></p>
             <div id="correct-answer" class="correct-answer-box" style="display: none;">
                 <h4>Respuesta Detallada:</h4>
-                <p><strong>Elemento 1:</strong> Los montes. <strong>Acción Humana:</strong> Ver y tener temor.</p>
-                <p><strong>Elemento 2:</strong> El abismo. <strong>Acción Humana:</strong> Dar su voz y alzar sus manos.</p>
-                <p><strong>Explicación:</strong> El profeta personifica la naturaleza para describir su reacción sobrecogedora ante la presencia de Dios, creando una escena de poder y majestad.</p>
+                <p><strong>Elemento Personificado 1:</strong> Los montes.<br><strong>Acción/Cualidad Humana:</strong> Ver y tener temor.</p>
+                <p><strong>Elemento Personificado 2:</strong> El abismo (el mar profundo).<br><strong>Acción/Cualidad Humana:</strong> Dar su voz (gritar) y alzar sus manos.</p>
+                <p><strong>Explicación:</strong> El profeta personifica a la naturaleza para describir su reacción sobrecogedora ante la presencia de Dios. Los montes sienten miedo y el mar profundo parece gritar y levantar sus olas como si fueran manos, creando una escena de poder y majestad divinos.</p>
             </div>
         </section>
 
@@ -206,141 +108,18 @@
         </section>
     </main>
     
-    <div class="fab-container">
-        <button id="download-pdf" class="fab" title="Descargar como PDF"><i class="fa-solid fa-file-pdf"></i></button>
-    </div>
-
-    <footer class="main-footer">
-        <p>&copy; 2025 - Estudio de Figuras Literarias | Desarrollado por Julio Cesar Pineda Mora</p>
-    </footer>
+    <div class="fab-container"><button id="download-pdf" class="fab" title="Descargar como PDF"><i class="fa-solid fa-file-pdf"></i></button></div>
+    <footer class="main-footer"><p>&copy; 2025 - Estudio de Figuras Literarias | Desarrollado por Julio Cesar Pineda Mora</p></footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // --- LÓGICA 1: MANEJO DEL TEMA (MODO OSCURO/CLARO) ---
-            const themeToggle = document.getElementById('theme-toggle');
-            const themeIcon = themeToggle.querySelector('i');
-            const applyTheme = (theme) => {
-                document.body.classList.remove('light-mode', 'dark-mode');
-                document.body.classList.add(theme);
-                localStorage.setItem('theme', theme);
-                themeIcon.className = theme === 'dark-mode' ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
-                themeToggle.title = theme === 'dark-mode' ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro';
-            };
-            themeToggle.addEventListener('click', () => {
-                applyTheme(document.body.classList.contains('dark-mode') ? 'light-mode' : 'dark-mode');
-            });
-            applyTheme(localStorage.getItem('theme') || 'light-mode');
-
-            // --- LÓGICA 2: EJERCICIO PRÁCTICO ---
-            const checkAnswerBtn = document.getElementById('check-answer-btn');
-            const showAnswerBtn = document.getElementById('show-answer-btn');
-            const feedbackEl = document.getElementById('feedback');
-            const correctAnswerEl = document.getElementById('correct-answer');
-            checkAnswerBtn.addEventListener('click', () => {
-                const answer = document.getElementById('exercise-answer').value.toLowerCase();
-                showAnswerBtn.style.display = 'none';
-                correctAnswerEl.style.display = 'none';
-                if ((answer.includes("montes") && answer.includes("temor")) || (answer.includes("abismo") && (answer.includes("voz") || answer.includes("manos")))) {
-                    feedbackEl.textContent = "¡Exacto! Has identificado muy bien las cualidades humanas atribuidas.";
-                    feedbackEl.style.color = 'var(--accent-color)';
-                } else {
-                    feedbackEl.textContent = "Intenta de nuevo. Busca qué objeto inanimado realiza una acción humana.";
-                    feedbackEl.style.color = 'red';
-                    showAnswerBtn.style.display = 'inline-block';
-                }
-            });
-            showAnswerBtn.addEventListener('click', () => {
-                correctAnswerEl.style.display = 'block';
-                showAnswerBtn.style.display = 'none';
-            });
-
-            // --- LÓGICA 3: GENERADOR DE PDF ---
-            document.getElementById('download-pdf').addEventListener('click', () => {
-                const fabContainer = document.querySelector('.fab-container');
-                const content = document.getElementById('module-content');
-                const downloadBtn = document.getElementById('download-pdf');
-                const originalIcon = downloadBtn.innerHTML;
-                fabContainer.style.visibility = 'hidden';
-                downloadBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i>';
-                const opt = {
-                    margin: 10, filename: 'modulo-personificacion.pdf', image: { type: 'jpeg', quality: 0.98 },
-                    html2canvas: { scale: 2, useCORS: true, letterRendering: true }, jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
-                    pagebreak: { mode: ['avoid-all', 'css', 'legacy'] }
-                };
-                html2pdf().from(content).set(opt).save().then(() => {
-                    fabContainer.style.visibility = 'visible';
-                    downloadBtn.innerHTML = originalIcon;
-                }).catch(err => {
-                    console.error("Error al generar el PDF:", err);
-                    fabContainer.style.visibility = 'visible';
-                    downloadBtn.innerHTML = originalIcon;
-                });
-            });
-
-            // --- LÓGICA 4: SECCIONES INTERACTIVAS NUEVAS ---
-
-            // "Antes y Después"
-            const transformBtn = document.getElementById('transform-btn');
-            if (transformBtn) {
-                const beforeText = document.getElementById('before-text');
-                const afterText = document.getElementById('after-text');
-                transformBtn.addEventListener('click', () => {
-                    if (afterText.style.display === 'none') {
-                        beforeText.style.display = 'none';
-                        afterText.style.display = 'block';
-                        transformBtn.innerHTML = '<i class="fa-solid fa-rotate-left"></i> Mostrar Original';
-                    } else {
-                        beforeText.style.display = 'block';
-                        afterText.style.display = 'none';
-                        transformBtn.innerHTML = '<i class="fa-solid fa-repeat"></i> Mostrar Efecto';
-                    }
-                });
-            }
-
-            // "Identifícalo"
-            document.querySelectorAll('.sentence-container').forEach(container => {
-                const partsToFind = container.querySelectorAll('.interactive-part');
-                const feedbackFinderEl = container.querySelector('.feedback-finder');
-                let foundCount = 0;
-                partsToFind.forEach(part => {
-                    part.addEventListener('click', (e) => {
-                        e.stopPropagation();
-                        if (!part.classList.contains('found')) {
-                            part.classList.add('found');
-                            foundCount++;
-                            if (foundCount === partsToFind.length) {
-                                feedbackFinderEl.textContent = '¡Perfecto! Has identificado ambas partes.';
-                            }
-                        }
-                    }, { once: true });
-                });
-            });
-
-            // "Mini-Quiz Rápido"
-            const quizForm = document.getElementById('mini-quiz-form');
-            if (quizForm) {
-                quizForm.addEventListener('submit', (e) => {
-                    e.preventDefault();
-                    const correctAnswers = { q1: 'b', q2: 'a' };
-                    let score = 0;
-                    const totalQuestions = Object.keys(correctAnswers).length;
-                    const formData = new FormData(quizForm);
-                    for (const [question, userAnswer] of formData.entries()) {
-                        if (userAnswer === correctAnswers[question]) {
-                            score++;
-                        }
-                    }
-                    const resultsEl = document.getElementById('quiz-results');
-                    resultsEl.innerHTML = `<h4>Resultados del Quiz</h4><p>Has acertado <strong>${score}</strong> de <strong>${totalQuestions}</strong> preguntas.</p>`;
-                    if (score === totalQuestions) {
-                        resultsEl.innerHTML += "<p>¡Genial! Entiendes perfectamente qué es una personificación.</p>";
-                    } else {
-                        resultsEl.innerHTML += "<p>¡Sigue practicando! Revisa los ejemplos y lo conseguirás.</p>";
-                    }
-                    resultsEl.style.display = 'block';
-                });
-            }
+            const themeToggle = document.getElementById('theme-toggle'); const themeIcon = themeToggle.querySelector('i'); const applyTheme = (theme) => { document.body.classList.remove('light-mode', 'dark-mode'); document.body.classList.add(theme); localStorage.setItem('theme', theme); themeIcon.className = theme === 'dark-mode' ? 'fa-solid fa-sun' : 'fa-solid fa-moon'; themeToggle.title = theme === 'dark-mode' ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro'; }; themeToggle.addEventListener('click', () => { applyTheme(document.body.classList.contains('dark-mode') ? 'light-mode' : 'dark-mode'); }); applyTheme(localStorage.getItem('theme') || 'light-mode');
+            const checkAnswerBtn = document.getElementById('check-answer-btn'); const showAnswerBtn = document.getElementById('show-answer-btn'); const feedbackEl = document.getElementById('feedback'); const correctAnswerEl = document.getElementById('correct-answer'); checkAnswerBtn.addEventListener('click', () => { const answer = document.getElementById('exercise-answer').value.toLowerCase(); showAnswerBtn.style.display = 'none'; correctAnswerEl.style.display = 'none'; if ((answer.includes("montes") && answer.includes("temor")) || (answer.includes("abismo") && (answer.includes("voz") || answer.includes("manos")))) { feedbackEl.textContent = "¡Exacto! Has identificado muy bien las cualidades humanas atribuidas."; feedbackEl.style.color = 'var(--accent-color)'; } else { feedbackEl.textContent = "Intenta de nuevo. Busca qué objeto inanimado realiza una acción humana."; feedbackEl.style.color = 'red'; showAnswerBtn.style.display = 'inline-block'; } }); showAnswerBtn.addEventListener('click', () => { correctAnswerEl.style.display = 'block'; showAnswerBtn.style.display = 'none'; });
+            document.getElementById('download-pdf').addEventListener('click', () => { const fabContainer = document.querySelector('.fab-container'); const content = document.getElementById('module-content'); const downloadBtn = document.getElementById('download-pdf'); const originalIcon = downloadBtn.innerHTML; fabContainer.style.visibility = 'hidden'; downloadBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i>'; const opt = { margin: 10, filename: 'modulo-personificacion.pdf', image: { type: 'jpeg', quality: 0.98 }, html2canvas: { scale: 2, useCORS: true, letterRendering: true }, jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }, pagebreak: { mode: ['avoid-all', 'css', 'legacy'] } }; html2pdf().from(content).set(opt).save().then(() => { fabContainer.style.visibility = 'visible'; downloadBtn.innerHTML = originalIcon; }).catch(err => { console.error("Error al generar el PDF:", err); fabContainer.style.visibility = 'visible'; downloadBtn.innerHTML = originalIcon; }); });
+            const transformBtn = document.getElementById('transform-btn'); if (transformBtn) { const beforeText = document.getElementById('before-text'); const afterText = document.getElementById('after-text'); transformBtn.addEventListener('click', () => { if (afterText.style.display === 'none') { beforeText.style.display = 'none'; afterText.style.display = 'block'; transformBtn.innerHTML = '<i class="fa-solid fa-rotate-left"></i> Mostrar Original'; } else { beforeText.style.display = 'block'; afterText.style.display = 'none'; transformBtn.innerHTML = '<i class="fa-solid fa-repeat"></i> Mostrar Efecto'; } }); }
+            document.querySelectorAll('.sentence-container').forEach(container => { const partsToFind = container.querySelectorAll('.interactive-part'); const feedbackFinderEl = container.querySelector('.feedback-finder'); let foundCount = 0; partsToFind.forEach(part => { part.addEventListener('click', (e) => { e.stopPropagation(); if (!part.classList.contains('found')) { part.classList.add('found'); foundCount++; if (foundCount === partsToFind.length) { feedbackFinderEl.textContent = '¡Perfecto! Has identificado ambas partes.'; } } }, { once: true }); }); });
+            const quizForm = document.getElementById('mini-quiz-form'); if (quizForm) { quizForm.addEventListener('submit', (e) => { e.preventDefault(); const correctAnswers = { q1: 'b', q2: 'a' }; let score = 0; const totalQuestions = Object.keys(correctAnswers).length; const formData = new FormData(quizForm); for (const [question, userAnswer] of formData.entries()) { if (userAnswer === correctAnswers[question]) { score++; } } const resultsEl = document.getElementById('quiz-results'); resultsEl.innerHTML = `<h4>Resultados del Quiz</h4><p>Has acertado <strong>${score}</strong> de <strong>${totalQuestions}</strong> preguntas.</p>`; if (score === totalQuestions) { resultsEl.innerHTML += "<p>¡Genial! Entiendes perfectamente qué es una personificación.</p>"; } else { resultsEl.innerHTML += "<p>¡Sigue practicando! Revisa los ejemplos y lo conseguirás.</p>"; } resultsEl.style.display = 'block'; }); }
         });
     </script>
 </body>
