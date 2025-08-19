@@ -3,23 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Metáfora</title>
+    <title>Módulo Interactivo: Metáfora</title>
 
-    <!-- Añadido: Font Awesome para los iconos -->
+    <!-- Font Awesome para los iconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
         
-    <link rel="stylesheet" href="../css/modules.css">
-
-
+    <!-- Enlace al archivo CSS externo -->
+    <link rel="stylesheet" href="css/modules.css">
 </head>
 <body>
 
     <header class="main-header">
         <a href="../index.html" class="back-link"><i class="fa-solid fa-arrow-left"></i> Volver</a>
         <h1><i class="fa-solid fa-lightbulb"></i>Metáfora</h1>
-        <button id="theme-toggle" class="theme-toggle-btn" title="Cambiar tema">
-            <i class="fa-solid fa-moon"></i>
-        </button>
+        <button id="theme-toggle" class="theme-toggle-btn" title="Cambiar tema"><i class="fa-solid fa-moon"></i></button>
     </header>
 
     <main class="container" id="module-content">
@@ -33,91 +30,133 @@
         </section>
 
         <section class="module-section">
-            <h2><i class="fa-solid fa-comments"></i>2. Ejemplos en la Vida Cotidiana</h2>
+            <h2><i class="fa-solid fa-comments"></i>2. Ejemplos</h2>
+            <h3>En la Vida Cotidiana</h3>
             <ul>
-                <li><i class="fa-solid fa-tint fa-fw"></i>"Esa noticia fue un <mark>balde de agua fría</mark>." (Real: noticia / Imaginario: balde de agua fría / Semejanza: sorpresa desagradable).</li>
-                <li><i class="fa-solid fa-fire fa-fw"></i>"Está que <mark>echa chispas</mark>." (Real: persona / Imaginario: objeto que echa chispas / Semejanza: estar muy enojado).</li>
-                <li><i class="fa-solid fa-user-tag fa-fw"></i>"Mi primo es una <mark>oveja negra</mark>." (Real: primo / Imaginario: oveja negra / Semejanza: ser diferente al resto del grupo).</li>
+                <li><i class="fa-solid fa-tint fa-fw"></i>"Esa noticia fue un <mark>balde de agua fría</mark>." (Real: noticia / Imaginario: balde de agua fría).</li>
+                <li><i class="fa-solid fa-fire fa-fw"></i>"Está que <mark>echa chispas</mark>." (Real: persona / Imaginario: objeto que echa chispas).</li>
+                <li><i class="fa-solid fa-user-tag fa-fw"></i>"Mi primo es la <mark>oveja negra</mark>." (Real: primo / Imaginario: oveja negra).</li>
             </ul>
+             <hr style="margin: 2rem 0;">
+             <h3>En la Biblia (Reina Valera 1960)</h3>
+            <div class="bible-example">
+                <em>"Yo soy la <mark>luz</mark> del mundo..." (Juan 8:12)</em>
+                <p><i class="fa-solid fa-magnifying-glass-chart"></i><strong>Análisis:</strong> Jesús (Real) se identifica como "la luz" (Imaginario) porque guía y revela la verdad.</p>
+            </div>
+            <div class="bible-example">
+                <em>"Vosotros sois la <mark>sal</mark> de la tierra..." (Mateo 5:13)</em>
+                <p><i class="fa-solid fa-magnifying-glass-chart"></i><strong>Análisis:</strong> Los creyentes (Real) son "la sal" (Imaginario) porque preservan y dan "sabor" moral al mundo.</p>
+            </div>
+            <div class="bible-example">
+                <em>"Jehová es mi <mark>pastor</mark>..." (Salmo 23:1)</em>
+                <p><i class="fa-solid fa-magnifying-glass-chart"></i><strong>Análisis:</strong> Dios (Real) es un "pastor" (Imaginario) porque cuida, guía y protege a su pueblo.</p>
+            </div>
         </section>
 
         <section class="module-section">
-            <h2><i class="fa-solid fa-book"></i>3. Metáforas en la Biblia (Reina Valera 1960)</h2>
-            <div class="bible-example">
-                <em>"Yo soy la <mark>luz</mark> del mundo; el que me sigue, no andará en tinieblas, sino que tendrá la luz de la vida." (Juan 8:12)</em>
-                <p><i class="fa-solid fa-magnifying-glass-chart"></i><strong>Análisis:</strong> Jesús (Término Real) se identifica como "la luz" (Término Imaginario). La semejanza es que la luz guía, revela la verdad y disipa la oscuridad, que a su vez es una metáfora de la ignorancia y el pecado.</p>
+            <h2><i class="fa-solid fa-wand-magic-sparkles"></i>3. El Poder del Efecto: Antes y Después</h2>
+            <p>Observa cómo una metáfora transforma una idea simple en una imagen poderosa. Haz clic en el botón para ver la magia.</p>
+            <div class="comparison-box">
+                <div id="before-text">
+                    <h4><i class="fa-solid fa-align-left"></i>Versión Literal</h4>
+                    <p>Su voz es muy suave y tranquilizadora.</p>
+                </div>
+                <div id="after-text" style="display: none;">
+                    <h4><i class="fa-solid fa-angles-right"></i>Versión con Metáfora</h4>
+                    <p>Su voz es <mark>terciopelo</mark> para mis oídos.</p>
+                </div>
+                <button id="transform-btn"><i class="fa-solid fa-repeat"></i>Mostrar Efecto</button>
             </div>
-            <hr>
-            <div class="bible-example">
-                <em>"Vosotros sois la <mark>sal</mark> de la tierra..." (Mateo 5:13)</em>
-                <p><i class="fa-solid fa-magnifying-glass-chart"></i><strong>Análisis:</strong> Los creyentes (Término Real) son identificados como "la sal" (Término Imaginario). En la antigüedad, la sal preservaba los alimentos de la corrupción y daba sabor. La metáfora indica que los creyentes deben ser una influencia que preserve la moral y dé "sabor" o sentido al mundo.</p>
-            </div>
-             <hr>
-            <div class="bible-example">
-                <em>"Jehová es mi <mark>pastor</mark>; nada me faltará." (Salmo 23:1)</em>
-                <p><i class="fa-solid fa-magnifying-glass-chart"></i><strong>Análisis:</strong> Dios (Término Real) es presentado como un "pastor" (Término Imaginario). Un pastor cuida, guía, protege y alimenta a sus ovejas. La metáfora transmite una profunda sensación de confianza y cuidado divino.</p>
+        </section>
+        
+        <section class="module-section">
+            <h2><i class="fa-solid fa-mouse-pointer"></i>4. ¡Ahora tú! Identifícala</h2>
+            <p>Haz clic en el <strong>Término Real</strong> y en el <strong>Término Imaginario</strong> en cada una de las siguientes metáforas.</p>
+            <div id="interactive-finder">
+                <div class="sentence-container">
+                    <p class="find-me"><span class="metaphor-part">El tiempo</span> es <span class="metaphor-part">oro</span>.</p>
+                    <p class="feedback-finder"></p>
+                </div>
+                <div class="sentence-container">
+                    <p class="find-me"><span class="metaphor-part">Sus dientes</span> son <span class="metaphor-part">perlas</span>.</p>
+                    <p class="feedback-finder"></p>
+                </div>
+                <div class="sentence-container">
+                    <p class="find-me">La vida es un <span class="metaphor-part">viaje</span> lleno de sorpresas.</p>
+                    <p class="feedback-finder"></p>
+                </div>
             </div>
         </section>
 
         <section class="module-section exercise">
-            <h2><i class="fa-solid fa-pencil-alt"></i>4. Ejercicio Práctico</h2>
+            <h2><i class="fa-solid fa-pencil-alt"></i>5. Ejercicio Práctico</h2>
             <p>Lee el siguiente versículo. Identifica el término real y el imaginario de la metáfora y explica brevemente su significado.</p>
             <p><em>"Lámpara es a mis pies tu palabra, Y lumbrera a mi camino." (Salmo 119:105)</em></p>
             <textarea id="exercise-answer" rows="10" placeholder="Término Real: ...&#10;Término Imaginario: ...&#10;Explicación: ..."></textarea>
-            
-            <button id="check-answer-btn"><i class="fa-solid fa-check-circle"></i>Verificar Respuesta</button>
-            <button id="show-answer-btn" style="display: none;"><i class="fa-solid fa-eye"></i>Ver Respuesta Correcta</button>
-            
+            <div class="buttons-container">
+                <button id="check-answer-btn"><i class="fa-solid fa-check-circle"></i>Verificar Respuesta</button>
+                <button id="show-answer-btn" style="display: none;"><i class="fa-solid fa-eye"></i>Ver Respuesta Correcta</button>
+            </div>
             <p id="feedback" class="feedback"></p>
-
             <div id="correct-answer" class="correct-answer-box" style="display: none;">
                 <h4>Respuesta Detallada:</h4>
                 <p><strong>Término Real:</strong> "Tu palabra" (La enseñanza de Dios).</p>
                 <p><strong>Término Imaginario:</strong> "Lámpara" y "Lumbrera".</p>
-                <p><strong>Explicación:</strong> La palabra de Dios se compara con una fuente de luz porque, al igual que una lámpara ilumina los pasos inmediatos en la oscuridad y una lumbrera alumbra el camino a lo lejos, sus enseñanzas guían las decisiones diarias y el rumbo general de la vida de una persona.</p>
+                <p><strong>Explicación:</strong> La palabra de Dios se compara con una fuente de luz porque, al igual que una lámpara ilumina los pasos inmediatos en la oscuridad, sus enseñanzas guían las decisiones diarias y el rumbo general de la vida.</p>
             </div>
+        </section>
+        
+        <section class="module-section">
+            <h2><i class="fa-solid fa-clipboard-question"></i>6. Mini-Quiz Rápido</h2>
+            <p>¡Pongamos a prueba lo aprendido! Elige la respuesta correcta.</p>
+            <form id="mini-quiz-form">
+                <div class="quiz-question">
+                    <p><strong>1. ¿Qué define mejor a una metáfora?</strong></p>
+                    <label><input type="radio" name="q1" value="a"> Una exageración evidente para enfatizar algo.</label><br>
+                    <label><input type="radio" name="q1" value="b"> Una comparación directa que identifica una cosa con otra, sin usar "como".</label><br>
+                    <label><input type="radio" name="q1" value="c"> Dar cualidades humanas a un objeto inanimado.</label><br>
+                </div>
+                <div class="quiz-question">
+                    <p><strong>2. ¿Cuál de estas frases contiene una metáfora?</strong></p>
+                    <label><input type="radio" name="q2" value="a"> El mundo es un pañuelo.</label><br>
+                    <label><input type="radio" name="q2" value="b"> Sus ojos brillan como dos estrellas.</label><br>
+                    <label><input type="radio" name="q2" value="c"> ¡He esperado mil años por ti!</label><br>
+                </div>
+                <button type="submit"><i class="fa-solid fa-paper-plane"></i>Enviar Quiz</button>
+            </form>
+            <div id="quiz-results" class="correct-answer-box" style="display:none; margin-top: 1rem;"></div>
         </section>
     </main>
     
     <div class="fab-container">
-        <button id="download-pdf" class="fab" title="Descargar como PDF">
-            <i class="fa-solid fa-file-pdf"></i>
-        </button>
+        <button id="download-pdf" class="fab" title="Descargar como PDF"><i class="fa-solid fa-file-pdf"></i></button>
     </div>
 
-<footer class="main-footer">
-    <p>&copy; 2025 - Estudio de Figuras Literarias | Desarrollado por Julio Cesar Pineda Mora</p>
-</footer>
+    <footer class="main-footer">
+        <p>&copy; 2025 - Estudio de Figuras Literarias | Desarrollado por Julio Cesar Pineda Mora</p>
+    </footer>
 
-    <script src="../lib/html2pdf.bundle.min.js"></script>
-    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // --- LÓGICA 1: MANEJO DEL TEMA (MODO OSCURO/CLARO) CON ICONO DINÁMICO ---
+            // --- LÓGICA ORIGINAL DEL MÓDULO ---
+
+            // Manejo del tema (Modo Oscuro/Claro)
             const themeToggle = document.getElementById('theme-toggle');
             const themeIcon = themeToggle.querySelector('i');
-
             const applyTheme = (theme) => {
                 document.body.classList.remove('light-mode', 'dark-mode');
                 document.body.classList.add(theme);
                 localStorage.setItem('theme', theme);
-                if (theme === 'dark-mode') {
-                    themeIcon.className = 'fa-solid fa-sun';
-                    themeToggle.title = 'Cambiar a modo claro';
-                } else {
-                    themeIcon.className = 'fa-solid fa-moon';
-                    themeToggle.title = 'Cambiar a modo oscuro';
-                }
+                themeIcon.className = theme === 'dark-mode' ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
+                themeToggle.title = theme === 'dark-mode' ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro';
             };
             themeToggle.addEventListener('click', () => {
-                const newTheme = document.body.classList.contains('dark-mode') ? 'light-mode' : 'dark-mode';
-                applyTheme(newTheme);
+                applyTheme(document.body.classList.contains('dark-mode') ? 'light-mode' : 'dark-mode');
             });
-            const storedTheme = localStorage.getItem('theme') || 'light-mode';
-            applyTheme(storedTheme);
+            applyTheme(localStorage.getItem('theme') || 'light-mode');
 
-
-            // --- LÓGICA 2: VERIFICACIÓN DEL EJERCICIO (SIN CAMBIOS) ---
+            // Verificación del ejercicio práctico
             const checkAnswerBtn = document.getElementById('check-answer-btn');
             const showAnswerBtn = document.getElementById('show-answer-btn');
             const feedbackEl = document.getElementById('feedback');
@@ -140,34 +179,86 @@
                 showAnswerBtn.style.display = 'none';
             });
 
-            // --- LÓGICA 3: GENERADOR DE PDF CON FEEDBACK DE CARGA ---
+            // Generador de PDF con feedback de carga
             document.getElementById('download-pdf').addEventListener('click', () => {
                 const fabContainer = document.querySelector('.fab-container');
                 const content = document.getElementById('module-content');
                 const downloadBtn = document.getElementById('download-pdf');
                 const originalIcon = downloadBtn.innerHTML;
-
                 fabContainer.style.visibility = 'hidden';
-                downloadBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i>'; // Icono de carga
-
+                downloadBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i>';
                 const opt = {
-                    margin: 10,
-                    filename: 'modulo-metafora.pdf',
-                    image: { type: 'jpeg', quality: 0.98 },
-                    html2canvas: { scale: 2, useCORS: true, letterRendering: true },
-                    jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
+                    margin: 10, filename: 'modulo-metafora.pdf', image: { type: 'jpeg', quality: 0.98 },
+                    html2canvas: { scale: 2, useCORS: true, letterRendering: true }, jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
                     pagebreak: { mode: ['avoid-all', 'css', 'legacy'] }
                 };
-
                 html2pdf().from(content).set(opt).save().then(() => {
                     fabContainer.style.visibility = 'visible';
-                    downloadBtn.innerHTML = originalIcon; // Restaurar icono original
+                    downloadBtn.innerHTML = originalIcon;
                 }).catch(err => {
-                    // En caso de error, también restauramos el botón
                     console.error("Error al generar el PDF:", err);
                     fabContainer.style.visibility = 'visible';
                     downloadBtn.innerHTML = originalIcon;
                 });
+            });
+
+            // --- LÓGICA PARA NUEVAS SECCIONES INTERACTIVAS ---
+
+            // Lógica para la sección "Antes y Después"
+            const transformBtn = document.getElementById('transform-btn');
+            const beforeText = document.getElementById('before-text');
+            const afterText = document.getElementById('after-text');
+            transformBtn.addEventListener('click', () => {
+                if (afterText.style.display === 'none') {
+                    beforeText.style.display = 'none';
+                    afterText.style.display = 'block';
+                    transformBtn.innerHTML = '<i class="fa-solid fa-rotate-left"></i> Mostrar Original';
+                } else {
+                    beforeText.style.display = 'block';
+                    afterText.style.display = 'none';
+                    transformBtn.innerHTML = '<i class="fa-solid fa-repeat"></i> Mostrar Efecto';
+                }
+            });
+
+            // Lógica para la sección "Identifícalo"
+            document.querySelectorAll('.sentence-container').forEach(container => {
+                const partsToFind = container.querySelectorAll('.metaphor-part');
+                const feedbackFinderEl = container.querySelector('.feedback-finder');
+                let foundCount = 0;
+                partsToFind.forEach(part => {
+                    part.addEventListener('click', () => {
+                        if (!part.classList.contains('found')) {
+                            part.classList.add('found');
+                            foundCount++;
+                            if (foundCount === partsToFind.length) {
+                                feedbackFinderEl.textContent = '¡Correcto! Has encontrado todas las partes.';
+                            }
+                        }
+                    }, { once: true });
+                });
+            });
+
+            // Lógica para el Mini-Quiz
+            const quizForm = document.getElementById('mini-quiz-form');
+            quizForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const correctAnswers = { q1: 'b', q2: 'a' };
+                let score = 0;
+                const totalQuestions = Object.keys(correctAnswers).length;
+                const formData = new FormData(quizForm);
+                for (const [question, userAnswer] of formData.entries()) {
+                    if (userAnswer === correctAnswers[question]) {
+                        score++;
+                    }
+                }
+                const resultsEl = document.getElementById('quiz-results');
+                resultsEl.innerHTML = `<h4>Resultados del Quiz</h4><p>Has acertado <strong>${score}</strong> de <strong>${totalQuestions}</strong> preguntas.</p>`;
+                if (score === totalQuestions) {
+                    resultsEl.innerHTML += "<p>¡Felicidades! Has dominado el concepto de metáfora.</p>";
+                } else {
+                    resultsEl.innerHTML += "<p>¡Buen intento! Repasa el módulo y vuelve a intentarlo si quieres.</p>";
+                }
+                resultsEl.style.display = 'block';
             });
         });
     </script>
