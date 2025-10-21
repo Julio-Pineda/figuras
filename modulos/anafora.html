@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anáfora</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root { --primary-bg-light: #f4f4f9; --primary-text-light: #333; --card-bg-light: #ffffff; --header-bg-light: #ffffff; --accent-color: #007bff; --mark-bg-light: #ffe066; --border-color-light: #e0e0e0; --success-bg-light: #e6ffed; --primary-bg-dark: #121212; --primary-text-dark: #e0e0e0; --card-bg-dark: #1e1e1e; --header-bg-dark: #1e1e1e; --mark-bg-dark: #b38f00; --border-color-dark: #333; --success-bg-dark: #1c3b29; } body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; margin: 0; transition: background-color 0.3s, color 0.3s; line-height: 1.6; word-wrap: break-word; overflow-wrap: break-word; } body.light-mode { background-color: var(--primary-bg-light); color: var(--primary-text-light); } body.dark-mode { background-color: var(--primary-bg-dark); color: var(--primary-text-dark); } .main-header { display: flex; justify-content: space-between; align-items: center; padding: 1rem; box-shadow: 0 2px 4px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; } body.light-mode .main-header { background-color: var(--header-bg-light); } body.dark-mode .main-header { background-color: var(--header-bg-dark); } .main-header h1 { font-size: 1.2rem; margin: 0; text-align: center; } .theme-toggle-btn { background-color: var(--accent-color); color: white; border: none; padding: 0.5rem 1rem; border-radius: 5px; cursor: pointer; font-size: 1rem; width: 45px; text-align: center; } .main-footer { text-align: center; padding: 1rem; margin-top: 2rem; font-size: 0.9rem; } .container { max-width: 1080px; margin: 1rem auto; padding: 0 1rem; } .module-section { padding: 1.5rem; border-radius: 8px; margin-bottom: 1.5rem; box-shadow: 7px 7px 27px 2px rgba(0,0,0,0.1); } body.light-mode .module-section { background-color: var(--card-bg-light); border: 1px solid var(--border-color-light); } body.dark-mode .module-section { background-color: var(--card-bg-dark); border: 1px solid var(--border-color-dark); } .module-section h2 { margin-top: 0; color: var(--accent-color); border-bottom: 2px solid var(--accent-color); padding-bottom: 0.5rem; font-size: 1.3rem; } .back-link { text-decoration: none; color: var(--accent-color); font-weight: bold; font-size: 0.9rem; } mark { padding: 0.2em 0.4em; border-radius: 3px; } body.light-mode mark { background-color: var(--mark-bg-light); } body.dark-mode mark { background-color: var(--mark-bg-dark); color: var(--primary-text-dark); } .formula { text-align: center; font-size: 1rem; padding: 1rem; border: 2px dashed var(--accent-color); border-radius: 5px; margin: 1rem 0; } .bible-example { margin-top: 1.5rem; } .bible-example em { display: block; padding-left: 1rem; border-left: 3px solid #ccc; margin-bottom: 0.5rem; font-style: italic; } .module-section ul { list-style: none; padding-left: 0; } .module-section li { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 0.5rem; } .fa-fw { text-align: center; } h1, h2, .back-link, .exercise button, .bible-example p, .formula p, #mini-quiz-form button, #transform-btn { display: flex; align-items: center; justify-content: center; gap: 10px; } .exercise textarea { width: 100%; box-sizing: border-box; padding: 0.5rem; border-radius: 5px; border: 1px solid #ccc; margin: 1rem 0; font-size: 1rem; } .exercise .buttons-container { display: flex; flex-wrap: wrap; gap: 10px; } .exercise button { background-color: var(--accent-color); color: white; border: none; padding: 0.7rem 1.5rem; border-radius: 5px; cursor: pointer; flex-grow: 1; } #show-answer-btn { background-color: #6c757d; } .feedback { margin-top: 1rem; font-weight: bold; min-height: 1.2em; } .correct-answer-box { margin-top: 1rem; padding: 1rem; border-radius: 5px; } body.light-mode .correct-answer-box { background-color: var(--success-bg-light); border: 1px solid green; } body.dark-mode .correct-answer-box { background-color: var(--success-bg-dark); border: 1px solid #3d8b40; } .comparison-box { text-align: center; } .comparison-box h4 { margin-bottom: 0.5rem; } .comparison-box p { font-size: 1.2rem; font-style: italic; } #transform-btn { margin-top: 1rem; background-color: var(--accent-color); color: white; border: none; padding: 0.7rem 1.5rem; border-radius: 5px; cursor: pointer;} .interactive-part { cursor: pointer; padding: 0.1em 0.3em; border-radius: 3px; transition: background-color 0.3s; border-bottom: 2px dotted var(--accent-color); } .interactive-part.found { background-color: var(--mark-bg-light); color: #333; border-bottom: none; cursor: default; } body.dark-mode .interactive-part.found { background-color: var(--mark-bg-dark); color: var(--primary-text-dark); } .feedback-finder { font-weight: bold; color: green; font-size: 0.9em; min-height: 1em; margin-top: 0.5rem; text-align: center;} .sentence-container { margin-bottom: 1rem; text-align: left; font-size: 1.1rem; padding-left: 1rem;} .quiz-question { margin-bottom: 1.5rem; } .quiz-question p { margin-bottom: 0.5rem; } .quiz-question label { display: block; margin-bottom: 0.5rem; cursor: pointer; } #mini-quiz-form button { background-color: var(--accent-color); color: white; border: none; padding: 0.7rem 1.5rem; border-radius: 5px; cursor: pointer; margin-top: 1rem; } .fab-container { position: fixed; bottom: 1rem; right: 1rem; z-index: 1001; } .fab { background-color: var(--accent-color); color: white; border: none; border-radius: 50%; width: 50px; height: 50px; font-size: 1.2rem; text-align: center; box-shadow: 0 4px 8px rgba(0,0,0,0.2); cursor: pointer; display: flex; align-items: center; justify-content: center; } @media (min-width: 768px) { .main-header { padding: 1rem 2rem; } .main-header h1 { font-size: 1.5rem; } .container { margin: 2rem auto; } .module-section { padding: 2rem; } .exercise .buttons-container { flex-wrap: nowrap; } .exercise button { flex-grow: 0; } .fab-container { bottom: 2rem; right: 2rem; } .fab { width: 60px; height: 60px; font-size: 1.5rem; } }
+    </style>
+</head>
+<body>
+    <header class="main-header">
+        <a href="../index.html" class="back-link"><i class="fa-solid fa-arrow-left"></i> Volver</a>
+        <h1><i class="fa-solid fa-arrows-rotate"></i>Anáfora</h1>
+        <button id="theme-toggle" class="theme-toggle-btn" title="Cambiar tema"><i class="fa-solid fa-moon"></i></button>
+    </header>
+
+    <main class="container" id="module-content">
+        <section class="module-section">
+            <h2><i class="fa-solid fa-circle-question"></i>1. ¿Qué es una Anáfora?</h2>
+            <p>La anáfora es la <strong>repetición de una o varias palabras al principio</strong> de versos o frases consecutivas. Su función es crear ritmo, dar énfasis y cohesionar el texto de forma poética.</p>
+            <div class="formula"><p><i class="fa-solid fa-list-ol"></i><span><mark>Palabra(s) Repetida(s)</mark> + Frase 1<br><mark>Palabra(s) Repetida(s)</mark> + Frase 2</span></p></div>
+            <p>Ejemplo: "<mark>Tengo un sueño</mark> que un día esta nación se levantará... <mark>Tengo un sueño</mark> que mis cuatro hijos pequeños vivirán...". La repetición ancla la idea principal.</p>
+        </section>
+
+        <section class="module-section">
+            <h2><i class="fa-solid fa-comments"></i>2. Ejemplos</h2>
+            <h3>En la Vida Cotidiana</h3>
+            <ul>
+                <li><i class="fa-solid fa-music fa-fw"></i>En canciones: "<mark>Corre, corre, corre</mark>, corazón...".</li>
+                <li><i class="fa-solid fa-feather-pointed fa-fw"></i>En poesía: "<mark>Mientras</mark> las ondas de la luz... <mark>mientras</mark> el sol...".</li>
+                <li><i class="fa-solid fa-bullhorn fa-fw"></i>Al dar énfasis: "<mark>Todo</mark> se lo llevó el viento. <mark>Todo</mark> desapareció."</li>
+            </ul>
+             <hr style="margin: 2rem 0;">
+             <h3>En la Biblia (Reina Valera 1960)</h3>
+            <div class="bible-example">
+                <em>"<mark>Bienaventurados</mark> los pobres en espíritu... <br><mark>Bienaventurados</mark> los que lloran... <br><mark>Bienaventurados</mark> los mansos..." (Mateo 5:3-5)</em>
+                <p><i class="fa-solid fa-magnifying-glass-chart"></i><strong>Análisis:</strong> El Sermón del Monte utiliza esta anáfora para presentar las enseñanzas con un ritmo solemne y unificador. La repetición de "Bienaventurados" actúa como un estribillo que introduce cada promesa, dándole una enorme fuerza retórica.</p>
+            </div><hr>
+            <div class="bible-example">
+                <em>"<mark>Tiempo de</mark> nacer, y <mark>tiempo de</mark> morir; <mark>tiempo de</mark> plantar, y <mark>tiempo de</mark> arrancar..." (Eclesiastés 3:2)</em>
+                <p><i class="fa-solid fa-magnifying-glass-chart"></i><strong>Análisis:</strong> La repetición constante de "tiempo de" crea una cadencia que refuerza la idea central: para cada actividad hay un momento designado. La estructura anafórica subraya el orden y la soberanía del tiempo.</p>
+            </div><hr>
+            <div class="bible-example">
+                <em>"<mark>Alabadle</mark> por sus proezas; <br><mark>Alabadle</mark> conforme a su grandeza. <br><mark>Alabadle</mark> a son de bocina..." (Salmo 150:2-3)</em>
+                <p><i class="fa-solid fa-magnifying-glass-chart"></i><strong>Análisis:</strong> El salmo es una gran anáfora que usa "Alabadle" como un llamado insistente y gozoso a la adoración. La repetición crea un clímax de alabanza que crece con cada verso.</p>
+            </div>
+        </section>
+
+        <section class="module-section">
+            <h2><i class="fa-solid fa-wand-magic-sparkles"></i>3. El Poder del Efecto: Antes y Después</h2>
+            <p>Observa cómo la anáfora añade ritmo y urgencia. Haz clic en el botón para ver la transformación.</p>
+            <div class="comparison-box">
+                <div id="before-text"><h4><i class="fa-solid fa-align-left"></i>Versión Normal</h4><p>Debes luchar por tus sueños y no rendirte nunca.</p></div>
+                <div id="after-text" style="display: none;"><h4><i class="fa-solid fa-angles-right"></i>Versión con Anáfora</h4><p><mark>Lucha</mark> por tus sueños. <mark>Lucha</mark> hasta el final. <mark>Lucha</mark> y no te rindas.</p></div>
+                <button id="transform-btn"><i class="fa-solid fa-repeat"></i>Mostrar Efecto</button>
+            </div>
+        </section>
+
+        <section class="module-section">
+            <h2><i class="fa-solid fa-mouse-pointer"></i>4. ¡Ahora tú! Identifícala</h2>
+            <p>Haz clic en la palabra o frase que se repite al inicio de cada línea para formar la anáfora.</p>
+            <div id="interactive-finder">
+                <div class="sentence-container">
+                    <p><span class="interactive-part">Aquí</span> fue Troya.<br><span class="interactive-part">Aquí</span> mi desdicha.</p>
+                    <p class="feedback-finder"></p>
+                </div>
+                <div class="sentence-container">
+                    <p><span class="interactive-part">Sale</span> la luna, <span class="interactive-part">sale</span> el sol.<br><span class="interactive-part">Sale</span> mi amor.</p>
+                    <p class="feedback-finder"></p>
+                </div>
+            </div>
+        </section>
+
+        <section class="module-section exercise">
+            <h2><i class="fa-solid fa-pencil-alt"></i>5. Ejercicio Práctico</h2>
+            <p>Identifica la frase anafórica y explica la idea que busca enfatizar con esa repetición.</p>
+            <p><em>(Pasaje adaptado) "Hermanos, orad por nosotros. <mark>En todo</mark> dad gracias... <mark>En todo</mark> tiempo amad, <mark>en todo</mark> lugar servid."</em></p>
+            <textarea id="exercise-answer" rows="10" placeholder="Frase que se repite: ...&#10;Idea que enfatiza: ..."></textarea>
+            <div class="buttons-container">
+                <button id="check-answer-btn"><i class="fa-solid fa-check-circle"></i>Verificar Respuesta</button>
+                <button id="show-answer-btn" style="display: none;"><i class="fa-solid fa-eye"></i>Ver Respuesta Correcta</button>
+            </div>
+            <p id="feedback" class="feedback"></p>
+            <div id="correct-answer" class="correct-answer-box" style="display: none;">
+                <h4>Respuesta Detallada:</h4>
+                <p><strong>Frase que se repite:</strong> "En todo".</p>
+                <p><strong>Idea que enfatiza:</strong> Subraya el carácter <strong>incondicional y universal</strong> de los mandatos. La repetición elimina cualquier excepción, enfatizando que la gratitud, el amor y el servicio deben ser una práctica constante en la vida del creyente, sin importar las circunstancias.</p>
+            </div>
+        </section>
+
+        <section class="module-section">
+            <h2><i class="fa-solid fa-clipboard-question"></i>6. Mini-Quiz Rápido</h2>
+            <form id="mini-quiz-form">
+                <div class="quiz-question">
+                    <p><strong>1. La anáfora consiste en repetir palabras...</strong></p>
+                    <label><input type="radio" name="q1" value="a"> Al final de las frases.</label><br>
+                    <label><input type="radio" name="q1" value="b"> En medio de una oración.</label><br>
+                    <label><input type="radio" name="q1" value="c"> Al principio de frases consecutivas.</label><br>
+                </div>
+                <div class="quiz-question">
+                    <p><strong>2. ¿Cuál es el mejor ejemplo de anáfora?</strong></p>
+                    <label><input type="radio" name="q2" value="a"> Sal de mi vida, sal de mi corazón.</label><br>
+                    <label><input type="radio" name="q2" value="b"> Mi mamá me mima mucho.</label><br>
+                    <label><input type="radio" name="q2" value="c"> La vida es un viaje largo.</label><br>
+                </div>
+                <button type="submit"><i class="fa-solid fa-paper-plane"></i>Enviar Quiz</button>
+            </form>
+            <div id="quiz-results" class="correct-answer-box" style="display:none; margin-top: 1rem;"></div>
+        </section>
+    </main>
+    
+    <div class="fab-container"><button id="download-pdf" class="fab" title="Descargar como PDF"><i class="fa-solid fa-file-pdf"></i></button></div>
+    <footer class="main-footer"><p>&copy; 2025 - Estudio de Figuras Literarias | Desarrollado por Julio Cesar Pineda Mora</p></footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const themeToggle = document.getElementById('theme-toggle'); const themeIcon = themeToggle.querySelector('i'); const applyTheme = (theme) => { document.body.classList.remove('light-mode', 'dark-mode'); document.body.classList.add(theme); localStorage.setItem('theme', theme); themeIcon.className = theme === 'dark-mode' ? 'fa-solid fa-sun' : 'fa-solid fa-moon'; themeToggle.title = theme === 'dark-mode' ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro'; }; themeToggle.addEventListener('click', () => { applyTheme(document.body.classList.contains('dark-mode') ? 'light-mode' : 'dark-mode'); }); applyTheme(localStorage.getItem('theme') || 'light-mode');
+            const checkAnswerBtn = document.getElementById('check-answer-btn'); const showAnswerBtn = document.getElementById('show-answer-btn'); const feedbackEl = document.getElementById('feedback'); const correctAnswerEl = document.getElementById('correct-answer'); checkAnswerBtn.addEventListener('click', () => { const answer = document.getElementById('exercise-answer').value.toLowerCase(); showAnswerBtn.style.display = 'none'; correctAnswerEl.style.display = 'none'; if (answer.includes("en todo")) { feedbackEl.textContent = "¡Excelente! Has identificado la frase repetida."; feedbackEl.style.color = 'var(--accent-color)'; } else { feedbackEl.textContent = "Casi lo tienes. Fíjate en las palabras que inician las acciones."; feedbackEl.style.color = 'red'; showAnswerBtn.style.display = 'inline-block'; } }); showAnswerBtn.addEventListener('click', () => { correctAnswerEl.style.display = 'block'; showAnswerBtn.style.display = 'none'; });
+            document.getElementById('download-pdf').addEventListener('click', () => { const fabContainer = document.querySelector('.fab-container'); const content = document.getElementById('module-content'); const downloadBtn = document.getElementById('download-pdf'); const originalIcon = downloadBtn.innerHTML; fabContainer.style.visibility = 'hidden'; downloadBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i>'; const opt = { margin: 10, filename: 'modulo-anafora.pdf', image: { type: 'jpeg', quality: 0.98 }, html2canvas: { scale: 2, useCORS: true, letterRendering: true }, jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }, pagebreak: { mode: ['avoid-all', 'css', 'legacy'] } }; html2pdf().from(content).set(opt).save().then(() => { fabContainer.style.visibility = 'visible'; downloadBtn.innerHTML = originalIcon; }).catch(err => { console.error("Error al generar el PDF:", err); fabContainer.style.visibility = 'visible'; downloadBtn.innerHTML = originalIcon; }); });
+            const transformBtn = document.getElementById('transform-btn'); if (transformBtn) { const beforeText = document.getElementById('before-text'); const afterText = document.getElementById('after-text'); transformBtn.addEventListener('click', () => { if (afterText.style.display === 'none') { beforeText.style.display = 'none'; afterText.style.display = 'block'; transformBtn.innerHTML = '<i class="fa-solid fa-rotate-left"></i> Mostrar Original'; } else { beforeText.style.display = 'block'; afterText.style.display = 'none'; transformBtn.innerHTML = '<i class="fa-solid fa-repeat"></i> Mostrar Efecto'; } }); }
+            document.querySelectorAll('.sentence-container').forEach(container => { const partsToFind = container.querySelectorAll('.interactive-part'); const feedbackFinderEl = container.querySelector('.feedback-finder'); let foundCount = 0; partsToFind.forEach(part => { part.addEventListener('click', (e) => { e.stopPropagation(); if (!part.classList.contains('found')) { part.classList.add('found'); foundCount++; if (foundCount === partsToFind.length) { feedbackFinderEl.textContent = '¡Correcto! Has encontrado la anáfora.'; } } }, { once: true }); }); });
+            const quizForm = document.getElementById('mini-quiz-form'); if (quizForm) { quizForm.addEventListener('submit', (e) => { e.preventDefault(); const correctAnswers = { q1: 'c', q2: 'a' }; let score = 0; const totalQuestions = Object.keys(correctAnswers).length; const formData = new FormData(quizForm); for (const [question, userAnswer] of formData.entries()) { if (userAnswer === correctAnswers[question]) { score++; } } const resultsEl = document.getElementById('quiz-results'); resultsEl.innerHTML = `<h4>Resultados del Quiz</h4><p>Has acertado <strong>${score}</strong> de <strong>${totalQuestions}</strong> preguntas.</p>`; if (score === totalQuestions) { resultsEl.innerHTML += "<p>¡Muy bien! Reconoces una anáfora perfectamente.</p>"; } else { resultsEl.innerHTML += "<p>¡Sigue intentando! Recuerda: es la repetición AL PRINCIPIO.</p>"; } resultsEl.style.display = 'block'; }); }
+        });
+    </script>
+</body>
+</html>

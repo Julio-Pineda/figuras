@@ -1,0 +1,251 @@
+:root {
+    --accent-color-trabalenguas: #ff8c00;
+    --card-bg-light-trabalenguas: #fff;
+    --card-bg-dark-trabalenguas: #2a2a2a;
+    --letter-bg-light: #f0f0f0;
+    --letter-bg-dark: #333;
+}
+
+body {
+    text-align: center;
+}
+
+header h1 {
+    color: var(--accent-color-trabalenguas);
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+.alphabet-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 40px;
+}
+
+.alphabet-letter {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+body.light-mode .alphabet-letter {
+    background-color: var(--letter-bg-light);
+    border: 2px solid #ddd;
+}
+
+body.dark-mode .alphabet-letter {
+    background-color: var(--letter-bg-dark);
+    border: 2px solid #444;
+}
+
+.alphabet-letter:hover {
+    transform: scale(1.1);
+}
+
+.alphabet-letter.active {
+    background-color: var(--accent-color-trabalenguas);
+    color: white;
+    border-color: var(--accent-color-trabalenguas);
+}
+
+.trabalenguas-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.trabalenguas-item {
+    display: none;
+    padding: 30px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    text-align: left;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+body.light-mode .trabalenguas-item {
+    background-color: var(--card-bg-light-trabalenguas);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+}
+
+body.dark-mode .trabalenguas-item {
+    background-color: var(--card-bg-dark-trabalenguas);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+}
+
+.trabalenguas-item.active {
+    display: block;
+}
+
+.trabalenguas-item h3 {
+    color: var(--accent-color-trabalenguas);
+    font-size: 2rem;
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+.trabalenguas-item p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Theme Switcher */
+.theme-toggle-switch {
+    position: relative;
+    width: 60px;
+    height: 30px;
+    background-color: #ccc;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.theme-toggle-switch .sun,
+.theme-toggle-switch .moon {
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    top: 4px;
+    transition: transform 0.3s, opacity 0.3s;
+}
+
+.theme-toggle-switch .sun {
+    left: 4px;
+    background-color: #f39c12;
+    border-radius: 50%;
+    opacity: 1;
+    transform: scale(1);
+}
+
+.theme-toggle-switch .moon {
+    right: 4px;
+    background-color: #f1c40f;
+    border-radius: 50%;
+    opacity: 0;
+    transform: scale(0);
+}
+
+body.dark-mode .theme-toggle-switch {
+    background-color: #555;
+}
+
+body.dark-mode .theme-toggle-switch .sun {
+    opacity: 0;
+    transform: scale(0);
+}
+
+body.dark-mode .theme-toggle-switch .moon {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.trabalenguas-card {
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    /* Removed position: relative as button is no longer absolute */
+}
+
+body.light-mode .trabalenguas-card {
+    background-color: #e0e0e0;
+    border: 1px solid #dee2e6;
+}
+
+body.dark-mode .trabalenguas-card {
+    background-color: #1a1a1a;
+    border: 1px solid #495057;
+}
+
+.trabalenguas-card p {
+    margin: 0;
+}
+
+.button-wrapper {
+    text-align: right;
+    margin-top: 15px; /* Add some space above the button */
+}
+
+.completed-button {
+    /* Removed absolute positioning */
+    padding: 8px 15px;
+    border: none;
+    border-radius: 22px; /* Beautiful border-radius */
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    background-color: var(--accent-color-trabalenguas); /* Default color for "Marcar como hecho" */
+    color: white;
+}
+
+.trabalenguas-card.completed {
+    opacity: 0.7; /* Slightly less opaque to show the darker background */
+}
+
+body.light-mode .trabalenguas-card.completed {
+    background-color: #c0c0c0; /* Even darker for light mode */
+}
+
+body.dark-mode .trabalenguas-card.completed {
+    background-color: #0a0a0a; /* Even darker for dark mode */
+}
+
+.trabalenguas-card.completed .completed-button {
+    background-color: #dc3545; /* Red for "Desmarcar" */
+}
+
+.completed-button:hover {
+    opacity: 0.9;
+}
+
+.spark {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background-color: var(--accent-color-trabalenguas);
+    border-radius: 50%;
+    animation: spark-animation 1s forwards;
+}
+
+@keyframes spark-animation {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 2rem;
+    }
+
+    .alphabet-letter {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+
+    .trabalenguas-item {
+        padding: 20px;
+    }
+
+    .trabalenguas-item h3 {
+        font-size: 1.5rem;
+    }
+}

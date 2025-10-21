@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Símil o Comparación</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root { --primary-bg-light: #f4f4f9; --primary-text-light: #333; --card-bg-light: #ffffff; --header-bg-light: #ffffff; --accent-color: #007bff; --mark-bg-light: #ffe066; --border-color-light: #e0e0e0; --success-bg-light: #e6ffed; --primary-bg-dark: #121212; --primary-text-dark: #e0e0e0; --card-bg-dark: #1e1e1e; --header-bg-dark: #1e1e1e; --mark-bg-dark: #b38f00; --border-color-dark: #333; --success-bg-dark: #1c3b29; } body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; margin: 0; transition: background-color 0.3s, color 0.3s; line-height: 1.6; word-wrap: break-word; overflow-wrap: break-word; } body.light-mode { background-color: var(--primary-bg-light); color: var(--primary-text-light); } body.dark-mode { background-color: var(--primary-bg-dark); color: var(--primary-text-dark); } .main-header { display: flex; justify-content: space-between; align-items: center; padding: 1rem; box-shadow: 0 2px 4px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; } body.light-mode .main-header { background-color: var(--header-bg-light); } body.dark-mode .main-header { background-color: var(--header-bg-dark); } .main-header h1 { font-size: 1.2rem; margin: 0; text-align: center; } .theme-toggle-btn { background-color: var(--accent-color); color: white; border: none; padding: 0.5rem 1rem; border-radius: 5px; cursor: pointer; font-size: 1rem; width: 45px; text-align: center; } .main-footer { text-align: center; padding: 1rem; margin-top: 2rem; font-size: 0.9rem; } .container { max-width: 1080px; margin: 1rem auto; padding: 0 1rem; } .module-section { padding: 1.5rem; border-radius: 8px; margin-bottom: 1.5rem; box-shadow: 7px 7px 27px 2px rgba(0,0,0,0.1); } body.light-mode .module-section { background-color: var(--card-bg-light); border: 1px solid var(--border-color-light); } body.dark-mode .module-section { background-color: var(--card-bg-dark); border: 1px solid var(--border-color-dark); } .module-section h2 { margin-top: 0; color: var(--accent-color); border-bottom: 2px solid var(--accent-color); padding-bottom: 0.5rem; font-size: 1.3rem; } .back-link { text-decoration: none; color: var(--accent-color); font-weight: bold; font-size: 0.9rem; } mark { padding: 0.2em 0.4em; border-radius: 3px; } body.light-mode mark { background-color: var(--mark-bg-light); } body.dark-mode mark { background-color: var(--mark-bg-dark); color: var(--primary-text-dark); } .formula { text-align: center; font-size: 1rem; padding: 1rem; border: 2px dashed var(--accent-color); border-radius: 5px; margin: 1rem 0; } .bible-example { margin-top: 1.5rem; } .bible-example em { display: block; padding-left: 1rem; border-left: 3px solid #ccc; margin-bottom: 0.5rem; font-style: italic; } .module-section ul { list-style: none; padding-left: 0; } .module-section li { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 0.5rem; } .fa-fw { text-align: center; } h1, h2, .back-link, .exercise button, .bible-example p, .formula p, #mini-quiz-form button, #transform-btn { display: flex; align-items: center; justify-content: center; gap: 10px; } .exercise textarea { width: 100%; box-sizing: border-box; padding: 0.5rem; border-radius: 5px; border: 1px solid #ccc; margin: 1rem 0; font-size: 1rem; } .exercise .buttons-container { display: flex; flex-wrap: wrap; gap: 10px; } .exercise button { background-color: var(--accent-color); color: white; border: none; padding: 0.7rem 1.5rem; border-radius: 5px; cursor: pointer; flex-grow: 1; } #show-answer-btn { background-color: #6c757d; } .feedback { margin-top: 1rem; font-weight: bold; min-height: 1.2em; } .correct-answer-box { margin-top: 1rem; padding: 1rem; border-radius: 5px; } body.light-mode .correct-answer-box { background-color: var(--success-bg-light); border: 1px solid green; } body.dark-mode .correct-answer-box { background-color: var(--success-bg-dark); border: 1px solid #3d8b40; } .comparison-box { text-align: center; } .comparison-box h4 { margin-bottom: 0.5rem; } .comparison-box p { font-size: 1.2rem; font-style: italic; } #transform-btn { margin-top: 1rem; background-color: var(--accent-color); color: white; border: none; padding: 0.7rem 1.5rem; border-radius: 5px; cursor: pointer;} .interactive-part { cursor: pointer; padding: 0.1em 0.3em; border-radius: 3px; transition: background-color 0.3s; border-bottom: 2px dotted var(--accent-color); } .interactive-part.found { background-color: var(--mark-bg-light); color: #333; border-bottom: none; cursor: default; } body.dark-mode .interactive-part.found { background-color: var(--mark-bg-dark); color: var(--primary-text-dark); } .feedback-finder { font-weight: bold; color: green; font-size: 0.9em; min-height: 1em; margin-top: 0.5em; text-align: center;} .sentence-container { margin-bottom: 1rem; text-align: center; font-size: 1.1rem;} .quiz-question { margin-bottom: 1.5rem; } .quiz-question p { margin-bottom: 0.5rem; } .quiz-question label { display: block; margin-bottom: 0.5rem; cursor: pointer; } #mini-quiz-form button { background-color: var(--accent-color); color: white; border: none; padding: 0.7rem 1.5rem; border-radius: 5px; cursor: pointer; margin-top: 1rem; } .fab-container { position: fixed; bottom: 1rem; right: 1rem; z-index: 1001; } .fab { background-color: var(--accent-color); color: white; border: none; border-radius: 50%; width: 50px; height: 50px; font-size: 1.2rem; text-align: center; box-shadow: 0 4px 8px rgba(0,0,0,0.2); cursor: pointer; display: flex; align-items: center; justify-content: center; } @media (min-width: 768px) { .main-header { padding: 1rem 2rem; } .main-header h1 { font-size: 1.5rem; } .container { margin: 2rem auto; } .module-section { padding: 2rem; } .exercise .buttons-container { flex-wrap: nowrap; } .exercise button { flex-grow: 0; } .fab-container { bottom: 2rem; right: 2rem; } .fab { width: 60px; height: 60px; font-size: 1.5rem; } }
+    </style>
+</head>
+<body>
+    <header class="main-header">
+        <a href="../index.html" class="back-link"><i class="fa-solid fa-arrow-left"></i> Volver</a>
+        <h1><i class="fa-solid fa-scale-balanced"></i>Símil o Comparación</h1>
+        <button id="theme-toggle" class="theme-toggle-btn" title="Cambiar tema"><i class="fa-solid fa-moon"></i></button>
+    </header>
+
+    <main class="container" id="module-content">
+        <section class="module-section">
+            <h2><i class="fa-solid fa-circle-question"></i>1. ¿Qué es un Símil?</h2>
+            <p>El símil, o comparación, establece una semejanza entre dos elementos. La característica que lo diferencia de la metáfora es que <strong>siempre utiliza un nexo comparativo</strong> explícito.</p>
+            <div class="formula"><p><i class="fa-solid fa-link"></i><strong>Término Real (A)</strong> + <mark>Nexo ("como", "parece", "tal cual")</mark> + <strong>Término Imaginario (B)</strong></p></div>
+            <p>En "Tus ojos brillan <mark>como</mark> dos luceros", la comparación es directa gracias al nexo "como". No se afirma que los ojos *son* luceros, sino que se *parecen* a ellos.</p>
+        </section>
+
+        <section class="module-section">
+            <h2><i class="fa-solid fa-comments"></i>2. Ejemplos</h2>
+            <h3>En la Vida Cotidiana</h3>
+            <ul>
+                <li><i class="fa-solid fa-horse-head fa-fw"></i>"Es terco <mark>como</mark> una mula."</li>
+                <li><i class="fa-solid fa-shirt fa-fw"></i>"Sus manos, suaves <mark>cual</mark> terciopelo."</li>
+                <li><i class="fa-solid fa-person-running fa-fw"></i>"El atleta corría <mark>tal que</mark> una gacela."</li>
+            </ul>
+             <hr style="margin: 2rem 0;">
+             <h3>En la Biblia (Reina Valera 1960)</h3>
+            <div class="bible-example">
+                <em>"Será <mark>como</mark> árbol plantado junto a corrientes de aguas, Que da su fruto en su tiempo, Y su hoja no cae..." (Salmo 1:3)</em>
+                <p><i class="fa-solid fa-magnifying-glass-chart"></i><strong>Análisis:</strong> La persona justa (Real) se compara con un "árbol frondoso" (Imaginario) usando "como". La semejanza radica en la prosperidad y estabilidad que ambos poseen gracias a estar conectados a una fuente de vida (Dios / corrientes de aguas).</p>
+            </div><hr>
+            <div class="bible-example">
+                <em>"...<mark>como</mark> cordero fue llevado al matadero; y <mark>como</mark> oveja delante de sus trasquiladores, enmudeció..." (Isaías 53:7)</em>
+                <p><i class="fa-solid fa-magnifying-glass-chart"></i><strong>Análisis:</strong> Se compara la sumisión del siervo sufriente (Real) con la de un "cordero" y una "oveja" (Imaginarios) en momentos de sacrificio. El nexo "como" hace la comparación directa e inconfundible.</p>
+            </div><hr>
+            <div class="bible-example">
+                <em>"...sed, pues, prudentes <mark>como</mark> serpientes, y sencillos <mark>como</mark> palomas." (Mateo 10:16)</em>
+                <p><i class="fa-solid fa-magnifying-glass-chart"></i><strong>Análisis:</strong> Este versículo contiene dos símiles. Se exhorta a los discípulos (Real) a adoptar la prudencia, comparándola con la de las "serpientes" (Imaginario), y la sencillez, comparándola con la de las "palomas" (Imaginario).</p>
+            </div>
+        </section>
+
+        <section class="module-section">
+            <h2><i class="fa-solid fa-wand-magic-sparkles"></i>3. El Poder del Efecto: Antes y Después</h2>
+            <p>Observa cómo un símil hace una descripción más evocadora. Haz clic en el botón para ver la transformación.</p>
+            <div class="comparison-box">
+                <div id="before-text"><h4><i class="fa-solid fa-align-left"></i>Versión Literal</h4><p>La noche era muy oscura.</p></div>
+                <div id="after-text" style="display: none;"><h4><i class="fa-solid fa-angles-right"></i>Versión con Símil</h4><p>La noche era oscura <mark>como</mark> boca de lobo.</p></div>
+                <button id="transform-btn"><i class="fa-solid fa-repeat"></i>Mostrar Efecto</button>
+            </div>
+        </section>
+
+        <section class="module-section">
+            <h2><i class="fa-solid fa-mouse-pointer"></i>4. ¡Ahora tú! Identifícalo</h2>
+            <p>Haz clic en el <strong>Término Real</strong>, el <strong>Nexo</strong> y el <strong>Término Imaginario</strong> en cada símil.</p>
+            <div id="interactive-finder">
+                <div class="sentence-container"><p><span class="interactive-part">Sus ojos</span> brillaban <span class="interactive-part">como</span> <span class="interactive-part">dos estrellas</span>.</p><p class="feedback-finder"></p></div>
+                <div class="sentence-container"><p><span class="interactive-part">Tu risa</span> suena <span class="interactive-part">tal cual</span> <span class="interactive-part">música celestial</span>.</p><p class="feedback-finder"></p></div>
+                <div class="sentence-container"><p><span class="interactive-part">El niño</span> es tan inquieto <span class="interactive-part">cual</span> <span class="interactive-part">un mono</span>.</p><p class="feedback-finder"></p></div>
+            </div>
+        </section>
+
+        <section class="module-section exercise">
+            <h2><i class="fa-solid fa-pencil-alt"></i>5. Ejercicio Práctico</h2>
+            <p>Lee el siguiente versículo. Identifica el término real, el imaginario y el nexo del símil, y explica su significado.</p>
+            <p><em>"<mark>Como</mark> el agua fría al alma sedienta, Así son las buenas nuevas de lejanas tierras." (Proverbios 25:25)</em></p>
+            <textarea id="exercise-answer" rows="10" placeholder="Término Real: ...&#10;Término Imaginario: ...&#10;Nexo: ... &#10;Explicación: ..."></textarea>
+            <div class="buttons-container">
+                <button id="check-answer-btn"><i class="fa-solid fa-check-circle"></i>Verificar Respuesta</button>
+                <button id="show-answer-btn" style="display: none;"><i class="fa-solid fa-eye"></i>Ver Respuesta Correcta</button>
+            </div>
+            <p id="feedback" class="feedback"></p>
+            <div id="correct-answer" class="correct-answer-box" style="display: none;">
+                <h4>Respuesta Detallada:</h4>
+                <p><strong>Término Real:</strong> "Las buenas nuevas de lejanas tierras".</p>
+                <p><strong>Término Imaginario:</strong> "El agua fría al alma sedienta".</p>
+                <p><strong>Nexo:</strong> "Como" y "Así son".</p>
+                <p><strong>Explicación:</strong> El símil compara el efecto reconfortante y vivificante que tienen las buenas noticias (especialmente las que se esperan desde lejos) con la sensación de alivio y placer que siente una persona sedienta al beber agua fría. Ambos satisfacen una profunda necesidad o anhelo.</p>
+            </div>
+        </section>
+
+        <section class="module-section">
+            <h2><i class="fa-solid fa-clipboard-question"></i>6. Mini-Quiz Rápido</h2>
+            <p>¡Pongamos a prueba lo aprendido! Elige la respuesta correcta.</p>
+            <form id="mini-quiz-form">
+                <div class="quiz-question">
+                    <p><strong>1. ¿Qué elemento es INDISPENSABLE en un símil?</strong></p>
+                    <label><input type="radio" name="q1" value="a"> Una exageración.</label><br>
+                    <label><input type="radio" name="q1" value="b"> Un nexo comparativo explícito (como, cual, parece...).</label><br>
+                    <label><input type="radio" name="q1" value="c"> La ausencia de un término real.</label><br>
+                </div>
+                <div class="quiz-question">
+                    <p><strong>2. "La vida es un sueño" es una metáfora. ¿Cómo la convertirías en un símil?</strong></p>
+                    <label><input type="radio" name="q2" value="a"> Soñar es vivir.</label><br>
+                    <label><input type="radio" name="q2" value="b"> El sueño de la vida.</label><br>
+                    <label><input type="radio" name="q2" value="c"> La vida es como un sueño.</label><br>
+                </div>
+                <button type="submit"><i class="fa-solid fa-paper-plane"></i>Enviar Quiz</button>
+            </form>
+            <div id="quiz-results" class="correct-answer-box" style="display:none; margin-top: 1rem;"></div>
+        </section>
+    </main>
+    
+    <div class="fab-container"><button id="download-pdf" class="fab" title="Descargar como PDF"><i class="fa-solid fa-file-pdf"></i></button></div>
+    <footer class="main-footer"><p>&copy; 2025 - Estudio de Figuras Literarias | Desarrollado por Julio Cesar Pineda Mora</p></footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const themeToggle = document.getElementById('theme-toggle'); const themeIcon = themeToggle.querySelector('i'); const applyTheme = (theme) => { document.body.classList.remove('light-mode', 'dark-mode'); document.body.classList.add(theme); localStorage.setItem('theme', theme); themeIcon.className = theme === 'dark-mode' ? 'fa-solid fa-sun' : 'fa-solid fa-moon'; themeToggle.title = theme === 'dark-mode' ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro'; }; themeToggle.addEventListener('click', () => { applyTheme(document.body.classList.contains('dark-mode') ? 'light-mode' : 'dark-mode'); }); applyTheme(localStorage.getItem('theme') || 'light-mode');
+            const checkAnswerBtn = document.getElementById('check-answer-btn'); const showAnswerBtn = document.getElementById('show-answer-btn'); const feedbackEl = document.getElementById('feedback'); const correctAnswerEl = document.getElementById('correct-answer'); checkAnswerBtn.addEventListener('click', () => { const answer = document.getElementById('exercise-answer').value.toLowerCase(); showAnswerBtn.style.display = 'none'; correctAnswerEl.style.display = 'none'; if (answer.includes("buenas nuevas") && answer.includes("agua fría")) { feedbackEl.textContent = "¡Correcto! Has identificado perfectamente los dos elementos de la comparación."; feedbackEl.style.color = 'var(--accent-color)'; } else { feedbackEl.textContent = "Respuesta incorrecta. Inténtalo de nuevo o revisa la respuesta correcta."; feedbackEl.style.color = 'red'; showAnswerBtn.style.display = 'inline-block'; } }); showAnswerBtn.addEventListener('click', () => { correctAnswerEl.style.display = 'block'; showAnswerBtn.style.display = 'none'; });
+            document.getElementById('download-pdf').addEventListener('click', () => { const fabContainer = document.querySelector('.fab-container'); const content = document.getElementById('module-content'); const downloadBtn = document.getElementById('download-pdf'); const originalIcon = downloadBtn.innerHTML; fabContainer.style.visibility = 'hidden'; downloadBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i>'; const opt = { margin: 10, filename: 'modulo-simil.pdf', image: { type: 'jpeg', quality: 0.98 }, html2canvas: { scale: 2, useCORS: true, letterRendering: true }, jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }, pagebreak: { mode: ['avoid-all', 'css', 'legacy'] } }; html2pdf().from(content).set(opt).save().then(() => { fabContainer.style.visibility = 'visible'; downloadBtn.innerHTML = originalIcon; }).catch(err => { console.error("Error al generar el PDF:", err); fabContainer.style.visibility = 'visible'; downloadBtn.innerHTML = originalIcon; }); });
+            const transformBtn = document.getElementById('transform-btn'); if (transformBtn) { const beforeText = document.getElementById('before-text'); const afterText = document.getElementById('after-text'); transformBtn.addEventListener('click', () => { if (afterText.style.display === 'none') { beforeText.style.display = 'none'; afterText.style.display = 'block'; transformBtn.innerHTML = '<i class="fa-solid fa-rotate-left"></i> Mostrar Original'; } else { beforeText.style.display = 'block'; afterText.style.display = 'none'; transformBtn.innerHTML = '<i class="fa-solid fa-repeat"></i> Mostrar Efecto'; } }); }
+            document.querySelectorAll('.sentence-container').forEach(container => { const partsToFind = container.querySelectorAll('.interactive-part'); const feedbackFinderEl = container.querySelector('.feedback-finder'); let foundCount = 0; partsToFind.forEach(part => { part.addEventListener('click', (e) => { e.stopPropagation(); if (!part.classList.contains('found')) { part.classList.add('found'); foundCount++; if (foundCount === partsToFind.length) { feedbackFinderEl.textContent = '¡Excelente! Has encontrado todas las partes.'; } } }, { once: true }); }); });
+            const quizForm = document.getElementById('mini-quiz-form'); if (quizForm) { quizForm.addEventListener('submit', (e) => { e.preventDefault(); const correctAnswers = { q1: 'b', q2: 'c' }; let score = 0; const totalQuestions = Object.keys(correctAnswers).length; const formData = new FormData(quizForm); for (const [question, userAnswer] of formData.entries()) { if (userAnswer === correctAnswers[question]) { score++; } } const resultsEl = document.getElementById('quiz-results'); resultsEl.innerHTML = `<h4>Resultados del Quiz</h4><p>Has acertado <strong>${score}</strong> de <strong>${totalQuestions}</strong> preguntas.</p>`; if (score === totalQuestions) { resultsEl.innerHTML += "<p>¡Felicidades! Has dominado el concepto de símil.</p>"; } else { resultsEl.innerHTML += "<p>¡Buen intento! Repasa el módulo para afianzar los conceptos.</p>"; } resultsEl.style.display = 'block'; }); }
+        });
+    </script>
+</body>
+</html>
