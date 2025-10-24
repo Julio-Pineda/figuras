@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Técnicas de Pronunciación y Silabeo</title>
+    <style>
+        :root {
+            --text-color-light: #333;
+            --bg-color-light: #f4f7f6;
+            --card-bg-light: #fff;
+            --header-bg-light: #ffffff;
+            --border-color-light: #e0e0e0;
+            --accent-blue-light: #2980b9;
+            --accent-dark-blue-light: #3498db;
+            --accent-yellow-light: #fbc02d;
+            --accent-red-light: #e74c3c;
+            --flow-yellow-start-light: #fbc02d;
+            --flow-yellow-end-light: #ffe082;
+            --flow-blue-start-light: #3498db;
+            --flow-blue-end-light: #85c1e9;
+            --flow-gray-start-light: #95a5a6;
+            --flow-gray-end-light: #bdc3c7;
+            --info-box-bg-light: #e0f2f7;
+            --info-box-border-light: #2196f3;
+            --thematic-li-bg-light: #ffffff;
+            --thematic-li-border-light: #e0e0e0;
+            --example-tip-bg-light: #fcebe9;
+        }
+
+        body.dark-mode {
+            --text-color-light: #e0e0e0;
+            --bg-color-light: #121212;
+            --card-bg-light: #1a1a1a;
+            --header-bg-light: #1a1a1a;
+            --border-color-light: #333;
+            --accent-blue-light: #5dade2;
+            --accent-dark-blue-light: #85c1e9;
+            --accent-yellow-light: #fdd835;
+            --accent-red-light: #e74c3c;
+            --flow-yellow-start-light: #c09100;
+            --flow-yellow-end-light: #d4ac2b;
+            --flow-blue-start-light: #2874a6;
+            --flow-blue-end-light: #5d9cec;
+            --flow-gray-start-light: #6c7a89;
+            --flow-gray-end-light: #95a5a6;
+            --info-box-bg-light: #1e3a4a;
+            --info-box-border-light: #3f87a6;
+            --thematic-li-bg-light: #222222;
+            --thematic-li-border-light: #333333;
+            --example-tip-bg-light: #3d1c1a;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color-light);
+            margin: 0;
+            padding: 20px;
+            background-color: var(--bg-color-light);
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .container {
+            max-width: 980px;
+            margin: 20px auto;
+            background: var(--card-bg-light);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: background 0.3s, box-shadow 0.3s;
+        }
+        h1, h2, h3 {
+            color: var(--accent-blue-light);
+            border-bottom: 2px solid var(--border-color-light);
+            padding-bottom: 10px;
+            margin-top: 30px;
+            transition: color 0.3s, border-color 0.3s;
+        }
+        h1 {
+            text-align: center;
+            font-size: 2.5em;
+            color: var(--accent-blue-light);
+            border-bottom: 3px solid var(--accent-dark-blue-light);
+            padding-bottom: 15px;
+            margin-bottom: 40px;
+        }
+        h2 {
+            font-size: 1.8em;
+            color: var(--accent-dark-blue-light);
+        }
+        .section {
+            margin-bottom: 40px;
+        }
+        .card {
+            background-color: var(--bg-color-light);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+        .card.blue {
+            background-color: var(--info-box-bg-light);
+            border-left: 5px solid var(--accent-dark-blue-light);
+        }
+        .card.yellow {
+            background-color: var(--example-tip-bg-light);
+            border-left: 5px solid var(--accent-yellow-light);
+        }
+
+        .big{
+            font-size: 2.5rem;
+        }
+
+        .card .icon {
+            flex-shrink: 0;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: #bdc3c7;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2em;
+            color: #fff;
+            transition: background-color 0.3s;
+        }
+        .card .content {
+            flex-grow: 1;
+        }
+        .card .result {
+            background-color: var(--accent-yellow-light);
+            color: black;
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-weight: bold;
+            flex-shrink: 0;
+            align-self: center;
+            margin-left: auto;
+            min-width: 100px;
+            text-align: center;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .card.blue .icon { background-color: var(--accent-dark-blue-light); }
+        .card.yellow .icon { background-color: var(--accent-yellow-light); }
+
+        .flow-chart {
+            display: flex;
+            justify-content: space-around;
+            align-items: stretch;
+            gap: 20px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+        .flow-step {
+            flex: 1;
+            min-width: 250px;
+            background-color: var(--card-bg-light);
+            border: 1px solid var(--border-color-light);
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            position: relative;
+            transition: background-color 0.3s, border-color 0.3s, box-shadow 0.3s;
+        }
+        .flow-step:not(:last-child)::after {
+            content: '➔';
+            position: absolute;
+            right: -25px; /* Adjust as needed */
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2em;
+            color: #7f8c8d;
+            z-index: 10;
+            transition: color 0.3s;
+        }
+
+        .flow-step.yellow-gradient {
+            background: linear-gradient(135deg, var(--flow-yellow-start-light), var(--flow-yellow-end-light));
+            color: var(--text-color-light);
+            border-color: var(--flow-yellow-start-light);
+        }
+        .flow-step.blue-gradient {
+            background: linear-gradient(135deg, var(--flow-blue-start-light), var(--flow-blue-end-light));
+            color: #fff;
+            border-color: var(--flow-blue-start-light);
+        }
+        .flow-step.gray-gradient {
+            background: linear-gradient(135deg, var(--flow-gray-start-light), var(--flow-gray-end-light));
+            color: #fff;
+            border-color: var(--flow-gray-start-light);
+        }
+        .flow-step h3 {
+            color: inherit;
+            border-bottom: none;
+            padding-bottom: 0;
+            margin-top: 0;
+            font-size: 1.3em;
+            margin-bottom: 15px;
+        }
+        .flow-step p {
+            font-size: 0.95em;
+            margin-bottom: 15px;
+        }
+        .flow-step .character {
+            width: 100px;
+            height: 100px;
+            background-color: var(--border-color-light);
+            border-radius: 50%;
+            margin: 0 auto 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 0.8em;
+            color: var(--text-color-light);
+            overflow: hidden; /* To contain character images if added */
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .flow-step .character img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .flow-step.blue-gradient .character { background-color: rgba(255,255,255,0.2); }
+        .flow-step.gray-gradient .character { background-color: rgba(255,255,255,0.2); }
+
+        .example-list {
+            list-style: none;
+            padding: 0;
+        }
+        .example-list li {
+            background-color: var(--card-bg-light);
+            border-left: 4px solid #2ecc71;
+            margin-bottom: 15px;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            transition: background-color 0.3s, border-color 0.3s, box-shadow 0.3s;
+        }
+        .example-list li strong {
+            color: #27ae60;
+        }
+        .example-list li i {
+            font-style: normal;
+            background-color: #d9edf7;
+            padding: 2px 5px;
+            border-radius: 3px;
+            color: #31708f;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .example-list li .emphasis {
+            font-weight: bold;
+            color: var(--accent-red-light);
+            text-decoration: underline;
+        }
+        .info-box {
+            background-color: var(--info-box-bg-light);
+            border-left: 6px solid var(--info-box-border-light);
+            padding: 20px;
+            margin-top: 30px;
+            border-radius: 8px;
+            font-size: 1.1em;
+            line-height: 1.8;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+        .info-box p {
+            margin: 0 0 10px 0;
+        }
+        .info-box p:last-child {
+            margin-bottom: 0;
+        }
+        .info-box strong {
+            color: var(--accent-dark-blue-light);
+        }
+        /* Global tip style for examples */
+        .tip {
+            color: var(--accent-red-light); /* Red color for examples */
+            font-weight: bold;
+        }
+        .thematic-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 20px;
+        }
+        .thematic-list li {
+            background-color: var(--thematic-li-bg-light);
+            border: 1px solid var(--thematic-li-border-light);
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s ease-in-out, background-color 0.3s, border-color 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+        .thematic-list li:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+        }
+        .thematic-list li strong {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 1.2em;
+            color: var(--accent-blue-light);
+        }
+        .thematic-list li p {
+            font-size: 0.95em;
+            color: var(--text-color-light);
+            margin-bottom: 10px;
+            flex-grow: 1; /* Makes paragraphs take available space */
+        }
+        /* Styling for the new example format within thematic list */
+        .thematic-list li .example-tip {
+            font-style: normal; /* Override default italic */
+            color: var(--accent-red-light); /* Red color */
+            font-weight: bold;
+            background-color: var(--example-tip-bg-light); /* Light red background */
+            border-left: 3px solid var(--accent-red-light);
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            margin-top: auto; /* Pushes example to the bottom */
+            transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+        }
+        .thematic-list li .example-tip .emphasis {
+            font-weight: bold;
+            color: var(--accent-red-light);
+            text-decoration: underline;
+        }
+
+        /* Header Styles */
+        .main-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            background-color: var(--header-bg-light);
+            border-bottom: 1px solid var(--border-color-light);
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            transition: background-color 0.3s, border-color 0.3s, box-shadow 0.3s;
+        }
+
+        .main-header h1 {
+            margin: 0;
+            font-size: 1.8em;
+            color: var(--accent-blue-light);
+            border-bottom: none;
+            padding-bottom: 0;
+            transition: color 0.3s;
+        }
+
+        .main-header .back-link {
+            text-decoration: none;
+            color: var(--accent-dark-blue-light);
+            font-weight: bold;
+            padding: 8px 12px;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .main-header .back-link:hover {
+            background-color: var(--info-box-bg-light);
+            color: var(--accent-blue-light);
+        }
+
+        /* Theme Switcher */
+        .theme-toggle-switch {
+            position: relative;
+            width: 60px;
+            height: 30px;
+            background-color: #ccc;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .theme-toggle-switch .sun,
+        .theme-toggle-switch .moon {
+            position: absolute;
+            width: 22px;
+            height: 22px;
+            top: 4px;
+            transition: transform 0.3s, opacity 0.3s;
+        }
+
+        .theme-toggle-switch .sun {
+            left: 4px;
+            background-color: #f39c12;
+            border-radius: 50%;
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .theme-toggle-switch .moon {
+            right: 4px;
+            background-color: #f1c40f; /* Placeholder, will be invisible in light mode */
+            border-radius: 50%;
+            opacity: 0;
+            transform: scale(0);
+        }
+
+        body.dark-mode .theme-toggle-switch {
+            background-color: #555;
+        }
+
+        body.dark-mode .theme-toggle-switch .sun {
+            opacity: 0;
+            transform: scale(0);
+        }
+
+        body.dark-mode .theme-toggle-switch .moon {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .main-header {
+                flex-direction: column;
+                padding: 15px 15px;
+            }
+            .main-header h1 {
+                font-size: 1.5em;
+                margin-top: 10px;
+                margin-bottom: 15px;
+            }
+            .flow-chart {
+                flex-direction: column;
+                align-items: center;
+            }
+            .flow-step {
+                width: 90%;
+                margin-bottom: 30px;
+            }
+            .flow-step:not(:last-child)::after {
+                content: '↓';
+                right: 50%;
+                top: auto;
+                bottom: -25px;
+                transform: translateX(50%);
+            }
+            .card {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            .card .icon { margin-bottom: 15px; }
+            .card .result { margin-left: 0; margin-top: 15px;}
+            .thematic-list {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="main-header">
+        <a href="../../index.html" class="back-link">← Volver al inicio</a>
+        <h1>Técnicas de Pronunciación y Silabeo</h1>
+        <div id="theme-toggle" class="theme-toggle-switch">
+            <div class="sun"></div>
+            <div class="moon"></div>
+        </div>
+    </header>
+    <main class="container">
+        <div class="section">
+            <h2>Articulación y Pronunciación</h2>
+            <p>Estas técnicas te ayudarán a mejorar la claridad de tu habla y la correcta emisión de los sonidos.</p>
+
+            <div class="card blue">
+                <div class="icon">👅</div>
+                <div class="content">
+                    <h3>Vibración de la Lengua</h3>
+                    <p>Hacer vibrar la lengua mientras exhalas, como si estuvieras haciendo el sonido de un motor.</p>
+                </div>
+                <div class="result">(trrrr)</div>
+            </div>
+
+            <div class="card yellow">
+                <div class="icon">🗣️</div>
+                <div class="content">
+                    <h3>Claridad Consonántica</h3>
+                    <p>Asegurarse de pronunciar claramente las consonantes finales de las palabras. Gesticula de manera exagerada para enfatizar.</p>
+                </div>
+                <div class="result">Toc, tic, tac, tuc</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Ejercicios de Vocalización y Ritmo</h2>
+            <p>Para lograr una expresión vocal más dinámica y comprensible, practica estos pasos:</p>
+
+            <div class="flow-chart">
+                <div class="flow-step yellow-gradient">
+                    <div class="character">
+                        <div class="icon big">♻</div>
+                    </div>
+                    <h3>Paso 1: Repetición de Vocales</h3>
+                    <p>Repetir series de vocales ayuda a mejorar la claridad en la pronunciación de los sonidos vocálicos.</p>
+                </div>
+
+                <div class="flow-step blue-gradient">
+                    <div class="character">
+                        <div class="icon big">🐵</div>
+                    </div>
+                    <h3>Paso 2: Ejercicio "A-E-I-O-U"</h3>
+                    <p>Ejercicio: Repetir "a-e-i-o-u" en diferentes tonalidades y ritmos.</p>
+                </div>
+
+                <div class="flow-step gray-gradient">
+                    <div class="character">
+                        <div class="icon big">😮</div>
+                    </div>
+                    <h3>Paso 3: Silabeo de Frases</h3>
+                    <p>Pronuncia y silabea frases que incluyan todas las vocales, como "El abuelo usó su antiguo violín" o "En invierno hace frío y uso bufanda".</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Oratoria y Comunicación Oral: Entonación y Silabeo</h2>
+            <div class="info-box">
+                <p>La <strong>entonación</strong> se refiere al modo de pronunciar una frase para expresar una emoción.</p>
+                <p class="tip">Ejemplo: "¡Es <span class="emphasis">increíiíble</span> lo que Dios puede hacer!"</p>
+            </div>
+
+            <div class="info-box" style="margin-top: 20px;">
+                <p>El <strong>silabeo</strong> consiste en pronunciar cada sílaba con claridad y cierta separación, para resaltar la palabra.</p>
+                <p class="tip">Ejemplo: "¡Es <span class="emphasis">im-pre-sio-nan-te</span> lo que ocurrió!"</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Temáticas Afines a la Oratoria y Comunicación Oral</h2>
+            <p>Para complementar y profundizar en la mejora de tu expresión oral, considera estas áreas clave:</p>
+            <ul class="thematic-list">
+                <li>
+                    <strong>Dicción y Claridad Vocal</strong>
+                    <p>Se centra en la pronunciación precisa de cada sonido y palabra, evitando la omisión o distorsión de fonemas.</p>
+                    <p class="example-tip">Ejemplo: Pronunciar "<span class="emphasis">ap-ti-tud</span>" en lugar de "a-titú", o "<span class="emphasis">cla-ro</span>" en lugar de "ca-ro".</p>
+                </li>
+                <li>
+                    <strong>Ritmo y Cadencia del Habla</strong>
+                    <p>Aborda la velocidad y el patrón de las palabras en una oración, influyendo en la fluidez y el interés del discurso.</p>
+                    <p class="example-tip">Ejemplo: <span class="emphasis">Variar la velocidad</span> al leer una historia, acelerando en momentos de acción y ralentizando en descripciones.</p>
+                </li>
+                <li>
+                    <strong>Volumen y Proyección de Voz</strong>
+                    <p>Explora cómo controlar la intensidad de la voz para asegurar que el mensaje sea audible y para enfatizar puntos clave.</p>
+                    <p class="example-tip">Ejemplo: <span class="emphasis">Hablar más fuerte</span> para resaltar una conclusión importante o <span class="emphasis">más suave</span> para crear intimidad.</p>
+                </li>
+                <li>
+                    <strong>Pausas y Silencios Estratégicos</strong>
+                    <p>Trata el uso intencional de las interrupciones en el habla para crear énfasis, permitir la digestión de la información o generar expectativa.</p>
+                    <p class="example-tip">Ejemplo: Hacer una <span class="emphasis">breve pausa</span> antes de revelar una estadística sorprendente o después de una pregunta retórica.</p>
+                </li>
+                <li>
+                    <strong>Comunicación No Verbal (Lenguaje Corporal)</strong>
+                    <p>Aunque no es vocal, es intrínsecamente ligada a la oratoria, incluyendo gestos, postura y expresión facial que refuerzan o complementan el mensaje oral.</p>
+                    <p class="example-tip">Ejemplo: <span class="emphasis">Mantener contacto visual</span> con la audiencia, usar las manos para ilustrar un punto o tener una postura abierta.</p>
+                </li>
+                <li>
+                    <strong>Manejo de la Respiración para el Habla</strong>
+                    <p>Técnicas para controlar la respiración y asegurar un soporte adecuado para la voz, evitando la fatiga vocal y mejorando la calidad del sonido.</p>
+                    <p class="example-tip">Ejemplo: Practicar la <span class="emphasis">respiración diafragmática</span> para mantener un tono de voz constante y sin interrupciones.</p>
+                </li>
+                <li>
+                    <strong>Conexión Emocional con la Audiencia</strong>
+                    <p>Cómo el orador utiliza todos los elementos vocales y no verbales para transmitir emoción y establecer un vínculo con quienes lo escuchan.</p>
+                    <p class="example-tip">Ejemplo: Compartir una <span class="emphasis">anécdota personal</span> con un tono de voz que refleje nostalgia o entusiasmo genuino.</p>
+                </li>
+            </ul>
+        </div>
+    </main>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const themeToggle = document.getElementById('theme-toggle');
+            const body = document.body;
+
+            // Load saved theme from localStorage
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark-mode') {
+                body.classList.add('dark-mode');
+            } else {
+                body.classList.remove('dark-mode');
+            }
+
+            themeToggle.addEventListener('click', () => {
+                body.classList.toggle('dark-mode');
+                // Save current theme to localStorage
+                if (body.classList.contains('dark-mode')) {
+                    localStorage.setItem('theme', 'dark-mode');
+                } else {
+                    localStorage.setItem('theme', 'light-mode');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
