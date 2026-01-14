@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preguntas Retóricas</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* Estilos base */
+        :root { --primary-bg-light: #f4f4f9; --primary-text-light: #333; --card-bg-light: #ffffff; --header-bg-light: #ffffff; --accent-color: #007bff; --mark-bg-light: #ffe066; --border-color-light: #e0e0e0; --success-bg-light: #e6ffed; --primary-bg-dark: #121212; --primary-text-dark: #e0e0e0; --card-bg-dark: #1e1e1e; --header-bg-dark: #1e1e1e; --mark-bg-dark: #b38f00; --border-color-dark: #333; --success-bg-dark: #1c3b29; } 
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; margin: 0; transition: background-color 0.3s, color 0.3s; line-height: 1.6; word-wrap: break-word; overflow-wrap: break-word; } 
+        body.light-mode { background-color: var(--primary-bg-light); color: var(--primary-text-light); } 
+        body.dark-mode { background-color: var(--primary-bg-dark); color: var(--primary-text-dark); } 
+        .main-header { display: flex; justify-content: space-between; align-items: center; padding: 1rem; box-shadow: 0 2px 4px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; } 
+        body.light-mode .main-header { background-color: var(--header-bg-light); } 
+        body.dark-mode .main-header { background-color: var(--header-bg-dark); } 
+        .main-header h1 { font-size: 1.2rem; margin: 0; text-align: center; } 
+        .theme-toggle-btn { background-color: var(--accent-color); color: white; border: none; padding: 0.5rem 1rem; border-radius: 5px; cursor: pointer; font-size: 1rem; width: 45px; text-align: center; } 
+        .main-footer { text-align: center; padding: 1rem; margin-top: 2rem; font-size: 0.9rem; } 
+        .container { max-width: 1080px; margin: 1rem auto; padding: 0 1rem; } 
+        .module-section { padding: 1.5rem; border-radius: 8px; margin-bottom: 1.5rem; box-shadow: 7px 7px 27px 2px rgba(0,0,0,0.1); } 
+        body.light-mode .module-section { background-color: var(--card-bg-light); border: 1px solid var(--border-color-light); } 
+        body.dark-mode .module-section { background-color: var(--card-bg-dark); border: 1px solid var(--border-color-dark); } 
+        .module-section h2 { margin-top: 0; color: var(--accent-color); border-bottom: 2px solid var(--accent-color); padding-bottom: 0.5rem; font-size: 1.3rem; } 
+        .back-link { text-decoration: none; color: var(--accent-color); font-weight: bold; font-size: 0.9rem; } 
+        mark { padding: 0.2em 0.4em; border-radius: 3px; } 
+        body.light-mode mark { background-color: var(--mark-bg-light); } 
+        body.dark-mode mark { background-color: var(--mark-bg-dark); color: var(--primary-text-dark); } 
+        .formula { text-align: center; font-size: 1rem; padding: 1rem; border: 2px dashed var(--accent-color); border-radius: 5px; margin: 1rem 0; } 
+        .bible-example { margin-top: 1.5rem; } 
+        .bible-example em { display: block; padding-left: 1rem; border-left: 3px solid #ccc; margin-bottom: 0.5rem; font-style: italic; } 
+        .module-section ul { list-style: none; padding-left: 0; } 
+        .module-section li { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 0.5rem; } 
+        .fa-fw { text-align: center; } 
+        h1, h2, .back-link, .exercise button, .bible-example p, .formula p, #mini-quiz-form button, #transform-btn { display: flex; align-items: center; justify-content: center; gap: 10px; } 
+        .exercise textarea { width: 100%; box-sizing: border-box; padding: 0.5rem; border-radius: 5px; border: 1px solid #ccc; margin: 1rem 0; font-size: 1rem; } 
+        .exercise .buttons-container { display: flex; flex-wrap: wrap; gap: 10px; } 
+        .exercise button { background-color: var(--accent-color); color: white; border: none; padding: 0.7rem 1.5rem; border-radius: 5px; cursor: pointer; flex-grow: 1; } 
+        #show-answer-btn { background-color: #6c757d; } 
+        .feedback { margin-top: 1rem; font-weight: bold; min-height: 1.2em; } 
+        .correct-answer-box { margin-top: 1rem; padding: 1rem; border-radius: 5px; } 
+        body.light-mode .correct-answer-box { background-color: var(--success-bg-light); border: 1px solid green; } 
+        body.dark-mode .correct-answer-box { background-color: var(--success-bg-dark); border: 1px solid #3d8b40; } 
+        .comparison-box { text-align: center; } 
+        .comparison-box h4 { margin-bottom: 0.5rem; } 
+        .comparison-box p { font-size: 1.2rem; font-style: italic; } 
+        #transform-btn { margin-top: 1rem; background-color: var(--accent-color); color: white; border: none; padding: 0.7rem 1.5rem; border-radius: 5px; cursor: pointer;} 
+        .interactive-part { cursor: pointer; padding: 0.1em 0.3em; border-radius: 3px; transition: background-color 0.3s; border-bottom: 2px dotted var(--accent-color); } 
+        .interactive-part.found { background-color: var(--mark-bg-light); color: #333; border-bottom: none; cursor: default; } 
+        body.dark-mode .interactive-part.found { background-color: var(--mark-bg-dark); color: var(--primary-text-dark); } 
+        .feedback-finder { font-weight: bold; color: green; font-size: 0.9em; min-height: 1em; margin-top: 0.5rem; text-align: center;} 
+        .sentence-container { margin-bottom: 1rem; text-align: left; font-size: 1.1rem; padding-left: 1rem;} 
+        .quiz-question { margin-bottom: 1.5rem; } 
+        .quiz-question p { margin-bottom: 0.5rem; } 
+        .quiz-question label { display: block; margin-bottom: 0.5rem; cursor: pointer; } 
+        #mini-quiz-form button { background-color: var(--accent-color); color: white; border: none; padding: 0.7rem 1.5rem; border-radius: 5px; cursor: pointer; margin-top: 1rem; } 
+        .fab-container { position: fixed; bottom: 1rem; right: 1rem; z-index: 1001; } 
+        .fab { background-color: var(--accent-color); color: white; border: none; border-radius: 50%; width: 50px; height: 50px; font-size: 1.2rem; text-align: center; box-shadow: 0 4px 8px rgba(0,0,0,0.2); cursor: pointer; display: flex; align-items: center; justify-content: center; } 
+        
+        /* Estilos adicionales para la sección de columnas */
+        .resource-columns { display: flex; flex-wrap: wrap; gap: 2rem; margin-top: 1rem; }
+        .resource-col { flex: 1; min-width: 300px; }
+        .resource-col h3 { border-bottom: 1px solid #ccc; padding-bottom: 0.5rem; margin-bottom: 1rem; font-size: 1.1rem; }
+        .resource-col li { font-size: 0.95rem; border-bottom: 1px dashed rgba(0,0,0,0.1); padding-bottom: 0.3rem; }
+
+        @media (min-width: 768px) { .main-header { padding: 1rem 2rem; } .main-header h1 { font-size: 1.5rem; } .container { margin: 2rem auto; } .module-section { padding: 2rem; } .exercise .buttons-container { flex-wrap: nowrap; } .exercise button { flex-grow: 0; } .fab-container { bottom: 2rem; right: 2rem; } .fab { width: 60px; height: 60px; font-size: 1.5rem; } }
+    </style>
+</head>
+<body>
+    <header class="main-header">
+        <a href="../index.html" class="back-link"><i class="fa-solid fa-arrow-left"></i> Volver</a>
+        <h1><i class="fa-solid fa-question"></i> Preguntas Retóricas</h1>
+        <button id="theme-toggle" class="theme-toggle-btn" title="Cambiar tema"><i class="fa-solid fa-moon"></i></button>
+    </header>
+
+    <main class="container" id="module-content">
+        <!-- Sección 1: Definición -->
+        <section class="module-section">
+            <h2><i class="fa-solid fa-circle-info"></i> 1. ¿Qué es una Pregunta Retórica?</h2>
+            <p>Una pregunta retórica es aquella que <strong>se formula sin esperar respuesta</strong>, porque la respuesta es obvia o porque la intención es invitar a la reflexión profunda. No busca información, busca <strong>impacto</strong>.</p>
+            <div class="formula"><p><i class="fa-solid fa-flask"></i> <span>Interrogación + <mark>Respuesta Obvia / Silencio Reflexivo</mark> = Énfasis</span></p></div>
+            <p>Ejemplo: "¿Acaso no soy humano?". No esperas que alguien responda "Sí, lo eres"; buscas afirmar tu humanidad con fuerza.</p>
+        </section>
+
+        <!-- Sección 2: Ejemplos -->
+        <section class="module-section">
+            <h2><i class="fa-solid fa-book-open"></i> 2. Ejemplos</h2>
+            <h3>En la Vida Cotidiana</h3>
+            <ul>
+                <li><i class="fa-solid fa-face-angry fa-fw"></i>Frustración: "<mark>¿Cuántas veces tengo que decírtelo?</mark>" (Significa: Te lo he dicho demasiadas veces).</li>
+                <li><i class="fa-solid fa-hand-holding-dollar fa-fw"></i>Sarcasmo: "<mark>¿Acaso crees que el dinero crece en los árboles?</mark>" (Significa: El dinero cuesta ganarlo).</li>
+                <li><i class="fa-solid fa-users fa-fw"></i>Discurso: "<mark>¿Quién no quiere ser feliz?</mark>" (Significa: Todos quieren ser felices).</li>
+            </ul>
+             <hr style="margin: 2rem 0;">
+             <h3>En la Biblia (Reina Valera 1960)</h3>
+            <div class="bible-example">
+                <em>"Si Dios es por nosotros, <mark>¿quién contra nosotros?</mark>" (Romanos 8:31)</em>
+                <p><i class="fa-solid fa-magnifying-glass-chart"></i><strong>Análisis:</strong> Pablo no está preguntando los nombres de sus enemigos. Está afirmando con seguridad absoluta que, con Dios del lado del creyente, ningún enemigo tiene poder real.</p>
+            </div><hr>
+            <div class="bible-example">
+                <em>"¿Qué aprovechará al hombre si ganare todo el mundo, y perdiere su alma?" (Marcos 8:36)</em>
+                <p><i class="fa-solid fa-magnifying-glass-chart"></i><strong>Análisis:</strong> Jesús utiliza esta pregunta para cuestionar el sistema de valores de los oyentes. Obliga a la persona a detenerse y calcular el costo eterno.</p>
+            </div>
+        </section>
+
+        <!-- Sección 3: Antes y Después -->
+        <section class="module-section">
+            <h2><i class="fa-solid fa-wand-magic-sparkles"></i> 3. El Poder del Efecto: Antes y Después</h2>
+            <p>Mira cómo una afirmación plana se convierte en un desafío poderoso al volverse pregunta.</p>
+            <div class="comparison-box">
+                <div id="before-text"><h4><i class="fa-solid fa-align-left"></i>Afirmación Simple</h4><p>Nadie es perfecto en este mundo.</p></div>
+                <div id="after-text" style="display: none;"><h4><i class="fa-solid fa-question-circle"></i>Pregunta Retórica</h4><p><mark>¿Quién de vosotros está libre de pecado?</mark></p></div>
+                <button id="transform-btn"><i class="fa-solid fa-repeat"></i>Mostrar Efecto</button>
+            </div>
+        </section>
+
+        <!-- Sección 4: Interactivo -->
+        <section class="module-section">
+            <h2><i class="fa-solid fa-fingerprint"></i> 4. ¡Ahora tú! Identifícala</h2>
+            <p>Haz clic sobre las preguntas retóricas completas en los siguientes textos.</p>
+            <div id="interactive-finder">
+                <div class="sentence-container">
+                    <p>He aquí el fuego y la leña, mas <span class="interactive-part">¿dónde está el cordero para el holocausto?</span></p>
+                    <p class="feedback-finder"></p>
+                </div>
+                <div class="sentence-container">
+                    <p>Miro a los cielos y pregunto: <span class="interactive-part">¿Acaso no es Dios el creador de todo esto?</span></p>
+                    <p class="feedback-finder"></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección 5: Ejercicio -->
+        <section class="module-section exercise">
+            <h2><i class="fa-solid fa-pencil-alt"></i> 5. Ejercicio Práctico</h2>
+            <p>Lee el siguiente versículo y explica cuál es la <strong>respuesta implícita</strong> y qué <strong>sentimiento</strong> provoca.</p>
+            <p><em>"¿Mudará el etíope su piel, y el leopardo sus manchas? Así también, ¿podréis vosotros hacer bien, estando habituados a hacer mal?" (Jeremías 13:23)</em></p>
+            <textarea id="exercise-answer" rows="10" placeholder="Respuesta implícita (Sí/No): ...&#10;¿Qué quiere decir el profeta?: ..."></textarea>
+            <div class="buttons-container">
+                <button id="check-answer-btn"><i class="fa-solid fa-check-circle"></i>Verificar Respuesta</button>
+                <button id="show-answer-btn" style="display: none;"><i class="fa-solid fa-eye"></i>Ver Respuesta Correcta</button>
+            </div>
+            <p id="feedback" class="feedback"></p>
+            <div id="correct-answer" class="correct-answer-box" style="display: none;">
+                <h4>Respuesta Detallada:</h4>
+                <p><strong>Respuesta Implícita:</strong> ¡No! Es imposible.</p>
+                <p><strong>Explicación:</strong> Jeremías usa una imposibilidad biológica para ilustrar una imposibilidad moral. Enfatiza cuán profundamente arraigado está el pecado en el pueblo; por sí mismos, son incapaces de cambiar.</p>
+            </div>
+        </section>
+
+        <!-- NUEVA SECCIÓN: BANCO DE PREGUNTAS -->
+        <section class="module-section">
+            <h2><i class="fa-solid fa-layer-group"></i> 6. Banco de Recursos: 30 Preguntas</h2>
+            <p>Aquí tienes una colección de preguntas retóricas listas para usar en tus sermones y una lista de referencia bíblica.</p>
+            
+            <div class="resource-columns">
+                <!-- Columna: Para Sermones -->
+                <div class="resource-col">
+                    <h3 style="color: var(--accent-color);"><i class="fa-solid fa-microphone-lines"></i> Para Sermones</h3>
+                    <ul>
+                        <li><i class="fa-solid fa-angle-right fa-fw"></i> ¿Hasta cuándo claudicaréis entre dos pensamientos?</li>
+                        <li><i class="fa-solid fa-angle-right fa-fw"></i> ¿Si Dios no es el Señor de todo, es Señor de algo?</li>
+                        <li><i class="fa-solid fa-angle-right fa-fw"></i> ¿Qué valor le pones a tu alma hoy?</li>
+                        <li><i class="fa-solid fa-angle-right fa-fw"></i> ¿Acaso se ha acortado la mano de Dios para ti?</li>
+                        <li><i class="fa-solid fa-angle-right fa-fw"></i> ¿Quién moverá la piedra de nuestra incredulidad?</li>
+                        <li><i class="fa-solid fa-angle-right fa-fw"></i> ¿Dónde están los que prometieron fidelidad?</li>
+                        <li><i class="fa-solid fa-angle-right fa-fw"></i> ¿Es tu fe un ancla o solo una palabra?</li>
+                        <li><i class="fa-solid fa-angle-right fa-fw"></i> ¿Quién podrá separarnos del amor de Cristo?</li>
+                        <li><i class="fa-solid fa-angle-right fa-fw"></i> ¿Por qué te abates, oh alma mía?</li>
+                        <li><i class="fa-solid fa-angle-right fa-fw"></i> ¿Qué te detiene para perdonar ahora mismo?</li>
+                        <li><i class="fa-solid fa-angle-right fa-fw"></i> ¿Si murieras hoy, estás seguro de tu destino?</li>
+                        <li><i class="fa-solid fa-angle-right fa-fw"></i> ¿De qué sirve la religión sin amor?</li>
+                        <li><i class="fa-solid fa-angle-right fa-fw"></i> ¿Acaso no ha sido Dios fiel hasta este día?</li>
+                        <li><i class="fa-solid fa-angle-right fa-fw"></i> ¿Cuándo será "el día", si no es hoy?</li>
+                        <li><i class="fa-solid fa-angle-right fa-fw"></i> ¿Quién irá por nosotros si nosotros callamos?</li>
+                    </ul>
+                </div>
+                
+                <!-- Columna: Bíblicas -->
+                <div class="resource-col">
+                    <h3 style="color: var(--accent-color);"><i class="fa-solid fa-book-bible"></i> Bíblicas (RVR 1960)</h3>
+                    <ul>
+                        <li><i class="fa-solid fa-bible fa-fw"></i> <strong>Génesis 18:14</strong> - ¿Hay para Dios alguna cosa difícil?</li>
+                        <li><i class="fa-solid fa-bible fa-fw"></i> <strong>Números 11:23</strong> - ¿Acaso se ha acortado la mano de Jehová?</li>
+                        <li><i class="fa-solid fa-bible fa-fw"></i> <strong>1 Samuel 17:29</strong> - ¿No es esto mero hablar?</li>
+                        <li><i class="fa-solid fa-bible fa-fw"></i> <strong>Job 11:7</strong> - ¿Descubrirás tú los secretos de Dios?</li>
+                        <li><i class="fa-solid fa-bible fa-fw"></i> <strong>Job 38:4</strong> - ¿Dónde estabas tú cuando yo fundaba la tierra?</li>
+                        <li><i class="fa-solid fa-bible fa-fw"></i> <strong>Salmos 27:1</strong> - Jehová es la fortaleza de mi vida; ¿de quién he de atemorizarme?</li>
+                        <li><i class="fa-solid fa-bible fa-fw"></i> <strong>Salmos 121:1</strong> - ¿De dónde vendrá mi socorro?</li>
+                        <li><i class="fa-solid fa-bible fa-fw"></i> <strong>Jeremías 23:29</strong> - ¿No es mi palabra como fuego?</li>
+                        <li><i class="fa-solid fa-bible fa-fw"></i> <strong>Jeremías 32:27</strong> - He aquí que yo soy Jehová... ¿habrá algo que sea difícil para mí?</li>
+                        <li><i class="fa-solid fa-bible fa-fw"></i> <strong>Mateo 16:26</strong> - ¿Qué aprovechará al hombre, si ganare todo el mundo...?</li>
+                        <li><i class="fa-solid fa-bible fa-fw"></i> <strong>Marcos 4:40</strong> - ¿Por qué estáis así amedrentados? ¿Cómo no tenéis fe?</li>
+                        <li><i class="fa-solid fa-bible fa-fw"></i> <strong>Romanos 8:31</strong> - Si Dios es por nosotros, ¿quién contra nosotros?</li>
+                        <li><i class="fa-solid fa-bible fa-fw"></i> <strong>Romanos 8:33</strong> - ¿Quién acusará a los escogidos de Dios?</li>
+                        <li><i class="fa-solid fa-bible fa-fw"></i> <strong>1 Corintios 6:19</strong> - ¿O ignoráis que vuestro cuerpo es templo del Espíritu Santo?</li>
+                        <li><i class="fa-solid fa-bible fa-fw"></i> <strong>Hebreos 2:3</strong> - ¿Cómo escaparemos nosotros, si descuidamos una salvación tan grande?</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección 7: Mini-Quiz -->
+        <section class="module-section">
+            <h2><i class="fa-solid fa-clipboard-check"></i> 7. Mini-Quiz Rápido</h2>
+            <form id="mini-quiz-form">
+                <div class="quiz-question">
+                    <p><strong>1. ¿Cuál es el propósito principal de una pregunta retórica?</strong></p>
+                    <label><input type="radio" name="q1" value="a"> Obtener información desconocida.</label><br>
+                    <label><input type="radio" name="q1" value="b"> Enfatizar una idea o provocar reflexión sin esperar respuesta.</label><br>
+                    <label><input type="radio" name="q1" value="c"> Iniciar una conversación casual.</label><br>
+                </div>
+                <div class="quiz-question">
+                    <p><strong>2. Selecciona la pregunta retórica:</strong></p>
+                    <label><input type="radio" name="q2" value="a"> ¿A qué hora sale el tren?</label><br>
+                    <label><input type="radio" name="q2" value="b"> ¿Cómo te llamas?</label><br>
+                    <label><input type="radio" name="q2" value="c"> ¿Si Dios no nos guarda, quién lo hará?</label><br>
+                </div>
+                <button type="submit"><i class="fa-solid fa-paper-plane"></i>Enviar Quiz</button>
+            </form>
+            <div id="quiz-results" class="correct-answer-box" style="display:none; margin-top: 1rem;"></div>
+        </section>
+    </main>
+    
+    <div class="fab-container"><button id="download-pdf" class="fab" title="Descargar como PDF"><i class="fa-solid fa-file-pdf"></i></button></div>
+    <footer class="main-footer"><p>&copy; 2025 - Estudio de Figuras Literarias | Desarrollado por Julio Cesar Pineda Mora</p></footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Lógica del Tema (Oscuro/Claro)
+            const themeToggle = document.getElementById('theme-toggle'); 
+            const themeIcon = themeToggle.querySelector('i'); 
+            const applyTheme = (theme) => { 
+                document.body.classList.remove('light-mode', 'dark-mode'); 
+                document.body.classList.add(theme); 
+                localStorage.setItem('theme', theme); 
+                themeIcon.className = theme === 'dark-mode' ? 'fa-solid fa-sun' : 'fa-solid fa-moon'; 
+                themeToggle.title = theme === 'dark-mode' ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro'; 
+            }; 
+            themeToggle.addEventListener('click', () => { 
+                applyTheme(document.body.classList.contains('dark-mode') ? 'light-mode' : 'dark-mode'); 
+            }); 
+            applyTheme(localStorage.getItem('theme') || 'light-mode');
+
+            // Lógica del Ejercicio Práctico
+            const checkAnswerBtn = document.getElementById('check-answer-btn'); 
+            const showAnswerBtn = document.getElementById('show-answer-btn'); 
+            const feedbackEl = document.getElementById('feedback'); 
+            const correctAnswerEl = document.getElementById('correct-answer'); 
+            
+            checkAnswerBtn.addEventListener('click', () => { 
+                const answer = document.getElementById('exercise-answer').value.toLowerCase(); 
+                showAnswerBtn.style.display = 'none'; 
+                correctAnswerEl.style.display = 'none'; 
+                
+                // Palabras clave para validar la respuesta
+                if (answer.includes("no") && (answer.includes("imposible") || answer.includes("pecado") || answer.includes("naturaleza") || answer.includes("cambiar"))) { 
+                    feedbackEl.textContent = "¡Excelente! Has captado la esencia de la imposibilidad moral que plantea el texto."; 
+                    feedbackEl.style.color = 'var(--accent-color)'; 
+                } else { 
+                    feedbackEl.textContent = "Vas por buen camino. Piensa: ¿Puede un leopardo quitarse sus manchas? ¿Qué significa eso para el comportamiento humano?"; 
+                    feedbackEl.style.color = 'red'; 
+                    showAnswerBtn.style.display = 'inline-block'; 
+                } 
+            }); 
+            
+            showAnswerBtn.addEventListener('click', () => { 
+                correctAnswerEl.style.display = 'block'; 
+                showAnswerBtn.style.display = 'none'; 
+            });
+
+            // Lógica para descargar PDF
+            document.getElementById('download-pdf').addEventListener('click', () => { 
+                const fabContainer = document.querySelector('.fab-container'); 
+                const content = document.getElementById('module-content'); 
+                const downloadBtn = document.getElementById('download-pdf'); 
+                const originalIcon = downloadBtn.innerHTML; 
+                
+                fabContainer.style.visibility = 'hidden'; 
+                downloadBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i>'; 
+                
+                const opt = { 
+                    margin: 10, 
+                    filename: 'modulo-preguntas-retoricas.pdf', 
+                    image: { type: 'jpeg', quality: 0.98 }, 
+                    html2canvas: { scale: 2, useCORS: true, letterRendering: true }, 
+                    jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }, 
+                    pagebreak: { mode: ['avoid-all', 'css', 'legacy'] } 
+                }; 
+                
+                html2pdf().from(content).set(opt).save().then(() => { 
+                    fabContainer.style.visibility = 'visible'; 
+                    downloadBtn.innerHTML = originalIcon; 
+                }).catch(err => { 
+                    console.error("Error al generar el PDF:", err); 
+                    fabContainer.style.visibility = 'visible'; 
+                    downloadBtn.innerHTML = originalIcon; 
+                }); 
+            });
+
+            // Lógica Antes/Después
+            const transformBtn = document.getElementById('transform-btn'); 
+            if (transformBtn) { 
+                const beforeText = document.getElementById('before-text'); 
+                const afterText = document.getElementById('after-text'); 
+                transformBtn.addEventListener('click', () => { 
+                    if (afterText.style.display === 'none') { 
+                        beforeText.style.display = 'none'; 
+                        afterText.style.display = 'block'; 
+                        transformBtn.innerHTML = '<i class="fa-solid fa-rotate-left"></i> Mostrar Original'; 
+                    } else { 
+                        beforeText.style.display = 'block'; 
+                        afterText.style.display = 'none'; 
+                        transformBtn.innerHTML = '<i class="fa-solid fa-repeat"></i> Mostrar Efecto'; 
+                    } 
+                }); 
+            }
+
+            // Lógica del "Finder" (Buscador interactivo)
+            document.querySelectorAll('.sentence-container').forEach(container => { 
+                const partsToFind = container.querySelectorAll('.interactive-part'); 
+                const feedbackFinderEl = container.querySelector('.feedback-finder'); 
+                let foundCount = 0; 
+                
+                partsToFind.forEach(part => { 
+                    part.addEventListener('click', (e) => { 
+                        e.stopPropagation(); 
+                        if (!part.classList.contains('found')) { 
+                            part.classList.add('found'); 
+                            foundCount++; 
+                            if (foundCount === partsToFind.length) { 
+                                feedbackFinderEl.textContent = '¡Correcto! Has identificado la pregunta retórica.'; 
+                            } 
+                        } 
+                    }, { once: true }); 
+                }); 
+            });
+
+            // Lógica del Mini-Quiz
+            const quizForm = document.getElementById('mini-quiz-form'); 
+            if (quizForm) { 
+                quizForm.addEventListener('submit', (e) => { 
+                    e.preventDefault(); 
+                    const correctAnswers = { q1: 'b', q2: 'c' }; 
+                    let score = 0; 
+                    const totalQuestions = Object.keys(correctAnswers).length; 
+                    const formData = new FormData(quizForm); 
+                    
+                    for (const [question, userAnswer] of formData.entries()) { 
+                        if (userAnswer === correctAnswers[question]) { score++; } 
+                    } 
+                    
+                    const resultsEl = document.getElementById('quiz-results'); 
+                    resultsEl.innerHTML = `<h4>Resultados del Quiz</h4><p>Has acertado <strong>${score}</strong> de <strong>${totalQuestions}</strong> preguntas.</p>`; 
+                    
+                    if (score === totalQuestions) { 
+                        resultsEl.innerHTML += "<p>¡Muy bien! Tienes claro el concepto de pregunta retórica.</p>"; 
+                    } else { 
+                        resultsEl.innerHTML += "<p>¡Sigue intentando! Recuerda que no buscan información, sino impacto.</p>"; 
+                    } 
+                    resultsEl.style.display = 'block'; 
+                }); 
+            }
+        });
+    </script>
+</body>
+</html>
