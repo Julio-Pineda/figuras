@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -36,8 +37,10 @@
             margin: 0 auto;
             padding: 1.5rem;
         }
-        
-        h1, h2, h3 {
+
+        h1,
+        h2,
+        h3 {
             font-weight: 700;
         }
 
@@ -46,6 +49,7 @@
             color: var(--dark-primary);
             text-decoration: none;
         }
+
         a:hover {
             text-decoration: none;
         }
@@ -59,12 +63,14 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
         }
+
         .main-header h1 {
             margin: 0;
             font-size: clamp(1.2rem, 4vw, 1.5rem);
         }
+
         .theme-toggle-btn {
             padding: 8px 12px;
             border: 1px solid #555;
@@ -72,10 +78,13 @@
             background: transparent;
             cursor: pointer;
             transition: background-color 0.2s, color 0.2s;
-            width: 110px; /* Ancho fijo para evitar saltos de texto */
+            width: 110px;
+            /* Ancho fijo para evitar saltos de texto */
             text-align: center;
-            color: var(--text-color-dark); /* Color de texto para el botón en modo oscuro */
+            color: var(--text-color-dark);
+            /* Color de texto para el botón en modo oscuro */
         }
+
         .theme-toggle-btn:hover {
             background-color: #333;
         }
@@ -90,12 +99,21 @@
         }
 
         /* --- Sección Introducción (Oscuro por defecto) --- */
-        .intro-section { text-align: center; }
-        .intro-logo {
-            display: block; margin: 0 auto 1.5rem; width: 150px; height: 150px;
-            border-radius: 50%; object-fit: cover; border: 4px solid var(--primary-color);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        .intro-section {
+            text-align: center;
         }
+
+        .intro-logo {
+            display: block;
+            margin: 0 auto 1.5rem;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--primary-color);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
         .intro-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -103,12 +121,14 @@
             margin-top: 2rem;
             text-align: left;
         }
+
         .intro-card {
             background-color: #1e1e1e;
             padding: 1.5rem;
             border-radius: 12px;
             border: 1px solid #333;
         }
+
         .intro-card h3 {
             display: flex;
             align-items: center;
@@ -119,19 +139,29 @@
         .feature-section {
             margin: 3rem 0;
         }
+
         .feature-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
             align-items: center;
             gap: 2.5rem;
         }
+
         .feature-image {
-            width: 100%; height: 450px; border-radius: 22px; overflow: hidden;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            width: 100%;
+            height: 450px;
+            border-radius: 22px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
+
         .feature-image img {
-            width: 100%; height: 100%; object-fit: cover; display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
         }
+
         .cta-button {
             display: inline-block;
             margin-top: 1rem;
@@ -142,44 +172,93 @@
             font-weight: bold;
             transition: background-color 0.3s;
         }
+
         .cta-button:hover {
             background-color: var(--dark-primary-hover);
             color: #121212;
         }
+
         @media (max-width: 768px) {
-            .feature-content { grid-template-columns: 1fr; }
+            .feature-content {
+                grid-template-columns: 1fr;
+            }
         }
-        
-        .intro-card h3, .feature-text h3 {
+
+        .intro-card h3,
+        .feature-text h3 {
             color: var(--dark-primary);
         }
 
         /* --- Controles: Búsqueda, Filtros y Orden (Oscuro por defecto) --- */
-        .search-container { margin-bottom: 1rem; }
-        #module-search {
-            width: 100%; padding: 12px 15px; font-size: 1rem;
-            border-radius: 8px; border: 1px solid var(--primary-color); box-sizing: border-box;
-            background-color: #333; color: #f4f4f4;
+        .search-container {
+            margin-bottom: 1rem;
         }
-        .filter-tabs {
-            display: flex; gap: 0.5rem; margin-bottom: 1.5rem; flex-wrap: wrap;
-            border-bottom: 2px solid #333; padding-bottom: 1rem;
-        }
-        .filter-tab {
-            padding: 10px 20px; font-size: 1rem; border: none; background-color: transparent;
-            color: #aaa; cursor: pointer; border-radius: 8px 8px 0 0;
-            transition: background-color 0.3s, color 0.3s; font-weight: 500;
-        }
-        .filter-tab:hover { background-color: #333; color: #fff; }
-        .filter-tab.active { background-color: var(--dark-primary); color: #121212; font-weight: bold; }
 
-        .sort-controls { display: flex; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap; }
-        .sort-controls button {
-            padding: 10px 15px; font-size: 0.9rem; border-radius: 8px;
-            border: 1px solid var(--dark-primary); background-color: transparent;
-            color: var(--dark-primary); cursor: pointer; transition: background-color 0.3s, color 0.3s;
+        #module-search {
+            width: 100%;
+            padding: 12px 15px;
+            font-size: 1rem;
+            border-radius: 8px;
+            border: 1px solid var(--primary-color);
+            box-sizing: border-box;
+            background-color: #333;
+            color: #f4f4f4;
         }
-        .sort-controls button:hover { background-color: var(--dark-primary); color: #121212; }
+
+        .filter-tabs {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+            border-bottom: 2px solid #333;
+            padding-bottom: 1rem;
+        }
+
+        .filter-tab {
+            padding: 10px 20px;
+            font-size: 1rem;
+            border: none;
+            background-color: transparent;
+            color: #aaa;
+            cursor: pointer;
+            border-radius: 8px 8px 0 0;
+            transition: background-color 0.3s, color 0.3s;
+            font-weight: 500;
+        }
+
+        .filter-tab:hover {
+            background-color: #333;
+            color: #fff;
+        }
+
+        .filter-tab.active {
+            background-color: var(--dark-primary);
+            color: #121212;
+            font-weight: bold;
+        }
+
+        .sort-controls {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .sort-controls button {
+            padding: 10px 15px;
+            font-size: 0.9rem;
+            border-radius: 8px;
+            border: 1px solid var(--dark-primary);
+            background-color: transparent;
+            color: var(--dark-primary);
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .sort-controls button:hover {
+            background-color: var(--dark-primary);
+            color: #121212;
+        }
 
         /* --- Tarjetas de Módulos y Badges (Oscuro por defecto) --- */
         .module-grid {
@@ -187,47 +266,81 @@
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 1.5rem;
         }
+
         .module-card {
             background-color: #1e1e1e;
+            --badge-literaria: #e67e22;
+            --badge-retorica: #3498db;
+            --badge-sermon: #c0392b;
+            --badge-juego: #2ecc71;
+            --badge-tecnica: #9b59b6;
+            --card-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
             padding: 1.5rem;
             border-radius: 12px;
             text-decoration: none;
             color: inherit;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
             transition: transform 0.3s, box-shadow 0.3s;
             border: 1px solid #333;
         }
+
         .module-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
         }
+
         .module-card h3 {
             margin-top: 0;
             color: var(--dark-primary);
         }
+
         .module-card p {
             color: var(--description-color-dark);
         }
 
         .badges-container {
-            margin-top: 0.5rem; margin-bottom: 0.5rem; display: flex;
-            gap: 0.5rem; flex-wrap: wrap;
+            margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
         }
+
         .badge-pill {
-            padding: 4px 10px; font-size: 0.75rem; font-weight: bold;
-            border-radius: 50px; color: #fff;
+            padding: 4px 10px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            border-radius: 50px;
+            color: #fff;
         }
-        .badge-pill.literaria { background-color: #1e7e34; } 
-        .badge-pill.retorica { background-color: #b22222; }
-        .badge-pill.sermon { background-color: #59369a; }
-        .badge-pill.juegos { background-color: #ff8c00; }
-        
+
+        .badge-pill.literaria {
+            background-color: var(--badge-literaria);
+        }
+
+        .badge-pill.retorica {
+            background-color: var(--badge-retorica);
+        }
+
+        .badge-pill.sermon {
+            background-color: var(--badge-sermon);
+        }
+
+        .badge-pill.juegos {
+            background-color: var(--badge-juego);
+        }
+
+        .badge-pill.tecnica {
+            background-color: var(--badge-tecnica);
+        }
+
         /* --- Animaciones --- */
         .fade-in {
             opacity: 0;
             transform: translateY(20px);
             transition: opacity 0.6s ease-out, transform 0.6s ease-out;
         }
+
         .fade-in.visible {
             opacity: 1;
             transform: translateY(0);
@@ -238,6 +351,7 @@
             background-color: #f8f9fa;
             color: var(--text-color-light);
         }
+
         body.light-mode .main-header,
         body.light-mode .main-footer,
         body.light-mode .module-card,
@@ -245,35 +359,92 @@
             background-color: #fff;
             border-color: #dee2e6;
         }
-        body.light-mode a { color: var(--primary-color); }
-        body.light-mode .theme-toggle-btn { 
+
+        body.light-mode a {
+            color: var(--primary-color);
+        }
+
+        body.light-mode .theme-toggle-btn {
             border-color: #ccc;
-            color: var(--text-color-light); /* Color de texto para el botón en modo claro */
+            color: var(--text-color-light);
+            /* Color de texto para el botón en modo claro */
         }
-        body.light-mode .theme-toggle-btn:hover { background-color: #f1f1f1; }
-        body.light-mode .intro-logo { border-color: #ddd; }
+
+        body.light-mode .theme-toggle-btn:hover {
+            background-color: #f1f1f1;
+        }
+
+        body.light-mode .intro-logo {
+            border-color: #ddd;
+        }
+
         body.light-mode #module-search {
-            background-color: #fff; color: #333; border-color: #ccc;
+            background-color: #fff;
+            color: #333;
+            border-color: #ccc;
         }
-        body.light-mode .filter-tabs { border-bottom-color: #eee; }
-        body.light-mode .filter-tab { color: #555; }
-        body.light-mode .filter-tab:hover { background-color: #f0f0f0; color: #333; }
-        body.light-mode .filter-tab.active { background-color: var(--primary-color); color: #fff; }
-        body.light-mode .sort-controls button { border-color: var(--primary-color); color: var(--primary-color); }
-        body.light-mode .sort-controls button:hover { background-color: var(--primary-color); color: #fff; }
-        body.light-mode .cta-button { background-color: var(--primary-color); color: #fff; }
-        body.light-mode .cta-button:hover { background-color: var(--primary-hover); }
+
+        body.light-mode .filter-tabs {
+            border-bottom-color: #eee;
+        }
+
+        body.light-mode .filter-tab {
+            color: #555;
+        }
+
+        body.light-mode .filter-tab:hover {
+            background-color: #f0f0f0;
+            color: #333;
+        }
+
+        body.light-mode .filter-tab.active {
+            background-color: var(--primary-color);
+            color: #fff;
+        }
+
+        body.light-mode .sort-controls button {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        body.light-mode .sort-controls button:hover {
+            background-color: var(--primary-color);
+            color: #fff;
+        }
+
+        body.light-mode .cta-button {
+            background-color: var(--primary-color);
+            color: #fff;
+        }
+
+        body.light-mode .cta-button:hover {
+            background-color: var(--primary-hover);
+        }
+
         body.light-mode .module-card h3,
         body.light-mode .intro-card h3,
-        body.light-mode .feature-text h3 { color: var(--primary-hover); }
+        body.light-mode .feature-text h3 {
+            color: var(--primary-hover);
+        }
+
         body.light-mode .module-card p {
             color: var(--description-color-light);
         }
-        body.light-mode .badge-pill.literaria { background-color: #28a745; }
-        body.light-mode .badge-pill.retorica { background-color: #dc3545; }
-        body.light-mode .badge-pill.sermon { background-color: #6f42c1; }
+
+        body.light-mode .badge-pill.literaria {
+            background-color: #28a745;
+        }
+
+        body.light-mode .badge-pill.retorica {
+            background-color: #dc3545;
+        }
+
+        body.light-mode .badge-pill.sermon {
+            background-color: #6f42c1;
+        }
     </style>
 </head>
+
 <body>
 
     <header class="main-header">
@@ -283,23 +454,37 @@
 
     <section class="intro-section">
         <div class="container">
-            <img src="https://images.pexels.com/photos/6752320/pexels-photo-6752320.jpeg" alt="Pluma escribiendo en un libro" class="intro-logo fade-in">
+            <img src="https://images.pexels.com/photos/6752320/pexels-photo-6752320.jpeg"
+                alt="Pluma escribiendo en un libro" class="intro-logo fade-in">
             <h2 class="fade-in">EL ARTE DE EXPRESARSE</h2>
-            <p class="fade-in">Bienvenido a este espacio dedicado a explorar el poder y la belleza del lenguaje. Aquí desglosaremos las herramientas que han utilizado escritores, poetas y oradores a lo largo de la historia para dar vida, emoción y persuasión a sus palabras.</p>
+            <p class="fade-in">Bienvenido a este espacio dedicado a explorar el poder y la belleza del lenguaje. Aquí
+                desglosaremos las herramientas que han utilizado escritores, poetas y oradores a lo largo de la historia
+                para dar vida, emoción y persuasión a sus palabras.</p>
             <div class="intro-grid">
                 <div class="intro-card fade-in">
                     <h3>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                            <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                        </svg>
                         ¿Qué son?
                     </h3>
-                    <p>Son formas no convencionales de utilizar las palabras para dotarlas de mayor expresividad, vivacidad o belleza, con el fin de sorprender, emocionar o sugerir.</p>
+                    <p>Son formas no convencionales de utilizar las palabras para dotarlas de mayor expresividad,
+                        vivacidad o belleza, con el fin de sorprender, emocionar o sugerir.</p>
                 </div>
                 <div class="intro-card fade-in">
                     <h3>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                        </svg>
                         ¿Literarias o Retóricas?
                     </h3>
-                    <p>Aunque a menudo se usan como sinónimos, la <strong>retórica</strong> tiene un fin más amplio: persuadir o comunicar. Lo <strong>literario</strong> es un subconjunto enfocado en la belleza y la estética del arte.</p>
+                    <p>Aunque a menudo se usan como sinónimos, la <strong>retórica</strong> tiene un fin más amplio:
+                        persuadir o comunicar. Lo <strong>literario</strong> es un subconjunto enfocado en la belleza y
+                        la estética del arte.</p>
                 </div>
             </div>
         </div>
@@ -308,12 +493,15 @@
     <section class="feature-section">
         <div class="container feature-content">
             <div class="feature-image fade-in">
-                <img src="https://images.pexels.com/photos/10401264/pexels-photo-10401264.jpeg" alt="Libros antiguos y pluma de escribir">
+                <img src="https://images.pexels.com/photos/10401264/pexels-photo-10401264.jpeg"
+                    alt="Libros antiguos y pluma de escribir">
             </div>
             <div class="feature-text fade-in">
                 <h3>Dato Curioso</h3>
                 <h2>El Origen en la Oratoria</h2>
-                <p>Muchas de las figuras que estudiamos hoy no nacieron en la poesía, sino en la antigua Grecia, como herramientas de los grandes oradores como Aristóteles y Cicerón para hacer sus discursos políticos y legales más persuasivos e inolvidables. ¡Eran el "arma secreta" para ganar debates!</p>
+                <p>Muchas de las figuras que estudiamos hoy no nacieron en la poesía, sino en la antigua Grecia, como
+                    herramientas de los grandes oradores como Aristóteles y Cicerón para hacer sus discursos políticos y
+                    legales más persuasivos e inolvidables. ¡Eran el "arma secreta" para ganar debates!</p>
                 <a href="https://es.wikipedia.org/wiki/Oratoria" target="_blank" class="cta-button">Leer más</a>
             </div>
         </div>
@@ -321,7 +509,7 @@
 
     <main class="container">
         <h2 class="fade-in">MÓDULOS DE ESTUDIO</h2>
-        
+
         <div class="search-container fade-in">
             <input type="search" id="module-search" placeholder="Buscar módulo por nombre (sin importar tildes)...">
         </div>
@@ -330,6 +518,7 @@
             <button class="filter-tab active" data-filter="todas">Ver Todas</button>
             <button class="filter-tab" data-filter="literaria">Literarias</button>
             <button class="filter-tab" data-filter="retorica">Retóricas</button>
+            <button class="filter-tab" data-filter="tecnica">Técnica</button>
             <button class="filter-tab" data-filter="sermon">Sermón</button>
             <button class="filter-tab" data-filter="juegos">Juegos</button>
         </div>
@@ -342,17 +531,20 @@
         <section class="module-grid">
             <a href="modulos/metafora.html" class="module-card fade-in" data-category="literaria retorica">
                 <h3>Metáfora</h3>
-                <div class="badges-container"><span class="badge-pill literaria">Literaria</span><span class="badge-pill retorica">Retórica</span></div>
+                <div class="badges-container"><span class="badge-pill literaria">Literaria</span><span
+                        class="badge-pill retorica">Retórica</span></div>
                 <p>Descubre el poder de la comparacion implicita.</p>
             </a>
             <a href="modulos/simil.html" class="module-card fade-in" data-category="literaria retorica">
                 <h3>Símil o Comparación</h3>
-                <div class="badges-container"><span class="badge-pill literaria">Literaria</span><span class="badge-pill retorica">Retórica</span></div>
+                <div class="badges-container"><span class="badge-pill literaria">Literaria</span><span
+                        class="badge-pill retorica">Retórica</span></div>
                 <p>Domina el arte de la comparacion explicita creando vinculos claros con el poder del "como".</p>
             </a>
             <a href="modulos/hiperbole.html" class="module-card fade-in" data-category="literaria retorica">
                 <h3>Hipérbole</h3>
-                <div class="badges-container"><span class="badge-pill literaria">Literaria</span><span class="badge-pill retorica">Retórica</span></div>
+                <div class="badges-container"><span class="badge-pill literaria">Literaria</span><span
+                        class="badge-pill retorica">Retórica</span></div>
                 <p>Explora el arte de la exageracion para un impacto inolvidable.</p>
             </a>
             <a href="modulos/personificacion.html" class="module-card fade-in" data-category="literaria">
@@ -362,7 +554,8 @@
             </a>
             <a href="modulos/aliteracion.html" class="module-card fade-in" data-category="literaria retorica">
                 <h3>Aliteración</h3>
-                 <div class="badges-container"><span class="badge-pill literaria">Literaria</span><span class="badge-pill retorica">Retórica</span></div>
+                <div class="badges-container"><span class="badge-pill literaria">Literaria</span><span
+                        class="badge-pill retorica">Retórica</span></div>
                 <p>Siente el poder de la musica y el ritmo en las palabras.</p>
             </a>
             <a href="modulos/onomatopeya.html" class="module-card fade-in" data-category="literaria">
@@ -380,37 +573,43 @@
             </a>
             <a href="modulos/elipsis.html" class="module-card fade-in" data-category="literaria retorica">
                 <h3>Elipsis</h3>
-                <div class="badges-container"><span class="badge-pill literaria">Literaria</span><span class="badge-pill retorica">Retórica</span></div>
+                <div class="badges-container"><span class="badge-pill literaria">Literaria</span><span
+                        class="badge-pill retorica">Retórica</span></div>
                 <p>Aprende el arte de omitir palabras para ganar agilidad y potencia.</p>
             </a>
             <a href="modulos/metonimia.html" class="module-card fade-in" data-category="literaria retorica">
                 <h3>Metonimia</h3>
-                <div class="badges-container"><span class="badge-pill literaria">Literaria</span><span class="badge-pill retorica">Retórica</span></div>
+                <div class="badges-container"><span class="badge-pill literaria">Literaria</span><span
+                        class="badge-pill retorica">Retórica</span></div>
                 <p>Designa una idea a traves de su relacion de proximidad o causa.</p>
             </a>
             <a href="modulos/sinecdoque.html" class="module-card fade-in" data-category="literaria retorica">
                 <h3>Sinécdoque</h3>
-                <div class="badges-container"><span class="badge-pill literaria">Literaria</span><span class="badge-pill retorica">Retórica</span></div>
+                <div class="badges-container"><span class="badge-pill literaria">Literaria</span><span
+                        class="badge-pill retorica">Retórica</span></div>
                 <p>Comprende como una parte puede representar al todo (y viceversa).</p>
             </a>
             <a href="modulos/oximoron.html" class="module-card fade-in" data-category="literaria">
                 <h3>Oxímoron</h3>
-                 <div class="badges-container"><span class="badge-pill literaria">Literaria</span></div>
+                <div class="badges-container"><span class="badge-pill literaria">Literaria</span></div>
                 <p>Encuentra el sentido profundo en la union de dos opuestos.</p>
             </a>
             <a href="modulos/epifora.html" class="module-card fade-in" data-category="retorica sermon">
                 <h3>Epífora</h3>
-                <div class="badges-container"><span class="badge-pill retorica">Retórica</span><span class="badge-pill sermon">Sermón</span></div>
+                <div class="badges-container"><span class="badge-pill retorica">Retórica</span><span
+                        class="badge-pill sermon">Sermón</span></div>
                 <p>Aprende a crear un eco memorable con la repetición al final de las frases.</p>
             </a>
             <a href="modulos/climax.html" class="module-card fade-in" data-category="retorica sermon">
                 <h3>Clímax o Gradación</h3>
-                <div class="badges-container"><span class="badge-pill retorica">Retórica</span><span class="badge-pill sermon">Sermón</span></div>
+                <div class="badges-container"><span class="badge-pill retorica">Retórica</span><span
+                        class="badge-pill sermon">Sermón</span></div>
                 <p>Construye tensión y emoción llevando tus ideas a su punto más alto.</p>
             </a>
             <a href="modulos/polisindeton.html" class="module-card fade-in" data-category="retorica sermon">
                 <h3>Polisíndeton</h3>
-                <div class="badges-container"><span class="badge-pill retorica">Retórica</span><span class="badge-pill sermon">Sermón</span></div>
+                <div class="badges-container"><span class="badge-pill retorica">Retórica</span><span
+                        class="badge-pill sermon">Sermón</span></div>
                 <p>Descubre cómo el uso de conjunciones añade peso y solemnidad a tu mensaje.</p>
             </a>
             <a href="modulos/paralelismo.html" class="module-card fade-in" data-category="literariaretorica sermon">
@@ -449,13 +648,12 @@
                 <p>Diviértete y mejora tu dicción con estos retos lingüísticos.</p>
             </a>
 
-            <a href="modulos/pronunciacion.html" class="module-card fade-in" data-category="retorica sermon">
-                <h3>Pronunciación y vocalización</h3>
+            <a href="modulos/pronunciacion.html" class="module-card fade-in" data-category="tecnica">
+                <h3>Pronunciación</h3>
                 <div class="badges-container">
-                    <span class="badge-pill retorica">Retórica</span>
-                    <span class="badge-pill sermon">Sermón</span>
+                    <span class="badge-pill tecnica">Técnica</span>
                 </div>
-                <p>Mejora el ritmo, dicción, silabeo y toda tu técnica de vocalización.</p>
+                <p>Mejora la claridad y el impacto de tu voz al hablar en público.</p>
             </a>
             <a href="modulos/preguntas.html" class="module-card fade-in" data-category="retorica sermon">
                 <h3>Preguntas retóricas</h3>
@@ -465,12 +663,38 @@
                 </div>
                 <p>Mejora impacto en el discurso, invita a reflexionar a los demás.</p>
             </a>
-            <a href="modulos/relativos.html" class="module-card fade-in" data-category="retorica">
+            <a href="modulos/relativos.html" class="module-card fade-in" data-category="tecnica">
                 <h3>Pronombres Relativos</h3>
                 <div class="badges-container">
-                    <span class="badge-pill retorica">Gramática / Retórica</span>
+                    <span class="badge-pill tecnica">Técnica</span>
                 </div>
                 <p>Domina el uso de "el cual", "cuyo" y sus variantes para una escritura precisa.</p>
+            </a>
+            <a href="modulos/antitesis.html" class="module-card fade-in" data-category="retorica literaria sermon">
+                <h3>Antítesis</h3>
+                <div class="badges-container">
+                    <span class="badge-pill retorica">Retórica</span>
+                    <span class="badge-pill literaria">Literaria</span>
+                    <span class="badge-pill sermon">Sermón</span>
+                </div>
+                <p>El poder del contraste para resaltar verdades opuestas.</p>
+            </a>
+            <a href="modulos/pleonasmo.html" class="module-card fade-in" data-category="retorica literaria sermon">
+                <h3>Pleonasmo</h3>
+                <div class="badges-container">
+                    <span class="badge-pill retorica">Retórica</span>
+                    <span class="badge-pill literaria">Literaria</span>
+                    <span class="badge-pill sermon">Sermón</span>
+                </div>
+                <p>Usa la redundancia estratégica para dar peso y solemnidad a tu mensaje.</p>
+            </a>
+            <a href="modulos/gimnasio_vocal.html" class="module-card fade-in" data-category="tecnica juego">
+                <h3>Gimnasia Vocal</h3>
+                <div class="badges-container">
+                    <span class="badge-pill tecnica">Técnica</span>
+                    <span class="badge-pill juegos">Juegos</span>
+                </div>
+                <p>Entrena tu voz, dicción y silabeo con retos interactivos y dinámicos.</p>
             </a>
         </section>
     </main>
@@ -509,7 +733,7 @@
             // --- 2. FUNCIÓN CENTRAL PARA ACTUALIZAR LA VISTA ---
             const updateView = () => {
                 const sourceArray = currentSort === 'alpha' ? sortedModules : originalModules;
-                moduleGrid.innerHTML = ''; 
+                moduleGrid.innerHTML = '';
 
                 sourceArray.forEach(module => {
                     const moduleCategory = module.dataset.category || '';
@@ -552,7 +776,7 @@
                 localStorage.setItem('sortOrder', 'original');
                 updateView();
             });
-            
+
             // --- 4. MANEJO DEL TEMA (LÓGICA INVERTIDA) ---
             // El modo oscuro es el predeterminado, se activa el modo claro.
             const updateToggleButtonText = () => {
@@ -562,7 +786,7 @@
                     themeToggleButton.textContent = 'Modo Oscuro'; // ESTADO: Estamos en modo oscuro (default)
                 }
             };
-            
+
             // Aplicar tema al cargar la página
             // El predeterminado es oscuro, solo se añade la clase si está guardado como 'light'
             if (localStorage.getItem('theme') === 'light') {
@@ -573,7 +797,7 @@
             // Evento de clic para el botón
             themeToggleButton.addEventListener('click', () => {
                 document.body.classList.toggle('light-mode');
-                
+
                 let theme = 'dark'; // El tema por defecto a guardar es 'dark'
                 if (document.body.classList.contains('light-mode')) {
                     theme = 'light'; // Si la clase está presente, guardamos 'light'
@@ -588,7 +812,7 @@
             // --- 6. ANIMACIONES (Intersection Observer) ---
             const faders = document.querySelectorAll('.fade-in');
             const appearOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
-            const appearOnScroll = new IntersectionObserver(function(entries, appearOnScrollObserver) {
+            const appearOnScroll = new IntersectionObserver(function (entries, appearOnScrollObserver) {
                 entries.forEach(entry => {
                     if (!entry.isIntersecting) return;
                     entry.target.classList.add('visible');
@@ -602,4 +826,5 @@
         });
     </script>
 </body>
+
 </html>
