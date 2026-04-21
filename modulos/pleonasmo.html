@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pleonasmo: La Fuerza de la Redundancia</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root { --primary-bg-light: #f4f4f9; --primary-text-light: #333; --card-bg-light: #ffffff; --header-bg-light: #ffffff; --accent-color: #6f42c1; --mark-bg-light: #e2d9f3; --border-color-light: #e0e0e0; --success-bg-light: #e6ffed; --primary-bg-dark: #121212; --primary-text-dark: #e0e0e0; --card-bg-dark: #1e1e1e; --header-bg-dark: #1e1e1e; --mark-bg-dark: #4b2c85; --border-color-dark: #333; --success-bg-dark: #1c3b29; } body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; margin: 0; transition: background-color 0.3s, color 0.3s; line-height: 1.6; word-wrap: break-word; overflow-wrap: break-word; } body.light-mode { background-color: var(--primary-bg-light); color: var(--primary-text-light); } body.dark-mode { background-color: var(--primary-bg-dark); color: var(--primary-text-dark); } .main-header { display: flex; justify-content: space-between; align-items: center; padding: 1rem; box-shadow: 0 2px 4px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; } body.light-mode .main-header { background-color: var(--header-bg-light); } body.dark-mode .main-header { background-color: var(--header-bg-dark); } .main-header h1 { font-size: 1.2rem; margin: 0; text-align: center; } .theme-toggle-btn { background-color: var(--accent-color); color: white; border: none; padding: 0.5rem 1rem; border-radius: 5px; cursor: pointer; font-size: 1rem; width: 45px; text-align: center; } .main-footer { text-align: center; padding: 1rem; margin-top: 2rem; font-size: 0.9rem; } .container { max-width: 1080px; margin: 1rem auto; padding: 0 1rem; } .module-section { padding: 1.5rem; border-radius: 8px; margin-bottom: 1.5rem; box-shadow: 7px 7px 27px 2px rgba(0,0,0,0.1); } body.light-mode .module-section { background-color: var(--card-bg-light); border: 1px solid var(--border-color-light); } body.dark-mode .module-section { background-color: var(--card-bg-dark); border: 1px solid var(--border-color-dark); } .module-section h2 { margin-top: 0; color: var(--accent-color); border-bottom: 2px solid var(--accent-color); padding-bottom: 0.5rem; font-size: 1.3rem; } .back-link { text-decoration: none; color: var(--accent-color); font-weight: bold; font-size: 0.9rem; } mark { padding: 0.2em 0.4em; border-radius: 3px; } body.light-mode mark { background-color: var(--mark-bg-light); color: #4b2c85; } body.dark-mode mark { background-color: var(--mark-bg-dark); color: var(--primary-text-dark); } .formula { text-align: center; font-size: 1rem; padding: 1rem; border: 2px dashed var(--accent-color); border-radius: 5px; margin: 1rem 0; } .bible-example { margin-top: 1.5rem; } .bible-example em { display: block; padding-left: 1rem; border-left: 3px solid #ccc; margin-bottom: 0.5rem; font-style: italic; } .module-section ul { list-style: none; padding-left: 0; } .module-section li { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 0.5rem; } .fa-fw { text-align: center; } h1, h2, .back-link, .exercise button, .bible-example p, .formula p, #mini-quiz-form button { display: flex; align-items: center; justify-content: center; gap: 10px; } .exercise textarea { width: 100%; box-sizing: border-box; padding: 0.5rem; border-radius: 5px; border: 1px solid #ccc; margin: 1rem 0; font-size: 1rem; } .exercise .buttons-container { display: flex; flex-wrap: wrap; gap: 10px; } .exercise button { background-color: var(--accent-color); color: white; border: none; padding: 0.7rem 1.5rem; border-radius: 5px; cursor: pointer; flex-grow: 1; } #show-answer-btn { background-color: #6c757d; } .feedback { margin-top: 1rem; font-weight: bold; min-height: 1.2em; } .correct-answer-box { margin-top: 1rem; padding: 1rem; border-radius: 5px; } body.light-mode .correct-answer-box { background-color: var(--success-bg-light); border: 1px solid green; } body.dark-mode .correct-answer-box { background-color: var(--success-bg-dark); border: 1px solid #3d8b40; } .comparison-box { text-align: center; } .comparison-box h4 { margin-bottom: 0.5rem; } .comparison-box p { font-size: 1.2rem; font-style: italic; } #transform-btn { margin-top: 1rem; background-color: var(--accent-color); color: white; border: none; padding: 0.7rem 1.5rem; border-radius: 5px; cursor: pointer;} .interactive-part { cursor: pointer; padding: 0.1em 0.3em; border-radius: 3px; transition: background-color 0.3s; border-bottom: 2px dotted var(--accent-color); } .interactive-part.found { background-color: var(--mark-bg-light); color: #333; border-bottom: none; cursor: default; } body.dark-mode .interactive-part.found { background-color: var(--mark-bg-dark); color: var(--primary-text-dark); } .feedback-finder { font-weight: bold; color: green; font-size: 0.9em; min-height: 1em; margin-top: 0.5em; text-align: center;} .sentence-container { margin-bottom: 1rem; text-align: center; font-size: 1.1rem;} .quiz-question { margin-bottom: 1.5rem; } .quiz-question p { margin-bottom: 0.5rem; } .quiz-question label { display: block; margin-bottom: 0.5rem; cursor: pointer; } #mini-quiz-form button { background-color: var(--accent-color); color: white; border: none; padding: 0.7rem 1.5rem; border-radius: 5px; cursor: pointer; margin-top: 1rem; } .fab-container { position: fixed; bottom: 1rem; right: 1rem; z-index: 1001; } .fab { background-color: var(--accent-color); color: white; border: none; border-radius: 50%; width: 50px; height: 50px; font-size: 1.2rem; text-align: center; box-shadow: 0 4px 8px rgba(0,0,0,0.2); cursor: pointer; display: flex; align-items: center; justify-content: center; }
+        .comparison-grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; margin: 1.5rem 0; } .comparison-card { padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border-color-light); transition: transform 0.3s; } .comparison-card h3 { margin-top: 0; font-size: 1.1rem; display: flex; align-items: center; gap: 10px; } .comparison-card.error { border-left: 5px solid #dc3545; background-color: rgba(220, 53, 69, 0.05); } .comparison-card.success { border-left: 5px solid #6f42c1; background-color: rgba(111, 66, 193, 0.05); } .golden-rule { background-color: var(--mark-bg-light); padding: 1rem; border-radius: 8px; border: 1px solid #ffe066; font-style: italic; text-align: center; } body.dark-mode .golden-rule { background-color: var(--mark-bg-dark); border-color: #b38f00; } body.dark-mode .comparison-card { border-color: var(--border-color-dark); } @media (min-width: 768px) { .comparison-grid { grid-template-columns: 1fr 1fr; } .main-header { padding: 1rem 2rem; } .main-header h1 { font-size: 1.5rem; } .container { margin: 2rem auto; } .module-section { padding: 2rem; } .exercise .buttons-container { flex-wrap: nowrap; } .exercise button { flex-grow: 0; } .fab-container { bottom: 2rem; right: 2rem; } .fab { width: 60px; height: 60px; font-size: 1.5rem; } }
+    </style>
+</head>
+<body>
+    <header class="main-header">
+        <a href="../index.html" class="back-link"><i class="fa-solid fa-arrow-left"></i> Volver</a>
+        <h1><i class="fa-solid fa-plus-minus"></i> Pleonasmo</h1>
+        <button id="theme-toggle" class="theme-toggle-btn" title="Cambiar tema"><i class="fa-solid fa-moon"></i></button>
+    </header>
+
+    <main class="container" id="module-content">
+        <section class="module-section">
+            <h2><i class="fa-solid fa-circle-question"></i>1. ¿Qué es el Pleonasmo?</h2>
+            <p>El pleonasmo es una figura retórica que consiste en utilizar <strong>palabras innecesarias para el sentido gramatical</strong>, pero útiles para <strong>reforzar la expresión</strong> o dar más intensidad y emoción a lo que se dice.</p>
+            <div class="formula"><p><i class="fa-solid fa-layer-group"></i><strong>Idea Base</strong> + <strong>Refuerzo Redundante</strong></p></div>
+            <p>Aunque a veces se confunde con un error (vicio del lenguaje), en la oratoria y la literatura es un recurso magistral para que una verdad "golpee" con más fuerza el corazón del oyente.</p>
+        </section>
+
+        <section class="module-section">
+            <h2><i class="fa-solid fa-balance-scale"></i>2. Pleonasmo vs. Redundancia: ¿Arte o Error?</h2>
+            <p>Para un orador, la diferencia entre estos conceptos es la línea que separa el descuido de la maestría retórica:</p>
+            
+            <div class="comparison-grid">
+                <div class="comparison-card error">
+                    <h3 style="color: #dc3545;"><i class="fa-solid fa-circle-xmark"></i>Redundancia (Vicio)</h3>
+                    <p>Uso repetitivo e innecesario de palabras que <strong>empobrecen</strong> el discurso porque no aportan valor ni intención.</p>
+                    <p><em>Es fruto del descuido o falta de vocabulario.</em></p>
+                    <hr>
+                    <p><strong>Ejemplo:</strong> "Salir afuera", "Hemorragia de sangre".</p>
+                </div>
+                
+                <div class="comparison-card success">
+                    <h3 style="color: #6f42c1;"><i class="fa-solid fa-wand-magic-sparkles"></i>Pleonasmo (Recurso)</h3>
+                    <p>Redundancia <strong>intencional</strong> usada para añadir solemnidad, énfasis, belleza o claridad absoluta.</p>
+                    <p><em>Es fruto de la maestría y la intención comunicativa.</em></p>
+                    <hr>
+                    <p><strong>Ejemplo:</strong> "Yo mismo lo vi con mis propios ojos".</p>
+                </div>
+            </div>
+            
+            <p class="golden-rule"><i class="fa-solid fa-star"></i> <strong>Regla de oro:</strong> Si la palabra "sobrante" añade fuerza emocional o confirma un hecho, es un <strong>pleonasmo</strong>. Si solo llena espacio, es una <strong>redundancia</strong>.</p>
+        </section>
+
+        <section class="module-section">
+            <h2><i class="fa-solid fa-comments"></i>3. Ejemplos Habituales</h2>
+            <ul>
+                <li><i class="fa-solid fa-eye fa-fw"></i>"Lo vi con mis <mark>propios ojos</mark>."</li>
+                <li><i class="fa-solid fa-ear-listen fa-fw"></i>"Lo escuché con mis <mark>propios oídos</mark>."</li>
+                <li><i class="fa-solid fa-up-long fa-fw"></i>"Subir <mark>arriba</mark>." (Usado literariamente para enfatizar el ascenso).</li>
+                <li><i class="fa-solid fa-pen-nib fa-fw"></i>"De la boca <mark>sale</mark> hacia <mark>afuera</mark>."</li>
+                <li><i class="fa-solid fa-gift fa-fw"></i>"Un <mark>regalo gratuito</mark>."</li>
+                <li><i class="fa-solid fa-bullhorn fa-fw"></i>"Gritar con <mark>una gran voz</mark>."</li>
+                <li><i class="fa-solid fa-hand-holding-heart fa-fw"></i>"Lo hizo por <mark>sí mismo</mark>."</li>
+                <li><i class="fa-solid fa-user-check fa-fw"></i>"Fue <mark>testigo presencial</mark> del hecho."</li>
+            </ul>
+        </section>
+
+        <section class="module-section">
+            <h2><i class="fa-solid fa-scroll"></i>4. La Solemnidad en la Biblia</h2>
+            <p>El hebreo y el griego bíblico aman el pleonasmo para dar certeza absoluta a sus promesas o advertencias.</p>
+            <div class="bible-example">
+                <em>"Y confesó, y no <mark>negó</mark>, sino que <mark>confesó</mark>: Yo no soy el Cristo." (Juan 1:20)</em>
+                <p><i class="fa-solid fa-magnifying-glass-chart"></i><strong>Análisis:</strong> Juan utiliza una doble afirmación ("confesó y no negó") para enfatizar la claridad y honestidad del testimonio de Juan el Bautista. Gramaticalmente bastaría con "dijo", pero el pleonasmo le da peso.</p>
+            </div><hr>
+            <div class="bible-example">
+                <em>"Ciertamente <mark>viendo</mark> verás, y no <mark>percibirás</mark>; y <mark>oyendo</mark> oirás, y no <mark>entenderás</mark>." (Hechos 28:26)</em>
+                <p><i class="fa-solid fa-magnifying-glass-chart"></i><strong>Análisis:</strong> Es un semitismo (figura propia del hebreo). La repetición del verbo ("viendo verás") indica una acción total, profunda y enfática. No es un simple mirar, es una sentencia de juicio espiritual.</p>
+            </div><hr>
+            <div class="bible-example">
+                <em>"Y vuestras hijas <mark>profetizarán</mark>... vuestros jóvenes verán <mark>visiones</mark>... vuestros ancianos soñarán <mark>sueños</mark>." (Hechos 2:17)</em>
+                <p><i class="fa-solid fa-magnifying-glass-chart"></i><strong>Análisis:</strong> El uso de "soñar sueños" o "ver visiones" refuerza la naturaleza del don profético, dándole una cadencia solemne y rítmica al discurso de Pedro.</p>
+            </div><hr>
+            <div class="bible-example">
+                <em>"¡Oh, si él me besara con <mark>besos de su boca</mark>!" (Cantares 1:2)</em>
+                <p><i class="fa-solid fa-magnifying-glass-chart"></i><strong>Análisis:</strong> Un pleonasmo poético. Gramaticalmente un beso solo puede ser de la boca, pero aquí enfatiza la intimidad y el deseo personal directo.</p>
+            </div><hr>
+            <div class="bible-example">
+                <em>"De <mark>oídas</mark> te había <mark>oído</mark>; mas ahora mis <mark>ojos te ven</mark>." (Job 42:5)</em>
+                <p><i class="fa-solid fa-magnifying-glass-chart"></i><strong>Análisis:</strong> El contraste entre el conocimiento indirecto ("oídas te oí") y la experiencia personal directa ("mis ojos te ven") usa la redundancia para mostrar una transformación radical.</p>
+            </div><hr>
+            <div class="bible-example">
+                <em>"...lo que hemos <mark>oído</mark>, lo que hemos <mark>visto con nuestros ojos</mark>, lo que hemos contemplado, y <mark>palparon nuestras manos</mark>..." (1 Juan 1:1)</em>
+                <p><i class="fa-solid fa-magnifying-glass-chart"></i><strong>Análisis:</strong> Juan acumula pleonasmos sensoriales para combatir la idea de que Jesús era un fantasma. El énfasis en los ojos y las manos es crucial para su argumento teológico.</p>
+            </div><hr>
+            <div class="bible-example">
+                <em>"Y pondré mi ley en su <mark>mente</mark>, y la escribiré en su <mark>corazón</mark>." (Jeremías 31:33)</em>
+                <p><i class="fa-solid fa-magnifying-glass-chart"></i><strong>Análisis:</strong> Aunque mente y corazón pueden ser sinónimos en este contexto, la redundancia refuerza que el cambio será profundo e integral en todo el ser.</p>
+            </div><hr>
+            <div class="bible-example">
+                <em>"...echaré <mark>fuera</mark> de mi presencia a esta <mark>ciudad</mark>." (Jeremías 32:31)</em>
+                <p><i class="fa-solid fa-magnifying-glass-chart"></i><strong>Análisis:</strong> Un uso hebreo común ("echar fuera") que refuerza la acción de expulsión total y definitiva.</p>
+            </div>
+        </section>
+
+        <section class="module-section">
+            <h2><i class="fa-solid fa-wand-magic-sparkles"></i>5. El Efecto Oratorio: Antes y Después</h2>
+            <p>Mira cómo la redundancia controlada añade una capa de veracidad indiscutible.</p>
+            <div class="comparison-box">
+                <div id="before-text"><h4><i class="fa-solid fa-align-left"></i>Lenguaje Directo</h4><p>Yo mismo escribí esta carta.</p></div>
+                <div id="after-text" style="display: none;"><h4><i class="fa-solid fa-angles-right"></i>Con Pleonasmo Oratorio</h4><p>La escribí con mi <mark>propia mano</mark>, letra por <mark>letra</mark>, para que no hubiera duda alguna.</p></div>
+                <button id="transform-btn"><i class="fa-solid fa-repeat"></i>Mostrar Intencionalidad</button>
+            </div>
+        </section>
+
+        <section class="module-section">
+            <h2><i class="fa-solid fa-mouse-pointer"></i>6. ¡Ahora tú! Encuentra el refuerzo</h2>
+            <p>Haz clic en las palabras que refuerzan la idea principal (el pleonasmo).</p>
+            <div id="interactive-finder">
+                <div class="sentence-container"><p class="find-me">Te lo digo <span class="interactive-part">con mi propia voz</span> para que me creas.</p><p class="feedback-finder"></p></div>
+                <div class="sentence-container"><p class="find-me">¡Sal <span class="interactive-part">afuera</span> de esa cueva de inmediato!</p><p class="feedback-finder"></p></div>
+                <div class="sentence-container"><p class="find-me">Le dio un golpe <span class="interactive-part">con su propia mano</span>.</p><p class="feedback-finder"></p></div>
+                <div class="sentence-container"><p class="find-me">Lo <span class="interactive-part">vi</span> claramente con <span class="interactive-part">mis propios ojos</span>.</p><p class="feedback-finder"></p></div>
+                <div class="sentence-container"><p class="find-me">Te <span class="interactive-part">daré</span> un regalo <span class="interactive-part">totalmente gratuito</span>.</p><p class="feedback-finder"></p></div>
+            </div>
+        </section>
+
+        <section class="module-section exercise">
+            <h2><i class="fa-solid fa-pencil-alt"></i>7. Ejercicio Práctico</h2>
+            <p>Analiza las siguientes expresiones. Identifica el pleonasmo y explica qué intención crees que tenía el que las dijo:</p>
+            <div class="bible-example">
+                <p>1. <em>"Yo mismo lo vi con mis propios ojos, nadie me lo contó."</em></p>
+                <p>2. <em>"¡Escuchad con vuestros oídos la voz del que clama!"</em></p>
+                <p>3. <em>"Lo escribió con su propia mano en el pergamino sagrado."</em></p>
+                <p>4. <em>"Entró adentro de la morada para no salir jamás."</em></p>
+            </div>
+            <textarea id="exercise-answer" rows="8" placeholder="Escribe tu análisis de los recursos aquí..."></textarea>
+            <div class="buttons-container">
+                <button id="check-answer-btn"><i class="fa-solid fa-check-circle"></i>Verificar Respuesta</button>
+                <button id="show-answer-btn" style="display: none;"><i class="fa-solid fa-eye"></i>Ver Respuesta Correcta</button>
+            </div>
+            <p id="feedback" class="feedback"></p>
+            <div id="correct-answer" class="correct-answer-box" style="display: none;">
+                <h4>Análisis de los Recursos:</h4>
+                <ol>
+                    <li><strong>Yo mismo / Propios ojos:</strong> Intención de dar veracidad absoluta como testigo directo.</li>
+                    <li><strong>Con vuestros oídos:</strong> Intención de exigir atención máxima y personal al mensaje.</li>
+                    <li><strong>Propia mano:</strong> Intención de autentificar un documento o mensaje personal.</li>
+                    <li><strong>Entró adentro:</strong> Intención de enfatizar el aislamiento o la finalidad del refugio.</li>
+                </ol>
+            </div>
+        </section>
+
+        <section class="module-section">
+            <h2><i class="fa-solid fa-clipboard-question"></i>8. Mini-Quiz Rápido</h2>
+            <form id="mini-quiz-form">
+                <div class="quiz-question">
+                    <p><strong>1. ¿Cuándo se considera el pleonasmo una figura retórica y no un error?</strong></p>
+                    <label><input type="radio" name="q1" value="a"> Cuando se usa por descuido al hablar.</label><br>
+                    <label><input type="radio" name="q1" value="b"> Cuando tiene una intención de dar más fuerza o belleza al mensaje.</label><br>
+                    <label><input type="radio" name="q1" value="c"> Siempre es un error gramatical.</label><br>
+                </div>
+                <div class="quiz-question">
+                    <p><strong>2. ¿Cuál de estos es un pleonasmo bíblico?</strong></p>
+                    <label><input type="radio" name="q2" value="a"> Jehová es mi pastor.</label><br>
+                    <label><input type="radio" name="q2" value="b"> Subió al monte y allí oró.</label><br>
+                    <label><input type="radio" name="q2" value="c"> Viendo verás, y no percibirás.</label><br>
+                </div>
+                <button type="submit"><i class="fa-solid fa-paper-plane"></i>Enviar Quiz</button>
+            </form>
+            <div id="quiz-results" class="correct-answer-box" style="display:none; margin-top: 1rem;"></div>
+        </section>
+    </main>
+
+    <div class="fab-container"><button id="download-pdf" class="fab" title="Descargar como PDF"><i class="fa-solid fa-file-pdf"></i></button></div>
+    <footer class="main-footer"><p>&copy; 2025 - Estudio de Figuras Literarias | Desarrollado por Julio Cesar Pineda Mora</p></footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const themeToggle = document.getElementById('theme-toggle'); const themeIcon = themeToggle.querySelector('i'); const applyTheme = (theme) => { document.body.classList.remove('light-mode', 'dark-mode'); document.body.classList.add(theme); localStorage.setItem('theme', theme); themeIcon.className = theme === 'dark-mode' ? 'fa-solid fa-sun' : 'fa-solid fa-moon'; themeToggle.title = theme === 'dark-mode' ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro'; }; themeToggle.addEventListener('click', () => { applyTheme(document.body.classList.contains('dark-mode') ? 'light-mode' : 'dark-mode'); }); applyTheme(localStorage.getItem('theme') || 'light-mode');
+            const checkAnswerBtn = document.getElementById('check-answer-btn'); const showAnswerBtn = document.getElementById('show-answer-btn'); const feedbackEl = document.getElementById('feedback'); const correctAnswerEl = document.getElementById('correct-answer'); 
+            checkAnswerBtn.addEventListener('click', () => { 
+                const answer = document.getElementById('exercise-answer').value.toLowerCase(); 
+                if (answer.length > 20 && (answer.includes("enfatizar") || answer.includes("fuerza") || answer.includes("intención") || answer.includes("énfasis"))) { 
+                    feedbackEl.textContent = "¡Muy bien! Has captado la dimensión retórica de estos pleonasmos."; 
+                    feedbackEl.style.color = 'var(--accent-color)'; 
+                } else { 
+                    feedbackEl.textContent = "Intenta explicar la intención detrás de las palabras repetidas."; 
+                    feedbackEl.style.color = 'red'; 
+                    showAnswerBtn.style.display = 'inline-block'; 
+                } 
+            }); 
+            showAnswerBtn.addEventListener('click', () => { correctAnswerEl.style.display = 'block'; showAnswerBtn.style.display = 'none'; });
+            document.getElementById('download-pdf').addEventListener('click', () => { const fabContainer = document.querySelector('.fab-container'); const content = document.getElementById('module-content'); const downloadBtn = document.getElementById('download-pdf'); const originalIcon = downloadBtn.innerHTML; fabContainer.style.visibility = 'hidden'; downloadBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i>'; const opt = { margin: 10, filename: 'modulo-pleonasmo.pdf', image: { type: 'jpeg', quality: 0.98 }, html2canvas: { scale: 2, useCORS: true, letterRendering: true }, jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }, pagebreak: { mode: ['avoid-all', 'css', 'legacy'] } }; html2pdf().from(content).set(opt).save().then(() => { fabContainer.style.visibility = 'visible'; downloadBtn.innerHTML = originalIcon; }).catch(err => { console.error("Error al generar el PDF:", err); fabContainer.style.visibility = 'visible'; downloadBtn.innerHTML = originalIcon; }); });
+            const transformBtn = document.getElementById('transform-btn'); if (transformBtn) { const beforeText = document.getElementById('before-text'); const afterText = document.getElementById('after-text'); transformBtn.addEventListener('click', () => { if (afterText.style.display === 'none') { beforeText.style.display = 'none'; afterText.style.display = 'block'; transformBtn.innerHTML = '<i class="fa-solid fa-rotate-left"></i> Mostrar Original'; } else { beforeText.style.display = 'block'; afterText.style.display = 'none'; transformBtn.innerHTML = '<i class="fa-solid fa-repeat"></i> Mostrar Intencionalidad'; } }); }
+            document.querySelectorAll('.sentence-container').forEach(container => { const partsToFind = container.querySelectorAll('.interactive-part'); const feedbackFinderEl = container.querySelector('.feedback-finder'); let foundCount = 0; partsToFind.forEach(part => { part.addEventListener('click', (e) => { e.stopPropagation(); if (!part.classList.contains('found')) { part.classList.add('found'); foundCount++; if (foundCount === partsToFind.length) { feedbackFinderEl.textContent = '¡Énfasis detectado!'; } } }, { once: true }); }); });
+            const quizForm = document.getElementById('mini-quiz-form'); if (quizForm) { quizForm.addEventListener('submit', (e) => { e.preventDefault(); const correctAnswers = { q1: 'b', q2: 'c' }; let score = 0; const totalQuestions = Object.keys(correctAnswers).length; const formData = new FormData(quizForm); for (const [question, userAnswer] of formData.entries()) { if (userAnswer === correctAnswers[question]) { score++; } } const resultsEl = document.getElementById('quiz-results'); resultsEl.innerHTML = `<h4>Resultados</h4><p>Has acertado <strong>${score}</strong> de <strong>${totalQuestions}</strong>.</p>`; resultsEl.style.display = 'block'; }); }
+        });
+    </script>
+</body>
+</html>

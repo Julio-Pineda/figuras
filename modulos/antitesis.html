@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Antítesis: El Poder del Contraste</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root { --primary-bg-light: #f4f4f9; --primary-text-light: #333; --card-bg-light: #ffffff; --header-bg-light: #ffffff; --accent-color: #dc3545; --mark-bg-light: #f8d7da; --border-color-light: #e0e0e0; --success-bg-light: #e6ffed; --primary-bg-dark: #121212; --primary-text-dark: #e0e0e0; --card-bg-dark: #1e1e1e; --header-bg-dark: #1e1e1e; --mark-bg-dark: #721c24; --border-color-dark: #333; --success-bg-dark: #1c3b29; } body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; margin: 0; transition: background-color 0.3s, color 0.3s; line-height: 1.6; word-wrap: break-word; overflow-wrap: break-word; } body.light-mode { background-color: var(--primary-bg-light); color: var(--primary-text-light); } body.dark-mode { background-color: var(--primary-bg-dark); color: var(--primary-text-dark); } .main-header { display: flex; justify-content: space-between; align-items: center; padding: 1rem; box-shadow: 0 2px 4px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; } body.light-mode .main-header { background-color: var(--header-bg-light); } body.dark-mode .main-header { background-color: var(--header-bg-dark); } .main-header h1 { font-size: 1.2rem; margin: 0; text-align: center; } .theme-toggle-btn { background-color: var(--accent-color); color: white; border: none; padding: 0.5rem 1rem; border-radius: 5px; cursor: pointer; font-size: 1rem; width: 45px; text-align: center; } .main-footer { text-align: center; padding: 1rem; margin-top: 2rem; font-size: 0.9rem; } .container { max-width: 1080px; margin: 1rem auto; padding: 0 1rem; } .module-section { padding: 1.5rem; border-radius: 8px; margin-bottom: 1.5rem; box-shadow: 7px 7px 27px 2px rgba(0,0,0,0.1); } body.light-mode .module-section { background-color: var(--card-bg-light); border: 1px solid var(--border-color-light); } body.dark-mode .module-section { background-color: var(--card-bg-dark); border: 1px solid var(--border-color-dark); } .module-section h2 { margin-top: 0; color: var(--accent-color); border-bottom: 2px solid var(--accent-color); padding-bottom: 0.5rem; font-size: 1.3rem; } .back-link { text-decoration: none; color: var(--accent-color); font-weight: bold; font-size: 0.9rem; } mark { padding: 0.2em 0.4em; border-radius: 3px; } body.light-mode mark { background-color: var(--mark-bg-light); color: #721c24; } body.dark-mode mark { background-color: var(--mark-bg-dark); color: var(--primary-text-dark); } .formula { text-align: center; font-size: 1rem; padding: 1rem; border: 2px dashed var(--accent-color); border-radius: 5px; margin: 1rem 0; } .bible-example { margin-top: 1.5rem; } .bible-example em { display: block; padding-left: 1rem; border-left: 3px solid #ccc; margin-bottom: 0.5rem; font-style: italic; } .module-section ul { list-style: none; padding-left: 0; } .module-section li { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 0.5rem; } .fa-fw { text-align: center; } h1, h2, .back-link, .exercise button, .bible-example p, .formula p, #mini-quiz-form button { display: flex; align-items: center; justify-content: center; gap: 10px; } .exercise textarea { width: 100%; box-sizing: border-box; padding: 0.5rem; border-radius: 5px; border: 1px solid #ccc; margin: 1rem 0; font-size: 1rem; } .exercise .buttons-container { display: flex; flex-wrap: wrap; gap: 10px; } .exercise button { background-color: var(--accent-color); color: white; border: none; padding: 0.7rem 1.5rem; border-radius: 5px; cursor: pointer; flex-grow: 1; } #show-answer-btn { background-color: #6c757d; } .feedback { margin-top: 1rem; font-weight: bold; min-height: 1.2em; } .correct-answer-box { margin-top: 1rem; padding: 1rem; border-radius: 5px; } body.light-mode .correct-answer-box { background-color: var(--success-bg-light); border: 1px solid green; } body.dark-mode .correct-answer-box { background-color: var(--success-bg-dark); border: 1px solid #3d8b40; } .comparison-box { text-align: center; } .comparison-box h4 { margin-bottom: 0.5rem; } .comparison-box p { font-size: 1.2rem; font-style: italic; } #transform-btn { margin-top: 1rem; background-color: var(--accent-color); color: white; border: none; padding: 0.7rem 1.5rem; border-radius: 5px; cursor: pointer;} .interactive-part { cursor: pointer; padding: 0.1em 0.3em; border-radius: 3px; transition: background-color 0.3s; border-bottom: 2px dotted var(--accent-color); } .interactive-part.found { background-color: var(--mark-bg-light); color: #333; border-bottom: none; cursor: default; } body.dark-mode .interactive-part.found { background-color: var(--mark-bg-dark); color: var(--primary-text-dark); } .feedback-finder { font-weight: bold; color: green; font-size: 0.9em; min-height: 1em; margin-top: 0.5em; text-align: center;} .sentence-container { margin-bottom: 1rem; text-align: center; font-size: 1.1rem;} .quiz-question { margin-bottom: 1.5rem; } .quiz-question p { margin-bottom: 0.5rem; } .quiz-question label { display: block; margin-bottom: 0.5rem; cursor: pointer; } #mini-quiz-form button { background-color: var(--accent-color); color: white; border: none; padding: 0.7rem 1.5rem; border-radius: 5px; cursor: pointer; margin-top: 1rem; } .fab-container { position: fixed; bottom: 1rem; right: 1rem; z-index: 1001; } .fab { background-color: var(--accent-color); color: white; border: none; border-radius: 50%; width: 50px; height: 50px; font-size: 1.2rem; text-align: center; box-shadow: 0 4px 8px rgba(0,0,0,0.2); cursor: pointer; display: flex; align-items: center; justify-content: center; } @media (min-width: 768px) { .main-header { padding: 1rem 2rem; } .main-header h1 { font-size: 1.5rem; } .container { margin: 2rem auto; } .module-section { padding: 2rem; } .exercise .buttons-container { flex-wrap: nowrap; } .exercise button { flex-grow: 0; } .fab-container { bottom: 2rem; right: 2rem; } .fab { width: 60px; height: 60px; font-size: 1.5rem; } }
+    </style>
+</head>
+<body>
+    <header class="main-header">
+        <a href="../index.html" class="back-link"><i class="fa-solid fa-arrow-left"></i> Volver</a>
+        <h1><i class="fa-solid fa-yin-yang"></i> Antítesis</h1>
+        <button id="theme-toggle" class="theme-toggle-btn" title="Cambiar tema"><i class="fa-solid fa-moon"></i></button>
+    </header>
+
+    <main class="container" id="module-content">
+        <section class="module-section">
+            <h2><i class="fa-solid fa-circle-question"></i>1. ¿Qué es la Antítesis?</h2>
+            <p>La antítesis es una figura retórica que consiste en la <strong>oposición de dos ideas, pensamientos o expresiones</strong> que tienen significados contrarios. Al colocarlas cerca, se resalta la fuerza de ambas.</p>
+            <div class="formula"><p><i class="fa-solid fa-arrows-left-right"></i><strong>Idea A</strong> frente a <strong>Idea B (Opuesta)</strong></p></div>
+            <p>Es una de las herramientas más poderosas en la oratoria para marcar distinciones claras y hacer que el mensaje sea memorable.</p>
+        </section>
+
+        <section class="module-section">
+            <h2><i class="fa-solid fa-comments"></i>2. Ejemplos Cotidianos</h2>
+            <ul>
+                <li><i class="fa-solid fa-bolt fa-fw"></i>"Es tan <mark>corto</mark> el amor y tan <mark>largo</mark> el olvido."</li>
+                <li><i class="fa-solid fa-sun fa-fw"></i>"Me esfuerzo por <mark>olvidarte</mark> y sin querer te <mark>recuerdo</mark>."</li>
+                <li><i class="fa-solid fa-scale-balanced fa-fw"></i>"Los niños van por el <mark>sol</mark> y las niñas por la <mark>luna</mark>."</li>
+                <li><i class="fa-solid fa-person-walking fa-fw"></i>"Un pequeño paso para el <mark>hombre</mark>, pero un gran salto para la <mark>humanidad</mark>."</li>
+                <li><i class="fa-solid fa-cloud-sun fa-fw"></i>"Fue la noche más <mark>brillante</mark> y el día más <mark>oscuro</mark>."</li>
+                <li><i class="fa-solid fa-shield-halved fa-fw"></i>"Si quieres la <mark>paz</mark>, prepárate para la <mark>guerra</mark>."</li>
+                <li><i class="fa-solid fa-hourglass-half fa-fw"></i>"Lo que ayer fue <mark>novedad</mark>, hoy es <mark>recuerdo</mark>."</li>
+            </ul>
+        </section>
+
+        <section class="module-section">
+            <h2><i class="fa-solid fa-scroll"></i>3. Impacto en la Oratoria Bíblica</h2>
+            <p>La Biblia utiliza la antítesis constantemente para enseñar principios morales y espirituales mediante el contraste.</p>
+            <div class="bible-example">
+                <em>"Entrad por la puerta <mark>estrecha</mark>; porque <mark>ancha</mark> es la puerta, y <mark>espacioso</mark> el camino que lleva a la perdición... porque <mark>estrecha</mark> es la puerta, y <mark>angosto</mark> el camino que lleva a la vida." (Mateo 7:13-14)</em>
+                <p><i class="fa-solid fa-magnifying-glass-chart"></i><strong>Análisis:</strong> Jesús contrasta dos destinos (perdición vs vida) mediante dos tipos de caminos y puertas. La antítesis obliga al oyente a elegir un bando.</p>
+            </div><hr>
+            <div class="bible-example">
+                <em>"El hijo <mark>sabio</mark> alegra al padre, pero el hijo <mark>necio</mark> es tristeza de su madre." (Proverbios 10:1)</em>
+                <p><i class="fa-solid fa-magnifying-glass-chart"></i><strong>Análisis:</strong> Una estructura clásica de Proverbios. El contraste entre sabiduría/necedad y alegría/tristeza refuerza el valor de la conducta recta.</p>
+            </div><hr>
+            <div class="bible-example">
+                <em>"Porque la <mark>ley</mark> por medio de Moisés fue dada, pero la <mark>gracia</mark> y la <mark>verdad</mark> vinieron por medio de Jesucristo." (Juan 1:17)</em>
+                <p><i class="fa-solid fa-magnifying-glass-chart"></i><strong>Análisis:</strong> Juan utiliza la antítesis para marcar el cambio de dispensación, contrastando la rigidez de la ley con la provisión de la gracia.</p>
+            </div><hr>
+            <div class="bible-example">
+                <em>"Porque la paga del <mark>pecado</mark> es <mark>muerte</mark>, mas la dádiva de <mark>Dios</mark> es <mark>vida eterna</mark> en Cristo Jesús Señor nuestro." (Romanos 6:23)</em>
+                <p><i class="fa-solid fa-magnifying-glass-chart"></i><strong>Análisis:</strong> Un contraste triple: el "jefe" (Pecado vs Dios), el "método" (Paga vs Dádiva) y el "resultado" (Muerte vs Vida).</p>
+            </div><hr>
+            <div class="bible-example">
+                <em>"Ninguno puede servir a <mark>dos señores</mark>; porque o aborrecerá al <mark>uno</mark> y amará al <mark>otro</mark>, o estimará al <mark>uno</mark> y menospreciará al <mark>otro</mark>. No podéis servir a <mark>Dios</mark> y a las <mark>riquezas</mark>." (Mateo 6:24)</em>
+                <p><i class="fa-solid fa-magnifying-glass-chart"></i><strong>Análisis:</strong> Una exclusión mutua. Jesús utiliza la antítesis para mostrar que la lealtad del corazón no puede dividirse entre lo espiritual y lo material.</p>
+            </div><hr>
+            <div class="bible-example">
+                <em>"Yo conozco tus obras, que ni eres <mark>frío</mark> ni <mark>caliente</mark>. ¡Ojalá fueses <mark>frío</mark> o <mark>caliente</mark>!" (Apocalipsis 3:15)</em>
+                <p><i class="fa-solid fa-magnifying-glass-chart"></i><strong>Análisis:</strong> El contraste extremo resalta la mediocridad (tibieza). La antítesis aquí sirve para exigir una definición clara del carácter.</p>
+            </div><hr>
+            <div class="bible-example">
+                <em>"Porque el deseo de la <mark>carne</mark> es contra el <mark>Espíritu</mark>, y el del <mark>Espíritu</mark> es contra la <mark>carne</mark>; y éstos se <mark>oponen</mark> entre sí..." (Gálatas 5:17)</em>
+                <p><i class="fa-solid fa-magnifying-glass-chart"></i><strong>Análisis:</strong> Una antítesis de conflicto. Pablo describe la guerra interna como una lucha de fuerzas diametralmente opuestas.</p>
+            </div><hr>
+            <div class="bible-example">
+                <em>"Por nada estéis <mark>afanosos</mark>, sino sean conocidas vuestras peticiones delante de Dios en toda <mark>oración y ruego</mark>, con acción de gracias." (Filipenses 4:6)</em>
+                <p><i class="fa-solid fa-magnifying-glass-chart"></i><strong>Análisis:</strong> Contrasta un estado emocional negativo (afán) con una acción espiritual positiva (oración). La paz es el resultado de este cambio de enfoque.</p>
+            </div>
+        </section>
+
+        <section class="module-section">
+            <h2><i class="fa-solid fa-wand-magic-sparkles"></i>4. El Efecto Oratorio: Antes y Después</h2>
+            <p>Observa cómo el contraste hace que una idea simple se vuelva un argumento contundente.</p>
+            <div class="comparison-box">
+                <div id="before-text"><h4><i class="fa-solid fa-align-left"></i>Idea Simple</h4><p>Debemos elegir siempre hacer el bien.</p></div>
+                <div id="after-text" style="display: none;"><h4><i class="fa-solid fa-angles-right"></i>Con Antítesis</h4><p>No busquéis la <mark>gloria temporal</mark> que se desvanece, sino la <mark>corona eterna</mark> que permanece.</p></div>
+                <button id="transform-btn"><i class="fa-solid fa-repeat"></i>Mostrar Contraste</button>
+            </div>
+        </section>
+
+        <section class="module-section">
+            <h2><i class="fa-solid fa-mouse-pointer"></i>5. ¡Ahora tú! Identifica los opuestos</h2>
+            <p>Haz clic en las dos palabras que forman la antítesis en cada frase.</p>
+            <div id="interactive-finder">
+                <div class="sentence-container"><p class="find-me">La <span class="interactive-part">paz</span> os dejo, mi <span class="interactive-part">guerra</span> no os doy.</p><p class="feedback-finder"></p></div>
+                <div class="sentence-container"><p class="find-me">El que se <span class="interactive-part">humilla</span> será <span class="interactive-part">exaltado</span>.</p><p class="feedback-finder"></p></div>
+                <div class="sentence-container"><p class="find-me">Vivir en la <span class="interactive-part">luz</span> es morir a las <span class="interactive-part">tinieblas</span>.</p><p class="feedback-finder"></p></div>
+                <div class="sentence-container"><p class="find-me">Donde hay <span class="interactive-part">odio</span>, ponga yo <span class="interactive-part">amor</span>.</p><p class="feedback-finder"></p></div>
+                <div class="sentence-container"><p class="find-me">Los <span class="interactive-part">primeros</span> serán <span class="interactive-part">últimos</span>.</p><p class="feedback-finder"></p></div>
+            </div>
+        </section>
+
+        <section class="module-section exercise">
+            <h2><i class="fa-solid fa-pencil-alt"></i>6. Ejercicio Práctico</h2>
+            <p>Analiza los siguientes fragmentos. Identifica los términos opuestos y explica el impacto del contraste en cada uno:</p>
+            <div class="bible-example">
+                <p>1. <em>"Porque la paga del pecado es muerte, mas la dádiva de Dios es vida eterna en Cristo Jesús Señor nuestro." (Romanos 6:23)</em></p>
+                <p>2. <em>"El que halla su vida, la perderá; y el que pierde su vida por causa de mí, la hallará." (Mateo 10:39)</em></p>
+                <p>3. <em>"¡Ay de los que a lo malo dicen bueno, y a lo bueno malo; que hacen de la luz tinieblas, y de las tinieblas luz...!" (Isaías 5:20)</em></p>
+                <p>4. <em>"Como nada teniendo, mas poseyéndolo todo." (2 Corintios 6:10)</em></p>
+            </div>
+            <textarea id="exercise-answer" rows="8" placeholder="Escribe tu análisis de los contrastes aquí..."></textarea>
+            <div class="buttons-container">
+                <button id="check-answer-btn"><i class="fa-solid fa-check-circle"></i>Verificar Respuesta</button>
+                <button id="show-answer-btn" style="display: none;"><i class="fa-solid fa-eye"></i>Ver Respuesta Correcta</button>
+            </div>
+            <p id="feedback" class="feedback"></p>
+            <div id="correct-answer" class="correct-answer-box" style="display: none;">
+                <h4>Análisis de los Contrastes:</h4>
+                <ol>
+                    <li><strong>Pecado/Dios - Muerte/Vida:</strong> Resalta la diferencia entre lo que ganamos por nuestra cuenta y lo que recibimos por gracia.</li>
+                    <li><strong>Hallar/Perder - Vida/Vida:</strong> Una antítesis paradójica que enseña que el sacrificio terrenal resulta en ganancia eterna.</li>
+                    <li><strong>Malo/Bueno - Luz/Tinieblas:</strong> Denuncia la inversión de valores morales usando contrastes absolutos.</li>
+                    <li><strong>Nada/Todo - Teniendo/Poseyendo:</strong> Muestra la riqueza espiritual frente a la carencia material.</li>
+                </ol>
+            </div>
+        </section>
+
+        <section class="module-section">
+            <h2><i class="fa-solid fa-clipboard-question"></i>7. Mini-Quiz Rápido</h2>
+            <form id="mini-quiz-form">
+                <div class="quiz-question">
+                    <p><strong>1. ¿Cuál es el objetivo principal de la antítesis?</strong></p>
+                    <label><input type="radio" name="q1" value="a"> Exagerar una cualidad.</label><br>
+                    <label><input type="radio" name="q1" value="b"> Resaltar una idea mediante el contraste con su opuesta.</label><br>
+                    <label><input type="radio" name="q1" value="c"> Repetir una palabra al inicio de los versos.</label><br>
+                </div>
+                <div class="quiz-question">
+                    <p><strong>2. ¿Cuál de estas frases es una antítesis?</strong></p>
+                    <label><input type="radio" name="q2" value="a"> Tus ojos son como el mar en calma.</label><br>
+                    <label><input type="radio" name="q2" value="b"> Se apagaron los faroles y se encendieron los grillos.</label><br>
+                    <label><input type="radio" name="q2" value="c"> Lloran las nubes por tu partida.</label><br>
+                </div>
+                <button type="submit"><i class="fa-solid fa-paper-plane"></i>Enviar Quiz</button>
+            </form>
+            <div id="quiz-results" class="correct-answer-box" style="display:none; margin-top: 1rem;"></div>
+        </section>
+    </main>
+
+    <div class="fab-container"><button id="download-pdf" class="fab" title="Descargar como PDF"><i class="fa-solid fa-file-pdf"></i></button></div>
+    <footer class="main-footer"><p>&copy; 2025 - Estudio de Figuras Literarias | Desarrollado por Julio Cesar Pineda Mora</p></footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const themeToggle = document.getElementById('theme-toggle'); const themeIcon = themeToggle.querySelector('i'); const applyTheme = (theme) => { document.body.classList.remove('light-mode', 'dark-mode'); document.body.classList.add(theme); localStorage.setItem('theme', theme); themeIcon.className = theme === 'dark-mode' ? 'fa-solid fa-sun' : 'fa-solid fa-moon'; themeToggle.title = theme === 'dark-mode' ? 'Cambiar a modo claro' : 'Cambiar a modo oscuro'; }; themeToggle.addEventListener('click', () => { applyTheme(document.body.classList.contains('dark-mode') ? 'light-mode' : 'dark-mode'); }); applyTheme(localStorage.getItem('theme') || 'light-mode');
+            const checkAnswerBtn = document.getElementById('check-answer-btn'); const showAnswerBtn = document.getElementById('show-answer-btn'); const feedbackEl = document.getElementById('feedback'); const correctAnswerEl = document.getElementById('correct-answer'); 
+            checkAnswerBtn.addEventListener('click', () => { 
+                const answer = document.getElementById('exercise-answer').value.toLowerCase(); 
+                if (answer.length > 20 && (answer.includes("vida") || answer.includes("muerte") || answer.includes("luz") || answer.includes("nada"))) { 
+                    feedbackEl.textContent = "¡Análisis muy completo! Has identificado los puntos de contraste clave."; 
+                    feedbackEl.style.color = 'var(--accent-color)'; 
+                } else { 
+                    feedbackEl.textContent = "Intenta analizar más de un versículo, identificando los términos contrarios."; 
+                    feedbackEl.style.color = 'red'; 
+                    showAnswerBtn.style.display = 'inline-block'; 
+                } 
+            }); 
+            showAnswerBtn.addEventListener('click', () => { correctAnswerEl.style.display = 'block'; showAnswerBtn.style.display = 'none'; });
+            document.getElementById('download-pdf').addEventListener('click', () => { const fabContainer = document.querySelector('.fab-container'); const content = document.getElementById('module-content'); const downloadBtn = document.getElementById('download-pdf'); const originalIcon = downloadBtn.innerHTML; fabContainer.style.visibility = 'hidden'; downloadBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i>'; const opt = { margin: 10, filename: 'modulo-antitesis.pdf', image: { type: 'jpeg', quality: 0.98 }, html2canvas: { scale: 2, useCORS: true, letterRendering: true }, jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }, pagebreak: { mode: ['avoid-all', 'css', 'legacy'] } }; html2pdf().from(content).set(opt).save().then(() => { fabContainer.style.visibility = 'visible'; downloadBtn.innerHTML = originalIcon; }).catch(err => { console.error("Error al generar el PDF:", err); fabContainer.style.visibility = 'visible'; downloadBtn.innerHTML = originalIcon; }); });
+            const transformBtn = document.getElementById('transform-btn'); if (transformBtn) { const beforeText = document.getElementById('before-text'); const afterText = document.getElementById('after-text'); transformBtn.addEventListener('click', () => { if (afterText.style.display === 'none') { beforeText.style.display = 'none'; afterText.style.display = 'block'; transformBtn.innerHTML = '<i class="fa-solid fa-rotate-left"></i> Mostrar Original'; } else { beforeText.style.display = 'block'; afterText.style.display = 'none'; transformBtn.innerHTML = '<i class="fa-solid fa-repeat"></i> Mostrar Contraste'; } }); }
+            document.querySelectorAll('.sentence-container').forEach(container => { const partsToFind = container.querySelectorAll('.interactive-part'); const feedbackFinderEl = container.querySelector('.feedback-finder'); let foundCount = 0; partsToFind.forEach(part => { part.addEventListener('click', (e) => { e.stopPropagation(); if (!part.classList.contains('found')) { part.classList.add('found'); foundCount++; if (foundCount === partsToFind.length) { feedbackFinderEl.textContent = '¡Contraste encontrado!'; } } }, { once: true }); }); });
+            const quizForm = document.getElementById('mini-quiz-form'); if (quizForm) { quizForm.addEventListener('submit', (e) => { e.preventDefault(); const correctAnswers = { q1: 'b', q2: 'b' }; let score = 0; const totalQuestions = Object.keys(correctAnswers).length; const formData = new FormData(quizForm); for (const [question, userAnswer] of formData.entries()) { if (userAnswer === correctAnswers[question]) { score++; } } const resultsEl = document.getElementById('quiz-results'); resultsEl.innerHTML = `<h4>Resultados</h4><p>Has acertado <strong>${score}</strong> de <strong>${totalQuestions}</strong>.</p>`; resultsEl.style.display = 'block'; }); }
+        });
+    </script>
+</body>
+</html>

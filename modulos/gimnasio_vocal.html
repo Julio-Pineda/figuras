@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gimnasia Vocal: El Gimnasio de tu Voz</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --primary-bg-light: #f0f7ff;
+            --primary-text-light: #2c3e50;
+            --card-bg-light: #ffffff;
+            --header-bg-light: #ffffff;
+            --accent-color: #007bff;
+            --mark-bg-light: #cce5ff;
+            --border-color-light: #d1e7ff;
+            --success-color: #28a745;
+            --primary-bg-dark: #0b141d;
+            --primary-text-dark: #ecf0f1;
+            --card-bg-dark: #1a252f;
+            --header-bg-dark: #1a252f;
+            --mark-bg-dark: #004085;
+            --border-color-dark: #2c3e50;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            transition: background-color 0.3s, color 0.3s;
+            line-height: 1.6;
+        }
+
+        body.light-mode {
+            background-color: var(--primary-bg-light);
+            color: var(--primary-text-light);
+        }
+
+        body.dark-mode {
+            background-color: var(--primary-bg-dark);
+            color: var(--primary-text-dark);
+        }
+
+        .main-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        body.light-mode .main-header {
+            background-color: var(--header-bg-light);
+        }
+
+        body.dark-mode .main-header {
+            background-color: var(--header-bg-dark);
+        }
+
+        .theme-toggle-btn {
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .module-section {
+            padding: 2rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        body.light-mode .module-section {
+            background-color: var(--card-bg-light);
+            border: 1px solid var(--border-color-light);
+        }
+
+        body.dark-mode .module-section {
+            background-color: var(--card-bg-dark);
+            border: 1px solid var(--border-color-dark);
+        }
+
+        .module-section h2 {
+            margin-top: 0;
+            color: var(--accent-color);
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 0.5rem;
+        }
+
+        .game-card {
+            background: rgba(0, 123, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1rem 0;
+            border: 1px dashed var(--accent-color);
+        }
+
+        .btn {
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn:hover {
+            opacity: 0.8;
+            transform: translateY(-2px);
+        }
+
+        .silabeo-input {
+            width: 100%;
+            padding: 1rem;
+            font-size: 1.2rem;
+            border-radius: 8px;
+            border: 2px solid var(--accent-color);
+            margin: 1rem 0;
+            text-align: center;
+            letter-spacing: 2px;
+        }
+
+        .feedback {
+            margin-top: 1rem;
+            font-weight: bold;
+            text-align: center;
+            font-size: 1.1rem;
+        }
+
+        .score-board {
+            display: flex;
+            justify-content: space-around;
+            background: var(--accent-color);
+            color: white;
+            padding: 1rem;
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+        }
+
+        .exercise-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .exercise-list li {
+            margin-bottom: 1rem;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-color);
+        }
+
+        .word-to-split {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--accent-color);
+            text-align: center;
+            display: block;
+            margin: 1rem 0;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        .vocal-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: 3px solid var(--accent-color);
+            background: none;
+            font-size: 1.5rem;
+            color: var(--accent-color);
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .vocal-btn:hover,
+        .vocal-btn.active {
+            background: var(--accent-color);
+            color: white;
+        }
+
+        .vocal-grid {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 1.5rem 0;
+            flex-wrap: wrap;
+        }
+
+        .fab-container {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+        }
+
+        .fab {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--success-color);
+            color: white;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            font-size: 1.5rem;
+        }
+
+        .level-badge {
+            background: #f39c12;
+            color: white;
+            padding: 0.2rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+
+<body class="light-mode">
+    <header class="main-header">
+        <a href="../index.html" style="text-decoration: none; color: var(--accent-color); font-weight: bold;"><i
+                class="fa-solid fa-arrow-left"></i> Galería</a>
+        <h1><i class="fa-solid fa-microphone-lines"></i> Gimnasia Vocal</h1>
+        <button id="theme-toggle" class="theme-toggle-btn"><i class="fa-solid fa-moon"></i></button>
+    </header>
+
+    <main class="container" id="module-content">
+        <div class="score-board">
+            <div><i class="fa-solid fa-star"></i> Puntos: <span id="score">0</span></div>
+            <div><i class="fa-solid fa-bolt"></i> Racha: <span id="streak">0</span></div>
+        </div>
+
+        <section class="module-section">
+            <h2><i class="fa-solid fa-dumbbell"></i> 1. Calentamiento <span class="level-badge" style="background:#2ecc71;">Novato</span></h2>
+            <p>Pronuncia cada vocal de forma exagerada, abriendo bien la boca. Cambia entre ellas rápidamente según el
+                ritmo.</p>
+            <div class="vocal-grid">
+                <button class="vocal-btn" onclick="playVocal('A')">A</button>
+                <button class="vocal-btn" onclick="playVocal('E')">E</button>
+                <button class="vocal-btn" onclick="playVocal('I')">I</button>
+                <button class="vocal-btn" onclick="playVocal('O')">O</button>
+                <button class="vocal-btn" onclick="playVocal('U')">U</button>
+            </div>
+            <p style="text-align: center; font-style: italic;">"Haz una mueca exagerada con cada letra para estirar los
+                músculos faciales."</p>
+        </section>
+
+        <section class="module-section">
+            <h2><i class="fa-solid fa-scissors"></i> 2. El Quiz del Silabeo <span class="level-badge" style="background:#3498db;">Intermedio</span></h2>
+            <p>Separa la palabra que aparece abajo usando guiones (ejemplo: <strong>ca-sa</strong>). <em>Acepta mayúsculas o minúsculas.</em></p>
+            <div class="game-card">
+                <span id="current-word" class="word-to-split">CONSTITUCIONAL</span>
+                <input type="text" id="silabeo-input" class="silabeo-input" placeholder="Separa por sílabas..."
+                    autocomplete="off">
+                <div style="text-align: center;">
+                    <button id="check-silabeo" class="btn"><i class="fa-solid fa-spell-check"></i> Comprobar</button>
+                    <button id="next-word" class="btn" style="background-color: #6c757d; display: none;"><i
+                            class="fa-solid fa-forward"></i> Siguiente</button>
+                </div>
+                <p id="silabeo-feedback" class="feedback"></p>
+            </div>
+        </section>
+
+        <section class="module-section">
+            <h2><i class="fa-solid fa-pencil"></i> 3. El Ejercicio del Lápiz <span class="level-badge" style="background:#2ecc71;">Novato</span></h2>
+            <p>Esta es la técnica clásica para mejorar la dicción de forma instantánea.</p>
+            <div class="exercise-list">
+                <li>
+                    <strong>Paso 1:</strong> Coloca un lápiz o bolígrafo limpio entre tus dientes (de forma horizontal).
+                </li>
+                <li>
+                    <strong>Paso 2:</strong> Lee el siguiente texto intentando que se entienda cada palabra sin quitar
+                    el lápiz.
+                </li>
+                <li style="background: rgba(0, 123, 255, 0.05); font-weight: bold; border-left-color: #ffc107;">
+                    "En un lugar de la Mancha, de cuyo nombre no quiero acordarme, no ha mucho tiempo que vivía un
+                    hidalgo de los de lanza en astillero..."
+                </li>
+                <li>
+                    <strong>Paso 3:</strong> Quita el lápiz y vuelve a leerlo. ¡Notarás que tu boca está mucho más ágil!
+                </li>
+            </div>
+        </section>
+
+        <section class="module-section">
+            <h2><i class="fa-solid fa-wind"></i> 4. Control de Aire (Mapas de Aliento)</h2>
+            <p><strong>REGLA:</strong> Toma una sola bocanada de aire al principio y no sueltes más de lo necesario. Las pausas <i class="fa-solid fa-pause"></i> son psicológicas o para énfasis; no puedes inhalar aire hasta llegar a la nube <i class="fa-solid fa-cloud"></i>.</p>
+            
+            <!-- NIVEL NOVATO -->
+            <div class="game-card" style="border-left: 5px solid #2ecc71;">
+                <h4 style="margin:0 0 1rem 0; color:#27ae60;"><i class="fa-solid fa-seedling"></i> Nivel Novato (Resistencia Básica)</h4>
+                <div class="exercise-list">
+                    <li>1. "Sigo el ritmo de mi voz <i class="fa-solid fa-pause"></i> con mucha calma <i class="fa-solid fa-pause"></i> y mucha claridad <i class="fa-solid fa-cloud"></i>."</li>
+                    <li>2. "Mi respiración es profunda <i class="fa-solid fa-pause"></i> mi palabra es segura <i class="fa-solid fa-pause"></i> Dios me guía al hablar <i class="fa-solid fa-cloud"></i>."</li>
+                    <li>3. "Hablo de corazón <i class="fa-solid fa-pause"></i> con amor y pasión <i class="fa-solid fa-pause"></i> para bendecir a otros <i class="fa-solid fa-cloud"></i>."</li>
+                    <li>4. "Cada palabra cuenta <i class="fa-solid fa-pause"></i> cada silencio enseña <i class="fa-solid fa-pause"></i> cada aire me fortalece <i class="fa-solid fa-cloud"></i>."</li>
+                    <li>5. "La paz de Dios <i class="fa-solid fa-pause"></i> sobrepasa todo entendimiento <i class="fa-solid fa-pause"></i> y guarda mi corazón <i class="fa-solid fa-cloud"></i>."</li>
+                </div>
+            </div>
+
+            <!-- NIVEL INTERMEDIO -->
+            <div class="game-card" style="border-left: 5px solid #3498db;">
+                <h4 style="margin:0 0 1rem 0; color:#2980b9;"><i class="fa-solid fa-route"></i> Nivel Intermedio (Resistencia Media)</h4>
+                <div class="exercise-list">
+                    <li>1. "La pausa es el silencio <i class="fa-solid fa-pause"></i> que comunica mucho más <i class="fa-solid fa-pause"></i> que mil palabras gritadas al viento <i class="fa-solid fa-pause"></i> buscando un eco vacío en el desierto <i class="fa-solid fa-cloud"></i>."</li>
+                    <li>2. "No temas al silencio entre frases <i class="fa-solid fa-pause"></i> pues es allí donde el oyente reflexiona <i class="fa-solid fa-pause"></i> sobre lo eterno <i class="fa-solid fa-pause"></i> y lo que realmente importa en la vida del hombre <i class="fa-solid fa-cloud"></i>."</li>
+                    <li>3. "El que guarda su boca <i class="fa-solid fa-pause"></i> guarda su alma <i class="fa-solid fa-pause"></i> mas el que mucho abre sus labios <i class="fa-solid fa-pause"></i> tendrá calamidad y tristeza por no saber refrenar su espíritu <i class="fa-solid fa-cloud"></i>."</li>
+                    <li>4. "Sean vuestras palabras siempre con gracia <i class="fa-solid fa-pause"></i> sazonadas con sal <i class="fa-solid fa-pause"></i> para que sepáis cómo debéis responder <i class="fa-solid fa-pause"></i> a cada uno con sabiduría y mansedumbre de corazón <i class="fa-solid fa-cloud"></i>."</li>
+                    <li>5. "El hombre sabio <i class="fa-solid fa-pause"></i> refrena su lengua <i class="fa-solid fa-pause"></i> y el entendido en la ley <i class="fa-solid fa-pause"></i> es siempre de espíritu excelente <i class="fa-solid fa-pause"></i> y camina con prudencia en medio de la prueba <i class="fa-solid fa-cloud"></i>."</li>
+                </div>
+            </div>
+
+            <!-- NIVEL AVANZADO -->
+            <div class="game-card" style="border-left: 5px solid #9b59b6;">
+                <h4 style="margin:0 0 1rem 0; color:#8e44ad;"><i class="fa-solid fa-mountain"></i> Nivel Avanzado (Resistencia Máxima)</h4>
+                <div class="exercise-list">
+                    <li>1. "Y Jehová Dios formó al hombre <i class="fa-solid fa-pause"></i> del polvo de la tierra <i class="fa-solid fa-pause"></i> y sopló en su nariz aliento de vida <i class="fa-solid fa-pause"></i> y fue el hombre un ser viviente <i class="fa-solid fa-pause"></i> lleno de la gloria y el poder <i class="fa-solid fa-pause"></i> del que vive por los siglos de los siglos sin final <i class="fa-solid fa-cloud"></i>."</li>
+                    <li>2. "El Espíritu de Dios me hizo <i class="fa-solid fa-pause"></i> y el soplo del Omnipotente <i class="fa-solid fa-pause"></i> me dio la vida en abundancia <i class="fa-solid fa-pause"></i> para proclamar su gloria <i class="fa-solid fa-pause"></i> entre todas las naciones de la faz de la tierra <i class="fa-solid fa-pause"></i> hasta que el sol se ponga en el horizonte de la eternidad <i class="fa-solid fa-cloud"></i>."</li>
+                    <li>3. "Jehová ruge desde Sion <i class="fa-solid fa-pause"></i> y da su voz desde Jerusalén <i class="fa-solid fa-pause"></i> y los campos de los pastores se enlutan <i class="fa-solid fa-pause"></i> y se seca la cumbre del Carmelo <i class="fa-solid fa-pause"></i> porque su palabra es como fuego que consume <i class="fa-solid fa-pause"></i> y como martillo que quebranta la piedra más dura del camino <i class="fa-solid fa-cloud"></i>."</li>
+                    <li>4. "Bienaventurado el varón <i class="fa-solid fa-pause"></i> que no anduvo en consejo de malos <i class="fa-solid fa-pause"></i> ni estuvo en camino de pecadores <i class="fa-solid fa-pause"></i> ni en silla de escarnecedores se ha sentado <i class="fa-solid fa-pause"></i> sino que en la ley de Jehová está su delicia <i class="fa-solid fa-pause"></i> y en su ley medita de día y de noche sin cesar por siempre jamás <i class="fa-solid fa-cloud"></i>."</li>
+                    <li>5. "Porque como desciende de los cielos la lluvia <i class="fa-solid fa-pause"></i> y la nieve <i class="fa-solid fa-pause"></i> y no vuelve allá <i class="fa-solid fa-pause"></i> sino que riega la tierra <i class="fa-solid fa-pause"></i> y la hace germinar y producir <i class="fa-solid fa-pause"></i> y da semilla al que siembra y pan al que come <i class="fa-solid fa-pause"></i> así será mi palabra que sale de mi boca y no volverá a mí vacía <i class="fa-solid fa-cloud"></i>."</li>
+                </div>
+            </div>
+        </section>
+
+        <section class="module-section">
+            <h2><i class="fa-solid fa-ranking-star"></i> 5. Desafío de Dicción <span class="level-badge" style="background:#9b59b6;">Avanzado</span></h2>
+            <p>Lee este pasaje bíblico a gran velocidad pero con nitidez absoluta. ¡Es un reto para tu lengua!</p>
+            <div class="game-card" style="border-left: 5px solid #ffc107;">
+                <em>"En el principio era el Verbo, y el Verbo era con Dios, y el Verbo era Dios. Este era en el
+                    principio con Dios. Todas las cosas por él fueron hechas, y sin él nada de lo que ha sido hecho, fue
+                    hecho." (Juan 1:1-3)</em>
+            </div>
+            <button class="btn" style="width: 100%; justify-content: center;" onclick="finishChallenge()"><i
+                    class="fa-solid fa-circle-check"></i> ¡Hecho con fluidez!</button>
+        </section>
+    </main>
+
+    <div class="fab-container"><button id="download-pdf" class="fab" title="Descargar Plan de Entrenamiento"><i
+                class="fa-solid fa-file-pdf"></i></button></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script>
+        const words = [
+            { w: "CONSTITUCIONAL", s: "cons-ti-tu-cio-nal" },
+            { w: "SABIDURIA", s: "sa-bi-du-ri-a" },
+            { w: "ESPIRITUALIDAD", s: "es-pi-ri-tu-a-li-dad" },
+            { w: "TRANSCENDENCIA", s: "trans-cen-den-cia" },
+            { w: "ARZOBISPO", s: "ar-zo-bis-po" }
+        ];
+        let currentIdx = 0;
+        let score = 0;
+        let streak = 0;
+
+        document.getElementById('theme-toggle').addEventListener('click', () => {
+            const body = document.body;
+            if (body.classList.contains('light-mode')) {
+                body.classList.replace('light-mode', 'dark-mode');
+                document.getElementById('theme-toggle').innerHTML = '<i class="fa-solid fa-sun"></i>';
+            } else {
+                body.classList.replace('dark-mode', 'light-mode');
+                document.getElementById('theme-toggle').innerHTML = '<i class="fa-solid fa-moon"></i>';
+            }
+        });
+
+        function playVocal(vocal) {
+            const btns = document.querySelectorAll('.vocal-btn');
+            btns.forEach(b => b.classList.remove('active'));
+            event.target.classList.add('active');
+            updateScore(5);
+        }
+
+        document.getElementById('check-silabeo').addEventListener('click', () => {
+            const input = document.getElementById('silabeo-input').value.toLowerCase().trim();
+            const correct = words[currentIdx].s;
+            const feedback = document.getElementById('silabeo-feedback');
+
+            if (input === correct) {
+                feedback.innerHTML = "<span style='color: green;'>¡Perfecto! El silabeo es correcto. +20 pts</span>";
+                updateScore(20);
+                document.getElementById('check-silabeo').style.display = 'none';
+                document.getElementById('next-word').style.display = 'inline-flex';
+            } else {
+                feedback.innerHTML = "<span style='color: red;'>Casi... prueba de nuevo. Ayuda: tiene " + correct.split('-').length + " sílabas.</span>";
+            }
+        });
+
+        document.getElementById('next-word').addEventListener('click', () => {
+            currentIdx = (currentIdx + 1) % words.length;
+            document.getElementById('current-word').textContent = words[currentIdx].w;
+            document.getElementById('silabeo-input').value = "";
+            document.getElementById('silabeo-feedback').innerHTML = "";
+            document.getElementById('check-silabeo').style.display = 'inline-flex';
+            document.getElementById('next-word').style.display = 'none';
+        });
+
+        function updateScore(pts) {
+            score += pts;
+            document.getElementById('score').textContent = score;
+        }
+
+        function finishChallenge() {
+            streak++;
+            document.getElementById('streak').textContent = streak;
+            updateScore(50);
+            alert("¡Excelente! Estás entrenando tu aparato fonador como un profesional.");
+        }
+
+        document.getElementById('download-pdf').addEventListener('click', () => {
+            const content = document.getElementById('module-content');
+            const opt = {
+                margin: 10,
+                filename: 'entrenamiento-vocal.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2 },
+                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            };
+            html2pdf().from(content).set(opt).save();
+        });
+    </script>
+</body>
+
+</html>
